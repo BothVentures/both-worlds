@@ -2,5 +2,17 @@
 # El sitio es accesible para cualquiera que tenga el link (GitHub Pages no
 # permite repos privados fuera de Enterprise), pero no queremos que los
 # buscadores lo listen. Borrar este archivo si alguna vez se quiere indexar.
+
+# Excepción: los bots que arman la vista previa cuando alguien pega el link en
+# Slack o WhatsApp. Sin esto, el link se comparte pelado.
+User-agent: Slackbot-LinkExpanding
+Allow: /
+User-agent: Slackbot
+Allow: /
+User-agent: WhatsApp
+Allow: /
+User-agent: facebookexternalhit
+Allow: /
+
 User-agent: *
 Disallow: /
