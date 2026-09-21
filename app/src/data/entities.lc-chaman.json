@@ -1,0 +1,1726 @@
+[
+  {
+    "id": "t-lc-chaman",
+    "name": "El Chamán",
+    "type": "territory",
+    "parentId": "world",
+    "kind": "La Chamana OS · repo lc-chaman · el cerebro · 506 commits · 2026-04-27 → 09-08",
+    "summary": "La capa de inteligencia operativa de La Chamana, santuario privado de ocho suites en Tulum. El Chamán (AG-000) es el orquestador: arquitecto de campañas, no chatbot. El repo se organiza en cuatro capas (4C): Contexto, Conexiones, Capacidades y Cadencia; la máquina GTM lo despacha en modo headless.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "owner": "Boris (principal) · Daiana (champion)",
+    "dates": {
+      "first": "2026-04-27",
+      "last": "2026-09-08"
+    },
+    "layout": {
+      "accent": "#e6c48a"
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "CLAUDE.md",
+        "lines": "1-7"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "canon/spec/4C.md",
+        "lines": "23-30"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "README.md",
+        "lines": "49-63"
+      }
+    ],
+    "activity": {
+      "label": "commits por mes (git log)",
+      "months": [
+        "abr",
+        "may",
+        "jun",
+        "jul",
+        "ago",
+        "sep"
+      ],
+      "values": [
+        12,
+        64,
+        106,
+        167,
+        147,
+        10
+      ],
+      "total": 506,
+      "source": "lc-chaman · git log"
+    }
+  },
+  {
+    "id": "p-lc-context",
+    "name": "Contexto",
+    "type": "project",
+    "parentId": "t-lc-chaman",
+    "kind": "capa 4C · lo estático: identidad, estrategia, residuo durable",
+    "summary": "Manifiesto y guidelines de marca, ley de copy, flujo GTM y embudo de conversión, PRD de la GTM Machine, glosario de nombres, memoria de sesión, conocimiento destilado.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 0
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "context"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "canon/spec/4C.md",
+        "lines": "79"
+      }
+    ]
+  },
+  {
+    "id": "p-lc-connections",
+    "name": "Conexiones",
+    "type": "project",
+    "parentId": "t-lc-chaman",
+    "kind": "capa 4C · lo vivo: registro TL-000 … TL-015",
+    "summary": "Registro de integraciones con estado documentado por archivo, mapa de MCPs y mapa de accesos (quién tiene qué, sin valores).",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 1
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "connections/README.md",
+        "lines": "7-14"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "connections/TL-000_inventory.md"
+      }
+    ]
+  },
+  {
+    "id": "p-lc-machines",
+    "name": "Máquinas y workflows",
+    "type": "project",
+    "parentId": "t-lc-chaman",
+    "kind": "capa 4C Capacidades · 4 máquinas + espina + WF-*",
+    "summary": "Una máquina es un arnés que se puede correr, agendar y administrar: posee scripts, campañas y tracking, y referencia a los agentes y skills que la impulsan. Todas se enchufan al contrato del embudo.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 2,
+      "weight": 1.05
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/machines/README.md",
+        "lines": "46-62"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/workflows/WF-000_index.md"
+      }
+    ]
+  },
+  {
+    "id": "p-lc-workforce",
+    "name": "Agentes y skills",
+    "type": "project",
+    "parentId": "t-lc-chaman",
+    "kind": "capa 4C Capacidades · 17 asientos · 53 skills · 39 acciones",
+    "summary": "La plantilla de El Chamán: asientos con estado medido en disco (produciendo, dormido, nunca corrió), skills /comando y el archivo de acciones que el Toolkit convierte en botones. «Una etiqueta no es evidencia.»",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 3
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/agents/workforce-model-2026-08-14.md"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": ".synergy/actions.yaml",
+        "lines": "1-17"
+      }
+    ]
+  },
+  {
+    "id": "p-lc-cadence",
+    "name": "Cadencia",
+    "type": "project",
+    "parentId": "t-lc-chaman",
+    "kind": "capa 4C · lo que corre solo",
+    "summary": "Pulso operativo, rutinas, log de evolución y hooks. Hoy: ninguna rutina corre de forma autónoma; la programación durable vive en el scheduler del Toolkit.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 4
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "cadence/README.md"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "cadence/routines.md",
+        "lines": "16-18"
+      }
+    ]
+  },
+  {
+    "id": "p-lc-campaigns",
+    "name": "Campañas (vault/campaigns)",
+    "type": "project",
+    "parentId": "t-lc-chaman",
+    "kind": "la única carpeta del vault que se commitea",
+    "summary": "Corridas de campaña fechadas y cross-máquina, con campaign.yaml validado por esquema y escrito por el Toolkit. Veinte carpetas: cuatro activas, una pausada, catorce cerradas.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 5
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "vault/campaigns"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "canon/spec/4C.md",
+        "lines": "84-97"
+      }
+    ]
+  },
+  {
+    "id": "p-lc-docs",
+    "name": "Entregables (docs/ · sites/)",
+    "type": "project",
+    "parentId": "t-lc-chaman",
+    "kind": "las páginas que reciben Gastón, Iru, Bianca y René",
+    "summary": "43 HTML de primer nivel más guías, dossiers, dashboards y un microsite. Según la propia medición del repo (2026-08-15), diez tienen URL viva y el resto son locales a propósito.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 6
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "docs/README.md",
+        "lines": "3-10,42-56"
+      }
+    ]
+  },
+  {
+    "id": "lc-ctx-brand",
+    "name": "Manifiesto, guidelines y ley de copy",
+    "type": "deliverable",
+    "parentId": "p-lc-context",
+    "kind": "marca · voz · palabras prohibidas",
+    "summary": "Preciso, seguro, sensorial. Nunca «luxury» como adjetivo, nunca «book now», nunca explicar la marca en un caption. La página de guidelines de 16 capítulos es un render; el registro de verdad es el markdown.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "height": 1.2,
+      "slot": 0
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "context/la-chamana-brand-guidelines.md"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "context/la-chamana-brand-manifesto.md"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "CLAUDE.md",
+        "lines": "103-135"
+      }
+    ]
+  },
+  {
+    "id": "lc-ctx-north-star",
+    "name": "North star en noches (forma, no cifras)",
+    "type": "deliverable",
+    "parentId": "p-lc-context",
+    "kind": "ocupación medida en noches · dos relojes",
+    "summary": "El ciclo 2 (2026-08-09) reemplazó un objetivo en reservas por uno en noches dormidas dentro de una ventana con rampa y piso. El valor actual lo escribe una máquina (cloudbeds-sync) y no se copia acá.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 1
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "CLAUDE.md",
+        "lines": "11-58"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": ".synergy/venture.yaml",
+        "lines": "1-4"
+      }
+    ]
+  },
+  {
+    "id": "lc-ctx-gtm",
+    "name": "Flujo GTM y embudo de 8 etapas",
+    "type": "deliverable",
+    "parentId": "p-lc-context",
+    "kind": "René, abril 2026 → contrato de la espina",
+    "summary": "Lista de outreach → campaña → descubrimiento → canales de venta → dealflow, con «el agente redacta cada mensaje; René aprueba antes de enviar» y «la conversión final es Iru». Las etapas 5 y 6 siguen documentadas como brechas.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 2
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "context/lc-gtm-flow.md",
+        "lines": "50-51,128-129"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "context/lc-conversion-funnel.md",
+        "lines": "20-29"
+      }
+    ]
+  },
+  {
+    "id": "lc-ctx-prd",
+    "name": "PRD de la GTM Machine + glosario de nombres",
+    "type": "deliverable",
+    "parentId": "p-lc-context",
+    "kind": "estrategia",
+    "summary": "Define la máquina de dos capas y las decisiones bloqueadas (una sola super-operadora; lint de marca consultivo). El glosario retira Paperclip, agent-os-for-GTM, HERMES y OpenClaw.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 3
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "context/strategy/gtm-machine-prd-v1.0.md"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "context/strategy/naming-glossary.md",
+        "lines": "14,24-32"
+      }
+    ]
+  },
+  {
+    "id": "lc-ctx-4c",
+    "name": "Canon 4C (vendorizado)",
+    "type": "deliverable",
+    "parentId": "p-lc-context",
+    "kind": "adaptación local de COMANDO-AI/C-OS",
+    "summary": "La espina organizadora, pinneada a un commit upstream que no está en esta máquina. El marco fundacional WAT (Workflows · Agents · Tools) quedó deprecado; sobreviven su esquema de ids y /wat-compose.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 4
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "canon/spec/4C.md",
+        "lines": "7-21"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "context/DEPRECATED_lc-project-origin-context.md",
+        "lines": "23,46-63"
+      }
+    ]
+  },
+  {
+    "id": "lc-ctx-memory",
+    "name": "Memoria, decisiones y conocimiento",
+    "type": "deliverable",
+    "parentId": "p-lc-context",
+    "kind": "context/memory · decisions · risks · knowledge",
+    "summary": "Residuo durable de las conexiones vivas. El registro de riesgos está vacío y el de decisiones tiene un archivo: el minado de reuniones vive más en both_os que acá.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 5
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "context/memory"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "context/knowledge"
+      }
+    ]
+  },
+  {
+    "id": "lc-con-airtable",
+    "name": "TL-008 Airtable LC_CRM",
+    "type": "connection",
+    "parentId": "p-lc-connections",
+    "kind": "el CRM · activo",
+    "summary": "Contacts, Pipeline, Bookings, reservorio Prospects; vistas de operadora para Iru.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "height": 1.2,
+      "slot": 0
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "connections/TL-008_airtable.md"
+      }
+    ]
+  },
+  {
+    "id": "lc-con-cloudbeds",
+    "name": "TL-005 Cloudbeds",
+    "type": "connection",
+    "parentId": "p-lc-connections",
+    "kind": "motor de reservas · activo (scripts, no MCP)",
+    "summary": "Fuente del valor actual de noches vía el sync del Toolkit.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 1
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "connections/TL-005_cloudbeds.md"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/machines/paid-media/scripts/cloudbeds.py"
+      }
+    ]
+  },
+  {
+    "id": "lc-con-shopify",
+    "name": "TL-009 Shopify Admin",
+    "type": "connection",
+    "parentId": "p-lc-connections",
+    "kind": "publicación en borrador · activo",
+    "summary": "Blog y landing pages del sitio; la llave vive solo en el cerebro.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 2
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "connections/TL-009_shopify-admin.md"
+      }
+    ]
+  },
+  {
+    "id": "lc-con-klaviyo",
+    "name": "TL-013 Klaviyo",
+    "type": "connection",
+    "parentId": "p-lc-connections",
+    "kind": "email de ciclo de vida · activo · 0 flujos",
+    "summary": "API y conector Shopify vivos, plantillas selladas, ningún flujo en marcha: ciclo de vida dormido.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 3
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "connections/TL-013_klaviyo.md"
+      }
+    ]
+  },
+  {
+    "id": "lc-con-google-ads",
+    "name": "TL-011 Google Ads MCP",
+    "type": "connection",
+    "parentId": "p-lc-connections",
+    "kind": "solo lectura · conectado 2026-06-17",
+    "summary": "Auditorías de AG-007; los cambios de cuenta los hace un humano en la interfaz.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 4
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "connections/TL-011_google-ads-mcp.md"
+      }
+    ]
+  },
+  {
+    "id": "lc-con-meta",
+    "name": "TL-012 Meta Ads",
+    "type": "connection",
+    "parentId": "p-lc-connections",
+    "kind": "camino activo desde 2026-07-29 · bloqueado por verificación",
+    "summary": "La restricción de negocio del 2026-06-18, atribuida a automatización de navegador, es el origen del piso de seguridad.",
+    "state": "experimental",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 5
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "connections/TL-012_meta-ads-mcp.md"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/machines/paid-media/meta-ads/2026-06-18-meta-business-restriction.md"
+      }
+    ]
+  },
+  {
+    "id": "lc-con-firecrawl",
+    "name": "TL-014 Firecrawl",
+    "type": "connection",
+    "parentId": "p-lc-connections",
+    "kind": "enriquecimiento de research · verificado 2026-07-09",
+    "summary": "Lecturas profundas para investigadores y motores de prospección.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 6
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "connections/TL-014_firecrawl.md"
+      }
+    ]
+  },
+  {
+    "id": "lc-con-gmail-lara",
+    "name": "Gmail (Lara) · SMTP/IMAP por scripts",
+    "type": "connection",
+    "parentId": "p-lc-connections",
+    "kind": "TL-007 MCP pendiente · scripts activos",
+    "summary": "Lara es la persona remitente del outreach, no un sistema. Los envíos y el barrido de la casilla corren por scripts del cerebro que el Toolkit lanza.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 7
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "connections/TL-007_gmail.md"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/machines/outreach/scripts/send_email.py"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/machines/crm/scripts/read_lara_inbox.py"
+      }
+    ]
+  },
+  {
+    "id": "lc-con-asana-n8n-drive",
+    "name": "TL-001 Asana · TL-002 n8n · TL-003 Drive",
+    "type": "connection",
+    "parentId": "p-lc-connections",
+    "kind": "backlog · webhooks · assets",
+    "summary": "Asana no es el CRM; n8n figura activo en junio sin evidencia posterior de uso; Drive requiere auth.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 8
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "connections/TL-001_asana.md"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "connections/TL-002_n8n.md"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "connections/TL-003_google-drive.md"
+      }
+    ]
+  },
+  {
+    "id": "lc-con-openseo",
+    "name": "TL-015 OpenSEO MCP",
+    "type": "connection",
+    "parentId": "p-lc-connections",
+    "kind": "spec · no registrado todavía",
+    "summary": "La máquina SEO lo espera.",
+    "state": "proposed",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 9
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "connections/TL-015_openseo-mcp.md"
+      }
+    ]
+  },
+  {
+    "id": "lc-con-slack-webhook",
+    "name": "TL-006 Slack webhook",
+    "type": "connection",
+    "parentId": "p-lc-connections",
+    "kind": "revocado · reemplazado por bot token",
+    "summary": "Registro histórico.",
+    "state": "retired",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 10
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "connections/TL-006_slack-webhook.md"
+      }
+    ]
+  },
+  {
+    "id": "lc-con-mcp-prohibitions",
+    "name": "Prohibiciones: Playwright y Notion fuera del proyecto",
+    "type": "control",
+    "parentId": "p-lc-connections",
+    "kind": ".mcp.json declara cero servidores",
+    "summary": "Playwright removido el 2026-07-25 como causa confirmada del baneo de Meta; Notion source/target removidos el 2026-07-31.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 11
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "connections/mcp-map.md",
+        "lines": "16-23"
+      }
+    ]
+  },
+  {
+    "id": "lc-m-outreach",
+    "name": "Máquina Outreach",
+    "type": "workflow",
+    "parentId": "p-lc-machines",
+    "kind": "email · IG · agencias B2B",
+    "summary": "Medida viva el 2026-08-09 contra las tablas del Toolkit (corridas de envío y compuertas firmadas), aunque su frontmatter todavía dice scaffold. Scripts de envío y de calentamiento; ledgers por campaña.",
+    "state": "implemented",
+    "evidence": "claimed-by-doc",
+    "layout": {
+      "height": 1.3,
+      "slot": 0
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/machines/outreach/MACHINE.md",
+        "lines": "1-27"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/machines/README.md",
+        "lines": "46-52"
+      }
+    ]
+  },
+  {
+    "id": "lc-m-crm",
+    "name": "Máquina CRM",
+    "type": "workflow",
+    "parentId": "p-lc-machines",
+    "kind": "Airtable como tienda de runtime · etapas 3-6",
+    "summary": "Importación, log y push a Asana por scripts; cuatro embudos derivados del canal de origen.",
+    "state": "implemented",
+    "evidence": "claimed-by-doc",
+    "layout": {
+      "slot": 1
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/machines/crm/MACHINE.md",
+        "lines": "1-27"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/machines/crm/scripts"
+      }
+    ]
+  },
+  {
+    "id": "lc-m-paid",
+    "name": "Máquina Paid Media",
+    "type": "workflow",
+    "parentId": "p-lc-machines",
+    "kind": "Google vivo · Meta conectado sin despacho · TikTok no construido",
+    "summary": "Runbooks de construcción, launch kits, escalera de conversión y arquitectura de tracking; el feedback inquiry_qualified sigue sin cablear.",
+    "state": "implemented",
+    "evidence": "claimed-by-doc",
+    "layout": {
+      "slot": 2
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/machines/paid-media/MACHINE.md",
+        "lines": "1-29"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/machines/paid-media/google-ads/campaigns/retreats-BUILD-RUNBOOK.md"
+      }
+    ]
+  },
+  {
+    "id": "lc-m-content",
+    "name": "Máquina Content Factory",
+    "type": "workflow",
+    "parentId": "p-lc-machines",
+    "kind": "skills propios + motor externo de Andrés",
+    "summary": "Artículos y landing pages a Shopify por compuertas de dos firmas; la publicación en Instagram es manual por contrato de seguridad ante baneos.",
+    "state": "implemented",
+    "evidence": "claimed-by-doc",
+    "layout": {
+      "slot": 3
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/machines/content-factory/MACHINE.md",
+        "lines": "1-27"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/machines/content-factory/publishing-infra-v1.0.md"
+      }
+    ]
+  },
+  {
+    "id": "lc-m-seo",
+    "name": "Máquina SEO",
+    "type": "workflow",
+    "parentId": "p-lc-machines",
+    "kind": "scaffold",
+    "summary": "Espera el MCP de OpenSEO; el carril de artículos ya está vivo por el Toolkit.",
+    "state": "experimental",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 4
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/machines/seo/MACHINE.md"
+      }
+    ]
+  },
+  {
+    "id": "lc-m-spine",
+    "name": "Espina del embudo (contrato)",
+    "type": "control",
+    "parentId": "p-lc-machines",
+    "kind": "8 etapas × dueño × escritura CRM × evento",
+    "summary": "No es una máquina: es el contrato al que cada máquina se enchufa. Embudo ≠ CRM.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 5
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/machines/_spine/funnel-contract.md",
+        "lines": "1-30"
+      }
+    ]
+  },
+  {
+    "id": "lc-m-meta-machine",
+    "name": "Meta-máquina (retirada 2026-08-06)",
+    "type": "workflow",
+    "parentId": "p-lc-machines",
+    "kind": "puentes contenido→paid y contenido→outreach",
+    "summary": "Construida, nunca despachada: cero corridas en todo el ledger del Toolkit. Los contratos y las dos skills siguen en disco para correr a mano. Una lápida, no un nivel.",
+    "state": "retired",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 6
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/machines/_meta-machine/MACHINE.md"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/machines/README.md",
+        "lines": "14-18"
+      }
+    ]
+  },
+  {
+    "id": "lc-wf-agency-outreach",
+    "name": "WF-002 Agency Outreach",
+    "type": "workflow",
+    "parentId": "p-lc-machines",
+    "kind": "corrido de punta a punta por El Chamán desde 2026-06-30",
+    "summary": "Pitch → envío → mapeo de respuestas; instanciado como la campaña agencies-outreach.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 7
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/workflows/WF-002_agency-outreach.md",
+        "lines": "1-30"
+      }
+    ]
+  },
+  {
+    "id": "lc-wf-prospecting",
+    "name": "WF-014 · WF-015 motores de prospección",
+    "type": "workflow",
+    "parentId": "p-lc-machines",
+    "kind": "agencias · retiros · familias · celebraciones",
+    "summary": "Investigan, nunca pitchean. Corren como acción prospect-research desde el Toolkit. El commit del 2026-09-08 fija la regla de despacho bloqueante tras una corrida «exitosa» con cero filas.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "dates": {
+      "last": "2026-09-08"
+    },
+    "layout": {
+      "slot": 8
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/workflows/WF-014_agency-prospecting.md",
+        "lines": "1-30"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/workflows/WF-015_retreat-prospecting.md",
+        "lines": "1-30"
+      }
+    ]
+  },
+  {
+    "id": "lc-wf-inbound-content",
+    "name": "WF-001 Inbound · WF-005 Calendario · WF-006 Revisión de pipeline",
+    "type": "workflow",
+    "parentId": "p-lc-machines",
+    "kind": "dormidos",
+    "summary": "Definidos y activos en el índice de abril; en la práctica esperan volumen, un agente dormido o fueron absorbidos por el tracker del Toolkit.",
+    "state": "parked",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 9
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/workflows/WF-001_inbound-lead.md"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/workflows/WF-005_content-calendar.md"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/workflows/WF-006_booking-pipeline-review.md"
+      }
+    ]
+  },
+  {
+    "id": "lc-wf-ig-influencer",
+    "name": "WF-003 IG curatorial · WF-004 Residencia de influencers",
+    "type": "workflow",
+    "parentId": "p-lc-machines",
+    "kind": "retirado por riesgo de baneo · pausado",
+    "summary": "El batch frío de DMs se retiró el 2026-06-13; lo reemplaza una cola que una persona envía a mano. La residencia LOCK quedó pausada y su campaña cerrada.",
+    "state": "retired",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 10
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/workflows/WF-003_ig-curatorial.md"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/workflows/WF-004_influencer-residency.md",
+        "lines": "12"
+      }
+    ]
+  },
+  {
+    "id": "lc-wf-meeting-mine",
+    "name": "WF-007 Meeting Mine",
+    "type": "workflow",
+    "parentId": "p-lc-machines",
+    "kind": "notas → decisiones/acciones/riesgos → pending → Asana",
+    "summary": "Implementado como skill; Daiana aprueba el pending antes de cargar tareas.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 11
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/workflows/WF-007_meeting-mine.md",
+        "lines": "1-27"
+      }
+    ]
+  },
+  {
+    "id": "lc-ag-el-chaman",
+    "name": "AG-000 El Chamán",
+    "type": "capability",
+    "parentId": "p-lc-workforce",
+    "kind": "orquestador · hilo principal",
+    "summary": "Ordena tareas por las noches que suman dentro de la ventana, rutea a agentes y skills, mantiene plan y cadencia. Explícitamente «NO es el CMO».",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "height": 1.35,
+      "slot": 0
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/agents/personas/el-chaman.md",
+        "lines": "14-24"
+      }
+    ]
+  },
+  {
+    "id": "lc-ag-outreach-writer",
+    "name": "AG-001 lc-outreach-writer",
+    "type": "capability",
+    "parentId": "p-lc-workforce",
+    "kind": "produciendo · el mayor productor",
+    "summary": "Toda la copia comercial: pitches, DMs, respuestas, briefs, cuerpos de ola. Nunca envía; cada borrador termina en «BRAND GATE: pending René review».",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 1
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": ".claude/agents/lc-outreach-writer.md",
+        "lines": "1-20"
+      }
+    ]
+  },
+  {
+    "id": "lc-ag-art-director",
+    "name": "AG-005 lc-art-director",
+    "type": "capability",
+    "parentId": "p-lc-workforce",
+    "kind": "produciendo · «la compuerta antes de René»",
+    "summary": "Revisión de copia y render, maneja un navegador, corre /brand-review. René conserva la autoridad final de publicación.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 2
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": ".claude/agents/lc-art-director.md",
+        "lines": "1-12"
+      }
+    ]
+  },
+  {
+    "id": "lc-ag-reviewers",
+    "name": "copy-reviewer · anti-ai-reviewer",
+    "type": "control",
+    "parentId": "p-lc-workforce",
+    "kind": "compuertas mecánicas en cada ola",
+    "summary": "Pasa/no pasa de voz de marca y una tercera pasada que quita las marcas de texto escrito por máquina; ambas antes del humano.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 3
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": ".claude/agents/copy-reviewer.md",
+        "lines": "1-12"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": ".claude/agents/anti-ai-reviewer.md",
+        "lines": "1-8"
+      }
+    ]
+  },
+  {
+    "id": "lc-ag-dormant",
+    "name": "Asientos dormidos (8)",
+    "type": "capability",
+    "parentId": "p-lc-workforce",
+    "kind": "inbound-handler · content-producer · channel-monitor · researcher · gads/meta-strategist · tracking-verifier · klaviyo-auditor",
+    "summary": "Definidos y esperando volumen, desbloqueo o despacho; varios bloqueados por compuertas de facturación o verificación de Meta.",
+    "state": "parked",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 4
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/agents/workforce-model-2026-08-14.md"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": ".claude/agents/lc-inbound-handler.md"
+      }
+    ]
+  },
+  {
+    "id": "lc-ag-never-ran",
+    "name": "Nunca corrieron: AG-009 crm-evidence · AG-011 lc-cmo · gtm-council",
+    "type": "capability",
+    "parentId": "p-lc-workforce",
+    "kind": "construidos, cero outputs",
+    "summary": "La carpeta de reportes de AG-009 solo tiene un README; AG-011 es el CMO que el loop de paid del Toolkit espera como juez; el consejo semanal está pendiente de activación.",
+    "state": "experimental",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 5
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/agents/personas/AG-009_lc-crm-evidence.md",
+        "lines": "1-30"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/agents/personas/AG-011_lc-cmo.md",
+        "lines": "1-31"
+      }
+    ]
+  },
+  {
+    "id": "lc-ag-operator-brief",
+    "name": "AG-010 lc-operator-brief",
+    "type": "capability",
+    "parentId": "p-lc-workforce",
+    "kind": "brief diario de una página · 1 archivo en disco",
+    "summary": "Escritor de briefs, nunca remitente. Su activación diaria (R-007) está bloqueada porque debe ir en el scheduler del Toolkit, no en CronCreate.",
+    "state": "experimental",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 6
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/agents/personas/AG-010_lc-operator-brief.md",
+        "lines": "1-31"
+      }
+    ]
+  },
+  {
+    "id": "lc-sk-outreach",
+    "name": "Skills de outreach",
+    "type": "capability",
+    "parentId": "p-lc-workforce",
+    "kind": "/batch-email · /outreach-bodies · /prospect-research · /agency-replies · /dm-queue · /pitch · /lead",
+    "summary": "El carril vivo. /dm-queue «no alcanza a nadie»: una persona envía cada DM a mano.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 7
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": ".claude/skills/batch-email/SKILL.md"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": ".claude/skills/prospect-research/SKILL.md"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": ".claude/skills/dm-queue/SKILL.md"
+      }
+    ]
+  },
+  {
+    "id": "lc-sk-content",
+    "name": "Skills de contenido y SEO",
+    "type": "capability",
+    "parentId": "p-lc-workforce",
+    "kind": "/campaign-article · /publish-page(-live) · /campaign-social · /photo-review · /landing-page · /seo-research",
+    "summary": "Veintiuna skills; /seo-blog-post retirada el 2026-07-29 y /caption retirada como acción del Toolkit.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 8
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": ".claude/skills/campaign-article/SKILL.md"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": ".claude/skills/publish-page-live/SKILL.md"
+      }
+    ]
+  },
+  {
+    "id": "lc-sk-paid-brand",
+    "name": "Skills de paid y marca",
+    "type": "capability",
+    "parentId": "p-lc-workforce",
+    "kind": "/gads-keywords · /ads-build · /meta-audience · /brand-review · /brand-theme",
+    "summary": "/gads-audit fue supersedida por /gads-pulse del Toolkit (2026-08-30); /meta-audit es un esqueleto.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 9
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": ".claude/skills/ads-build/SKILL.md"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": ".claude/skills/brand-review/SKILL.md"
+      }
+    ]
+  },
+  {
+    "id": "lc-sk-reporting",
+    "name": "Skills de reporte a BOTH: /r2bv · /bv-snapshot · /mine",
+    "type": "capability",
+    "parentId": "p-lc-workforce",
+    "kind": "el único puente documentado hacia Both Ventures",
+    "summary": "/r2bv manda un reporte de estado al canal de La Chamana en Slack; /bv-snapshot quedó inactiva el 2026-08-30. En lc-chaman no hay ninguna otra referencia a both_os.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 10
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": ".claude/skills/r2bv/SKILL.md",
+        "lines": "1-4"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": ".claude/skills/bv-snapshot/SKILL.md",
+        "lines": "2-3"
+      }
+    ]
+  },
+  {
+    "id": "lc-actions-rails",
+    "name": ".synergy/ · acciones (39) · rails · venture · brand-voice",
+    "type": "control",
+    "parentId": "p-lc-workforce",
+    "kind": "la costura de contrato con el Toolkit",
+    "summary": "Cada botón Run del cockpit es una entrada de actions.yaml; rails.yaml ata campaña con infraestructura real; venture.yaml lleva el north star con su valor escrito por máquina. Regla dura: ninguna acción maneja una cuenta publicitaria ni Instagram.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "height": 1.2,
+      "slot": 11
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": ".synergy/actions.yaml",
+        "lines": "1-17"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": ".synergy/rails.yaml",
+        "lines": "1-18"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": ".synergy/venture.yaml",
+        "lines": "1-4"
+      }
+    ]
+  },
+  {
+    "id": "lc-ctl-rene",
+    "name": "René · BRAND GATE en toda copia externa",
+    "type": "control",
+    "parentId": "p-lc-workforce",
+    "kind": "«Nada sale sin vos»",
+    "summary": "DMs de tier A uno por uno, B/C en lote; sign-off visual; compuerta de contenido del calendario. Exención posible con PASS del copy-reviewer (Boris, 2026-07-02).",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 12
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "docs/el-chaman-para-rene.md",
+        "lines": "23-33"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "CLAUDE.md",
+        "lines": "81-90"
+      }
+    ]
+  },
+  {
+    "id": "lc-ctl-daiana-iru",
+    "name": "Daiana · precio y ops · Iru · envía y convierte",
+    "type": "control",
+    "parentId": "p-lc-workforce",
+    "kind": "compuertas comerciales",
+    "summary": "Ninguna cifra se comparte sin la tarifa confirmada por Daiana; Iru envía cada respuesta entrante y es la conversión final. Gastón y Daiana deciden canal y estrategia de agencias.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 13
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "CLAUDE.md",
+        "lines": "70-90"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "context/lc-gtm-flow.md",
+        "lines": "128-129"
+      }
+    ]
+  },
+  {
+    "id": "lc-ctl-bianca",
+    "name": "Bianca · super-operadora del board",
+    "type": "control",
+    "parentId": "p-lc-workforce",
+    "kind": "«una persona, no un comité» (PRD decisión #7)",
+    "summary": "Aprueba desde el board hospedado y envía a mano los DMs del rail de retiros desde la cuenta de la villa. El índice de docs dice que todavía no está onboardeada.",
+    "state": "experimental",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 14
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "CLAUDE.md",
+        "lines": "180-181"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "docs/README.md",
+        "lines": "138"
+      }
+    ]
+  },
+  {
+    "id": "lc-cad-pulse",
+    "name": "cadence/pulse.md · el pulso",
+    "type": "deliverable",
+    "parentId": "p-lc-cadence",
+    "kind": "log fechado, más nuevo primero",
+    "summary": "Objetivo, pipeline, bloqueos y la lectura del taller: asientos mudos y la decisión más vieja pendiente de Boris. Nunca hardcodea el número actual.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "height": 1.2,
+      "slot": 0
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "cadence/pulse.md",
+        "lines": "1-25"
+      }
+    ]
+  },
+  {
+    "id": "lc-cad-routines",
+    "name": "Rutinas: ninguna activa",
+    "type": "workflow",
+    "parentId": "p-lc-cadence",
+    "kind": "R-001 muerta · R-002…R-008 propuestas",
+    "summary": "R-001 llevó la etiqueta ACTIVA 110 días sin ejecutarse una sola vez; se mató el 2026-08-15 con evidencia. Lo durable vive en el scheduler del Toolkit.",
+    "state": "proposed",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 1
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "cadence/routines.md",
+        "lines": "16-56"
+      }
+    ]
+  },
+  {
+    "id": "lc-cad-evolution",
+    "name": "evolution_log.md (frío desde julio)",
+    "type": "deliverable",
+    "parentId": "p-lc-cadence",
+    "kind": "append-only",
+    "summary": "Filas por mes de abril a julio; la tabla de aprendizajes de campaña quedó vacía cinco olas hasta septiembre.",
+    "state": "parked",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 2
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "cadence/evolution_log.md"
+      }
+    ]
+  },
+  {
+    "id": "lc-cad-hooks",
+    "name": "Hooks: 1 vivo, 2 muertos desde siempre",
+    "type": "workflow",
+    "parentId": "p-lc-cadence",
+    "kind": "session-orient · write-validate · auto-commit",
+    "summary": "session-orient lee venture.yaml al abrir; write-validate lee una variable que Claude Code nunca setea; auto-commit nunca produjo un commit. Los propios encabezados lo declaran.",
+    "state": "experimental",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 3
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": ".claude/hooks/session-orient.sh",
+        "lines": "1-8"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": ".claude/hooks/write-validate.sh",
+        "lines": "6-14"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": ".claude/hooks/auto-commit.sh",
+        "lines": "5-10"
+      }
+    ]
+  },
+  {
+    "id": "lc-cad-dashboard",
+    "name": "cadence/dashboard.html",
+    "type": "deliverable",
+    "parentId": "p-lc-cadence",
+    "kind": "dashboard ops standalone",
+    "summary": "Tablero de operaciones de El Chamán; los tableros de equipo viven en el hub de Notion.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 4
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "cadence/dashboard.html"
+      }
+    ]
+  },
+  {
+    "id": "lc-camp-agencies",
+    "name": "agencies-outreach (activa)",
+    "type": "workflow",
+    "parentId": "p-lc-campaigns",
+    "kind": "Distribution Partners · rail agencies",
+    "summary": "Receptivas MX, operadores LATAM, asesores globales, operadores de retiros; email E1→E2→E3 cinco días por semana desde el 2026-08-27.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "height": 1.2,
+      "slot": 0
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "vault/campaigns/agencies-outreach"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": ".synergy/rails.yaml",
+        "lines": "71-120"
+      }
+    ]
+  },
+  {
+    "id": "lc-camp-retreats",
+    "name": "retreats-a (activa)",
+    "type": "workflow",
+    "parentId": "p-lc-campaigns",
+    "kind": "Retreat Leaders · rail retreats",
+    "summary": "Adquisición de venue para líderes de retiros: email de dos toques más DM de Instagram que Bianca envía a mano. Absorbió retreats-q3.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 1
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "vault/campaigns/retreats-a"
+      }
+    ]
+  },
+  {
+    "id": "lc-camp-families",
+    "name": "family-takeovers (activa)",
+    "type": "workflow",
+    "parentId": "p-lc-campaigns",
+    "kind": "rail de colocación · families",
+    "summary": "Prospecta a las organizaciones que colocan grupos familiares, nunca a las familias.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 2
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "vault/campaigns/family-takeovers"
+      }
+    ]
+  },
+  {
+    "id": "lc-camp-high-season",
+    "name": "Temporada alta directa (experimento paid + landing)",
+    "type": "workflow",
+    "parentId": "p-lc-campaigns",
+    "kind": "activa · EXPERIMENT",
+    "summary": "La primera campaña paga viva del venture, según el commit del 2026-09-04 del Toolkit.",
+    "state": "experimental",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 3
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "vault/campaigns/bookings-de-villa-privada-para-temporada-alta"
+      }
+    ]
+  },
+  {
+    "id": "lc-camp-celebrations",
+    "name": "celebration-takeovers (pausada 2026-09-08)",
+    "type": "workflow",
+    "parentId": "p-lc-campaigns",
+    "kind": "rail celebrations · brand-safety obligatorio",
+    "summary": "Bordea el vertical de eventos cerrado, por eso exige brand-safety clear antes de tocar a nadie.",
+    "state": "parked",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 4
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "vault/campaigns/celebration-takeovers"
+      }
+    ]
+  },
+  {
+    "id": "lc-camp-killed",
+    "name": "Catorce campañas cerradas",
+    "type": "workflow",
+    "parentId": "p-lc-campaigns",
+    "kind": "corporate-offsites · private-sanctuary · slow-luxury-travel · influencers · press-curators · hoteles …",
+    "summary": "Google Search, Meta lead-gen, influencers, prensa y hoteles: cada cierre debería dejar una fila de aprendizaje en el log de evolución en la misma sentada.",
+    "state": "retired",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 5
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "vault/campaigns/corporate-offsites"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "vault/campaigns/slow-luxury-travel"
+      }
+    ]
+  },
+  {
+    "id": "lc-camp-packages",
+    "name": "Paquetes y keywords sueltos",
+    "type": "deliverable",
+    "parentId": "p-lc-campaigns",
+    "kind": "*-google-package.md · *-meta-package.md · *-gads-keywords*.md",
+    "summary": "Manifiestos que el Toolkit lee y paquetes PAUSADOS listos para que un humano los active.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 6
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "vault/campaigns/agencies-outreach-package.md"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "vault/campaigns/private-sanctuary-google-package.md"
+      }
+    ]
+  },
+  {
+    "id": "lc-doc-lead-machine",
+    "name": "Lead machine Q3-Q4 (plan de registro)",
+    "type": "deliverable",
+    "parentId": "p-lc-docs",
+    "kind": "V0.3 · supersede GTM 360",
+    "summary": "El plan vigente; el GTM 360 publicado el 08-14 queda como historia en la URL viva.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "height": 1.2,
+      "slot": 0
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "docs/lead-machine-q3q4-2026-08-15.html"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "docs/gtm-360-q3q4-2026-08-14.html"
+      }
+    ]
+  },
+  {
+    "id": "lc-doc-board",
+    "name": "Board de campañas Q3-Q4 + dashboards de canal",
+    "type": "deliverable",
+    "parentId": "p-lc-docs",
+    "kind": "publicado en stack · snapshots",
+    "summary": "Tablero de campañas y cuatro dashboards de canal (campañas, retiros, agencias, estado para Gastón).",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 1
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "docs/board-campanas-q3-q4-2026-08-09.html"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "docs/retreats-status-gaston-2026-07-03.html"
+      }
+    ]
+  },
+  {
+    "id": "lc-doc-dossiers",
+    "name": "Dossiers de retiros EN/ES + one-pager de adquisición",
+    "type": "deliverable",
+    "parentId": "p-lc-docs",
+    "kind": "colateral · publicado en lc-docs",
+    "summary": "Material comercial para el canal de retiros.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 2
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "docs/retreats-dossier-2026-07-01.html"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "docs/retreats-v3-acquisition-machine-1pager-2026-07-09.html"
+      }
+    ]
+  },
+  {
+    "id": "lc-doc-guides",
+    "name": "Guías de operación: Bianca · Iru (CRM) · DMs · encuesta",
+    "type": "deliverable",
+    "parentId": "p-lc-docs",
+    "kind": "onboarding y manuales",
+    "summary": "Onboarding de la operadora, guía de Airtable para Iru, guía de DMs de Instagram, encuesta de huéspedes (formulario vivo) y su guía.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 3
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "docs/bianca-onboarding-2026-08-06.html"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "docs/iru-crm-airtable-guia-2026-06-12.html"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "docs/guest-survey.html"
+      }
+    ]
+  },
+  {
+    "id": "lc-doc-brand-page",
+    "name": "Página de brand guidelines (16 capítulos)",
+    "type": "deliverable",
+    "parentId": "p-lc-docs",
+    "kind": "render · no publicado",
+    "summary": "Construcción de Appear extendida; el registro de verdad sigue siendo el markdown de contexto.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 4
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "docs/brand/brand-guidelines-2026-08-19.html"
+      }
+    ]
+  },
+  {
+    "id": "lc-doc-explainers",
+    "name": "Explicadores del sistema (junio) y Alter Blue",
+    "type": "deliverable",
+    "parentId": "p-lc-docs",
+    "kind": "7 explicadores · 9 documentos del programa cerrado",
+    "summary": "Cómo funciona el sistema, mapa de operación de marketing, roadmap de máquinas; y el sprint Shopify/tracking de mayo-junio.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 5
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "docs/como-funciona-el-sistema-2026-06-18.html"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "docs/alter-blue-plan-v1.0.html"
+      }
+    ]
+  },
+  {
+    "id": "lc-doc-memos",
+    "name": "Memos de decisión (agosto)",
+    "type": "deliverable",
+    "parentId": "p-lc-docs",
+    "kind": "piso económico · aritmética del embudo · objetivos por etapa · sprint 14d",
+    "summary": "Registros escritos de las decisiones que fijaron el ciclo 2.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 6
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "docs/north-star-economic-floor-2026-08-10.md"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "docs/sprint-14d-2026-08-15.md"
+      }
+    ]
+  },
+  {
+    "id": "lc-doc-microsite",
+    "name": "Microsite «Whole house, one key»",
+    "type": "deliverable",
+    "parentId": "p-lc-docs",
+    "kind": "sites/ · vinculado a Vercel",
+    "summary": "Campaign room estático; su estado en vivo no se puede verificar desde el repo.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 7
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "sites/campaign-room-whole-house"
+      }
+    ]
+  },
+  {
+    "id": "lc-doc-klaviyo-diagrams",
+    "name": "Plantillas Klaviyo (14) + diagramas Excalidraw (3)",
+    "type": "deliverable",
+    "parentId": "p-lc-docs",
+    "kind": "Welcome E1-E4 · Post-Stay P1-P3 · EN/ES",
+    "summary": "Previews de email de ciclo de vida y los diagramas de embudo, máquinas y arquitectura.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 8
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/machines/paid-media/templates/preview"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "context/diagrams"
+      }
+    ]
+  }
+]

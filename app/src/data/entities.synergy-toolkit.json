@@ -1,0 +1,1664 @@
+[
+  {
+    "id": "t-synergy-toolkit",
+    "name": "Synergy Toolkit",
+    "type": "territory",
+    "parentId": "world",
+    "kind": "la BOTH GTM Machine · repo synergy-toolkit · 466 commits · 2026-07-18 → 09-08",
+    "summary": "Una plataforma hospedada donde una sola operadora no técnica planifica, ejecuta y aprueba toda la actividad de go-to-market. Motor (Hono + SQLite) que despacha al cerebro con claude -p, compuertas de aprobación con hash del contenido exacto, scheduler, y un cockpit React de solo lectura salvo la aprobación. La Chamana es el tenant #1.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "owner": "Boris (admin) · Bianca (operadora)",
+    "dates": {
+      "first": "2026-07-18",
+      "last": "2026-09-08"
+    },
+    "layout": {
+      "accent": "#9fd8e8"
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "README.md",
+        "lines": "1-24"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/brain-contract.md",
+        "lines": "18-26"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "config/ventures.yaml",
+        "lines": "13-19",
+        "note": "repo_path: ../lc-chaman"
+      }
+    ],
+    "activity": {
+      "label": "commits por mes (git log)",
+      "months": [
+        "jul",
+        "ago",
+        "sep"
+      ],
+      "values": [
+        191,
+        235,
+        40
+      ],
+      "total": 466,
+      "source": "synergy-toolkit · git log"
+    }
+  },
+  {
+    "id": "p-tk-engine",
+    "name": "Motor (server)",
+    "type": "project",
+    "parentId": "t-synergy-toolkit",
+    "kind": "módulo · Hono API + SQLite",
+    "summary": "El corazón: motor de compuertas, compilador y ejecutor de journeys (grafo Entry/Wait/Split/Action/Exit), triggers, scheduler de 30 s, runner que lanza claude -p dentro del repo cerebro, y el piso de seguridad en código.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 0,
+      "weight": 1.05
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/server.ts"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/exec/runner.ts",
+        "lines": "37"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "shared/src/exec.ts",
+        "lines": "155,194"
+      }
+    ]
+  },
+  {
+    "id": "p-tk-cockpit",
+    "name": "Cockpit (web)",
+    "type": "project",
+    "parentId": "t-synergy-toolkit",
+    "kind": "módulo · SPA React · 22 pantallas",
+    "summary": "La superficie humana: board de campañas, aprobaciones, Operator Brief, Overview, CRM, paid, SEO, replies, runs. Lectura casi total; el único lugar donde un humano escribe es una aprobación.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 1
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "web/src/App.tsx",
+        "lines": "132-151"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "web/src/screens"
+      }
+    ]
+  },
+  {
+    "id": "p-tk-outreach",
+    "name": "Carriles de outreach",
+    "type": "project",
+    "parentId": "t-synergy-toolkit",
+    "kind": "módulo · rails email · IG DM · replies",
+    "summary": "Ola de emails preparada por la máquina y aprobada byte a byte, mesa de respuestas, investigación y promoción de prospectos, cola de DMs que un humano envía a mano, y el sniffer de cuentas.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 2
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/routes/batch.ts"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/ig-dm-rail.md"
+      }
+    ]
+  },
+  {
+    "id": "p-tk-content-paid",
+    "name": "Contenido · SEO · Paid",
+    "type": "project",
+    "parentId": "t-synergy-toolkit",
+    "kind": "módulo · la cadena de once etapas",
+    "summary": "Keywords → anuncios → landing → página en Shopify → artículo → social → posteado. Espejo de lectura de Meta/Google/GA4, mutaciones de anuncios bajo compuerta NEVER_AUTO, y dos carriles creativos: estándar fotográfico y remix de video.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 3
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/how-it-works.html"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/routes/paid-write.ts",
+        "lines": "18-30"
+      }
+    ]
+  },
+  {
+    "id": "p-tk-cadence",
+    "name": "Cadencia y skills del CTO",
+    "type": "project",
+    "parentId": "t-synergy-toolkit",
+    "kind": "módulo · .claude/ · TK-000",
+    "summary": "Cada sesión interactiva del repo es TK-000, el CTO. La escalera de cadencia: pulso lee · cierre nocturno ≤1 propuesta · ronda ≤3 · recorrida · night-run repara. Todas las propuestas pasan por una compuerta.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 4
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "CLAUDE.md",
+        "lines": "314-330"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/report-template-v1.md",
+        "lines": "14-58"
+      }
+    ]
+  },
+  {
+    "id": "p-tk-infra",
+    "name": "Infraestructura y datos",
+    "type": "project",
+    "parentId": "t-synergy-toolkit",
+    "kind": "módulo · deploy · integraciones · reportes",
+    "summary": "Puerta pública en la Mac (launchd) y worker en un VPS con systemd (server, backup, gitpull/gitpush, vigía). Acceso vía Cloudflare Access. La base SQLite privada nunca cruza al cerebro.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 5
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "deploy/systemd"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/decision-hosting-2026-09-05.md",
+        "lines": "65-105"
+      }
+    ]
+  },
+  {
+    "id": "tk-wf-gate-engine",
+    "name": "Motor de compuertas (hash-attested)",
+    "type": "workflow",
+    "parentId": "p-tk-engine",
+    "kind": "draft → pending → approved → scheduled → sent",
+    "summary": "Quince tipos de ítem de compuerta y siete estados. Aprobar exige el hash revisado; editar después de aprobar re-arma la compuerta. Ledger de auditoría y decisiones.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "dates": {
+      "first": "2026-07-24"
+    },
+    "layout": {
+      "height": 1.3,
+      "slot": 0
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "shared/src/gates.ts",
+        "lines": "30-40,158-174"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/exec/gates.ts"
+      }
+    ]
+  },
+  {
+    "id": "tk-wf-journey",
+    "name": "Motor de journeys",
+    "type": "workflow",
+    "parentId": "p-tk-engine",
+    "kind": "grafo de 5 familias de nodos",
+    "summary": "Compilador y conductor delgado; splits por datos, comportamiento y azar determinista (sha256 de ciclo+nodo); esperas con timeout obligatorio; recuperación tras reinicio.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "dates": {
+      "first": "2026-07-25"
+    },
+    "layout": {
+      "slot": 1
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/exec/graph-executor.ts"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "shared/src/journey.ts"
+      }
+    ]
+  },
+  {
+    "id": "tk-cap-runner",
+    "name": "Runner (claude -p en el cerebro)",
+    "type": "capability",
+    "parentId": "p-tk-engine",
+    "kind": "un solo camino de despacho",
+    "summary": "Lanza el skill real del cerebro con el repo lc-chaman como cwd, lista blanca de variables de entorno, tope de modo de permisos, carril y single-flight, costo y clase de resultado.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "height": 1.2,
+      "slot": 2
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/exec/runner.ts",
+        "lines": "37,137"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/exec/dispatch.ts",
+        "lines": "24-29"
+      }
+    ]
+  },
+  {
+    "id": "tk-wf-scheduler",
+    "name": "Scheduler + triggers",
+    "type": "workflow",
+    "parentId": "p-tk-engine",
+    "kind": "latido de 30 s",
+    "summary": "Un solo latido; el tick de arranque recupera disparos perdidos; triggers por fecha, segmento, métrica o manual pasan por un único punto fireTrigger.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 3
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/exec/scheduler.ts",
+        "lines": "3-20"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/exec/triggers.ts",
+        "lines": "22-30"
+      }
+    ]
+  },
+  {
+    "id": "tk-cap-campaign-store",
+    "name": "Campaign store (escritor enjaulado)",
+    "type": "capability",
+    "parentId": "p-tk-engine",
+    "kind": "campaign.yaml en el repo cerebro",
+    "summary": "Escritura atómica, chequeo de revisión, re-validación y un commit git por archivo dentro de lc-chaman. Solo escribe dentro de los campaigns_dir registrados.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 4
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/repo/campaign-store.ts"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/repo/git.ts"
+      }
+    ]
+  },
+  {
+    "id": "tk-cap-spine",
+    "name": "Spine (qué ES una campaña)",
+    "type": "capability",
+    "parentId": "p-tk-engine",
+    "kind": "derivado, nunca escrito",
+    "summary": "Deriva la etapa demostrable de una campaña desde sus artefactos y compuertas consumidas; nunca escribe un estado.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 5
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "shared/src/spine.ts",
+        "lines": "5-30"
+      }
+    ]
+  },
+  {
+    "id": "tk-cap-doctor",
+    "name": "Doctor (~55 chequeos, solo lectura)",
+    "type": "capability",
+    "parentId": "p-tk-engine",
+    "kind": "arnés cross-repo",
+    "summary": "Cada chequeo nombra el incidente que previene. Lee ambos repos, los registros (drain, deadlines, clocks, retired-urls) y la base. Los documentos del 2026-09-08 citan 55 chequeos; el conteo exacto solo sale corriéndolo.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 6
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "scripts/doctor.mjs",
+        "lines": "1-49"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "reports/meta-status-2026-09-08.md"
+      }
+    ]
+  },
+  {
+    "id": "tk-cap-registries",
+    "name": "Registros: drain · deadlines · clocks · retired-urls",
+    "type": "capability",
+    "parentId": "p-tk-engine",
+    "kind": "config/*.yaml",
+    "summary": "Un id por problema conocido con dueño y condición de desbloqueo; obligaciones fechadas; relojes de movimiento por campaña (sin calibrar ⇒ veredicto desconocido, nunca estancado); hosts que ningún archivo puede volver a citar.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 7
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "config/drain.yaml"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "config/deadlines.yaml"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "config/clocks.lc-chaman.yaml"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "config/retired-urls.yaml"
+      }
+    ]
+  },
+  {
+    "id": "tk-ctl-safety-floor",
+    "name": "Piso de seguridad (código, no política)",
+    "type": "control",
+    "parentId": "p-tk-engine",
+    "kind": "SAFETY_FLOOR · NEVER_AUTO",
+    "summary": "Nada dispara solo. spend_ads es indeclarable; spend_ads_api y publish_meta_api existen pero nunca se auto-disparan: un humano aprueba los bytes exactos. Nació de un baneo real de Meta.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 8
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "shared/src/exec.ts",
+        "lines": "155,194"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "README.md",
+        "lines": "43-55"
+      }
+    ]
+  },
+  {
+    "id": "tk-ctl-gate-policy",
+    "name": "Aprobación por excepción (gate policy)",
+    "type": "control",
+    "parentId": "p-tk-engine",
+    "kind": "require_approval por feature",
+    "summary": "Tres features corren sin atender por decisión nombrada de Boris (prospect-research, prospect-promotion, batch-email-stamp). auto_approve_below_cents está declarado y nunca usado.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 9
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/decision-menos-ui-2026-08-27.md",
+        "lines": "34-71"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/decision-prospect-research-policy.md"
+      }
+    ]
+  },
+  {
+    "id": "tk-ctl-talk-press",
+    "name": "Ley operativa: hablar en el chat, apretar en el cockpit",
+    "type": "control",
+    "parentId": "p-tk-engine",
+    "kind": "modelo operativo",
+    "summary": "Todo acto irreversible necesita un press en el cockpit contra bytes exactos, una fila de auditoría y un nombre. El chat es de solo lectura por construcción.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 10
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/operating-model.md",
+        "lines": "92-109"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/chat/chat-safety.test.ts"
+      }
+    ]
+  },
+  {
+    "id": "tk-ctl-brand-safety",
+    "name": "Ratificación de brand-safety (propuesta)",
+    "type": "control",
+    "parentId": "p-tk-engine",
+    "kind": "el modelo propone, el humano ratifica",
+    "summary": "Regla: un modelo nunca escribe clear. El 2026-09-08 se retractaron cincuenta marcas escritas por el modelo. La costura de ratificación es un documento de decisión con opciones A/B/C, no código.",
+    "state": "proposed",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 11
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/decision-brand-safety-ratification-seam-2026-08-26.html"
+      }
+    ]
+  },
+  {
+    "id": "tk-del-board",
+    "name": "Board de campañas + detalle",
+    "type": "deliverable",
+    "parentId": "p-tk-cockpit",
+    "kind": "pantallas",
+    "summary": "La campaña como archivo de primera clase: spine, pliegues, log, editor de journey por formulario.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 0
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "web/src/screens/Campaigns.tsx"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "web/src/screens/CampaignDetail.tsx"
+      }
+    ]
+  },
+  {
+    "id": "tk-del-approvals",
+    "name": "Aprobaciones",
+    "type": "deliverable",
+    "parentId": "p-tk-cockpit",
+    "kind": "la superficie de aprobación",
+    "summary": "Aprobar, rechazar o pedir cambios sobre el hash exacto; lint de voz de marca como tira consultiva que nunca bloquea.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "height": 1.2,
+      "slot": 1
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "web/src/screens/Approvals.tsx"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/exec/brand-lint.ts"
+      }
+    ]
+  },
+  {
+    "id": "tk-del-brief-overview",
+    "name": "Operator Brief · Overview · Dashboard",
+    "type": "deliverable",
+    "parentId": "p-tk-cockpit",
+    "kind": "síntesis de solo lectura",
+    "summary": "Qué necesita un humano, qué está trabado, cuánto confiar. Regla: desconocido ≠ cero ≠ caído.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "dates": {
+      "first": "2026-08-20"
+    },
+    "layout": {
+      "slot": 2
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "web/src/screens/OperatorBrief.tsx",
+        "lines": "18-28"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "web/src/screens/Overview.tsx",
+        "lines": "19-25"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "shared/src/state.ts"
+      }
+    ]
+  },
+  {
+    "id": "tk-del-crm-screen",
+    "name": "Máquina CRM (cuatro embudos)",
+    "type": "deliverable",
+    "parentId": "p-tk-cockpit",
+    "kind": "espejo de Airtable · lectura",
+    "summary": "Cuatro cards de embudo desde el espejo pipeline_row (llenado cada 15 min), contador de handoff, enlace a Airtable. Airtable ES el CRM; una segunda superficie de edición sería un segundo lugar para equivocarse.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 3
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "web/src/screens/Crm.tsx"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/crm/pipeline-sync.ts"
+      }
+    ]
+  },
+  {
+    "id": "tk-cap-planner",
+    "name": "Growth Planner",
+    "type": "capability",
+    "parentId": "p-tk-cockpit",
+    "kind": "entrevista fija → brief → campaña",
+    "summary": "Preguntas deterministas, recomendación de jugada en código (no un modelo), y un opportunity-brief como registro escrito de meta, restricciones, KPI y condición de parada.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "dates": {
+      "first": "2026-08-02"
+    },
+    "layout": {
+      "slot": 4
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/routes/planner.ts",
+        "lines": "19-25"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/planner/plays.ts"
+      }
+    ]
+  },
+  {
+    "id": "tk-cap-playbooks",
+    "name": "Playbooks (7 plantillas)",
+    "type": "capability",
+    "parentId": "p-tk-cockpit",
+    "kind": "instanciar una pierna",
+    "summary": "Una plantilla de outreach exige un rail; instanciar sobre una pierna existente devuelve 409 en vez de pisarla.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 5
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/templates/playbooks"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/routes/playbooks.ts"
+      }
+    ]
+  },
+  {
+    "id": "tk-cap-chat",
+    "name": "Chat (alcance A: explicar)",
+    "type": "capability",
+    "parentId": "p-tk-cockpit",
+    "kind": "solo lectura · plan mode forzado",
+    "summary": "Explica; no propone ni actúa. Los alcances B/C quedan deliberadamente sin construir; POST /runs devuelve 403 a la acción de chat.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 6
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/routes/chat.ts"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/design/p2-chat-pane.md"
+      }
+    ]
+  },
+  {
+    "id": "tk-del-guides",
+    "name": "Guías in-app (19)",
+    "type": "deliverable",
+    "parentId": "p-tk-cockpit",
+    "kind": "web/src/guides/*.html",
+    "summary": "Una guía por superficie: aprobaciones, batch-email, IG DM, replies, SEO, paid.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 7
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "web/src/guides",
+        "note": "19 archivos"
+      }
+    ]
+  },
+  {
+    "id": "tk-cap-command-surface",
+    "name": "Superficie de comando (menos UI, forma 3)",
+    "type": "capability",
+    "parentId": "p-tk-cockpit",
+    "kind": "lenguaje natural → despacho con compuerta",
+    "summary": "Decidido NO AHORA el 2026-08-27. Queda como veredicto documentado, sin construir.",
+    "state": "proposed",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 8
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/decision-menos-ui-2026-08-27.md",
+        "lines": "75-118"
+      }
+    ]
+  },
+  {
+    "id": "tk-wf-email-wave",
+    "name": "Ola de email (4 rails)",
+    "type": "workflow",
+    "parentId": "p-tk-outreach",
+    "kind": "preparar · escribir cuerpos · aprobar hash · enviar · sellar",
+    "summary": "Agencias, retiros, familias y celebraciones comparten un mismo reservorio de prospectos en Airtable; el envío lo hace un script del cerebro con tope diario y espaciado; ledger .sent.jsonl.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "height": 1.25,
+      "slot": 0
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/routes/batch.ts"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "web/src/components/BatchLauncher.tsx"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "shared/src/send-ledger.ts"
+      }
+    ]
+  },
+  {
+    "id": "tk-wf-reply-desk",
+    "name": "Mesa de respuestas",
+    "type": "workflow",
+    "parentId": "p-tk-outreach",
+    "kind": "hilo → envío 1:1 con compuerta → escritura al embudo",
+    "summary": "Hilos reconstruidos entre barridos de la casilla, compuerta reply_send con hash de los bytes, escrituras a Contacts/Pipeline por un outbox persistido. Boris opera; Iru entra en pedidos de reunión.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "dates": {
+      "first": "2026-08-08"
+    },
+    "layout": {
+      "slot": 1
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/routes/conversations.ts"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/decision-reply-desk-operator-2026-08-31.md",
+        "lines": "9-18"
+      }
+    ]
+  },
+  {
+    "id": "tk-wf-prospect-research",
+    "name": "Investigación de prospectos (Expedición)",
+    "type": "workflow",
+    "parentId": "p-tk-outreach",
+    "kind": "acción sin compuerta (decisión de Boris)",
+    "summary": "El cerebro investiga, verifica, puntúa y escribe filas al reservorio. require_approval=false desde el 2026-07-27; corre también en night-run bajo mandato.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 2
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/decision-prospect-research-policy.md",
+        "lines": "1-30"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/night-run-2026-09-08-mandate.md",
+        "lines": "31-35"
+      }
+    ]
+  },
+  {
+    "id": "tk-wf-promotion",
+    "name": "Promoción de prospectos",
+    "type": "workflow",
+    "parentId": "p-tk-outreach",
+    "kind": "reservorio → Contacts",
+    "summary": "Mesa de promoción con chequeo de brand-safety; compuerta prospect_promotion controlada por política (sin atender desde el 13-ago según el doc).",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 3
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/routes/promote.ts"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "web/src/components/PromotionDesk.tsx"
+      }
+    ]
+  },
+  {
+    "id": "tk-wf-ig-dm",
+    "name": "Carril IG DM (preparar; un humano envía)",
+    "type": "workflow",
+    "parentId": "p-tk-outreach",
+    "kind": "cola + ledger «lo envié»",
+    "summary": "Sugiere y compone, arma la cola con tope de 15 por día; la persona envía desde la app de Instagram y lo registra. El incidente del carril sin botón (2026-08-11) es la razón de la regla «mirá la pantalla».",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 4
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "shared/src/ig-dm.ts",
+        "lines": "4-30"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/routes/ig-dm.ts"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "CLAUDE.md",
+        "lines": "8-22"
+      }
+    ]
+  },
+  {
+    "id": "tk-wf-sniffer",
+    "name": "Sniffer (Apify → enriquecer → reservorio)",
+    "type": "workflow",
+    "parentId": "p-tk-outreach",
+    "kind": "engagers de una cuenta",
+    "summary": "Scrape asíncrono de quienes interactúan con una cuenta, enriquecimiento por el cerebro, escritura al reservorio.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 5
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/apify.ts"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/routes/sniffer.ts"
+      }
+    ]
+  },
+  {
+    "id": "tk-wf-ig-inbound",
+    "name": "IG inbound a escala",
+    "type": "workflow",
+    "parentId": "p-tk-outreach",
+    "kind": "parqueado con condición de despertar",
+    "summary": "Plan escrito el 2026-09-02 y dejado en pausa hasta que exista volumen entrante.",
+    "state": "parked",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 6
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/plan-ig-inbound-parked-2026-09-02.md"
+      }
+    ]
+  },
+  {
+    "id": "tk-wf-seo",
+    "name": "Máquina SEO",
+    "type": "workflow",
+    "parentId": "p-tk-content-paid",
+    "kind": "descubrir · cosechar · guardar · analizar contra el brief",
+    "summary": "Keywords desde OpenSEO (a través del cerebro), tabla de cosecha, keywords.json, y análisis de packs contra el opportunity-brief con condición de parada.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 0
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/routes/seo.ts"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "web/src/screens/Seo.tsx"
+      }
+    ]
+  },
+  {
+    "id": "tk-wf-ads-build",
+    "name": "Construcción de anuncios (Google/Meta)",
+    "type": "workflow",
+    "parentId": "p-tk-content-paid",
+    "kind": "estructura + CSV desde keywords",
+    "summary": "El cerebro corre /ads-build; el resultado es un paquete PAUSADO que un humano activa en la interfaz del anunciante.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 1
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/routes/ads.ts"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "web/src/components/AdsBuilder.tsx"
+      }
+    ]
+  },
+  {
+    "id": "tk-wf-paid-mirror",
+    "name": "Espejo de paid (Meta · Google · GA4, lectura)",
+    "type": "workflow",
+    "parentId": "p-tk-content-paid",
+    "kind": "pull horario, circuit breaker",
+    "summary": "Lecturas horarias a platform_object y metrics_daily; sin verbos de escritura, con un test que falla si aparece uno. Sin credenciales el estado honesto es «no conectado», nunca «$0».",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 2
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/money/meta-ads.ts",
+        "lines": "13-22"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/money/google-ads.ts",
+        "lines": "11-21"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/money/ga4.ts",
+        "lines": "6-22"
+      }
+    ]
+  },
+  {
+    "id": "tk-wf-ad-mutation",
+    "name": "Mutación de anuncios (Slice C)",
+    "type": "workflow",
+    "parentId": "p-tk-content-paid",
+    "kind": "proponer → firmar ad_mutation → aplicar",
+    "summary": "La única superficie que cambia gasto. NEVER_AUTO. El doc de arquitectura cita tres mutaciones reales en Google el 2026-08-03.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 3
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/routes/paid-write.ts",
+        "lines": "18-30"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/money/paid-guards.ts"
+      }
+    ]
+  },
+  {
+    "id": "tk-wf-paid-loop",
+    "name": "Loop de aprendizaje paid V1",
+    "type": "workflow",
+    "parentId": "p-tk-content-paid",
+    "kind": "snapshot nocturno · /paid-pulse semanal · veredicto de AG-011",
+    "summary": "Armado el 2026-09-05 con cero ciclos cerrados. Toda propuesta (≤3) espera el press de Boris.",
+    "state": "experimental",
+    "evidence": "observed-in-docs",
+    "dates": {
+      "first": "2026-09-05"
+    },
+    "layout": {
+      "slot": 4
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/decision-paid-learning-loop-2026-09-05.md",
+        "lines": "52-62"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/decision-synergy-v4-self-improving-ops-2026-09-05.md",
+        "lines": "110-112"
+      }
+    ]
+  },
+  {
+    "id": "tk-wf-landing",
+    "name": "Landing → página Shopify (dos firmas)",
+    "type": "workflow",
+    "parentId": "p-tk-content-paid",
+    "kind": "page_draft → page_live",
+    "summary": "El Toolkit autoriza; el cerebro tiene la llave de Shopify y publica un borrador oculto; una segunda compuerta lo hace visible. Es el único cruce que sale del edificio.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 5
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/routes/landing.ts"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/brain-contract.md",
+        "lines": "110-133"
+      }
+    ]
+  },
+  {
+    "id": "tk-wf-article-social",
+    "name": "Carriles de artículo y social",
+    "type": "workflow",
+    "parentId": "p-tk-content-paid",
+    "kind": "article_draft → article_live · social_draft → social_publish",
+    "summary": "Escribir desde keywords, revisar, publicar. La publicación en Instagram vía API existe como compuerta NEVER_AUTO; en la práctica el cerebro exige publicación manual por un humano.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 6
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/routes/article.ts"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/routes/social.ts"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/money/meta-content.ts",
+        "lines": "1-22"
+      }
+    ]
+  },
+  {
+    "id": "tk-wf-photo",
+    "name": "Carril de estándar fotográfico",
+    "type": "workflow",
+    "parentId": "p-tk-content-paid",
+    "kind": "Drive → juez → colorista → re-juez",
+    "summary": "Decidido con la tabla de cuatro números (build · buy · integrate · synchronize) y corregido al día siguiente porque la autoridad pedía edición, no solo juicio.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "dates": {
+      "first": "2026-08-25"
+    },
+    "layout": {
+      "slot": 7
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/routes/photo-review.ts"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/decision-photo-editing-2026-08-26.md"
+      }
+    ]
+  },
+  {
+    "id": "tk-wf-video",
+    "name": "Carril de remix de video",
+    "type": "workflow",
+    "parentId": "p-tk-content-paid",
+    "kind": "reel de referencia → clips propios → render Docker",
+    "summary": "Render con MoneyPrinterTurbo como sidecar local; una firma.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "dates": {
+      "first": "2026-08-08"
+    },
+    "layout": {
+      "slot": 8
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/video-remix"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "deploy/mpt-config.toml"
+      }
+    ]
+  },
+  {
+    "id": "tk-cap-cf-integration",
+    "name": "Integración Content Factory (retirada)",
+    "type": "capability",
+    "parentId": "p-tk-content-paid",
+    "kind": "feed de packs + consola embebida",
+    "summary": "Funcionó y se retiró el 2026-07-29 por costo de sincronización, no de construcción: seis packs arriba, ninguno llegó a posted; la iframe no sostenía la sesión en Safari. La fila se conserva como lápida.",
+    "state": "retired",
+    "evidence": "observed-in-code",
+    "dates": {
+      "first": "2026-07-25",
+      "last": "2026-07-29"
+    },
+    "layout": {
+      "slot": 9
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "web/src/screens/Content.tsx",
+        "lines": "69-89"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "CLAUDE.md",
+        "lines": "95-100"
+      }
+    ]
+  },
+  {
+    "id": "tk-cap-cto",
+    "name": "TK-000 · el CTO (agente + sesión)",
+    "type": "capability",
+    "parentId": "p-tk-cadence",
+    "kind": "veredictos y evidencia, nunca código",
+    "summary": "Toda sesión interactiva es TK-000. Las preguntas comerciales se despachan al cerebro (AG-000) o al Joint Operating Room; nunca se contestan con el sombrero equivocado.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "dates": {
+      "first": "2026-08-15"
+    },
+    "layout": {
+      "height": 1.2,
+      "slot": 0
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": ".claude/agents/cto.md"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": ".claude/hooks/session-orient.sh"
+      }
+    ]
+  },
+  {
+    "id": "tk-cap-pulso-cierre",
+    "name": "/pulso (lee) · /sleep-time (cierra)",
+    "type": "capability",
+    "parentId": "p-tk-cadence",
+    "kind": "lectura diaria · cierre nocturno ≤1 propuesta",
+    "summary": "El pulso lee el pulso anterior, la cola nocturna, envíos y drain, y deja ≤5 líneas de decisión. El cierre se compone solo de artefactos.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 1
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": ".claude/skills/pulso/SKILL.md"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": ".claude/skills/sleep-time/SKILL.md"
+      }
+    ]
+  },
+  {
+    "id": "tk-cap-ronda",
+    "name": "/ronda · /recorrida",
+    "type": "capability",
+    "parentId": "p-tk-cadence",
+    "kind": "caminata semanal del embudo · caminata fría del producto",
+    "summary": "Diez bandas, ≤3 propuestas falsables; y la banda 0: cinco preguntas fijas sobre el cockpit en frío, porque cuatro incidentes fueron visibles a una pregunta que nadie tenía agendada.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 2
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": ".claude/skills/ronda/SKILL.md"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": ".claude/skills/recorrida/SKILL.md"
+      }
+    ]
+  },
+  {
+    "id": "tk-cap-night-run",
+    "name": "/night-run (reparación desatendida)",
+    "type": "capability",
+    "parentId": "p-tk-cadence",
+    "kind": "Nivel A repara · Nivel B espera a Boris",
+    "summary": "Baseline con night-queue, calificar el turno anterior, reparar, un commit por reparación, informe. Cuatro pruebas obligatorias: veredicto de design-desk, doctor no peor que la línea base, commit por reparación, captura antes/después. Once corridas en diecinueve días según el doc.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 3
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": ".claude/skills/night-run/SKILL.md"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/decision-night-run-mandate-2026-09-06.md"
+      }
+    ]
+  },
+  {
+    "id": "tk-cap-design-desk",
+    "name": "/design-desk (tres lentes)",
+    "type": "capability",
+    "parentId": "p-tk-cadence",
+    "kind": "AG-005 + auditoría de guidelines + lector frío",
+    "summary": "Antes de decir «listo» sobre cualquier superficie que una persona mira: composición, accesibilidad y comprensión, cada una contra la pantalla renderizada, un solo veredicto.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "dates": {
+      "first": "2026-08-26"
+    },
+    "layout": {
+      "slot": 4
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": ".claude/skills/design-desk/SKILL.md"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "reports/verification",
+        "note": "72 veredictos"
+      }
+    ]
+  },
+  {
+    "id": "tk-cap-pulses",
+    "name": "/gads-pulse · /paid-pulse",
+    "type": "capability",
+    "parentId": "p-tk-cadence",
+    "kind": "caminatas semanales de Google y Meta",
+    "summary": "Clasifican términos, KPIs y ≤3 cambios propuestos; Boris dice «go».",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 5
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": ".claude/skills/gads-pulse/SKILL.md"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": ".claude/skills/paid-pulse/SKILL.md"
+      }
+    ]
+  },
+  {
+    "id": "tk-cap-jor",
+    "name": "Joint Operating Room (AG-000 + TK-000)",
+    "type": "capability",
+    "parentId": "p-tk-cadence",
+    "kind": "una pregunta mixta, una síntesis",
+    "summary": "El cerebro y el CTO leen la misma pregunta y devuelven una síntesis; el protocolo canónico vive acá y el asiento de El Chamán en lc-chaman.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 6
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": ".claude/skills/joint-operating-room/SKILL.md"
+      }
+    ]
+  },
+  {
+    "id": "tk-cap-publish",
+    "name": "/publish-pages · /publish-vercel · /branded-doc",
+    "type": "capability",
+    "parentId": "p-tk-cadence",
+    "kind": "documentos institucionales y publicación con compuerta",
+    "summary": "HTML a GitHub Pages (repo stack) o Vercel con verificación de la URL viva; una sola URL por documento; la marca se difiere a /brand-review del cerebro.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 7
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": ".claude/skills/publish-pages/SKILL.md"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/publish-gate.md"
+      }
+    ]
+  },
+  {
+    "id": "tk-ctl-night-levels",
+    "name": "Mandato nocturno: Nivel A / Nivel B",
+    "type": "control",
+    "parentId": "p-tk-cadence",
+    "kind": "qué puede tocar una noche sin Boris",
+    "summary": "A: arreglos de doctor sobre hechos del repo, defectos de pantalla, guardas con falso positivo medido, preparar (nunca enviar). B: enviar, gastar, escribir al CRM de producción, borrar, cortar la puerta.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 8
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/decision-night-run-mandate-2026-09-06.md"
+      }
+    ]
+  },
+  {
+    "id": "tk-ctl-authority",
+    "name": "Autoridad: Gastón decide GTM, Boris acepta builds",
+    "type": "control",
+    "parentId": "p-tk-cadence",
+    "kind": "triángulo operativo",
+    "summary": "Boris orquesta y construye; Gastón lidera la decisión GTM; AG-000 posee la verdad comercial; TK-000 la verdad del producto. Ambos agentes proponen.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 9
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/operating-model.md",
+        "lines": "27-61"
+      }
+    ]
+  },
+  {
+    "id": "tk-wf-cloudbeds-sync",
+    "name": "Cloudbeds sync (una sola cuenta canónica)",
+    "type": "workflow",
+    "parentId": "p-tk-infra",
+    "kind": "horario · escribe venture.yaml current:",
+    "summary": "Trae reservas, deduplica, anula cancelaciones y escribe el número canónico de noches en el cerebro. Ningún humano edita ese campo.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "height": 1.15,
+      "slot": 0
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/money/cloudbeds.ts",
+        "lines": "19-22"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/repo/venture-store.ts"
+      }
+    ]
+  },
+  {
+    "id": "tk-wf-sync-jobs",
+    "name": "Jobs de espejo (pipeline · GA4 · paid · brief)",
+    "type": "workflow",
+    "parentId": "p-tk-infra",
+    "kind": "scheduler",
+    "summary": "Espejos de solo lectura con cursores; snapshot diario del Operator Brief en JSON.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 1
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/exec/brief-snapshot.ts",
+        "lines": "13-30"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/v3-operating-architecture.md"
+      }
+    ]
+  },
+  {
+    "id": "tk-wf-hosting",
+    "name": "Migración de hosting (worker en VPS)",
+    "type": "workflow",
+    "parentId": "p-tk-infra",
+    "kind": "F0/F1 hechos · F2 cutover pendiente de un press",
+    "summary": "La puerta pública sigue en la Mac; el worker corre con systemd en el VPS según el doc del 2026-09-05; el cambio de túnel espera a Boris. Nada de esto se verificó por red.",
+    "state": "experimental",
+    "evidence": "claimed-by-doc",
+    "dates": {
+      "first": "2026-09-05"
+    },
+    "layout": {
+      "slot": 2
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/decision-hosting-2026-09-05.md",
+        "lines": "65-105"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "deploy/systemd"
+      }
+    ]
+  },
+  {
+    "id": "tk-wf-watch-backup",
+    "name": "Vigía de uptime + backup cifrado",
+    "type": "workflow",
+    "parentId": "p-tk-infra",
+    "kind": "Mac + VPS · nightly age",
+    "summary": "Transiciones verde/rojo a Slack; backup nocturno cifrado con simulacro de restauración.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 3
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "scripts/synergy-uptime-watch.mjs"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "scripts/backup-db.mjs"
+      }
+    ]
+  },
+  {
+    "id": "tk-del-reports",
+    "name": "Reportes (cierres · turnos nocturnos · verificación)",
+    "type": "deliverable",
+    "parentId": "p-tk-infra",
+    "kind": "reports/",
+    "summary": "36 cierres/análisis markdown, 13 turnos nocturnos, 72 veredictos de verificación, 43 digests de envío, 20 snapshots del brief (conteo de archivos por carpeta).",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 4
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "reports"
+      }
+    ]
+  },
+  {
+    "id": "tk-del-docs",
+    "name": "Explicadores y decisiones (docs/)",
+    "type": "deliverable",
+    "parentId": "p-tk-infra",
+    "kind": "32 HTML · 15 decision records · 18 handoffs",
+    "summary": "Cómo funciona, mapa del embudo, org map, guías; registros de decisión con fecha; y las cartas de continuación de cada versión.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 5
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/how-it-works.html"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/README.md"
+      }
+    ]
+  },
+  {
+    "id": "tk-con-airtable",
+    "name": "Airtable (LC_CRM)",
+    "type": "connection",
+    "parentId": "p-tk-infra",
+    "kind": "lectura + escritura con compuerta",
+    "summary": "Embudo, cards y triggers en lectura; promoción, sniffer y respuestas escriben con compuerta o con exención escrita en la ruta.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 6
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/airtable.ts"
+      }
+    ]
+  },
+  {
+    "id": "tk-con-cloudbeds",
+    "name": "Cloudbeds",
+    "type": "connection",
+    "parentId": "p-tk-infra",
+    "kind": "lectura · fuente de verdad de reservas",
+    "summary": "Motor de reservas de la villa.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 7
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/money/cloudbeds.ts"
+      }
+    ]
+  },
+  {
+    "id": "tk-con-ads",
+    "name": "Google Ads · Meta Marketing · GA4",
+    "type": "connection",
+    "parentId": "p-tk-infra",
+    "kind": "lectura + escritura con compuerta",
+    "summary": "Adaptadores en código; escritura solo por ad_mutation.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 8
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/money/google-ads.ts"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/money/meta-ads.ts"
+      }
+    ]
+  },
+  {
+    "id": "tk-con-claude",
+    "name": "Claude Code CLI (claude -p)",
+    "type": "connection",
+    "parentId": "p-tk-infra",
+    "kind": "el cerebro es la superficie LLM",
+    "summary": "Toda acción es una corrida de skill del cerebro.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 9
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/exec/runner.ts",
+        "lines": "70"
+      }
+    ]
+  },
+  {
+    "id": "tk-con-cloudflare",
+    "name": "Cloudflare Access + túnel",
+    "type": "connection",
+    "parentId": "p-tk-infra",
+    "kind": "JWT en cada /api",
+    "summary": "Bypass de desarrollo rechazado en producción.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 10
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/middleware/auth.ts",
+        "lines": "6-22"
+      }
+    ]
+  },
+  {
+    "id": "tk-con-scripts-slack-klaviyo",
+    "name": "Slack · Klaviyo · Apify (scripts)",
+    "type": "connection",
+    "parentId": "p-tk-infra",
+    "kind": "fuera del server",
+    "summary": "Digests y alertas a Slack, vigía de consultas en Klaviyo, scrape con Apify.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 11
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "scripts/slack-send-digest.mjs"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "scripts/klaviyo-inquiry-watch.mjs"
+      }
+    ]
+  },
+  {
+    "id": "tk-del-tests",
+    "name": "193 archivos de test + 28 specs Playwright",
+    "type": "deliverable",
+    "parentId": "p-tk-infra",
+    "kind": "vitest · e2e en 4 tiers · sin CI",
+    "summary": "Conteo de archivos *.test.ts (server 102, shared 50, web/lib 31, scripts 10) y specs e2e con tiers live/qa/rehearsal. No hay carpeta .github: nada corre en CI. Nada se ejecutó en esta lectura.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 12
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "vitest.config.ts"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/e2e-tiers.md",
+        "lines": "1-37"
+      }
+    ]
+  }
+]

@@ -1,0 +1,17 @@
+node_modules/
+app/node_modules/
+*.zip
+.DS_Store
+*.tsbuildinfo
+
+# Artefactos de build. El sitio se construye en CI desde app/; el HTML de doble
+# clic se genera en el mismo paso y queda colgado del sitio como /BOTH-WORLDS.html.
+app/dist/
+app/dist-single/
+BOTH-WORLDS.html
+
+# Material interno del experimento: se queda en esta máquina y en la rama
+# archive/full-history-2026-09-21. Fuera del repo público porque contiene
+# inventarios completos de tres repos privados y 172 capturas (~160 MB).
+research/
+verification/

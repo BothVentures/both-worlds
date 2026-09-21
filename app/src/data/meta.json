@@ -1,0 +1,13 @@
+{
+  "title": "BOTH WORLDS",
+  "subtitle": "La infraestructura invisible, hecha visible",
+  "generated": "2026-09-08",
+  "coverage": "Atlas curado de tres repositorios leídos el 2026-09-08: both_os (Both Ventures + su sistema operativo interno, Synergy), synergy-toolkit (la BOTH GTM Machine) y lc-chaman (El Chamán, el cerebro de La Chamana). Representa unidades significativas de trabajo, no archivos. Los conteos que aparecen se calcularon desde el inventario y dicen qué cuentan.",
+  "limitations": [
+    "No se consultó ningún endpoint vivo: 'live' o 'deployed' se muestra como declaración de un documento, no como verificación.",
+    "No se leyeron bases de datos privadas (SQLite del Toolkit), transcripts, listas de contactos ni cifras comerciales; nada de eso aparece.",
+    "Repos no accesibles y por lo tanto no representados: both-private (LP/investors), content-factory-sandbox (Andrés), COMANDO-AI/C-OS (canon 4C upstream).",
+    "Las relaciones marcadas 'inferida' no son integraciones reales confirmadas; se dibujan punteadas y apagadas.",
+    "El tamaño visual de cada bloque es una decisión editorial, no una métrica de valor ni de actividad."
+  ]
+}

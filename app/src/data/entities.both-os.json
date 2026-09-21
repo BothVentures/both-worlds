@@ -1,0 +1,2407 @@
+[
+  {
+    "id": "world",
+    "name": "BOTH WORLDS",
+    "type": "world",
+    "summary": "Tres territorios: el agentic venture builder y su sistema operativo (Both Ventures · Synergy), la máquina de go-to-market (Synergy Toolkit) y el cerebro de La Chamana (El Chamán).",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "sources": []
+  },
+  {
+    "id": "t-both-ventures",
+    "name": "Both Ventures",
+    "type": "territory",
+    "parentId": "world",
+    "kind": "agentic venture builder · repo both_os · 3.578 commits · 2026-03-30 → 09-07",
+    "summary": "Agentic venture builder con base en Punta del Este: un equipo de cinco que construye y acelera ventures con agentes como parte del equipo. Diez ventures activos, uno de los cuales es su propio sistema operativo interno (B_V® | OS), donde vive la entidad Synergy. El repo both_os es a la vez la memoria institucional (vault) y el motor (agentes, skills, pipelines).",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "owner": "Gaston (CEO) · Mariano (OS)",
+    "dates": {
+      "first": "2026-03-30",
+      "last": "2026-09-07"
+    },
+    "layout": {
+      "accent": "#c5c52a"
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".claude/CLAUDE.md",
+        "lines": "4",
+        "note": "definición de BOTH Ventures"
+      },
+      {
+        "repo": "both_os",
+        "path": "README.md",
+        "lines": "1-9",
+        "note": "Synergy — BOTH Ventures Operating Platform"
+      },
+      {
+        "repo": "both_os",
+        "path": "vault/soul.md",
+        "lines": "12",
+        "note": "Synergy ≠ B_V® | OS"
+      }
+    ],
+    "activity": {
+      "label": "commits por mes (git log)",
+      "months": [
+        "mar",
+        "abr",
+        "may",
+        "jun",
+        "jul",
+        "ago",
+        "sep"
+      ],
+      "values": [
+        6,
+        414,
+        825,
+        1007,
+        760,
+        441,
+        125
+      ],
+      "total": 3578,
+      "source": "both_os · git log --format=%ad | uniq -c"
+    }
+  },
+  {
+    "id": "p-both-os",
+    "name": "B_V® | OS · Synergy",
+    "type": "project",
+    "parentId": "t-both-ventures",
+    "kind": "venture · sistema operativo interno",
+    "summary": "El sistema operativo de BOTH: vault de conocimiento, agentes y skills en Claude Code/Cowork, un Cloudflare Worker que mina transcripciones, GitHub Actions que reparten a Asana y Slack, publicación a GitHub Pages y espejos a Notion. Synergy es la entidad que articula humanos, agentes y vault.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "owner": "Mariano",
+    "dates": {
+      "first": "2026-03-30",
+      "last": "2026-09-07"
+    },
+    "layout": {
+      "weight": 1.05,
+      "slot": 0
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "vault/ventures/both-os.md",
+        "lines": "19"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/CLAUDE.md",
+        "lines": "56"
+      },
+      {
+        "repo": "both_os",
+        "path": "README.md",
+        "lines": "45-60",
+        "note": "qué hay en el repo"
+      }
+    ]
+  },
+  {
+    "id": "p-manantial-casa",
+    "name": "MANANTIAL.CASA",
+    "type": "project",
+    "parentId": "t-both-ventures",
+    "kind": "venture · Build + Daily",
+    "summary": "Sede física e institucional en Punta del Este: club de playa por membresía, eventos, retiros. Slug de routing manantial-casa; nombre corriente Casa Manantial.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "owner": "Daiana",
+    "layout": {
+      "slot": 1
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "vault/ventures/manantial-casa.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "config/ventures.json",
+        "note": "slug manantial-casa"
+      }
+    ]
+  },
+  {
+    "id": "p-reshore",
+    "name": "RESHORE",
+    "type": "project",
+    "parentId": "t-both-ventures",
+    "kind": "venture · Build + Hands On",
+    "summary": "Infraestructura para re-localizar producción y cadenas de suministro resilientes. El brief decía “Reasure”: no existe; el nombre real es Reshore.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "owner": "Gaston",
+    "layout": {
+      "slot": 2
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "vault/ventures/reshore.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "config/ventures.json",
+        "note": "slug reshore"
+      }
+    ]
+  },
+  {
+    "id": "p-lak3",
+    "name": "LAK3",
+    "type": "project",
+    "parentId": "t-both-ventures",
+    "kind": "venture · Build + Hands On",
+    "summary": "Tokeniza agua y activos del mundo real para liquidez y propiedad transparente.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "owner": "Rene",
+    "layout": {
+      "slot": 3
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "vault/ventures/lak3.md"
+      }
+    ]
+  },
+  {
+    "id": "p-photonic-labs",
+    "name": "PHOTONIC LABS",
+    "type": "project",
+    "parentId": "t-both-ventures",
+    "kind": "venture · Explore + Hands On",
+    "summary": "Laboratorio biotech de escala venture (wet-lab core, Uruguay, Zona Franca). Tres etapas: pre-incubación (cerrada 2026-07-31) → incubación → go-live 2027/28. Es el venture con la carpeta de proyecto más completa del repo.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "owner": "Rene (co-leads Gaston, Andres, Mariano)",
+    "dates": {
+      "first": "2026-04-13",
+      "last": "2026-07-30"
+    },
+    "layout": {
+      "slot": 4
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "vault/ventures/photonic-lab.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "projects/photonic-labs/_index.md"
+      }
+    ]
+  },
+  {
+    "id": "p-la-chamana",
+    "name": "LA CHAMANA",
+    "type": "project",
+    "parentId": "t-both-ventures",
+    "kind": "venture · Explore + Ops",
+    "summary": "Villa privada de 8 suites en Tulum; retiros de fundadores. En both_os vive el registro institucional del venture; su sistema operativo comercial (El Chamán) es otro repo y otro territorio de este mapa.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "owner": "Gaston",
+    "layout": {
+      "slot": 5
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "vault/ventures/la-chamana.md"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/CLAUDE.md",
+        "lines": "334-338",
+        "note": "lc-chaman es un repo aparte"
+      },
+      {
+        "repo": "both_os",
+        "path": "vault/ventures/la-chamana-os-v1-2026-04-27.md",
+        "note": "archivo puente"
+      }
+    ]
+  },
+  {
+    "id": "p-panambi",
+    "name": "PANAMBI",
+    "type": "project",
+    "parentId": "t-both-ventures",
+    "kind": "venture · Explore + Observational",
+    "summary": "Fondo de inversión en ciencias de la salud mental en América Latina. Rol observacional de BOTH.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "owner": "Andres",
+    "layout": {
+      "slot": 6
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "vault/ventures/panambi.md"
+      }
+    ]
+  },
+  {
+    "id": "p-quantum",
+    "name": "QUANTUM",
+    "type": "project",
+    "parentId": "t-both-ventures",
+    "kind": "venture · Explore + Hands On",
+    "summary": "Uruguay como hub regional quantum-AI; estructuración legal en curso; partnership TQA. El registro lo marca como sidequest de Photonic Lab, y el card de Photonic declara superseder este card aunque ambos siguen activos (drift documentado).",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "owner": "Gaston",
+    "layout": {
+      "slot": 7
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "vault/ventures/quantum.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "vault/ventures/photonic-lab.md",
+        "note": "frontmatter supersedes quantum.md"
+      }
+    ]
+  },
+  {
+    "id": "p-punta-cripto",
+    "name": "PUNTA CRIPTO · Bienal Blockchain Punta 2027",
+    "type": "project",
+    "parentId": "t-both-ventures",
+    "kind": "venture · Build + Strategic",
+    "summary": "Iniciativa cripto/blockchain, fuente de ingresos clave. Pasó por siete nombres (Punta Crypto Summit → Punta Blockchain → Bienal Blockchain Punta 2027); el slug punta-cripto se congela para routing. El brief decía “Vinyl Blockchain”: no existe.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "owner": "Rene (ops Daiana, legal Andres)",
+    "dates": {
+      "first": "2026-06-01",
+      "last": "2026-08-26"
+    },
+    "layout": {
+      "slot": 8
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "vault/ventures/punta-cripto.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "projects/bienal-blockchain-punta/context.md",
+        "note": "name ledger"
+      }
+    ]
+  },
+  {
+    "id": "p-content-factory",
+    "name": "CONTENT FACTORY",
+    "type": "project",
+    "parentId": "t-both-ventures",
+    "kind": "venture · Build + Hands On",
+    "summary": "Motor automatizado de contenido multiplataforma. El código productivo vive en otro repo (content-factory-sandbox, no disponible en esta máquina); acá hay un card y una spec.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "owner": "Andres (Mariano técnico)",
+    "layout": {
+      "slot": 9
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "vault/ventures/content-factory.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "projects/content-factory/refresh-button-spec.md"
+      }
+    ]
+  },
+  {
+    "id": "bo-wf-auto-miner",
+    "name": "Auto-miner (Cloudflare Worker)",
+    "type": "workflow",
+    "parentId": "p-both-os",
+    "kind": "pipeline · Read.ai → vault",
+    "summary": "Read.ai termina la llamada → webhook firmado → el Worker extrae con Claude → escribe transcript, pending, decisions, risks y venture updates en el vault vía GitHub API → traza en Supabase. Documentado como V2.15.1 + Option C (2026-06-01). Estuvo caído del 2026-08-07 al ~08-25 por un token expirado; dos fixes del 08-31 figuran como no deployados.",
+    "state": "implemented",
+    "evidence": "claimed-by-doc",
+    "owner": "Mariano",
+    "dates": {
+      "first": "2026-04-15",
+      "last": "2026-08-31"
+    },
+    "layout": {
+      "height": 1.3,
+      "slot": 0
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "workers/transcript-miner/src/index.js",
+        "lines": "1-80",
+        "note": "ledger de versiones V2→V2.15"
+      },
+      {
+        "repo": "both_os",
+        "path": "workers/transcript-miner/wrangler.toml"
+      },
+      {
+        "repo": "both_os",
+        "path": "harnesses/auto-miner.md"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/CLAUDE.md",
+        "lines": "267",
+        "note": "PAT expirado 2026-08-07; recuperación 08-25"
+      }
+    ]
+  },
+  {
+    "id": "bo-wf-fanout",
+    "name": "Auto-Mine Fanout (GitHub Action)",
+    "type": "workflow",
+    "parentId": "p-both-os",
+    "kind": "GitHub Action",
+    "summary": "Un push a vault/pending/**.md dispara asana-push.py (tareas deduplicadas) y slack-notify.py (post en el canal del venture). Movido del Worker a GHA el 2026-06-01 para esquivar el límite de 1000 subrequests de Cloudflare.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "owner": "Mariano",
+    "dates": {
+      "first": "2026-06-01",
+      "last": "2026-08-31"
+    },
+    "layout": {
+      "slot": 1
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".github/workflows/auto-mine-fanout.yml",
+        "lines": "19-98"
+      },
+      {
+        "repo": "both_os",
+        "path": "scripts/asana-push.py"
+      },
+      {
+        "repo": "both_os",
+        "path": "scripts/slack-notify.py"
+      }
+    ]
+  },
+  {
+    "id": "bo-wf-tuesday-sync",
+    "name": "Tuesday Sync (ritmo semanal)",
+    "type": "workflow",
+    "parentId": "p-both-os",
+    "kind": "harness NLAH",
+    "summary": "El proceso más importante: lunes cada champion corre /vu y /au; Mariano genera el digest con /wr y Daiana lo valida; martes reunión de decisiones (Gaston preside, 60 min); post-reunión el auto-miner cierra el loop en el vault.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "owner": "Daiana",
+    "dates": {
+      "first": "2026-04-21",
+      "last": "2026-09-07"
+    },
+    "layout": {
+      "height": 1.2,
+      "slot": 2
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "harnesses/tuesday-sync.md"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/CLAUDE.md",
+        "note": "Weekly Operating Rhythm"
+      }
+    ]
+  },
+  {
+    "id": "bo-wf-synergy-slack",
+    "name": "Synergy en Slack",
+    "type": "workflow",
+    "parentId": "p-both-os",
+    "kind": "Worker · POST /slack/events",
+    "summary": "Superficie de chat: DMs 1:1 y menciones en #synergy, allowlist de 5 personas, perfiles GOLEM + vault_context como contexto con caché de prompt. Documentado como Live.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "owner": "Mariano",
+    "dates": {
+      "first": "2026-05-21"
+    },
+    "layout": {
+      "slot": 3
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "workers/transcript-miner/src/synergy-chat.js",
+        "lines": "1-15"
+      },
+      {
+        "repo": "both_os",
+        "path": "harnesses/synergy-slack.md"
+      }
+    ]
+  },
+  {
+    "id": "bo-wf-deploy-pages",
+    "name": "Deploy a GitHub Pages",
+    "type": "workflow",
+    "parentId": "p-both-os",
+    "kind": "GitHub Action",
+    "summary": "Cada push a main copia docs/pages/ al repo BothVentures/stack y publica en bothventures.github.io/stack/pages/.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "owner": "Mariano",
+    "dates": {
+      "first": "2026-04-12"
+    },
+    "layout": {
+      "slot": 4
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".github/workflows/deploy-diagram.yml",
+        "lines": "16-31"
+      }
+    ]
+  },
+  {
+    "id": "bo-wf-security-weekly",
+    "name": "Escaneo semanal de seguridad",
+    "type": "workflow",
+    "parentId": "p-both-os",
+    "kind": "GitHub Action · cron lunes",
+    "summary": "sec-audit.sh escribe el reporte en vault/security/, security-deliver.py avisa por Slack y actualiza la página de Notion. 14 reportes semanales en disco entre 2026-06-14 y 2026-09-07.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "owner": "Mariano",
+    "dates": {
+      "first": "2026-06-14",
+      "last": "2026-09-07"
+    },
+    "layout": {
+      "slot": 5
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".github/workflows/security-weekly.yml"
+      },
+      {
+        "repo": "both_os",
+        "path": "vault/security",
+        "note": "14 reportes semanales (archivos .md)"
+      }
+    ]
+  },
+  {
+    "id": "bo-wf-pat-watch",
+    "name": "Vigía de expiración de credenciales",
+    "type": "workflow",
+    "parentId": "p-both-os",
+    "kind": "GitHub Action · cron diario",
+    "summary": "Lee solo fechas de config/pat-expiry.json y avisa a 21/14/7/3/1/0 días. Nació de la caída del auto-miner por un token vencido sin aviso.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "owner": "Mariano",
+    "dates": {
+      "first": "2026-08-25"
+    },
+    "layout": {
+      "slot": 6
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".github/workflows/pat-expiry-watch.yml"
+      },
+      {
+        "repo": "both_os",
+        "path": "scripts/worker-pat-recover.sh"
+      }
+    ]
+  },
+  {
+    "id": "bo-wf-vault-validate",
+    "name": "Validación de frontmatter en CI",
+    "type": "workflow",
+    "parentId": "p-both-os",
+    "kind": "GitHub Action",
+    "summary": "Valida el YAML de todo archivo del vault en cada push; cubre las escrituras del Worker que esquivan los hooks locales.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "dates": {
+      "first": "2026-08-31"
+    },
+    "layout": {
+      "slot": 7
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".github/workflows/vault-validate.yml"
+      },
+      {
+        "repo": "both_os",
+        "path": "scripts/vault-validate.py"
+      }
+    ]
+  },
+  {
+    "id": "bo-wf-sync-daemon",
+    "name": "Sync-daemon (git fuera del sandbox)",
+    "type": "workflow",
+    "parentId": "p-both-os",
+    "kind": "LaunchAgent · cada 15 s",
+    "summary": "Cowork nunca invoca git: el daemon hace pull en cada tick y commit+push cuando /upc deja un archivo de pedido. Cutover 2026-05-20. La adopción en las máquinas del resto del equipo figura bloqueada en la memoria del sistema.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "owner": "Mariano",
+    "dates": {
+      "first": "2026-05-20"
+    },
+    "layout": {
+      "slot": 8
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "scripts/sync-daemon.sh"
+      },
+      {
+        "repo": "both_os",
+        "path": "scripts/doctor.sh"
+      },
+      {
+        "repo": "both_os",
+        "path": "scripts/README.md"
+      }
+    ]
+  },
+  {
+    "id": "bo-wf-notion-sync",
+    "name": "Espejo a Notion (lunes, manual)",
+    "type": "workflow",
+    "parentId": "p-both-os",
+    "kind": "script",
+    "summary": "vault-to-notion.py sincroniza la base Ventures, las páginas de área y el Weekly Digest. Notion es capa de presentación, solo lectura para el equipo.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 9
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "scripts/vault-to-notion.py"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/CLAUDE.md",
+        "lines": "80"
+      }
+    ]
+  },
+  {
+    "id": "bo-wf-hux-weekly",
+    "name": "Hux · digest semanal del CTO agéntico",
+    "type": "workflow",
+    "parentId": "p-both-os",
+    "kind": "harness · Phase 1 (solo Mariano)",
+    "summary": "Pipeline de domingo: recolecta señales, despacha cuatro sub-agentes (stress-tester, ux-critic, agent-auditor, qa-systemic), ensambla, pasa por la cerca de mutaciones y publica. El estado registra cero digests semanales publicados.",
+    "state": "experimental",
+    "evidence": "observed-in-docs",
+    "owner": "Mariano",
+    "dates": {
+      "first": "2026-05-30"
+    },
+    "layout": {
+      "slot": 10
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "harnesses/hux-weekly.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "vault/agent_outputs/hux/state.md",
+        "note": "graduation_counter 0 · last_digest null"
+      }
+    ]
+  },
+  {
+    "id": "bo-wf-sprint-cycle",
+    "name": "Sprint quincenal + Control Panel",
+    "type": "workflow",
+    "parentId": "p-both-os",
+    "kind": "harness · draft",
+    "summary": "Cadencia de sprints con Endgame por venture ratificado por Gaston. Harness en estado draft; piloto propuesto para LAK3, Photonic y B_V OS.",
+    "state": "proposed",
+    "evidence": "observed-in-docs",
+    "dates": {
+      "first": "2026-06-07"
+    },
+    "layout": {
+      "slot": 11
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "harnesses/sprint-cycle.md"
+      }
+    ]
+  },
+  {
+    "id": "bo-wf-whatsapp",
+    "name": "Minado desde grupos de WhatsApp",
+    "type": "workflow",
+    "parentId": "p-both-os",
+    "kind": "Worker · POST /whatsapp",
+    "summary": "El código existe en el Worker (evolution-api → /mine en el grupo → vault + Asana + Slack) pero el gateway en Railway no está desplegado.",
+    "state": "parked",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 12
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "projects/whatsapp-integration/status.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "workers/transcript-miner/src/index.js",
+        "lines": "298"
+      }
+    ]
+  },
+  {
+    "id": "bo-wf-n8n",
+    "name": "n8n (11 workflows en pausa)",
+    "type": "workflow",
+    "parentId": "p-both-os",
+    "kind": "automatización superseded",
+    "summary": "Los flujos originales (readai-autominer, slack-approval, asana routing, calendar-watcher…) siguen exportados en n8n/workflows pero todos están en hold desde que el Worker tomó el pipeline (2026-04-15).",
+    "state": "parked",
+    "evidence": "observed-in-docs",
+    "dates": {
+      "first": "2026-03-30",
+      "last": "2026-04-25"
+    },
+    "layout": {
+      "slot": 13
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "n8n/workflows"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/CLAUDE.md",
+        "lines": "74"
+      }
+    ]
+  },
+  {
+    "id": "bo-cap-mine",
+    "name": "/mine + /transcribe",
+    "type": "capability",
+    "parentId": "p-both-os",
+    "kind": "skill",
+    "summary": "Extrae decisiones, action items, riesgos y venture updates de una transcripción o notas; auto-aprueba y escribe en vault + Asana + Slack. /transcribe convierte audio (Whisper) en transcript. Gate duro no_mine para material de personas.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "owner": "Daiana",
+    "layout": {
+      "slot": 20
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/mine/SKILL.md",
+        "lines": "49-51"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/transcribe/SKILL.md"
+      }
+    ]
+  },
+  {
+    "id": "bo-cap-vu-au",
+    "name": "/vu · /au (venture y área)",
+    "type": "capability",
+    "parentId": "p-both-os",
+    "kind": "skills",
+    "summary": "El champion confirma su card del martes (Health · This week · Endgame · Financial · Risks) y cura riesgos y decisiones; el líder de área confirma su resumen. Guardrail: ningún número derivado entra al card sin validación del champion.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "owner": "champions · líderes de área",
+    "dates": {
+      "first": "2026-04-09",
+      "last": "2026-09-07"
+    },
+    "layout": {
+      "slot": 21
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/venture-update/SKILL.md",
+        "lines": "58-61"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/area-update/SKILL.md"
+      }
+    ]
+  },
+  {
+    "id": "bo-cap-wr",
+    "name": "/wr · Weekly Reporter",
+    "type": "capability",
+    "parentId": "p-both-os",
+    "kind": "agente (sin carpeta de skill)",
+    "summary": "Arma el digest del Tuesday Sync y el glass dashboard clonando la plantilla canónica. Lee cards, áreas, pending, transcripts, Asana y el git log de los tres repos (both_os, lc-chaman, synergy-toolkit).",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "owner": "Mariano genera · Daiana valida",
+    "dates": {
+      "first": "2026-04-21",
+      "last": "2026-09-07"
+    },
+    "layout": {
+      "slot": 22
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".claude/agents/weekly-reporter.md",
+        "lines": "225",
+        "note": "lee git log de 3 repos"
+      },
+      {
+        "repo": "both_os",
+        "path": "docs/templates/weekly-dashboard-template.html"
+      }
+    ]
+  },
+  {
+    "id": "bo-cap-daily-brief",
+    "name": "/db · Daily Brief (+ variantes personales)",
+    "type": "capability",
+    "parentId": "p-both-os",
+    "kind": "skills",
+    "summary": "Brief matinal con prioridades, Calendar, Gmail, caché de Asana y señales del vault, renderizado como artifact. Variantes: /buen-dia-syn (Daiana), /buen-dia-gas (Gastón) y /buenos-dias-rene, que está documentada como rota porque su template nunca existió.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "owner": "Daiana primary",
+    "layout": {
+      "slot": 23
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/daily-brief/SKILL.md"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/CLAUDE.md",
+        "lines": "108",
+        "note": "buenos-dias-rene ROTO"
+      }
+    ]
+  },
+  {
+    "id": "bo-cap-meeting",
+    "name": "/mp · /mc (prep y closeout)",
+    "type": "capability",
+    "parentId": "p-both-os",
+    "kind": "skills",
+    "summary": "Brief pre-reunión de solo lectura desde el vault; y post-reunión, borrador del mail externo y del recap interno a partir del pending. Ninguna envía nada.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 24
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/meeting-prep/SKILL.md"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/meeting-closeout/SKILL.md"
+      }
+    ]
+  },
+  {
+    "id": "bo-cap-publishers",
+    "name": "Publicadores (/md-web · /html-web · /notion-web)",
+    "type": "capability",
+    "parentId": "p-both-os",
+    "kind": "skills + publish-push.sh",
+    "summary": "Convierten markdown, HTML local o páginas de Notion en páginas con tema BOTH bajo docs/pages/ y las publican vía el sync-daemon (el sandbox no tiene salida a internet).",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 25
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/md-web/SKILL.md"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/html-web/SKILL.md"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/notion-web/SKILL.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "scripts/publish-push.sh"
+      }
+    ]
+  },
+  {
+    "id": "bo-cap-draft-mode",
+    "name": "/draft-mode · espejo editable en Notion",
+    "type": "capability",
+    "parentId": "p-both-os",
+    "kind": "skill + draft-mirror.py",
+    "summary": "Espeja una página HTML publicada como página Notion comentable bajo {venture} → Drafts. Una sola vía: el HTML sigue siendo canónico. La cosecha de comentarios está bloqueada por una capability faltante de la integración.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "dates": {
+      "first": "2026-09-03"
+    },
+    "layout": {
+      "slot": 26
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/draft-mode/SKILL.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "scripts/draft-mirror.py"
+      },
+      {
+        "repo": "both_os",
+        "path": "config/drafts.json"
+      }
+    ]
+  },
+  {
+    "id": "bo-cap-hux",
+    "name": "/hux · CTO agéntico + 5 sub-agentes",
+    "type": "capability",
+    "parentId": "p-both-os",
+    "kind": "agente orquestador",
+    "summary": "Zoom-out técnico: stress-tester, ux-critic, agent-auditor, qa-systemic y security. /hux security interpreta el escaneo semanal y hace triage de incidentes. Recomienda, nunca actúa solo.",
+    "state": "experimental",
+    "evidence": "observed-in-docs",
+    "owner": "Mariano",
+    "dates": {
+      "first": "2026-05-30"
+    },
+    "layout": {
+      "slot": 27
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".claude/agents/hux.md"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/agents/hux-security.md"
+      }
+    ]
+  },
+  {
+    "id": "bo-cap-stf",
+    "name": "/stf · Stress Test Forum",
+    "type": "capability",
+    "parentId": "p-both-os",
+    "kind": "consejo adversarial · V0.1 beta",
+    "summary": "Cinco lentes fijas (Assassin, Rebuilder, Systems, Black Swan, Customer) más un árbitro que preserva el disenso. Dos outputs publicados en vault/agent_outputs/council/.",
+    "state": "experimental",
+    "evidence": "observed-in-docs",
+    "owner": "Gaston / Mariano",
+    "dates": {
+      "first": "2026-06-04"
+    },
+    "layout": {
+      "slot": 28
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/stf/SKILL.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "harnesses/stress-test-forum.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "vault/agent_outputs/council"
+      }
+    ]
+  },
+  {
+    "id": "bo-cap-design-desk",
+    "name": "/dd · Design Desk (Rick Studio V2)",
+    "type": "capability",
+    "parentId": "p-both-os",
+    "kind": "loop de branding con gates humanos",
+    "summary": "Brief → research → ángulos → territorios visuales → crítica adversarial → guidelines orientadas a agentes. Asientos: brief-doctor, creative-director, rick-prime (Art Director), curator. René cierra los gates A y B.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "owner": "Rene / Mariano",
+    "dates": {
+      "first": "2026-08-26"
+    },
+    "layout": {
+      "slot": 29
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/design-desk/SKILL.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "harnesses/design-desk.md",
+        "lines": "48-51"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/agents/rick-prime.md"
+      }
+    ]
+  },
+  {
+    "id": "bo-cap-creative",
+    "name": "Dirección creativa y narrativa",
+    "type": "capability",
+    "parentId": "p-both-os",
+    "kind": "agentes /nw /ad /ad-lc /rick-prime",
+    "summary": "Narrative Writer, Art Director BOTH, Art Director La Chamana y RICK/PRIME. René es el único gatekeeper. El README de agentes marca varios como posiblemente desactualizados.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "owner": "Rene",
+    "layout": {
+      "slot": 30
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".claude/agents/narrative-writer.md"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/agents/art-director.md"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/agents/README.md"
+      }
+    ]
+  },
+  {
+    "id": "bo-cap-finance",
+    "name": "Análisis financiero + /lp-report",
+    "type": "capability",
+    "parentId": "p-both-os",
+    "kind": "skills · scope full",
+    "summary": "Skill de auto-activación por tema (cashflow, P&L, runway, pricing) y el memorando trimestral al Limited Partner como HTML institucional autocontenido. Gastón es dueño de la carta.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "owner": "Daiana",
+    "layout": {
+      "slot": 31
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/both-financial-analysis/SKILL.md"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/lp-report/SKILL.md",
+        "lines": "21,41"
+      }
+    ]
+  },
+  {
+    "id": "bo-cap-360",
+    "name": "/360 · Evaluación 360 (Espejo)",
+    "type": "capability",
+    "parentId": "p-both-os",
+    "kind": "skill + harness perf-review",
+    "summary": "Digiere una one-on-one del ciclo semestral en un informe de pareja. Material de personas: no se publica, no va a Slack/Asana/Notion, no se mina.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "dates": {
+      "first": "2026-07-15"
+    },
+    "layout": {
+      "slot": 32
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/informe-360/SKILL.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "harnesses/perf-review.md"
+      }
+    ]
+  },
+  {
+    "id": "bo-cap-coach-news",
+    "name": "/sc Synergy Coach · /news",
+    "type": "capability",
+    "parentId": "p-both-os",
+    "kind": "skills",
+    "summary": "Coaching operativo para usar Synergy (auditoría de los viernes, captura de gaps) y conversión de un enlace de noticias en un brief de research publicado en Notion.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 33
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/synergy-coach/SKILL.md"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/news/SKILL.md"
+      }
+    ]
+  },
+  {
+    "id": "bo-cap-drive",
+    "name": "Captura y Drive (/cookie-monster · /print-to-drive · /vault-notion · /generate-pdf)",
+    "type": "capability",
+    "parentId": "p-both-os",
+    "kind": "skills",
+    "summary": "Archivar documentos en la carpeta correcta de Google Drive, imprimir markdown como HTML de marca a Drive, enlazar assets del vault en Notion y generar PDFs de marca (el helper de PDF tiene una ruta hardcodeada).",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 34
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/cookie-monster/SKILL.md"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/print-to-drive/SKILL.md"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/generate-pdf/SKILL.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "scripts/README.md"
+      }
+    ]
+  },
+  {
+    "id": "bo-cap-session",
+    "name": "Sesión (/startup · /upc · /id · /POV)",
+    "type": "capability",
+    "parentId": "p-both-os",
+    "kind": "skills",
+    "summary": "Apertura y cierre de sesión vía el daemon de sync, y los dos modos de tono: lente de identidad del usuario y emulación de un compañero con etiqueta de disclosure no removible.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 35
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/startup/SKILL.md"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/upc/SKILL.md"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/id/SKILL.md"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/pov/SKILL.md"
+      }
+    ]
+  },
+  {
+    "id": "bo-cap-oracle",
+    "name": "/so · Speculative Oracle Council",
+    "type": "capability",
+    "parentId": "p-both-os",
+    "kind": "agentes archivados",
+    "summary": "Tres cerebros (Philosopher, Quant, Architect) para escenarios estratégicos. En hold hasta un stress-test con Rene y Gaston; agentes archivados.",
+    "state": "parked",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 36
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".claude/agents/archive"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/CLAUDE.md",
+        "lines": "130"
+      }
+    ]
+  },
+  {
+    "id": "bo-cap-council-of-war",
+    "name": "/cw · Council of War",
+    "type": "capability",
+    "parentId": "p-both-os",
+    "kind": "proyecto · Phase 0",
+    "summary": "Panel asesor de identidades históricas con lentes fijas. No iniciado; su variante adversarial se materializó como /stf.",
+    "state": "proposed",
+    "evidence": "observed-in-docs",
+    "owner": "Gaston / Mariano",
+    "layout": {
+      "slot": 37
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "projects/council-of-war/status.md"
+      }
+    ]
+  },
+  {
+    "id": "bo-cap-bandwidth",
+    "name": "/bw · Bandwidth Optimization",
+    "type": "capability",
+    "parentId": "p-both-os",
+    "kind": "proyecto planificado",
+    "summary": "Monitor de capacidad humana + IA a partir de señales del vault, sin input manual. Arquitectura diseñada, sin implementación.",
+    "state": "proposed",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 38
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "projects/bandwidth-optimization/status.md"
+      }
+    ]
+  },
+  {
+    "id": "bo-cap-bv-os-v2",
+    "name": "Synergy v2 · interfaz propia sobre Claude",
+    "type": "capability",
+    "parentId": "p-both-os",
+    "kind": "proyecto planificado",
+    "summary": "UI de chat con marca (Next.js + Supabase) como evolución de Cowork. Documentación escrita, sin construir; el manifiesto de proyectos pide input del owner.",
+    "state": "proposed",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 39
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "projects/bv-os-v2/status.md"
+      }
+    ]
+  },
+  {
+    "id": "bo-cap-paperclip",
+    "name": "LC Paperclip · interfaz compartida de agentes",
+    "type": "capability",
+    "parentId": "p-both-os",
+    "kind": "fork con marca · Docker",
+    "summary": "Paperclip forkeado y con marca BOTH, corriendo local vía Docker + túnel. Operativo solo en local en abril; hoy en hold.",
+    "state": "parked",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 40
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "projects/lc-paperclip/status.md"
+      }
+    ]
+  },
+  {
+    "id": "bo-cap-telegram",
+    "name": "Telegram agent",
+    "type": "capability",
+    "parentId": "p-both-os",
+    "kind": "congelado 2026-06-01",
+    "summary": "Bot de Telegram para el equipo; congelado por falta de destino de hosting y porque Synergy en Slack cubre la superficie de chat. Reversible desde git.",
+    "state": "retired",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 41
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "vault/initiatives/2026-06-01-telegram-agent-frozen.md"
+      }
+    ]
+  },
+  {
+    "id": "bo-ctl-auto-approve",
+    "name": "Regla A · minado auto-aprobado",
+    "type": "control",
+    "parentId": "p-both-os",
+    "kind": "contrato de aprobación",
+    "summary": "En los tres caminos de minado no hay gate humano: vault, Asana y Slack se escriben de inmediato y el pending queda como traza aprobada. La Regla B (revisión del champion) queda reservada para fuentes no confiables.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 50
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".claude/agents/meeting-miner.harness.md",
+        "lines": "21-56"
+      }
+    ]
+  },
+  {
+    "id": "bo-ctl-no-mine",
+    "name": "Gate no_mine",
+    "type": "control",
+    "parentId": "p-both-os",
+    "kind": "hard stop",
+    "summary": "Un archivo con no_mine: true (material de la Evaluación 360) no se mina: /mine se niega. El Worker no puede aplicarlo, lo que la memoria del sistema registra como problema abierto.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "dates": {
+      "first": "2026-08-31"
+    },
+    "layout": {
+      "slot": 51
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/mine/SKILL.md",
+        "lines": "49-51"
+      }
+    ]
+  },
+  {
+    "id": "bo-ctl-asana-gatekeeper",
+    "name": "Daiana · gatekeeper de Asana",
+    "type": "control",
+    "parentId": "p-both-os",
+    "kind": "revisión humana",
+    "summary": "Las tareas llegan deduplicadas al proyecto BOTH Action Items (11 secciones); Daiana revisa y cura.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "owner": "Daiana",
+    "layout": {
+      "slot": 52
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".claude/CLAUDE.md",
+        "lines": "79"
+      }
+    ]
+  },
+  {
+    "id": "bo-ctl-champion",
+    "name": "Champion confirma su card",
+    "type": "control",
+    "parentId": "p-both-os",
+    "kind": "confirmación por conversación",
+    "summary": "En /vu el borrador se le muestra al champion y se escribe solo con su reacción; ningún número derivado entra sin validación.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 53
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/venture-update/SKILL.md",
+        "lines": "58-61"
+      }
+    ]
+  },
+  {
+    "id": "bo-ctl-digest",
+    "name": "Daiana valida el digest · Gaston preside",
+    "type": "control",
+    "parentId": "p-both-os",
+    "kind": "gate verbal",
+    "summary": "El digest de /wr no se distribuye sin confirmación de Daiana (verbal o WhatsApp) y se niega a salir con menos de tres ventures. La reunión del martes es solo decisiones, presidida por Gaston.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 54
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".claude/agents/weekly-reporter.md"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/CLAUDE.md",
+        "note": "Weekly Operating Rhythm paso 4"
+      }
+    ]
+  },
+  {
+    "id": "bo-ctl-rene-gates",
+    "name": "René · gates creativos",
+    "type": "control",
+    "parentId": "p-both-os",
+    "kind": "sign-off",
+    "summary": "Gate A (ángulos) y Gate B (territorios) del Design Desk, dirección de arte y narrativa, y el lanzamiento público de la landing de Photonic. El curador recomienda; René decide.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "owner": "Rene",
+    "layout": {
+      "slot": 55
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "harnesses/design-desk.md",
+        "lines": "48-51,133"
+      },
+      {
+        "repo": "both_os",
+        "path": "projects/photonic-labs/landing-v1/context.md"
+      }
+    ]
+  },
+  {
+    "id": "bo-ctl-deploy-pat",
+    "name": "Mariano · deploy gate y minteo de tokens",
+    "type": "control",
+    "parentId": "p-both-os",
+    "kind": "guardas de infraestructura",
+    "summary": "worker-deploy.sh se niega con árbol sucio o HEAD sin pushear y deja un registro de deploy en el vault; los tokens del equipo los mintea Mariano y el recuperador rechaza ventanas menores a 60 días.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "owner": "Mariano",
+    "layout": {
+      "slot": 56
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "scripts/worker-deploy.sh"
+      },
+      {
+        "repo": "both_os",
+        "path": "vault/initiatives/2026-06-23-team-pat-registry.md"
+      }
+    ]
+  },
+  {
+    "id": "bo-ctl-scopes",
+    "name": "Scopes de acceso (full · founder · restricted)",
+    "type": "control",
+    "parentId": "p-both-os",
+    "kind": "permisos",
+    "summary": "Full (Gaston, Daiana, Mariano) ve datos de LP e inversores; founder (Rene, Andres) ve todo lo operativo; restricted solo lo otorgado. both-private queda con Gaston y Daiana por rol, no por rango.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 57
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".claude/CLAUDE.md",
+        "note": "Permissions Model"
+      }
+    ]
+  },
+  {
+    "id": "bo-del-vault",
+    "name": "Knowledge Vault",
+    "type": "deliverable",
+    "parentId": "p-both-os",
+    "kind": "canon institucional",
+    "summary": "Archivos markdown con frontmatter, ciclo de vida draft → active → superseded → archived, nunca borrado. Al 2026-09-08: 762 decisiones, 589 riesgos, 235 transcripts, 36 iniciativas (conteo de archivos .md por carpeta).",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "dates": {
+      "first": "2026-03-30",
+      "last": "2026-09-07"
+    },
+    "layout": {
+      "height": 1.4,
+      "slot": 60
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "vault/_index.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "vault/decisions",
+        "note": "762 .md"
+      },
+      {
+        "repo": "both_os",
+        "path": "vault/risks",
+        "note": "589 .md"
+      },
+      {
+        "repo": "both_os",
+        "path": "vault/transcripts",
+        "note": "235 .md"
+      }
+    ]
+  },
+  {
+    "id": "bo-del-weekly-dashboard",
+    "name": "Glass dashboard semanal + digest",
+    "type": "deliverable",
+    "parentId": "p-both-os",
+    "kind": "HTML publicado · lunes/martes",
+    "summary": "26 carpetas publicadas bajo docs/pages/weekly/ entre 2026-04-22 y 2026-09-08 (una por Tuesday Sync, con tres variantes del 06-23). Se clona la plantilla canónica y se repuebla ES+EN.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "dates": {
+      "first": "2026-04-22",
+      "last": "2026-09-08"
+    },
+    "layout": {
+      "slot": 61
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "docs/pages/weekly",
+        "note": "26 carpetas con index.html"
+      },
+      {
+        "repo": "both_os",
+        "path": "vault/agent_outputs/cadence/weekly"
+      }
+    ]
+  },
+  {
+    "id": "bo-del-venture-cards",
+    "name": "Venture cards (10)",
+    "type": "deliverable",
+    "parentId": "p-both-os",
+    "kind": "vault/ventures/{slug}.md",
+    "summary": "Un card vivo por venture con bloques Current Week Update escritos por /vu, espejados a la base Ventures de Notion.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 62
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "vault/ventures",
+        "note": "10 cards canónicos entre 70 .md"
+      }
+    ]
+  },
+  {
+    "id": "bo-del-pages",
+    "name": "Páginas publicadas (GitHub Pages)",
+    "type": "deliverable",
+    "parentId": "p-both-os",
+    "kind": "docs/pages/**/index.html",
+    "summary": "139 archivos index.html bajo docs/pages/ (venture 26 · weekly 26 · synergy 17 · direction 15 · intel 9 · monitor 5 · otros). Algunas carpetas son stubs de redirección.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 63
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "docs/pages",
+        "note": "139 index.html"
+      }
+    ]
+  },
+  {
+    "id": "bo-del-briefs",
+    "name": "Daily briefs",
+    "type": "deliverable",
+    "parentId": "p-both-os",
+    "kind": "artifacts + markdown",
+    "summary": "48 archivos markdown en vault/agent_outputs/cadence/daily/ producidos por /db y sus variantes personales.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 64
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "vault/agent_outputs/cadence/daily",
+        "note": "48 .md"
+      }
+    ]
+  },
+  {
+    "id": "bo-del-lp-report",
+    "name": "LP Report Q2 (Portfolio Memorandum)",
+    "type": "deliverable",
+    "parentId": "p-both-os",
+    "kind": "HTML institucional autocontenido",
+    "summary": "Memorando trimestral al Limited Partner publicado el 2026-07-03. Dos carpetas bajo docs/pages/lp/.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "dates": {
+      "first": "2026-07-03"
+    },
+    "layout": {
+      "slot": 65
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "docs/pages/lp",
+        "note": "2 carpetas"
+      }
+    ]
+  },
+  {
+    "id": "bo-del-security-reports",
+    "name": "Reportes de seguridad",
+    "type": "deliverable",
+    "parentId": "p-both-os",
+    "kind": "vault/security/*.md",
+    "summary": "14 reportes semanales automáticos más un log de incidente. El primer escaneo detectó dos secretos vivos que fueron rotados.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "dates": {
+      "first": "2026-06-14",
+      "last": "2026-09-07"
+    },
+    "layout": {
+      "slot": 66
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "vault/security",
+        "note": "16 .md"
+      }
+    ]
+  },
+  {
+    "id": "bo-del-atlas",
+    "name": "Atlas y mapas del sistema",
+    "type": "deliverable",
+    "parentId": "p-both-os",
+    "kind": "docs/pages/synergy/",
+    "summary": "17 páginas: Atlas V3/V4 (generado por atlas-data-build.py), diagrama Synergy V3, mapa del sistema. Antecedentes directos de este mismo mundo.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "dates": {
+      "first": "2026-06-01"
+    },
+    "layout": {
+      "slot": 67
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "docs/pages/synergy",
+        "note": "17 index.html"
+      },
+      {
+        "repo": "both_os",
+        "path": "scripts/atlas-data-build.py"
+      }
+    ]
+  },
+  {
+    "id": "bo-con-readai",
+    "name": "Read.ai",
+    "type": "connection",
+    "parentId": "p-both-os",
+    "kind": "grabación + transcripción",
+    "summary": "El bot entra a las llamadas por Google Calendar y dispara el webhook con la transcripción completa al terminar.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 70
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "harnesses/auto-miner.md"
+      }
+    ]
+  },
+  {
+    "id": "bo-con-slack",
+    "name": "Slack (tres apps)",
+    "type": "connection",
+    "parentId": "p-both-os",
+    "kind": "notificaciones + chat",
+    "summary": "BOTH Mine Bot (salida del fanout), Synergy (chat bidireccional) y BOTH Claude (fallback en pausa).",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 71
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".claude/CLAUDE.md",
+        "note": "fila Slack del Operational Stack"
+      }
+    ]
+  },
+  {
+    "id": "bo-con-asana",
+    "name": "Asana · BOTH Action Items",
+    "type": "connection",
+    "parentId": "p-both-os",
+    "kind": "capa de aprobación de tareas",
+    "summary": "Un proyecto con una sección por venture más cross-cutting; secciones mapeadas en config/ventures.json y verificadas contra la API el 2026-08-31 según CLAUDE.md.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 72
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "config/ventures.json"
+      },
+      {
+        "repo": "both_os",
+        "path": "scripts/asana-push.py"
+      }
+    ]
+  },
+  {
+    "id": "bo-con-notion",
+    "name": "Notion",
+    "type": "connection",
+    "parentId": "p-both-os",
+    "kind": "capa de presentación",
+    "summary": "Base Ventures, páginas de área, Weekly Digest, Security y las páginas Drafts (única excepción editable).",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 73
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "scripts/vault-to-notion.py"
+      },
+      {
+        "repo": "both_os",
+        "path": "projects/integrations/status.md"
+      }
+    ]
+  },
+  {
+    "id": "bo-con-supabase",
+    "name": "Supabase",
+    "type": "connection",
+    "parentId": "p-both-os",
+    "kind": "PostgreSQL + pgvector",
+    "summary": "Trazas del pipeline (pipeline_runs), contexto del vault y conversaciones de Synergy. Doce tablas definidas; uso mínimo según la memoria del sistema.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 74
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "supabase/migrations/2026-05-23-pipeline-runs.sql"
+      }
+    ]
+  },
+  {
+    "id": "bo-con-github-pages",
+    "name": "GitHub Pages (repo stack)",
+    "type": "connection",
+    "parentId": "p-both-os",
+    "kind": "hosting público",
+    "summary": "Destino de publicación de todas las páginas: bothventures.github.io/stack/pages/.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "layout": {
+      "slot": 75
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".github/workflows/deploy-diagram.yml",
+        "lines": "16"
+      }
+    ]
+  },
+  {
+    "id": "bo-con-anthropic",
+    "name": "Anthropic API · Claude",
+    "type": "connection",
+    "parentId": "p-both-os",
+    "kind": "inteligencia de los agentes",
+    "summary": "Toda la inteligencia de agentes; el Worker usa haiku para minar por estabilidad en fetch de Cloudflare (según la memoria del sistema).",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 76
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".claude/CLAUDE.md",
+        "note": "Infrastructure · Anthropic API"
+      }
+    ]
+  },
+  {
+    "id": "bo-con-drive",
+    "name": "Google Drive",
+    "type": "connection",
+    "parentId": "p-both-os",
+    "kind": "fuente de verdad documental",
+    "summary": "Destino de /cookie-monster y /print-to-drive; drives compartidos separados por scope.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "layout": {
+      "slot": 77
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/cookie-monster/SKILL.md"
+      }
+    ]
+  },
+  {
+    "id": "ph-el-spine",
+    "name": "Hub documental (espina de 4 archivos)",
+    "type": "deliverable",
+    "parentId": "p-photonic-labs",
+    "kind": "_index · context · status · roadmap",
+    "summary": "Proyecto organizado por etapas: pre-incubación, incubación, go-live. Es la referencia del estándar de documentación de proyectos del repo.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "dates": {
+      "first": "2026-07-16"
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "projects/photonic-labs/_index.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "projects/_standard.md"
+      }
+    ]
+  },
+  {
+    "id": "ph-el-pack",
+    "name": "Pack de Pre-Incubación (cierre 2026-07-31)",
+    "type": "deliverable",
+    "parentId": "p-photonic-labs",
+    "kind": "4 documentos canónicos + ledger",
+    "summary": "Carpeta de cierre de la etapa con Qualia+: qué quedó cerrado y qué abierto. Publicado como página.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "dates": {
+      "first": "2026-07-30"
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "projects/photonic-labs/pre-incubacion"
+      },
+      {
+        "repo": "both_os",
+        "path": "docs/pages/venture/photonic-pack-2026-07"
+      }
+    ]
+  },
+  {
+    "id": "ph-el-wiki",
+    "name": "Project Wiki (generada)",
+    "type": "deliverable",
+    "parentId": "p-photonic-labs",
+    "kind": "build_dashboard.py → HTML",
+    "summary": "Wiki compartible con externos, generada desde markdown por un script; editar el .md y rebuild, nunca el HTML.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "projects/photonic-labs/wiki"
+      },
+      {
+        "repo": "both_os",
+        "path": "docs/pages/venture/photonic-labs-wiki"
+      }
+    ]
+  },
+  {
+    "id": "ph-el-landing",
+    "name": "Landing v1 (Vercel, pre-deploy)",
+    "type": "capability",
+    "parentId": "p-photonic-labs",
+    "kind": "sitio estático + proxy serverless a Claude",
+    "summary": "Tres superficies (about, diagnóstico interactivo, caja de preguntas agéntica), bilingüe. Construida y verificada en local; el lanzamiento público espera el sign-off de contenido de René.",
+    "state": "experimental",
+    "evidence": "observed-in-code",
+    "dates": {
+      "first": "2026-07-20"
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "projects/photonic-labs/landing-v1/status.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "projects/photonic-labs/landing-v1/context.md"
+      }
+    ]
+  },
+  {
+    "id": "ph-el-pitch",
+    "name": "Pitch institucional V0.3.0",
+    "type": "deliverable",
+    "parentId": "p-photonic-labs",
+    "kind": "página publicada",
+    "summary": "Narrativa para inversores/LP vigente; V0.2.1 y el framing “tres caminos” quedaron como snapshots superseded.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "docs/pages/venture/photonic-labs-institutional-v03"
+      }
+    ]
+  },
+  {
+    "id": "ph-el-incubacion",
+    "name": "Incubación (etapa en curso)",
+    "type": "workflow",
+    "parentId": "p-photonic-labs",
+    "kind": "estructura + capital + primeras contrataciones",
+    "summary": "Etapa que arranca tras el cierre de pre-incubación; incluye research y el investor deck v0.1 (local, sin publicar). Gates que resuelven forma y fecha del go-live 2027/28.",
+    "state": "experimental",
+    "evidence": "observed-in-docs",
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "projects/photonic-labs/incubacion"
+      },
+      {
+        "repo": "both_os",
+        "path": "projects/photonic-labs/roadmap.md"
+      }
+    ]
+  },
+  {
+    "id": "bn-el-spine",
+    "name": "Hub por seis frentes × cuenta regresiva",
+    "type": "deliverable",
+    "parentId": "p-punta-cripto",
+    "kind": "_index · context · status · roadmap + 6 frentes",
+    "summary": "Marca, Institucional, Comercial, Programa, Producción, Economía y Legal, cada frente con owner y gate. Al corte 2026-08-26 tres gates vencidos sin registro.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "dates": {
+      "first": "2026-08-26"
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "projects/bienal-blockchain-punta/_index.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "projects/bienal-blockchain-punta/status.md"
+      }
+    ]
+  },
+  {
+    "id": "bn-el-marca",
+    "name": "Marca · dos direcciones rivales",
+    "type": "deliverable",
+    "parentId": "p-punta-cripto",
+    "kind": "Design Desk packets",
+    "summary": "V0.2.0 Grabado vs V0.3.0 Máscaras, guidelines canónicas en blanco, motion; producidas con /dd. René elige.",
+    "state": "experimental",
+    "evidence": "observed-in-code",
+    "dates": {
+      "first": "2026-08-20",
+      "last": "2026-08-27"
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "projects/bienal-blockchain-punta/marca"
+      },
+      {
+        "repo": "both_os",
+        "path": "docs/pages/direction",
+        "note": "15 páginas de dirección"
+      }
+    ]
+  },
+  {
+    "id": "bn-el-forum-decks",
+    "name": "Punta Crypto Forum · decks y plan de preproducción",
+    "type": "deliverable",
+    "parentId": "p-punta-cripto",
+    "kind": "PDF/PPTX en el vault",
+    "summary": "Concept & case, brief del evento y supuestos, plan de preproducción (julio 2026), bajo el nombre anterior de la iniciativa.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "dates": {
+      "first": "2026-06",
+      "last": "2026-07"
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "vault/ventures/Punta-Crypto-Forum-Plan-Preproduccion-2026-07.pdf"
+      },
+      {
+        "repo": "both_os",
+        "path": "docs/pages/punta-crypto-forum"
+      }
+    ]
+  },
+  {
+    "id": "bn-el-page-2027",
+    "name": "Página Punta Blockchain 2027",
+    "type": "deliverable",
+    "parentId": "p-punta-cripto",
+    "kind": "página publicada",
+    "summary": "Publicada bajo el nombre intermedio; ninguna página publica todavía el nombre vigente (higiene pendiente según el hub).",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "docs/pages/punta-blockchain-2027"
+      }
+    ]
+  },
+  {
+    "id": "lc-el-card",
+    "name": "Card institucional + reportes LP",
+    "type": "deliverable",
+    "parentId": "p-la-chamana",
+    "kind": "vault + páginas",
+    "summary": "Registro del venture en el vault y los reportes a inversores Q1/Q2 2026 publicados como páginas.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "vault/ventures/la-chamana.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "docs/pages/la-chamana-lp-q1-26"
+      }
+    ]
+  },
+  {
+    "id": "lc-el-gtm-docs",
+    "name": "Kits de marketing y estrategia DM (abril 2026)",
+    "type": "deliverable",
+    "parentId": "p-la-chamana",
+    "kind": "docx/md en el vault",
+    "summary": "Kits por segmento (HNWI, corporate, creators, conscious luxury) en ES/EN, brief de influencers, estrategia de DMs; antecedente del GTM que después migró a El Chamán.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "dates": {
+      "first": "2026-04"
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "vault/ventures/la-chamana-dm-campaign-strategy-2026-04.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "vault/ventures/la-chamana-gtm-q2-2026.md"
+      }
+    ]
+  },
+  {
+    "id": "lc-el-bridge",
+    "name": "Puente a El Chamán (repo lc-chaman)",
+    "type": "workflow",
+    "parentId": "p-la-chamana",
+    "kind": "puntero cross-repo",
+    "summary": "CLAUDE.md declara que La Chamana tiene su propio OS en otro repo y que Synergy debe leerlo en vivo; el archivo LC_OS_V1 del vault es el ejercicio de diseño de abril que lo originó.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "dates": {
+      "first": "2026-04-27"
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".claude/CLAUDE.md",
+        "lines": "334-338"
+      },
+      {
+        "repo": "both_os",
+        "path": "vault/ventures/la-chamana-os-v1-2026-04-27.md"
+      }
+    ]
+  },
+  {
+    "id": "mc-el-reportes",
+    "name": "Reportes y hoja de ruta",
+    "type": "deliverable",
+    "parentId": "p-manantial-casa",
+    "kind": "HTML/PDF",
+    "summary": "Reporte marzo 2026, hoja de ruta Q3-Q4, cultura, anexo Polkadot Embassy y propuesta de embajada comercial.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "vault/ventures/casa-manantial-hoja-de-ruta-q3-q4-2026.html"
+      },
+      {
+        "repo": "both_os",
+        "path": "vault/ventures/manantial-casa-embajada-comercial-propuesta-2026-06.md"
+      }
+    ]
+  },
+  {
+    "id": "mc-el-board",
+    "name": "Páginas de board y cobranzas",
+    "type": "deliverable",
+    "parentId": "p-manantial-casa",
+    "kind": "páginas publicadas",
+    "summary": "Board mar-abr 26 y cobranzas publicados en GitHub Pages.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "docs/pages/casa-manantial-board-mar-abr-26"
+      },
+      {
+        "repo": "both_os",
+        "path": "docs/pages/casa-manantial-cobranzas"
+      }
+    ]
+  },
+  {
+    "id": "rs-el-legal",
+    "name": "Acuerdos y memo de counsel (Zenith)",
+    "type": "deliverable",
+    "parentId": "p-reshore",
+    "kind": "docx en el vault",
+    "summary": "Memo de counsel, redline del acuerdo y términos y condiciones de proveedores v1 (agosto 2026).",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "vault/ventures/2026-06-14-zenith-reshore-counsel-memo.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "vault/ventures/Reshore-TC-Proveedores-v1-2026-08.docx"
+      }
+    ]
+  },
+  {
+    "id": "rs-el-intel",
+    "name": "Intel pill + análisis de landing",
+    "type": "deliverable",
+    "parentId": "p-reshore",
+    "kind": "páginas publicadas",
+    "summary": "Dos páginas de inteligencia sobre Reshore en GitHub Pages.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "docs/pages/reshore-intell-pill-001"
+      },
+      {
+        "repo": "both_os",
+        "path": "docs/pages/reshore-landing-page-analysis"
+      }
+    ]
+  },
+  {
+    "id": "lk-el-decks",
+    "name": "Decks de inversores y Qatar + DD",
+    "type": "deliverable",
+    "parentId": "p-lak3",
+    "kind": "PDF/docx en el vault",
+    "summary": "Deck de inversores (abril), deck y plaquette Qatar, due diligence HRC v2 y contrapropuesta de tokenomics.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "dates": {
+      "first": "2026-04",
+      "last": "2026-05"
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "vault/ventures/lak3-investors-deck-2026-04-24.pdf"
+      },
+      {
+        "repo": "both_os",
+        "path": "vault/ventures/lak3-dd-hrc-v2-2026-05-27.docx"
+      }
+    ]
+  },
+  {
+    "id": "lk-el-intel",
+    "name": "Intel 004 · LAK3",
+    "type": "deliverable",
+    "parentId": "p-lak3",
+    "kind": "página publicada",
+    "summary": "Reporte de inteligencia publicado en marzo 2026.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "docs/pages/both-intel-004-lak3-nasar"
+      }
+    ]
+  },
+  {
+    "id": "qt-el-im",
+    "name": "Information Memorandum v2.4 + modelo + deck v0.3",
+    "type": "deliverable",
+    "parentId": "p-quantum",
+    "kind": "docx/xlsx/pptx en el vault",
+    "summary": "Paquete de inversión de Quantum y el caso ecosistema Uruguay (v2 → v9).",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "vault/ventures/QUANTUM-Information-Memorandum-v2.4.docx"
+      },
+      {
+        "repo": "both_os",
+        "path": "vault/ventures/QUANTUM-Investor-Deck-v0.3.pptx"
+      }
+    ]
+  },
+  {
+    "id": "qt-el-presidencia",
+    "name": "Uruguay Quantum Hub · carta a Presidencia",
+    "type": "deliverable",
+    "parentId": "p-quantum",
+    "kind": "docx/pdf, v2 → v9 + papel timbrado",
+    "summary": "Documento institucional iterado nueve veces entre mayo y junio 2026.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "dates": {
+      "first": "2026-05",
+      "last": "2026-06"
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "vault/ventures/Uruguay-Quantum-Hub-Presidencia-2026-06-v9.pdf"
+      }
+    ]
+  },
+  {
+    "id": "qt-el-stf",
+    "name": "Stress Test Forum · Quantum/TQA",
+    "type": "deliverable",
+    "parentId": "p-quantum",
+    "kind": "output del consejo adversarial",
+    "summary": "Primer STF publicado (2026-06-04) sobre el deal Quantum/TQA; los docs de inversores derivados siguen en pending como needs-confirmation.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "dates": {
+      "first": "2026-06-04"
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "vault/agent_outputs/council"
+      }
+    ]
+  },
+  {
+    "id": "pb-el-card",
+    "name": "Card observacional",
+    "type": "deliverable",
+    "parentId": "p-panambi",
+    "kind": "vault/ventures/panambi.md",
+    "summary": "BOTH sigue Panambi de forma observacional; el card es el único artefacto en el repo.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "vault/ventures/panambi.md"
+      }
+    ]
+  },
+  {
+    "id": "cf-el-spec",
+    "name": "Spec del botón refresh (harvester de keywords)",
+    "type": "deliverable",
+    "parentId": "p-content-factory",
+    "kind": "prototipo de referencia",
+    "summary": "Documento de spec y prototipo; el doc dice que se implementó en content-factory-sandbox (PR #1, pendiente de merge). El repo productivo no está disponible acá.",
+    "state": "implemented",
+    "evidence": "claimed-by-doc",
+    "dates": {
+      "first": "2026-06-23"
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "projects/content-factory/refresh-button-spec.md"
+      }
+    ]
+  },
+  {
+    "id": "cf-el-external",
+    "name": "Motor en content-factory-sandbox (externo)",
+    "type": "connection",
+    "parentId": "p-content-factory",
+    "kind": "repo de Andrés · no en disco",
+    "summary": "El motor de contenido vive en otro repo y un deploy externo; en este atlas solo aparece como conexión declarada por documentos de both_os y lc-chaman.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".claude/CLAUDE.md",
+        "note": "tabla Two GitHub Repos"
+      }
+    ]
+  },
+  {
+    "id": "bo-ctl-gaston-capital",
+    "name": "Gastón · capital, exits, estructura y LP",
+    "type": "control",
+    "parentId": "p-both-os",
+    "kind": "decisión única del CEO",
+    "summary": "Asignación de capital, nuevos proyectos, salidas, cambios de estructura societaria y comunicación con inversores son decisiones de Gastón solo. Preside el martes: solo decisiones, sesenta minutos. En la máquina GTM, la decisión comercial también es suya.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "owner": "Gaston",
+    "layout": {
+      "slot": 58
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".claude/CLAUDE.md",
+        "note": "tabla Team · Sole Decisions · Decision authority"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/operating-model.md",
+        "lines": "44-61"
+      }
+    ]
+  },
+  {
+    "id": "bo-ctl-andres-legal",
+    "name": "Andrés · legal, due diligence y compliance",
+    "type": "control",
+    "parentId": "p-both-os",
+    "kind": "gate legal · CLO",
+    "summary": "Estructuración legal, due diligence y compliance son de Andrés; en el Design Desk sostiene el gate legal, y es el dueño de Content Factory. En la Bienal lleva el frente de Economía y Legal con Daiana.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "owner": "Andres",
+    "layout": {
+      "slot": 59
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".claude/CLAUDE.md",
+        "note": "tabla Team · Sole Decisions"
+      },
+      {
+        "repo": "both_os",
+        "path": "harnesses/design-desk.md",
+        "lines": "48-51"
+      },
+      {
+        "repo": "both_os",
+        "path": "projects/bienal-blockchain-punta/_index.md"
+      }
+    ]
+  }
+]

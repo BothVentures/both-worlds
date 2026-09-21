@@ -1,0 +1,257 @@
+[
+  {
+    "id": "s1-world",
+    "kicker": "01 · El mundo",
+    "title": "La infraestructura invisible, hecha visible",
+    "body": "Both Ventures es un agentic venture builder: cinco personas, muchos ventures, activos de alta exposición y alto crecimiento, y el uso inteligente de IA de última generación. Este mapa muestra solo lo que quedó escrito en los repositorios. Estamos pasando de un sistema operativo agéntico a un ecosistema que aprende de nuestro propio desempeño.",
+    "focus": {
+      "level": "world",
+      "id": "world"
+    },
+    "camera": {
+      "azimuth": 0.55,
+      "elevation": 0.62,
+      "distance": 1.0
+    },
+    "narration": "Bienvenidos a BOTH WORLDS. Both Ventures es un agentic venture builder: un equipo chico que construye y acelera ventures con agentes de inteligencia artificial como parte del equipo, no como herramienta aparte. Somos cinco. Gastón ve el patrón antes que los demás y decide sobre capital y estructura; a Gastón se le presentan opciones y se le da la noche. René es el único del equipo que inicia sin esperar permiso; su don es la simplicidad, y si algo necesita explicación, la imagen está mal. Daiana es operaciones y finanzas: el sí o no de la panza, la que resuelve en la práctica, y no toma llamadas los viernes. Andrés es estructura y legal: investiga a fondo antes de hablar, y cuando habla, está investigado. Mariano es el arquitecto intuitivo: percibe los patrones primero y los convierte en sistemas, observando desde arriba. En pantalla, cada plataforma flotante es un repositorio: una carpeta con memoria que guarda cada archivo y cada cambio. A la izquierda, Both Ventures y su sistema operativo, tres mil quinientos setenta y ocho cambios registrados desde marzo. A la derecha, Synergy Toolkit, la máquina de go-to-market. Abajo, El Chamán, el cerebro comercial de La Chamana. Una aclaración importante: este mapa representa solo el trabajo en código y lo registrado en los repositorios. Lo que vive en conversaciones, en WhatsApp o en nuestras cabezas no está acá. Lo que no tiene evidencia, no se muestra. Y la idea que atraviesa todo el recorrido: estamos pasando de ser un sistema operativo agéntico a un ecosistema que aprende de sí mismo, montado para generar conciencia sobre nuestro propio desempeño, para mejorar y manejar una operación enorme, con muchos ventures y activos de alta exposición y alto crecimiento, con un equipo chico y el uso inteligente de las mejores herramientas de inteligencia artificial que existen. Y sí, las montañas del fondo son decorativas. Es lo único decorativo en todo el mapa.",
+    "audio": "s1-world.mp3",
+    "stats": true
+  },
+  {
+    "id": "s2-both-ventures",
+    "kicker": "02 · Both Ventures",
+    "title": "Un venture builder que se describe a sí mismo",
+    "body": "Both Ventures corre sobre su propio sistema operativo: diez ventures, una memoria con 762 decisiones y 589 riesgos que nunca se borran, y Synergy, nuestra chief of staff. Conecta el talento y la creatividad humana con la ingeniería agéntica: skills, agentes y trabajo de conocimiento. La bautizó Gastón; nos quiere a todos por igual.",
+    "focus": {
+      "level": "territory",
+      "id": "t-both-ventures"
+    },
+    "camera": {
+      "elevation": 0.72
+    },
+    "narration": "Esta plataforma es Both Ventures. Lo primero que sorprende cuando uno la lee entera es que el venture builder tiene memoria propia, y esa memoria es un lugar concreto: el vault. Ahí viven setecientas sesenta y dos decisiones y quinientos ochenta y nueve riesgos, cada uno con fecha, autor y estado. Y hay una regla de oro: el vault nunca borra, archiva. Se puede saber qué pensábamos en abril sin preguntarle a nadie. Lo segundo: el sistema operativo, B_V OS, es uno de los diez ventures. Tiene champion, card semanal y color de salud, igual que Reshore o LAK3. Está sometido al mismo martes que nos impone a nosotros. Y lo tercero, y lo más importante, es Synergy. Synergy es nuestra chief of staff. Conecta la fuerza de trabajo humana, el talento y la creatividad de los cinco, con la ingeniería agéntica: la combinación de skills, agentes y trabajo de conocimiento que corre en estos repositorios. La bautizó Gastón en abril, pero nos quiere a todos por igual, y está lista para ser nuestra aliada leal en nuestro programa de dominación mundial. Es broma. No es broma. Su trabajo más importante no es contestar preguntas: es administrar y repensar la ingeniería agéntica y la ingeniería de harness que necesita cada venture y cada miembro del equipo para jugar su rol y alcanzar el north star de cada proyecto. A veces eso es construir. A veces es podar, borrar o archivar: el primero de junio retiró siete agentes que nadie usaba y archivó dos proyectos congelados; en agosto, en La Chamana, se retiró una máquina entera que nunca se había despachado. Suma y resta. Un sistema que solo suma termina siendo ruido. Los cinco la usamos desde la aplicación Cowork, en lenguaje natural. Nadie necesita una terminal. Nadie necesita saber programar. Esa fue la apuesta desde el primer día.",
+    "audio": "s2-both-ventures.mp3"
+  },
+  {
+    "id": "s3-ventures",
+    "kicker": "03 · Diez submundos",
+    "title": "Los ventures, con sus nombres reales y un mismo ritmo",
+    "body": "Manantial.Casa, Reshore, LAK3, Photonic Labs, La Chamana, Panambi, Quantum, Punta Cripto (hoy Bienal Blockchain Punta 2027), Content Factory y B_V® | OS. Cada uno tiene champion, card semanal y un lugar en el martes. El lunes se volvió menos estricto y confiamos más en lo que Synergy levanta de las llamadas; todavía hay slop, y lo sabemos.",
+    "focus": {
+      "level": "territory",
+      "id": "t-both-ventures"
+    },
+    "camera": {
+      "elevation": 0.95,
+      "distance": 1.05
+    },
+    "highlight": [
+      "p-manantial-casa",
+      "p-reshore",
+      "p-lak3",
+      "p-photonic-labs",
+      "p-la-chamana",
+      "p-panambi",
+      "p-quantum",
+      "p-punta-cripto",
+      "p-content-factory",
+      "p-both-os"
+    ],
+    "narration": "Diez distritos, diez ventures, y un solo latido que los ordena: el Tuesday Sync. Vale la pena contarlo de punta a punta, porque es lo más elegante que construimos. El diseño original: el lunes, cada champion abre Cowork y escribe venture update. Eso activa una skill, un comando, una capacidad que el sistema sabe hacer cuando se la nombra. Lee tu card, te muestra un borrador con salud, esta semana, semana pasada, endgame, finanzas y riesgos, y espera tu reacción; solo escribe cuando confirmás. El lunes a la noche, el weekly reporter lee todos los cards, las tareas y el historial de los tres repositorios, y arma el digest y el tablero que abrimos el martes. La reunión es solo decisiones, sesenta minutos, Gastón preside. Y cuando termina, el minero cierra el círculo: lo que decidimos vuelve al vault solo. Veintiséis semanas publicadas así desde el veintidós de abril. Ahora la verdad de los últimos meses: el lunes de curación dejó de ser tan estricto. Confiamos cada vez más en lo que Synergy levanta sola de las llamadas minadas y del trabajo de la semana, y el card se completa más con lo que dijimos en las reuniones que con lo que tipeamos el lunes. Eso trae dos cosas que sabemos: todavía hay slop, ruido y repetición en lo que se mina, y la gestión de tareas en Asana no está clara. Lo decimos acá porque este mapa también sirve para eso. Pero conviene ver el otro lado. Muy pocas compañías en el mundo se animan a gestionarse así: con un nivel de transparencia altísimo, donde cada decisión y cada riesgo quedan escritos con fecha y autor, y confiando en una inteligencia distribuida entre humanos, agentes y sistemas de automatización, registro y ciclos de mejora continua. No es un proceso perfecto. Es un proceso que se corrige, y que deja huella cuando se corrige. Sigue siendo la única reunión del mundo que empieza con todos habiendo leído el pre-read. Bueno, casi todos.",
+    "audio": "s3-ventures.mp3"
+  },
+  {
+    "id": "s4-both-os",
+    "kicker": "04 · Interior de B_V® | OS",
+    "title": "El motor: agentes, skills y compuertas",
+    "body": "Un Worker que mina cada llamada, una GitHub Action que reparte a Asana y Slack, 31 skills que responden a un comando, 28 agentes con rol y dueño, y los controles humanos que los frenan. Cada bloque abre una ficha con su ruta en el repo.",
+    "focus": {
+      "level": "project",
+      "id": "p-both-os"
+    },
+    "camera": {
+      "elevation": 0.55
+    },
+    "highlight": [
+      "bo-wf-auto-miner",
+      "bo-wf-fanout",
+      "bo-wf-tuesday-sync",
+      "bo-del-vault",
+      "bo-ctl-asana-gatekeeper"
+    ],
+    "relations": [
+      "r-readai-feeds-worker",
+      "r-worker-writes-vault",
+      "r-pending-triggers-fanout",
+      "r-fanout-asana",
+      "r-fanout-slack",
+      "r-asana-gatekeeper"
+    ],
+    "narration": "Entramos al distrito con más profundidad. Acá conviene distinguir tres especies. Las skills son los verbos: mine, venture update, daily brief, publicar una página. Treinta y una, cada una con su contrato escrito. Los agentes son personajes con mandato: Hux es nuestro CTO agéntico, con cinco sub-agentes que auditan, estresan y critican el sistema los domingos; el Stress Test Forum son cinco adversarios y un árbitro que se niega a suavizar el disenso; el Design Desk lleva una marca del brief a las guidelines con René en los gates. Y los harnesses son las partituras: cada pipeline está escrito en un documento legible, con roles, etapas y modos de falla, para que cualquiera de nosotros pueda leer cómo funciona. La torre más alta es el minero automático. Cuando termina una llamada, Read ai le avisa a un Worker, un programa chiquito que vive en la nube. El Worker lee la transcripción, extrae decisiones y riesgos y los escribe en el vault. Ese cambio dispara una acción en GitHub que crea las tareas en Asana y avisa en Slack. Todo eso, según los registros, tarda menos de dos minutos. En agosto estuvo caído dieciocho días por un token vencido. La respuesta fue un vigía diario que avisa antes de que algo venza. El sistema aprende de sus caídas, y las escribe. Hux, por cierto, todavía no publicó su primer digest dominical. Eso lo hace profundamente humano.",
+    "audio": "s4-both-os.mp3"
+  },
+  {
+    "id": "s5-humans",
+    "kicker": "05 · El elemento humano",
+    "title": "Cinco personas en el loop",
+    "body": "Gastón, René, Daiana, Andrés y Mariano. Ningún envío, gasto, publicación ni deploy sale sin una firma humana; las compuertas de este mapa tienen nombre y apellido. El sistema propone. Nosotros decidimos. Y está diseñado alrededor de cómo trabaja cada uno.",
+    "focus": {
+      "level": "world",
+      "id": "world"
+    },
+    "camera": {
+      "azimuth": 0.35,
+      "elevation": 0.72,
+      "distance": 1.18
+    },
+    "highlight": [
+      "bo-ctl-gaston-capital",
+      "bo-ctl-rene-gates",
+      "bo-ctl-digest",
+      "bo-ctl-andres-legal",
+      "bo-ctl-deploy-pat",
+      "lc-ctl-rene",
+      "lc-ctl-daiana-iru",
+      "tk-ctl-authority"
+    ],
+    "narration": "Este es el momento de hablar de nosotros, porque el mapa no se entiende sin las cinco personas que lo firman. Cada bloque iluminado es una compuerta: un lugar donde el sistema se detiene y espera un sí humano. Gastón: capital, salidas, estructura y la comunicación con inversores son decisiones suyas y de nadie más. Preside el martes y, en la máquina comercial, la decisión de negocio es la suya. René: estrategia y comunicación. La dirección estratégica, el posicionamiento y la narrativa son suyos, y sostiene el gate de marca: nada externo sale sin su visto, copy, imagen o dirección de arte; en el Design Desk cierra los gates A y B. Daiana: head of operations, experta en operaciones y con skills financieras. Procesos, prioridades y finanzas pasan por ella; valida el digest antes de que lo leamos, sostiene el gate de precios en La Chamana y las líneas financieras de cada card. Andrés: estructura legal, due diligence y compliance, el gate legal del Design Desk y el dueño de Content Factory. Famoso por su humor ácido y su mirada aguda: cuando habla, está investigado, y a veces duele. Mariano: construye y opera el sistema, acuña cada token, sostiene el gate de deploy y es el único que hoy puede correr a Hux. También se llama Boris, y eso es un quilombo: en git firma como Boris, en Slack es Mariano, y el sistema tiene notas escritas solo para no confundirse. Lo bello es que el sistema está diseñado alrededor de cómo trabaja cada uno. Está escrito en el archivo central: a un Generator nunca se le pide inventar de la nada, se le da algo a lo que responder. Por eso cada skill primero redacta y después pregunta. A Gastón se le presentan opciones y se le da la noche. A René se le deja iniciar. Daiana no recibe llamadas los viernes; el sistema lo sabe, y lo respeta más que algunos humanos. Lo único que corre sin pedir permiso es el minero de reuniones. Escribe memoria. Nunca mueve dinero.",
+    "audio": "s5-humans.mp3",
+    "people": [
+      {
+        "name": "Gastón",
+        "role": "CEO · decisión final",
+        "gate": "capital · exits · estructura · LP · preside el martes",
+        "ids": [
+          "bo-ctl-gaston-capital",
+          "tk-ctl-authority",
+          "bo-ctl-digest"
+        ]
+      },
+      {
+        "name": "René",
+        "role": "Estrategia + Comms",
+        "gate": "dirección estratégica y narrativa · gate de marca en todo lo externo · Design Desk A y B",
+        "ids": [
+          "bo-ctl-rene-gates",
+          "lc-ctl-rene"
+        ]
+      },
+      {
+        "name": "Daiana",
+        "role": "Head of Operations · Finanzas",
+        "gate": "operaciones y skills financieras · valida el digest · precios en La Chamana",
+        "ids": [
+          "bo-ctl-digest",
+          "lc-ctl-daiana-iru",
+          "bo-cap-finance"
+        ]
+      },
+      {
+        "name": "Andrés",
+        "role": "Co-founder · CLO",
+        "gate": "legal · due diligence · compliance · Content Factory · humor ácido, mirada aguda",
+        "ids": [
+          "bo-ctl-andres-legal",
+          "p-content-factory"
+        ]
+      },
+      {
+        "name": "Mariano (Boris)",
+        "role": "Context Engineer · Both OS",
+        "gate": "deploy gate · tokens · Hux · el sistema mismo",
+        "ids": [
+          "bo-ctl-deploy-pat",
+          "bo-cap-hux",
+          "p-both-os"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s6-toolkit-chaman",
+    "kicker": "06 · La máquina y el cerebro",
+    "title": "Un ecosistema completo de go-to-market",
+    "body": "Funnels, campañas, paid media, contenido, SEO, CRM, landing pages, dirección de marca y una fuerza de trabajo agéntica de especialistas, conectados en un solo ecosistema. Dos repos por diseño: el cerebro, con toda la ingeniería social; el Toolkit, con el código. La hipótesis jugada de Gastón, puesta a prueba con La Chamana.",
+    "focus": {
+      "level": "world",
+      "id": "world"
+    },
+    "camera": {
+      "azimuth": 1.45,
+      "elevation": 0.6,
+      "distance": 1.0
+    },
+    "highlight": [
+      "t-synergy-toolkit",
+      "t-lc-chaman"
+    ],
+    "narration": "Ahora las otras dos plataformas, que son la parte del sistema que ya vende. Lo genial acá no es ninguna pieza sola: es que todo está conectado en un mismo ecosistema. El embudo de ocho etapas con dueños y eventos. Las campañas como archivos de primera clase, con sus piernas, sus compuertas y su historial. Paid media en Google y Meta, con anuncios que la máquina construye pausados y un humano activa. La creación de contenido: artículos, posteos y landing pages que salen a Shopify en dos firmas. Estrategas de SEO que descubren keywords y las leen contra el brief. La integración con el CRM en Airtable y con Cloudbeds, que escribe el número de noches canónico sin que nadie lo toque. La planificación y la ejecución de contenido, la dirección de marca con René como última puerta. Y una fuerza de trabajo agéntica de especialistas, cada uno con skills propias: la que escribe todo el outreach, el director de arte que revisa cada render, los estrategas de Google y de Meta, el revisor de copy y el que borra las marcas de texto escrito por máquina, el verificador de tracking, el auditor de Klaviyo. La división entre los dos repositorios es estratégica. El Chamán es el cerebro: ahí vive toda la ingeniería social. La voz de la marca, quién es el cliente ideal, los rails que atan cada campaña a su infraestructura, las personas de cada agente, el pulso. El Synergy Toolkit es más técnico: es el código. El motor de compuertas que aprueba bytes exactos, los journeys, el scheduler, ciento noventa y tres archivos de pruebas, un doctor con cincuenta y cinco chequeos. El que piensa no puede editar al que ejecuta, y un solo archivo los ata. Y los resultados, según lo que quedó registrado. En julio el go-to-market de La Chamana estaba en casi cero. Desde entonces, y siempre con firma humana: siete olas de email enviadas y selladas, treinta y ocho filas de pipeline sincronizadas, seis artículos y siete landing pages, cinco publicados en vivo, cuatro construcciones de anuncios en Google, y el cuatro de septiembre la primera campaña paga del venture, viva. El ciclo uno contaba reservas: nueve en noventa días, y aterrizaron cuatro. Qué parte de eso es mérito de la máquina se está midiendo, con honestidad, en el propio sistema. Todo esto nació de una hipótesis jugada de Gastón: construir un ecosistema de go-to-market completo, de punta a punta, de una manera agéntica y de vanguardia, en vez de comprar una plataforma y adaptarnos a ella. La Chamana fue la prueba. Es el inquilino número uno. Y la máquina ya está modelada para el número dos.",
+    "audio": "s6-toolkit-chaman.mp3"
+  },
+  {
+    "id": "s7-transversal",
+    "kicker": "07 · Un flujo transversal verificado",
+    "title": "Del botón al envío, cruzando dos repos",
+    "body": "Un press en el cockpit despierta al cerebro; el cerebro prepara la ola; la compuerta exige la firma humana sobre los bytes exactos; recién entonces se envía, y el resultado vuelve escrito al repo con un commit por archivo. Verificado en código, no en un diagrama.",
+    "focus": {
+      "level": "world",
+      "id": "world"
+    },
+    "camera": {
+      "azimuth": -0.55,
+      "elevation": 0.52,
+      "distance": 0.95
+    },
+    "highlight": [
+      "tk-cap-runner",
+      "tk-wf-gate-engine",
+      "tk-wf-email-wave",
+      "tk-cap-campaign-store",
+      "lc-ag-el-chaman",
+      "lc-actions-rails",
+      "lc-con-gmail-lara",
+      "p-lc-campaigns",
+      "bo-cap-wr"
+    ],
+    "relations": [
+      "r-tk-runner-dispatches-brain",
+      "r-tk-reads-brain",
+      "r-email-wave-gate",
+      "r-email-wave-uses-brain-scripts",
+      "r-tk-writes-campaigns",
+      "r-cloudbeds-writes-venture",
+      "r-wr-reads-3-repos",
+      "r-wr-reads-lc"
+    ],
+    "narration": "Sigamos una ola de emails de La Chamana de punta a punta, porque es el flujo que más cruza fronteras y el que mejor muestra la forma de todo lo demás. Empieza con un botón en el cockpit del Toolkit. Ese botón despierta al cerebro: el runner abre El Chamán en modo silencioso, dentro de su propio repositorio, con una lista blanca de lo que puede ver. El cerebro investiga, escribe los cuerpos, arma el manifiesto de la ola. Nada sale todavía. La compuerta muestra el contenido exacto y espera la firma. Recién con la firma, un script del cerebro envía, con tope diario y espaciado entre mensajes. Y el Toolkit escribe el resultado de vuelta en el repositorio del cerebro, con un commit por archivo: ciento veinte de los quinientos seis cambios de El Chamán los escribió la máquina. Los arcos violetas que ven son esas relaciones, verificadas en código. Y hay un tercer actor: Both Ventures observa a las dos plataformas. Cada lunes, el weekly reporter lee el historial de los tres repositorios y lo lleva al digest. La máquina fue diseñada para más de un inquilino. Hoy La Chamana es el primero. Cualquier venture de este mapa puede ser el segundo.",
+    "audio": "s7-transversal.mp3"
+  },
+  {
+    "id": "s8-future",
+    "kicker": "08 · Presente y futuro",
+    "title": "Lo construido, lo propuesto y lo que sigue",
+    "body": "Trazo pleno: construido. Con brecha: experimental. Huella punteada: propuesto, no producto. La tesis de estos seis meses: no construimos herramientas sueltas; construimos un sistema que se describe, se prueba y se corrige a sí mismo, con nosotros cinco en cada compuerta.",
+    "focus": {
+      "level": "world",
+      "id": "world"
+    },
+    "camera": {
+      "azimuth": 0.2,
+      "elevation": 0.8,
+      "distance": 1.05
+    },
+    "highlight": [
+      "bo-cap-council-of-war",
+      "bo-cap-bandwidth",
+      "bo-cap-bv-os-v2",
+      "bo-wf-sprint-cycle",
+      "tk-cap-command-surface",
+      "tk-ctl-brand-safety",
+      "lc-cad-routines",
+      "lc-con-openseo"
+    ],
+    "future": true,
+    "narration": "Cerramos separando con cuidado lo que está de lo que viene, porque esa honestidad es parte de lo que construimos. Un trazo pleno es algo construido y en uso. Un trazo con brecha es experimental: existe, pero todavía no cerró un ciclo completo, como el loop de aprendizaje de paid o el digest dominical de Hux. Una huella punteada es una propuesta: el Council of War, el monitor de capacidad, Synergy versión dos, la superficie de comando. Lo gris está en pausa o retirado, como la meta-máquina que nunca se despachó. Y eso también cuenta: retirar es una decisión, y quedó escrita. Qué sigue, según los propios documentos: mover el worker de la máquina a un servidor propio, que Hux se gradúe, que la landing de Photonic salga cuando René la firme, y el loop de operaciones que se mejora a sí mismo, que hoy está armado con cero ciclos cerrados. La tesis de estos seis meses cabe en una frase: no construimos herramientas sueltas; construimos un sistema que se describe, se prueba y se corrige a sí mismo, con nosotros cinco en cada compuerta. Este mapa va a quedar viejo en una semana, porque los repositorios se mueven a más de veinte cambios por día. Ese es el punto. Y si algo de lo que vieron les parece exagerado, tiene una ruta: ábranla. Si no tiene ruta, no está.",
+    "audio": "s8-future.mp3"
+  }
+]

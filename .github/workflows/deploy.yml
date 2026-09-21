@@ -1,0 +1,76 @@
+# BOTH WORLDS → GitHub Pages.
+# Cada push a main que toque la app reconstruye el sitio y lo publica.
+# La versión online es multi-archivo (carga ~1 MB y baja cada audio sólo cuando
+# se reproduce). El entregable offline de doble clic se construye igual y queda
+# colgado del sitio como /BOTH-WORLDS.html.
+name: Deploy BOTH WORLDS to Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'app/**'
+      - '.github/workflows/deploy.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Una publicación a la vez; si llegan dos pushes seguidos, gana el último.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+
+      - name: Instalar dependencias
+        working-directory: app
+        run: npm ci
+
+      - name: Validar el modelo de datos
+        working-directory: app
+        run: npm run validate:data
+
+      - name: Build del sitio
+        working-directory: app
+        env:
+          # GitHub Pages de proyecto sirve desde /<repo>/
+          PUBLIC_BASE: /${{ github.event.repository.name }}/
+        run: npm run build
+
+      - name: Build del entregable de doble clic
+        working-directory: app
+        run: npm run build:single
+
+      - name: Colgar el HTML offline del sitio
+        working-directory: app
+        run: |
+          cp dist-single/index.html dist/BOTH-WORLDS.html
+          touch dist/.nojekyll
+          ls -lh dist
+
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: app/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

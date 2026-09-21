@@ -1,0 +1,6 @@
+# BOTH WORLDS — página pública pero no indexable.
+# El sitio es accesible para cualquiera que tenga el link (GitHub Pages no
+# permite repos privados fuera de Enterprise), pero no queremos que los
+# buscadores lo listen. Borrar este archivo si alguna vez se quiere indexar.
+User-agent: *
+Disallow: /
