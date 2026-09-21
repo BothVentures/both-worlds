@@ -240,3 +240,21 @@ button:focus-visible, [tabindex]:focus-visible { outline: 1px solid var(--accent
 .activity .bar:hover b { opacity: 1; }
 .activity .src-note { font-family: var(--mono); font-size: 9.5px; color: var(--ink-3); margin-top: 8px; letter-spacing: .03em; }
 @media (max-width: 1500px) { .stat .n { font-size: 26px; } }
+
+/* ---------- aviso de pantalla chica ---------- */
+/* La UI es de tamaño fijo y pensada para 1440×900+. En un teléfono se corta,
+   así que ahí mostramos una tarjeta en lugar de una interfaz rota. */
+.smallscreen { display: none; }
+@media (max-width: 820px), (max-height: 520px) {
+  .smallscreen {
+    display: flex; position: fixed; inset: 0; z-index: 9999;
+    align-items: center; justify-content: center; padding: 28px;
+    background: radial-gradient(ellipse 80% 60% at 50% 40%, #0d1019 0%, #06070c 70%);
+  }
+  .smallscreen-card { max-width: 30rem; text-align: left; }
+  .smallscreen-kicker { margin: 0 0 18px; font-family: var(--mono); font-size: 11px; letter-spacing: .22em; color: var(--accent); }
+  .smallscreen h1 { margin: 0 0 14px; font-family: var(--serif); font-weight: 400; font-size: clamp(24px, 7vw, 34px); line-height: 1.15; color: var(--ink); }
+  .smallscreen-body { margin: 0 0 20px; font-family: var(--sans); font-size: 15px; line-height: 1.6; color: var(--ink-2); }
+  .smallscreen-url { margin: 0 0 26px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; font-family: var(--mono); font-size: 12px; color: var(--ink-3); background: var(--glass-2); word-break: break-all; }
+  .smallscreen button { font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; padding: 11px 18px; border-radius: 999px; border: 1px solid var(--accent-a55); color: var(--accent); background: var(--accent-a12); }
+}

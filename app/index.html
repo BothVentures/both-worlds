@@ -22,6 +22,21 @@
   </head>
   <body>
     <div id="root"></div>
+    <!-- Aviso para pantallas chicas. Está en el HTML (no en React) para que
+         aparezca antes de que cargue el bundle: el que abre el link desde el
+         celular ve un mensaje, no una UI cortada. Se puede saltear. -->
+    <div class="smallscreen" id="smallscreen">
+      <div class="smallscreen-card">
+        <p class="smallscreen-kicker">BOTH WORLDS</p>
+        <h1>Este atlas se abre en una pantalla grande</h1>
+        <p class="smallscreen-body">
+          Es un mundo 3D con etiquetas, fichas y un recorrido narrado: está hecho para
+          una computadora, de 1440×900 para arriba. Guardá el link y abrilo desde la laptop.
+        </p>
+        <p class="smallscreen-url">bothventures.github.io/both-worlds</p>
+        <button type="button" onclick="document.getElementById('smallscreen').remove()">Abrirlo igual</button>
+      </div>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

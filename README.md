@@ -11,7 +11,9 @@ Un mundo 3D wireframe con tres territorios (uno por repositorio real), proyectos
 
 Se actualiza solo: cada push a `main` que toque `app/` reconstruye y republica el sitio (GitHub Actions → GitHub Pages, ~2 min). La versión web es multi-archivo: carga ~1 MB y baja cada clip de narración recién cuando se reproduce. Desde ahí también se puede bajar el archivo offline: https://bothventures.github.io/both-worlds/BOTH-WORLDS.html
 
-El sitio es público para quien tenga el link (GitHub Pages no soporta repos privados fuera de Enterprise) y lleva `noindex` + `robots.txt` para que no lo listen los buscadores.
+El sitio es público para quien tenga el link (GitHub Pages no soporta repos privados fuera de Enterprise) y lleva `noindex` + `robots.txt` para que no lo listen los buscadores; los bots de vista previa de Slack y WhatsApp sí pasan, así que el link se comparte con imagen y título.
+
+En teléfono no se abre el atlas: la UI es de tamaño fijo y se corta, así que abajo de 820 px aparece una tarjeta que pide abrirlo en una computadora (con un «abrirlo igual» por las dudas).
 
 ### Offline, en esta carpeta
 
