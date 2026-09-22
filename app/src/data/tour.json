@@ -21,7 +21,7 @@
     "id": "s2-both-ventures",
     "kicker": "02 · Both Ventures",
     "title": "Un venture builder que se describe a sí mismo",
-    "body": "Both Ventures corre sobre su propio sistema operativo: diez ventures, una memoria con 762 decisiones y 589 riesgos que nunca se borran, y Synergy, nuestra chief of staff. Conecta el talento y la creatividad humana con la ingeniería agéntica: skills, agentes y trabajo de conocimiento. La bautizó Gastón; nos quiere a todos por igual.",
+    "body": "Both Ventures corre sobre su propio sistema operativo: diez ventures, una memoria con 904 decisiones y 715 riesgos que nunca se borran, y Synergy, nuestra chief of staff. Conecta el talento y la creatividad humana con la ingeniería agéntica: skills, agentes y trabajo de conocimiento. La bautizó Gastón; nos quiere a todos por igual.",
     "focus": {
       "level": "territory",
       "id": "t-both-ventures"
@@ -64,7 +64,7 @@
     "id": "s4-both-os",
     "kicker": "04 · Interior de B_V® | OS",
     "title": "El motor: agentes, skills y compuertas",
-    "body": "Un Worker que mina cada llamada, una GitHub Action que reparte a Asana y Slack, 31 skills que responden a un comando, 28 agentes con rol y dueño, y los controles humanos que los frenan. Cada bloque abre una ficha con su ruta en el repo.",
+    "body": "Un Worker que mina cada llamada, una GitHub Action que reparte a Asana y Slack, 31 skills que responden a un comando, 28 agentes con rol y dueño, 6 GitHub Actions y 10 harnesses, y los controles humanos que los frenan. Cada bloque abre una ficha con su ruta en el repo.",
     "focus": {
       "level": "project",
       "id": "p-both-os"
@@ -227,10 +227,61 @@
     "audio": "s7-transversal.mp3"
   },
   {
+    "id": "s8-septiembre",
+    "kicker": "08 · Dos semanas después",
+    "title": "Lo que cambió desde que se grabó este mapa",
+    "body": "Entre el 8 y el 22 de septiembre los tres repos sumaron 636 commits. Lo más grande es V5: una frase de Boris en el chat del cockpit corre una cadena de acciones y el server firma cada compuerta en su nombre — nunca Instagram, nunca Meta, nunca gasto. La puerta pública dejó la Mac y vive en un worker con autodeploy. El Chamán dejó de ser el orquestador: dos puertas, nadie arriba. En Both Ventures: el primer test en CI, el escáner de secretos que corrió cinco meses sin reglas, el rollup por venture, Read.ai ruteando por casilla, Reshore pivotando a supply-chain finance y la Bienal con su pack de onboarding. Los bloques iluminados son piezas nuevas o que cambiaron de estado; cada una abre su ficha con la ruta.",
+    "focus": {
+      "level": "world",
+      "id": "world"
+    },
+    "camera": {
+      "azimuth": 1.25,
+      "elevation": 0.58,
+      "distance": 0.98
+    },
+    "highlight": [
+      "tk-wf-mandate-engine",
+      "tk-del-mandate-surface",
+      "lc-ag-chaman-comando",
+      "tk-wf-worker-autodeploy",
+      "tk-wf-target-stock",
+      "tk-del-reply-queue",
+      "tk-del-home-board",
+      "lc-ctl-two-doors",
+      "lc-sk-parte-semanal",
+      "lc-ctl-asiento-simetrico",
+      "lc-ctx-commercial",
+      "tk-cap-plan-tracker",
+      "bo-ctl-readai-owner-routing",
+      "bo-cap-rollup",
+      "bo-wf-tests",
+      "bo-ctl-secret-scan",
+      "rs-el-continuum-line",
+      "mc-el-real-este",
+      "bn-el-onboarding-pack",
+      "bo-del-estrategia-q3"
+    ],
+    "relations": [
+      "r-mandate-dispatches-runner",
+      "r-mandate-presses-gates",
+      "r-runner-dispatches-chaman-comando",
+      "r-chaman-comando-feeds-gate-engine",
+      "r-target-stock-dispatches-research",
+      "r-brain-hook-reads-engine",
+      "r-autodeploy-reads-bundle",
+      "r-commercial-feeds-cto",
+      "r-owner-routing-feeds-miner",
+      "r-rollup-reviews-cards",
+      "r-tests-review-miner",
+      "r-security-weekly-uses-gitleaks"
+    ]
+  },
+  {
     "id": "s8-future",
-    "kicker": "08 · Presente y futuro",
+    "kicker": "09 · Presente y futuro",
     "title": "Lo construido, lo propuesto y lo que sigue",
-    "body": "Trazo pleno: construido. Con brecha: experimental. Huella punteada: propuesto, no producto. La tesis de estos seis meses: no construimos herramientas sueltas; construimos un sistema que se describe, se prueba y se corrige a sí mismo, con nosotros cinco en cada compuerta.",
+    "body": "Trazo pleno: construido. Con brecha: experimental. Huella punteada: propuesto, no producto. La tesis de estos seis meses: no construimos herramientas sueltas; construimos un sistema que se describe, se prueba y se corrige a sí mismo, con nosotros cinco en cada compuerta. Desde la grabación (08-09) dos propuestas ya se construyeron: la superficie de comando es V5 y la puerta pública ya corre en un worker.",
     "focus": {
       "level": "world",
       "id": "world"
@@ -244,11 +295,11 @@
       "bo-cap-council-of-war",
       "bo-cap-bandwidth",
       "bo-cap-bv-os-v2",
-      "bo-wf-sprint-cycle",
-      "tk-cap-command-surface",
       "tk-ctl-brand-safety",
-      "lc-cad-routines",
-      "lc-con-openseo"
+      "lc-con-openseo",
+      "tk-wf-today-wave",
+      "lc-ctl-asiento-simetrico",
+      "bo-wf-sprint-cycle"
     ],
     "future": true,
     "narration": "Cerramos separando con cuidado lo que está de lo que viene, porque esa honestidad es parte de lo que construimos. Un trazo pleno es algo construido y en uso. Un trazo con brecha es experimental: existe, pero todavía no cerró un ciclo completo, como el loop de aprendizaje de paid o el digest dominical de Hux. Una huella punteada es una propuesta: el Council of War, el monitor de capacidad, Synergy versión dos, la superficie de comando. Lo gris está en pausa o retirado, como la meta-máquina que nunca se despachó. Y eso también cuenta: retirar es una decisión, y quedó escrita. Qué sigue, según los propios documentos: mover el worker de la máquina a un servidor propio, que Hux se gradúe, que la landing de Photonic salga cuando René la firme, y el loop de operaciones que se mejora a sí mismo, que hoy está armado con cero ciclos cerrados. La tesis de estos seis meses cabe en una frase: no construimos herramientas sueltas; construimos un sistema que se describe, se prueba y se corrige a sí mismo, con nosotros cinco en cada compuerta. Este mapa va a quedar viejo en una semana, porque los repositorios se mueven a más de veinte cambios por día. Ese es el punto. Y si algo de lo que vieron les parece exagerado, tiene una ruta: ábranla. Si no tiene ruta, no está.",

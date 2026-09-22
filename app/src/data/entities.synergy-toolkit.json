@@ -4,14 +4,14 @@
     "name": "Synergy Toolkit",
     "type": "territory",
     "parentId": "world",
-    "kind": "la BOTH GTM Machine · repo synergy-toolkit · 466 commits · 2026-07-18 → 09-08",
-    "summary": "Una plataforma hospedada donde una sola operadora no técnica planifica, ejecuta y aprueba toda la actividad de go-to-market. Motor (Hono + SQLite) que despacha al cerebro con claude -p, compuertas de aprobación con hash del contenido exacto, scheduler, y un cockpit React de solo lectura salvo la aprobación. La Chamana es el tenant #1.",
+    "kind": "la BOTH GTM Machine · repo synergy-toolkit · 547 commits · 2026-07-18 → 09-21",
+    "summary": "Una plataforma hospedada donde una sola operadora no técnica planifica, ejecuta y aprueba toda la actividad de go-to-market. Motor (Hono + SQLite) que despacha al cerebro con claude -p, compuertas con hash del contenido exacto, scheduler, y un cockpit React de solo lectura salvo la aprobación. Desde V5 (2026-09-17) una frase de Boris en el chat puede correr una cadena entera firmando cada gate en su nombre, nunca Instagram/Meta ni gasto. Puerta pública en el worker (VPS) desde 2026-09-17. La Chamana es el tenant #1 y el único declarado.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "owner": "Boris (admin) · Bianca (operadora)",
     "dates": {
       "first": "2026-07-18",
-      "last": "2026-09-08"
+      "last": "2026-09-21"
     },
     "layout": {
       "accent": "#9fd8e8"
@@ -44,9 +44,9 @@
       "values": [
         191,
         235,
-        40
+        121
       ],
-      "total": 466,
+      "total": 547,
       "source": "synergy-toolkit · git log"
     }
   },
@@ -56,7 +56,7 @@
     "type": "project",
     "parentId": "t-synergy-toolkit",
     "kind": "módulo · Hono API + SQLite",
-    "summary": "El corazón: motor de compuertas, compilador y ejecutor de journeys (grafo Entry/Wait/Split/Action/Exit), triggers, scheduler de 30 s, runner que lanza claude -p dentro del repo cerebro, y el piso de seguridad en código.",
+    "summary": "El corazón: motor de compuertas, compilador y ejecutor de journeys (grafo Entry/Wait/Split/Action/Exit), triggers, scheduler de 30 s, runner que lanza claude -p dentro del repo cerebro, el motor de mandatos V5 (el modelo nombra, el server presiona) y el piso de seguridad en código.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "layout": {
@@ -86,7 +86,7 @@
     "type": "project",
     "parentId": "t-synergy-toolkit",
     "kind": "módulo · SPA React · 22 pantallas",
-    "summary": "La superficie humana: board de campañas, aprobaciones, Operator Brief, Overview, CRM, paid, SEO, replies, runs. Lectura casi total; el único lugar donde un humano escribe es una aprobación.",
+    "summary": "La superficie humana: tablero de estado como índice (desde 2026-09-17), board de campañas, aprobaciones, Operator Brief en /brief, CRM, paid (solo monitoreo), SEO, cola de respuestas, runs, chat con Mandar. Overview retirado el 2026-09-16. Lectura casi total; un humano escribe solo al aprobar o al dar un mandato.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "layout": {
@@ -96,7 +96,7 @@
       {
         "repo": "synergy-toolkit",
         "path": "web/src/App.tsx",
-        "lines": "132-151"
+        "lines": "139-174,694-721"
       },
       {
         "repo": "synergy-toolkit",
@@ -182,7 +182,7 @@
     "type": "project",
     "parentId": "t-synergy-toolkit",
     "kind": "módulo · deploy · integraciones · reportes",
-    "summary": "Puerta pública en la Mac (launchd) y worker en un VPS con systemd (server, backup, gitpull/gitpush, vigía). Acceso vía Cloudflare Access. La base SQLite privada nunca cruza al cerebro.",
+    "summary": "Puerta pública en el worker: un VPS con systemd (server, backup, gitpull/gitpush, vigía, autodeploy cada 5 min) y túnel cloudflared, cortada el 2026-09-17. La Mac queda como dev + runner; su job launchd y su vigía siguen en el repo hasta el press de retiro. Acceso vía Cloudflare Access. La base SQLite privada nunca cruza al cerebro.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "layout": {
@@ -350,11 +350,11 @@
   },
   {
     "id": "tk-cap-doctor",
-    "name": "Doctor (~55 chequeos, solo lectura)",
+    "name": "Doctor (71 chequeos, solo lectura)",
     "type": "capability",
     "parentId": "p-tk-engine",
     "kind": "arnés cross-repo",
-    "summary": "Cada chequeo nombra el incidente que previene. Lee ambos repos, los registros (drain, deadlines, clocks, retired-urls) y la base. Los documentos del 2026-09-08 citan 55 chequeos; el conteo exacto solo sale corriéndolo.",
+    "summary": "Cada chequeo nombra el incidente que previene. Lee ambos repos, los registros (drain, deadlines, clocks, retired-urls), la base y ahora la carpeta comercial del cerebro, las rutas del cockpit (peso y puertas), el stock semanal, la recorrida y el interruptor V5. 71 chequeos el 2026-09-17 (45 verde · 24 ámbar · 2 rojos) según el turno; 65 en el último baseline JSON del 14-sep. El conteo exacto solo sale corriéndolo.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "layout": {
@@ -364,11 +364,16 @@
       {
         "repo": "synergy-toolkit",
         "path": "scripts/doctor.mjs",
-        "lines": "1-49"
+        "lines": "1-49,143-152,6210-6656"
       },
       {
         "repo": "synergy-toolkit",
-        "path": "reports/meta-status-2026-09-08.md"
+        "path": "reports/turno-nocturno-2026-09-17.md",
+        "lines": "77"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "reports/night/2026-09-14-baseline.json"
       }
     ]
   },
@@ -409,7 +414,7 @@
     "type": "control",
     "parentId": "p-tk-engine",
     "kind": "SAFETY_FLOOR · NEVER_AUTO",
-    "summary": "Nada dispara solo. spend_ads es indeclarable; spend_ads_api y publish_meta_api existen pero nunca se auto-disparan: un humano aprueba los bytes exactos. Nació de un baneo real de Meta.",
+    "summary": "Nada dispara solo. spend_ads es indeclarable; spend_ads_api y publish_meta_api existen pero nunca se auto-disparan. Desde V5, MANDATE_FLOOR es un superconjunto (suma publish_instagram y publish_meta): ni un mandato de Boris puede nombrarlos. Fila abierta: publish_web no está en el piso, así que una frase puede publicar una página en vivo sin vista previa.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "layout": {
@@ -544,11 +549,11 @@
   },
   {
     "id": "tk-del-brief-overview",
-    "name": "Operator Brief · Overview · Dashboard",
+    "name": "Operator Brief · Dashboard (Overview retirado 2026-09-16)",
     "type": "deliverable",
     "parentId": "p-tk-cockpit",
     "kind": "síntesis de solo lectura",
-    "summary": "Qué necesita un humano, qué está trabado, cuánto confiar. Regla: desconocido ≠ cero ≠ caído.",
+    "summary": "Qué necesita un humano, qué está trabado, cuánto confiar. El Brief dejó de ser la ruta índice el 2026-09-17 (pasa a /brief, el tablero Home lo reemplaza); /overview se retiró el 2026-09-16 por ilegible (15.606 px, 17,3 pliegues) y su endpoint sigue vivo para scripts. Regla: desconocido ≠ cero ≠ caído.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "dates": {
@@ -565,8 +570,18 @@
       },
       {
         "repo": "synergy-toolkit",
-        "path": "web/src/screens/Overview.tsx",
-        "lines": "19-25"
+        "path": "web/src/screens/Dashboard.tsx"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "web/src/App.tsx",
+        "lines": "141-162,694-721",
+        "note": "reemplaza la cita a web/src/screens/Overview.tsx, borrado en 0987df1"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/v3-operating-architecture.md",
+        "note": "§10.8 — qué murió y qué no"
       },
       {
         "repo": "synergy-toolkit",
@@ -653,7 +668,7 @@
     "type": "capability",
     "parentId": "p-tk-cockpit",
     "kind": "solo lectura · plan mode forzado",
-    "summary": "Explica; no propone ni actúa. Los alcances B/C quedan deliberadamente sin construir; POST /runs devuelve 403 a la acción de chat.",
+    "summary": "Explica; no propone ni actúa por turno de chat (alcance A intacto, plan mode, deny list, sin MCP). Desde V5 el mismo chat acepta mandatos por un endpoint aparte que contesta 403 sin bandera de entorno o sin actor listado; el hijo sigue sin poder escribir, aprobar ni despachar — nombra, y el server presiona.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "layout": {
@@ -692,12 +707,12 @@
   },
   {
     "id": "tk-cap-command-surface",
-    "name": "Superficie de comando (menos UI, forma 3)",
+    "name": "Superficie de comando (menos UI, forma 3) → construida como V5",
     "type": "capability",
     "parentId": "p-tk-cockpit",
     "kind": "lenguaje natural → despacho con compuerta",
-    "summary": "Decidido NO AHORA el 2026-08-27. Queda como veredicto documentado, sin construir.",
-    "state": "proposed",
+    "summary": "Decidido NO AHORA el 2026-08-27; revertido por Boris el 2026-09-16 («necesitamos más acción y menos gate steps humanos») y construido esa misma noche como V5: el motor de mandatos y Mandar junto a Ask. Ver tk-wf-mandate-engine y tk-del-mandate-surface.",
+    "state": "implemented",
     "evidence": "observed-in-docs",
     "layout": {
       "slot": 8
@@ -707,6 +722,16 @@
         "repo": "synergy-toolkit",
         "path": "docs/decision-menos-ui-2026-08-27.md",
         "lines": "75-118"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/decision-v5-chaman-presiona-2026-09-16.md",
+        "lines": "1-47"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/decision-pantallas-2026-09-17.md",
+        "lines": "5-7"
       }
     ]
   },
@@ -716,7 +741,7 @@
     "type": "workflow",
     "parentId": "p-tk-outreach",
     "kind": "preparar · escribir cuerpos · aprobar hash · enviar · sellar",
-    "summary": "Agencias, retiros, familias y celebraciones comparten un mismo reservorio de prospectos en Airtable; el envío lo hace un script del cerebro con tope diario y espaciado; ledger .sent.jsonl.",
+    "summary": "Agencias, retiros, familias y celebraciones comparten un mismo reservorio de prospectos en Airtable; el envío lo hace un script del cerebro con tope diario y espaciado; ledger .sent.jsonl. Hallazgo del 2026-09-18: el seguimiento (segundo y tercer toque) se detuvo el 07-sep con 318 filas vencidas mientras todas las preparaciones fueron de primer toque. «La ola de hoy» (tick por campaña, dos presses) está en disco sin commitear.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "layout": {
@@ -744,7 +769,7 @@
     "type": "workflow",
     "parentId": "p-tk-outreach",
     "kind": "hilo → envío 1:1 con compuerta → escritura al embudo",
-    "summary": "Hilos reconstruidos entre barridos de la casilla, compuerta reply_send con hash de los bytes, escrituras a Contacts/Pipeline por un outbox persistido. Boris opera; Iru entra en pedidos de reunión.",
+    "summary": "Hilos reconstruidos entre barridos de la casilla, compuerta reply_send con hash de los bytes, escrituras a Contacts/Pipeline por un outbox persistido. Boris opera; Iru entra en pedidos de reunión. Medido en septiembre: 44 de 50 respuestas salieron a mano desde Gmail y 6 por el desk — por eso la pantalla es ahora una cola (tk-del-reply-queue) y el compositor queda a un clic.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "dates": {
@@ -771,7 +796,7 @@
     "type": "workflow",
     "parentId": "p-tk-outreach",
     "kind": "acción sin compuerta (decisión de Boris)",
-    "summary": "El cerebro investiga, verifica, puntúa y escribe filas al reservorio. require_approval=false desde el 2026-07-27; corre también en night-run bajo mandato.",
+    "summary": "El cerebro investiga, verifica, puntúa y escribe filas al reservorio. require_approval=false desde el 2026-07-27. Desde el 2026-09-18 ya no se dispara desde una tarjeta por campaña: lo encola el press semanal del stock con un `--run-tag <riel>-<día>-<seq>` que el server acuña (una corrida sin tag es una corrida de terminal), y la skill nunca termina en una pregunta bajo claude -p.",
     "state": "implemented",
     "evidence": "observed-in-docs",
     "layout": {
@@ -819,7 +844,7 @@
     "type": "workflow",
     "parentId": "p-tk-outreach",
     "kind": "cola + ledger «lo envié»",
-    "summary": "Sugiere y compone, arma la cola con tope de 15 por día; la persona envía desde la app de Instagram y lo registra. El incidente del carril sin botón (2026-08-11) es la razón de la regla «mirá la pantalla».",
+    "summary": "Sugiere y compone, arma la cola con tope de 15 por día; la persona envía desde la app de Instagram y lo registra. Desde el 2026-09-09 el escritorio sabe decir no: descartar con firma, traer de vuelta en un press, y la lista de a quién ya le escribiste. Es el único riel que Bianca toca: 143 de 143 de sus eventos de auditoría entre el 7 y el 16-sep son IG DM.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "layout": {
@@ -833,12 +858,18 @@
       },
       {
         "repo": "synergy-toolkit",
-        "path": "server/src/routes/ig-dm.ts"
+        "path": "server/src/routes/ig-dm.ts",
+        "lines": "438-470"
       },
       {
         "repo": "synergy-toolkit",
         "path": "CLAUDE.md",
         "lines": "8-22"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/decision-pantallas-2026-09-17.md",
+        "lines": "59-72"
       }
     ]
   },
@@ -989,8 +1020,8 @@
     "name": "Loop de aprendizaje paid V1",
     "type": "workflow",
     "parentId": "p-tk-content-paid",
-    "kind": "snapshot nocturno · /paid-pulse semanal · veredicto de AG-011",
-    "summary": "Armado el 2026-09-05 con cero ciclos cerrados. Toda propuesta (≤3) espera el press de Boris.",
+    "kind": "snapshot diario 07:00 (vivo) · /paid-pulse semanal · veredicto de AG-011 · 0 ciclos cerrados",
+    "summary": "Armado el 2026-09-05; la serie diaria de Meta corre desde el 2026-09-10 (26 archivos en reports/meta-performance) y alimenta la tarjeta de /paid. Dos decisiones de pauta aplicadas por API con registro previo: Google a cero y Meta al doble (2026-09-15) y Meta +50 % por una semana con tope (2026-09-19, doc sin commitear). Ciclos cerrados (propuesta → decisión → medición → predicción calificada): todavía cero según el turno del 15-sep; las dos propuestas están firmadas desde el 12-sep y nadie calificó su predicción.",
     "state": "experimental",
     "evidence": "observed-in-docs",
     "dates": {
@@ -1007,8 +1038,25 @@
       },
       {
         "repo": "synergy-toolkit",
-        "path": "docs/decision-synergy-v4-self-improving-ops-2026-09-05.md",
-        "lines": "110-112"
+        "path": "scripts/meta-daily-snapshot.mjs"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "scripts/meta-derive.mjs"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "reports/meta-performance"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/decision-paid-reallocation-2026-09-15.md",
+        "lines": "1-31"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "reports/turno-nocturno-2026-09-15.md",
+        "lines": "78-90"
       }
     ]
   },
@@ -1201,7 +1249,7 @@
     "type": "capability",
     "parentId": "p-tk-cadence",
     "kind": "caminata semanal del embudo · caminata fría del producto",
-    "summary": "Diez bandas, ≤3 propuestas falsables; y la banda 0: cinco preguntas fijas sobre el cockpit en frío, porque cuatro incidentes fueron visibles a una pregunta que nadie tenía agendada.",
+    "summary": "Diez bandas, ≤3 propuestas falsables; y la banda 0, la recorrida, que desde el 2026-09-16 hace SEIS preguntas fijas (la sexta: cuánto pesa la pantalla y quién la miró cuando no se editaba) porque /overview pasó verde en W36 comparando encabezados y no componentes. El doctor gana un chequeo de frescura de la recorrida (una sola caminata en reports/recorrida desde el 01-sep).",
     "state": "implemented",
     "evidence": "observed-in-code",
     "layout": {
@@ -1214,7 +1262,17 @@
       },
       {
         "repo": "synergy-toolkit",
-        "path": ".claude/skills/recorrida/SKILL.md"
+        "path": ".claude/skills/recorrida/SKILL.md",
+        "lines": "31-80"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "scripts/recorrida-walk.mjs"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "scripts/doctor.mjs",
+        "lines": "6513-6565"
       }
     ]
   },
@@ -1224,9 +1282,9 @@
     "type": "capability",
     "parentId": "p-tk-cadence",
     "kind": "Nivel A repara · Nivel B espera a Boris",
-    "summary": "Baseline con night-queue, calificar el turno anterior, reparar, un commit por reparación, informe. Cuatro pruebas obligatorias: veredicto de design-desk, doctor no peor que la línea base, commit por reparación, captura antes/después. Once corridas en diecinueve días según el doc.",
+    "summary": "Mandato permanente de dos niveles desde el 2026-09-09 (el turno deja de pedir permiso cada noche: en 9 de 10 noches el techo, no el tiempo, era la razón de no hacer). night-queue.mjs es el primer y último acto: escribe baseline y cierre con los conteos del doctor. Cuatro pruebas obligatorias: veredicto de design-desk, doctor no peor que la línea base, un commit por reparación, captura antes/después. 11 archivos en reports/night.",
     "state": "implemented",
-    "evidence": "observed-in-docs",
+    "evidence": "observed-in-code",
     "layout": {
       "slot": 3
     },
@@ -1237,7 +1295,16 @@
       },
       {
         "repo": "synergy-toolkit",
+        "path": "scripts/night-queue.mjs",
+        "lines": "1-40"
+      },
+      {
+        "repo": "synergy-toolkit",
         "path": "docs/decision-night-run-mandate-2026-09-06.md"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "reports/night"
       }
     ]
   },
@@ -1247,7 +1314,7 @@
     "type": "capability",
     "parentId": "p-tk-cadence",
     "kind": "AG-005 + auditoría de guidelines + lector frío",
-    "summary": "Antes de decir «listo» sobre cualquier superficie que una persona mira: composición, accesibilidad y comprensión, cada una contra la pantalla renderizada, un solo veredicto.",
+    "summary": "Antes de decir «listo» sobre cualquier superficie que una persona mira: composición (AG-005), accesibilidad y comprensión (lectora fría), cada una contra la pantalla renderizada, un solo veredicto escrito a disco en reports/verification (60 archivos). La pasada de navegador de la cabina entera (11 rutas × 2 temas × 2 anchos, solo mira) es su instrumento de lectura sin tocar nada. Límite nombrado: las lentes miran superficies, no las aristas entre ellas.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "dates": {
@@ -1263,8 +1330,17 @@
       },
       {
         "repo": "synergy-toolkit",
-        "path": "reports/verification",
-        "note": "72 veredictos"
+        "path": "reports/verification"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "reports/verification/design-desk-operator-brief-2026-09-15.md",
+        "lines": "1-25"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "scripts/look-cockpit-sweep.mjs",
+        "lines": "1-55"
       }
     ]
   },
@@ -1426,10 +1502,10 @@
     "name": "Migración de hosting (worker en VPS)",
     "type": "workflow",
     "parentId": "p-tk-infra",
-    "kind": "F0/F1 hechos · F2 cutover pendiente de un press",
-    "summary": "La puerta pública sigue en la Mac; el worker corre con systemd en el VPS según el doc del 2026-09-05; el cambio de túnel espera a Boris. Nada de esto se verificó por red.",
-    "state": "experimental",
-    "evidence": "claimed-by-doc",
+    "kind": "F0/F1/F2 hechos (corte 2026-09-17) · retiro de la puerta de la Mac pendiente · F3 runner en el worker: sonda dice que `claude` existe, sin verificar",
+    "summary": "El corte ocurrió el 2026-09-17: el túnel apunta al worker (VPS, systemd) y el repo lo registra en deploy/door.json; el mismo día el autodeploy con freno reemplazó al update manual (el worker servía código 69 commits atrás). Pendientes: el press de retiro del job launchd y el vigía de la Mac (los plists siguen trackeados) y verificar la bandera V5 en el VPS. Nada de esto se verificó por red en esta lectura.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
     "dates": {
       "first": "2026-09-05"
     },
@@ -1439,12 +1515,22 @@
     "sources": [
       {
         "repo": "synergy-toolkit",
+        "path": "deploy/door.json",
+        "lines": "1-8"
+      },
+      {
+        "repo": "synergy-toolkit",
         "path": "docs/decision-hosting-2026-09-05.md",
         "lines": "65-105"
       },
       {
         "repo": "synergy-toolkit",
         "path": "deploy/systemd"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "scripts/retire-mac-door.mjs",
+        "lines": "1-30"
       }
     ]
   },
@@ -1477,7 +1563,7 @@
     "type": "deliverable",
     "parentId": "p-tk-infra",
     "kind": "reports/",
-    "summary": "36 cierres/análisis markdown, 13 turnos nocturnos, 72 veredictos de verificación, 43 digests de envío, 20 snapshots del brief (conteo de archivos por carpeta).",
+    "summary": "46 cierres/análisis markdown, 11 baselines/cierres nocturnos JSON, 60 veredictos de verificación, 68 digests de envío, 34 snapshots del brief, 26 archivos de la serie de Meta, 1 informe de stock semanal, 1 recorrida (conteo de archivos por carpeta).",
     "state": "implemented",
     "evidence": "observed-in-code",
     "layout": {
@@ -1495,8 +1581,8 @@
     "name": "Explicadores y decisiones (docs/)",
     "type": "deliverable",
     "parentId": "p-tk-infra",
-    "kind": "32 HTML · 15 decision records · 18 handoffs",
-    "summary": "Cómo funciona, mapa del embudo, org map, guías; registros de decisión con fecha; y las cartas de continuación de cada versión.",
+    "kind": "38 HTML · 23 decision records · 19 handoffs · libro de versiones",
+    "summary": "Cómo funciona, mapa del embudo, org map, guías; registros de decisión con fecha (siete nuevos desde el 08-sep: V0.4, multitenant, V5, pantallas, stock semanal, reallocation de pauta, la ola de hoy); las cartas de continuación de cada versión; y docs/versions.md, la tabla que dice qué numera cada V y cuál manda.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "layout": {
@@ -1639,11 +1725,11 @@
   },
   {
     "id": "tk-del-tests",
-    "name": "193 archivos de test + 28 specs Playwright",
+    "name": "205 archivos de test + 26 specs Playwright",
     "type": "deliverable",
     "parentId": "p-tk-infra",
     "kind": "vitest · e2e en 4 tiers · sin CI",
-    "summary": "Conteo de archivos *.test.ts (server 102, shared 50, web/lib 31, scripts 10) y specs e2e con tiers live/qa/rehearsal. No hay carpeta .github: nada corre en CI. Nada se ejecutó en esta lectura.",
+    "summary": "Conteo de archivos *.test.ts (server 107, shared 54, web/lib 32, scripts 11, e2e 1) y 26 specs e2e con tiers live/qa/rehearsal. El turno del 17-sep reporta 4.488 tests verdes en 203 archivos. No hay carpeta .github: nada corre en CI. Nada se ejecutó en esta lectura.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "layout": {
@@ -1660,5 +1746,532 @@
         "lines": "1-37"
       }
     ]
+  },
+  {
+    "id": "tk-wf-mandate-engine",
+    "name": "Motor de mandatos (V5 · el Chamán nombra, el server presiona)",
+    "type": "workflow",
+    "parentId": "p-tk-engine",
+    "kind": "una frase en el chat → cadena de acciones con cada gate firmado en nombre del actor",
+    "summary": "Una frase de un actor listado en el chat del cockpit se ejecuta como cadena de acciones declaradas: el hijo de chat (plan mode, deny list, sin MCP) solo nombra el próximo paso en un bloque `chaman-paso`; el server valida contra el registro, MANDATE_FLOOR (nunca Instagram/Meta ni gasto) y assertAutoFireable, aprueba el gate con hash y fila de auditoría, despacha y retoma tras caídas con un sweep de 60 s. Límites: 12 pasos, 6 h. Mergeada a main (407d6ae) y prendida el 2026-09-17 tras una bandera de entorno; el primer mandato real corrió el 2026-09-18 (fuente sin commitear).",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "shared/src/mandate.ts",
+        "lines": "1-56,180-182",
+        "note": "MANDATE_FLOOR, gramática del paso, límites"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/chat/mandate.ts",
+        "lines": "1-60,739-741",
+        "note": "mitad server: presiona, despacha, sweep chaman-mandate-sweep"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/routes/chat.ts",
+        "lines": "224-249",
+        "note": "GET eligibility · POST mandates · POST cancel; 403 sin bandera o actor"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/decision-v5-chaman-presiona-2026-09-16.md",
+        "lines": "1-16,49-74,106-140"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/versions.md",
+        "lines": "21-28",
+        "note": "V5 prendida 17-sep; 0 mandatos al momento del doc"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "scripts/doctor.mjs",
+        "lines": "6210-6256",
+        "note": "chequeo chaman-press"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "e2e/rehearse-mandate.sh",
+        "note": "ensayo punta a punta contra cerebro stub"
+      }
+    ],
+    "owner": "Boris (único actor listado)",
+    "dates": {
+      "first": "2026-09-16",
+      "last": "2026-09-18"
+    }
+  },
+  {
+    "id": "tk-del-mandate-surface",
+    "name": "«Mandar» junto a «Ask» · tarjeta del mandato · badge en Aprobaciones",
+    "type": "deliverable",
+    "parentId": "p-tk-cockpit",
+    "kind": "superficie de comando en el chat",
+    "summary": "La superficie de V5 en el cockpit: el compositor del chat ofrece Mandar además de Ask cuando la identidad es elegible, una tarjeta-ledger por mandato (frase, pasos presionados, estado, único verbo Cancelar) y un badge en Aprobaciones para gates firmados vía El Chamán. Es la «forma 3» de menos-UI que el 2026-08-27 se había decidido NO construir.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "web/src/components/MandateCard.tsx",
+        "lines": "1-16"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "web/src/components/ChatComposer.tsx"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "web/src/screens/Chat.tsx"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "web/src/lib/mandate-view.ts"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/decision-pantallas-2026-09-17.md",
+        "lines": "5-7",
+        "note": "la forma 3 se construyó como V5 y se prendió"
+      }
+    ],
+    "dates": {
+      "first": "2026-09-16",
+      "last": "2026-09-16"
+    }
+  },
+  {
+    "id": "tk-del-reply-queue",
+    "name": "La cola de respuestas (el desk dice a quién le toca)",
+    "type": "deliverable",
+    "parentId": "p-tk-outreach",
+    "kind": "cola por persona · la frase que escribieron · cuatro presses",
+    "summary": "Reemplaza el buzón de dos paneles por una cola agrupada por quién debe moverse, con la frase textual del prospecto (nunca parafraseada) como centro de la decisión y cuatro opciones por tarjeta. La medición que la justificó: en septiembre 44 de 50 respuestas salieron a mano desde Gmail y 6 por el desk. Veredicto de tres lentes a disco el 2026-09-16.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "web/src/components/ReplyQueue.tsx",
+        "lines": "17-56"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "web/src/lib/desk.ts",
+        "lines": "211,235,265",
+        "note": "bucketThreads · settledByMachine · groupQueueByPerson"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "shared/src/conversation.ts",
+        "lines": "7-30"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "web/src/screens/Replies.tsx",
+        "lines": "17-35"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "reports/verification/design-desk-replies-queue-2026-09-16.md"
+      }
+    ],
+    "owner": "Boris opera; Iru y Bianca contestan en el buzón",
+    "dates": {
+      "first": "2026-09-17",
+      "last": "2026-09-17"
+    }
+  },
+  {
+    "id": "tk-del-home-board",
+    "name": "Tablero de estado (Home) como ruta índice · Overview retirado",
+    "type": "deliverable",
+    "parentId": "p-tk-cockpit",
+    "kind": "1 pliegue · lectura pura · CRM · envíos · respuestas",
+    "summary": "La primera pantalla vuelve a ser un tablero de estado: grandes números, nada accionable, un pliegue exacto. El Operator Brief pasa a /brief; /overview murió el 2026-09-16 (15.606 px, 17,3 pliegues, ilegible según Boris) aunque su endpoint sigue vivo para pulso, week-strip, recorrida y dashboard. La revisión de las 22 pantallas midió efectos porque no hay telemetría: 143 de 143 eventos de Bianca son el riel de IG DM.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "web/src/screens/Home.tsx",
+        "lines": "32-47"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "web/src/App.tsx",
+        "lines": "24-37,141-162,694-721",
+        "note": "index → Home; brief y dashboard como rutas; overview retirado"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/decision-pantallas-2026-09-17.md",
+        "lines": "1-53,110-120"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/v3-operating-architecture.md",
+        "note": "§10.8 /overview RETIRADO — qué murió y qué no"
+      }
+    ],
+    "dates": {
+      "first": "2026-09-17",
+      "last": "2026-09-18"
+    }
+  },
+  {
+    "id": "tk-ctl-route-guards",
+    "name": "Presupuesto de peso y puertas por ruta (route-budget · route-doors)",
+    "type": "control",
+    "parentId": "p-tk-engine",
+    "kind": "dos chequeos del doctor sobre TODAS las rutas, se editen o no",
+    "summary": "Dos guardas nacidas de dos incidentes que ninguna lente vio: route-budget mide alto y pliegues de cada ruta (el sistema revisaba diffs, no productos) y route-doors marca toda ruta cuya única puerta no sea el nav ni el índice (Boris preguntó «¿dónde está dashboard?» un minuto después del tablero nuevo). Ambas se replayearon contra el estado roto antes de escribirse: 0 falsos, sin allowlist.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "scripts/route-budget.mjs",
+        "lines": "1-30"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "scripts/route-doors.mjs",
+        "lines": "1-30"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "scripts/doctor.mjs",
+        "lines": "6591,6656",
+        "note": "checkRouteBudget · checkRouteDoors"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "CLAUDE.md",
+        "note": "§ Every lens here looks at a SURFACE. Defects live in the EDGES between them"
+      }
+    ],
+    "dates": {
+      "first": "2026-09-17",
+      "last": "2026-09-17"
+    }
+  },
+  {
+    "id": "tk-wf-target-stock",
+    "name": "Stock de la semana (press semanal de discovery)",
+    "type": "workflow",
+    "parentId": "p-tk-outreach",
+    "kind": "martes: medir · Slack · un press repone · reemplaza al lanzador por campaña",
+    "summary": "El barrido semanal reemplaza a la tarjeta «Find 10–50 new targets» (ProspectLauncher borrado): stock = E1 listos en Contacts + promovibles del pozo; necesidad = `email.weekly_first_touch` declarada en el rails.yaml del cerebro; corridas = ceil(déficit / rinde medido), tope 3 por campaña y 6 por press; sin meta o Airtable caída → `unknown`, nunca 0. Un job de launchd mide los martes 08:45 y avisa en Slack; Boris aprieta una vez «Refill the week» en /outreach. Primer informe W39 escrito el 2026-09-22.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/decision-target-stock-weekly-2026-09-17.md",
+        "lines": "36-76,91-99"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "shared/src/target-stock.ts",
+        "lines": "1-45,68-72,309",
+        "note": "planificador puro"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/crm/target-stock.ts",
+        "lines": "1-50",
+        "note": "lector por riel, caché 5 min"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/routes/target-stock.ts",
+        "lines": "94,123",
+        "note": "GET target-stock · POST refill"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "web/src/components/TargetStockCard.tsx",
+        "lines": "1-30"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "scripts/slack-target-stock.mjs",
+        "lines": "1-40"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "scripts/ventures.both.slack-target-stock.plist"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "reports/target-stock/2026-W39.md",
+        "lines": "1-20"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "scripts/doctor.mjs",
+        "lines": "6466",
+        "note": "checkTargetStockFreshness (ámbar desde el miércoles)"
+      }
+    ],
+    "owner": "Boris aprieta; el job mide",
+    "dates": {
+      "first": "2026-09-18",
+      "last": "2026-09-22"
+    }
+  },
+  {
+    "id": "tk-del-email-rail-opdoc",
+    "name": "Documento de operación del riel de email (abastecimiento)",
+    "type": "deliverable",
+    "parentId": "p-tk-outreach",
+    "kind": "cómo funciona la semana · los dos grifos",
+    "summary": "Documento vigente desde el martes 2026-09-22 que describe la semana del riel (martes medir y reponer, miércoles a viernes olas con techo diario, pulso diario) y nombra el hueco que la revisión encontró: el seguimiento (grifo B, ya pagado) se detuvo el 2026-09-07 con 318 filas vencidas mientras el barrido nuevo mide solo el grifo A (nombres nuevos). Queda como deuda en la escalera de cadencia.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/abastecimiento-outreach-2026-09-18.md",
+        "lines": "1-37,41-76"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/report-template-v1.md",
+        "note": "rung de abastecimiento en la escalera de cadencia"
+      }
+    ],
+    "dates": {
+      "first": "2026-09-18",
+      "last": "2026-09-18"
+    }
+  },
+  {
+    "id": "tk-del-paid-platform-cards",
+    "name": "Paid: dos tarjetas de plataforma, total del mes, FX con fecha, lecturas de Meta",
+    "type": "deliverable",
+    "parentId": "p-tk-content-paid",
+    "kind": "solo monitoreo · Meta y Google · la cadena entera en cifras",
+    "summary": "Reconstrucción de /paid tras el mismo veredicto de Boris dos veces («casi inútil para manejar paid»): se van ~11.300 líneas de controles de escritura; queda una tarjeta por plataforma, el total del mes arriba (la lectora fría había puntuado 2/10 sin él), un tipo de cambio real con fecha citada y la tarjeta de Meta que lee el snapshot derivado (conversaciones, costo por conversación, fatiga por anuncio, cuándo se frena) en vez de recomputar umbrales. La tarjeta de Meta nombra la campaña y habla en cuatro números grandes (últimos commits, 2026-09-21).",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "web/src/components/PaidPlatformCard.tsx",
+        "lines": "16-50"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "web/src/screens/PaidMedia.tsx",
+        "lines": "15-60,96"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/money/paid-meta-derived.ts",
+        "lines": "12-40,79-87"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/money/fx.ts",
+        "lines": "3-30,70-86"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/decision-paid-reallocation-2026-09-15.md",
+        "lines": "7-31",
+        "note": "Google apagado, Meta duplicado — aplicado por API"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/decision-paid-escalado-2026-09-18.md",
+        "lines": "1-30",
+        "note": "sin commitear en HEAD 822912c"
+      }
+    ],
+    "dates": {
+      "first": "2026-09-15",
+      "last": "2026-09-21"
+    }
+  },
+  {
+    "id": "tk-wf-worker-autodeploy",
+    "name": "Puerta pública en el worker + autodeploy con freno",
+    "type": "workflow",
+    "parentId": "p-tk-infra",
+    "kind": "corte 2026-09-17 · timer 5 min · deploy transaccional con rollback",
+    "summary": "La puerta pública dejó la Mac el 2026-09-17: el túnel apunta al worker (un VPS con systemd y cloudflared por token de entorno), registrado en deploy/door.json. Un timer cada 5 min compara lo que el server REALMENTE sirve (`built_from` del healthz) con origin/main, y despliega en transacción: guarda el bundle, pull con archivo de lo que el worker escribió, npm ci, build, restart, salud en 30 s; cualquier fallo vuelve al commit anterior y avisa. El día del corte el worker servía código 69 commits atrás. El retiro del job launchd de la Mac y su vigía sigue pendiente (retire-mac-door.mjs no aplicado: los plists siguen en el repo).",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "deploy/door.json",
+        "lines": "1-8",
+        "note": "door: worker · cut_at 2026-09-17"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "scripts/worker-autodeploy.sh",
+        "lines": "1-35,67-84,112-146"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "deploy/systemd/synergy-autodeploy.timer",
+        "lines": "1-13"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "deploy/systemd/synergy-autodeploy.service",
+        "lines": "1-16"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "deploy/systemd/cloudflared.service",
+        "lines": "1-32"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "scripts/retire-mac-door.mjs",
+        "lines": "1-30",
+        "note": "press pendiente"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "scripts/ventures.both.synergy-public.plist",
+        "note": "el job de la Mac aún trackeado"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/decision-hosting-2026-09-05.md",
+        "lines": "65-105",
+        "note": "F0/F1/F2/F3"
+      }
+    ],
+    "owner": "Boris (press de corte y de retiro)",
+    "dates": {
+      "first": "2026-09-17",
+      "last": "2026-09-17"
+    }
+  },
+  {
+    "id": "tk-cap-bundle-freshness",
+    "name": "Frescura del bundle en /healthz (+ cabeceras de caché)",
+    "type": "capability",
+    "parentId": "p-tk-engine",
+    "kind": "mtime + build stamp · fresh/stale/dirty/unstamped",
+    "summary": "El server que sirve web/dist dice al arrancar y en /healthz de qué commit viene el bundle y si el árbol estaba sucio; un deploy lo lee sin que un humano mire logs. El 2026-09-17 se descubrió que el endpoint llevaba cuatro días mintiendo (se leía una vez al boot) y que el cockpit no mandaba ninguna cabecera Cache-Control: ahora re-lee y sirve index.html como no-store y los assets con hash como immutable.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/bundle-freshness.ts",
+        "lines": "1-67,96-178"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/server.ts",
+        "lines": "107-174,535-562"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/bundle-freshness.test.ts"
+      }
+    ],
+    "dates": {
+      "first": "2026-08-09",
+      "last": "2026-09-17"
+    }
+  },
+  {
+    "id": "tk-wf-today-wave",
+    "name": "«La ola de hoy» (dos presses: preparar y mandar)",
+    "type": "workflow",
+    "parentId": "p-tk-outreach",
+    "kind": "tick por campaña · cantidad editable · dos mandatos V5",
+    "summary": "El envío diario de cold email como acto de un día cruzando rieles: una fila por campaña con checkbox y cantidad propuesta, Preparar y Mandar como dos mandatos V5 separados (el server compone la orden; el cliente manda picks, nunca una frase). Nació de que Boris dejó de usar el lanzador de 3.511 líneas y tecleaba la orden en una terminal. Primer mandato real presionado el 2026-09-18. Existe en disco pero NO está commiteado en HEAD 822912c.",
+    "state": "experimental",
+    "evidence": "observed-in-code",
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "web/src/components/TodayWaveCard.tsx",
+        "lines": "12-60",
+        "note": "sin trackear en git al 2026-09-22"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/routes/today-wave.ts",
+        "lines": "545-628",
+        "note": "GET today-wave · GET stock · POST mandate; sin trackear"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "shared/src/today-wave.ts",
+        "note": "sin trackear"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/decision-la-ola-de-hoy-2026-09-18.md",
+        "lines": "1-35,112-131,267-283",
+        "note": "sin trackear; §6 nombra lo que falta en el VPS"
+      }
+    ],
+    "owner": "Boris",
+    "dates": {
+      "first": "2026-09-18",
+      "last": "2026-09-18"
+    }
+  },
+  {
+    "id": "tk-cap-plan-tracker",
+    "name": "Tracker del plan V0.4 (generado) + guardas comerciales del doctor",
+    "type": "capability",
+    "parentId": "p-tk-cadence",
+    "kind": "una autoridad, una derivación, una guarda · brain-commercial-*",
+    "summary": "docs/lead-machine-tracker.html se GENERA desde el front-matter del plan de récord del cerebro; el doctor recomputa el SHA-256 y pone rojo una edición a mano o un plan sin regenerar. Seis guardas nuevas vigilan la carpeta comercial del cerebro (índice, as_of honesto, decisiones con dueño y fecha, registro B2B fresco, apuestas consistentes, fichas re-observadas). La decisión del 2026-09-12 aplica kill/park/keep a 69 skills y 12 personas del cerebro con condición de despertar.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "scripts/tracker-page.mjs",
+        "lines": "1-20"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/lead-machine-tracker.html"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "scripts/doctor.mjs",
+        "lines": "3071-3142"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/brain-contract.md",
+        "note": "tabla «Read — doctor only (guards, never the server)»"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/decision-v0.4-operating-system-2026-09-12.md",
+        "lines": "1-25"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/decision-multitenant-seam-2026-09-13.md",
+        "lines": "1-40",
+        "note": "553/1561 archivos nombran al tenant #1; la venture es un parámetro, nunca un nombre"
+      }
+    ],
+    "dates": {
+      "first": "2026-09-12",
+      "last": "2026-09-14"
+    }
   }
 ]

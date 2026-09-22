@@ -119,13 +119,25 @@ export interface TourStep {
   stats?: boolean
 }
 
+export interface RepoInfo {
+  url: string // GitHub repo URL (no trailing slash)
+  branch: string
+  visibility: 'public' | 'private'
+  head?: string // short SHA the atlas was read from
+}
+
 export interface WorldData {
   meta: {
     title: string
     subtitle: string
+    version?: string
     generated: string
+    /** date the narration clips were recorded (they are not re-generated on every data refresh) */
+    narrationDate?: string
     coverage: string // plain-language statement of what is and is not covered
     limitations: string[]
+    /** where each repo lives online, so a source can be opened in one click */
+    repos?: Partial<Record<RepoId, RepoInfo>>
   }
   entities: Entity[]
   relations: Relation[]
@@ -153,6 +165,71 @@ export const VERIFICATION_LABEL: Record<Verification, string> = {
   'verified-in-code': 'verificada en código',
   'verified-in-docs': 'verificada en documentación',
   inferred: 'inferida',
+}
+
+/** Spanish, for cards and lists — the enum stays English in the data */
+export const TYPE_LABEL: Record<EntityType, string> = {
+  world: 'mundo',
+  territory: 'territorio',
+  project: 'proyecto',
+  capability: 'capacidad',
+  workflow: 'workflow',
+  deliverable: 'entregable',
+  connection: 'conexión',
+  control: 'control',
+}
+
+export const TYPE_LABEL_PLURAL: Record<EntityType, string> = {
+  world: 'mundos',
+  territory: 'territorios',
+  project: 'proyectos',
+  capability: 'capacidades',
+  workflow: 'workflows',
+  deliverable: 'entregables',
+  connection: 'conexiones',
+  control: 'controles',
+}
+
+/** one-line meaning of each state / evidence value, for tooltips and the help glossary */
+export const STATE_HINT: Record<State, string> = {
+  implemented: 'Construido y en uso; el repo tiene código o documentación que lo describe funcionando.',
+  experimental: 'Existe, pero todavía no cerró un ciclo completo o se está probando.',
+  proposed: 'Solo planificado o diseñado; no hay implementación. Se dibuja como huella punteada.',
+  parked: 'Se construyó y se dejó en pausa a propósito; puede volver.',
+  retired: 'Se retiró o reemplazó; queda en el mapa porque retirar también es una decisión.',
+}
+
+export const EVIDENCE_HINT: Record<EvidenceStatus, string> = {
+  'observed-in-code': 'Hay archivos, rutas o scripts en el repo que lo implementan.',
+  'observed-in-docs': 'Lo describe la propia documentación del repo; no se leyó código que lo ejecute.',
+  'claimed-by-doc': 'Un documento afirma que está desplegado, vivo o medido; este atlas no lo re-verificó en red.',
+  executed: 'Se probó ejecutándolo durante la construcción de este atlas.',
+  proposed: 'Solo existe como propuesta o diseño.',
+  unknown: 'Sin evidencia clasificable.',
+}
+
+/** short pill text (the long meaning lives in EVIDENCE_HINT) */
+export const EVIDENCE_SHORT: Record<EvidenceStatus, string> = {
+  'observed-in-code': 'En código',
+  'observed-in-docs': 'En documentación',
+  'claimed-by-doc': 'Declarado · sin verificar',
+  executed: 'Probado',
+  proposed: 'Propuesto',
+  unknown: 'Desconocido',
+}
+
+export const REL_LABEL: Record<RelationType, string> = {
+  uses: 'usa',
+  feeds: 'alimenta',
+  produces: 'produce',
+  reviews: 'revisa',
+  'deploys-to': 'despliega en',
+  documents: 'documenta',
+  mirrors: 'espeja',
+  reads: 'lee',
+  writes: 'escribe',
+  dispatches: 'despacha',
+  gates: 'compuerta de',
 }
 
 export const REPO_LABEL: Record<RepoId, string> = {

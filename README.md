@@ -1,6 +1,6 @@
 # BOTH WORLDS — atlas cinematográfico y explorable del sistema real de Both Ventures
 
-**Versión FABLE5 / Claude Code · 2026-09-08**
+**Versión FABLE5 / Claude Code · V4.0 · 2026-09-22** (base 2026-09-08)
 *La infraestructura invisible, hecha visible.*
 
 Un mundo 3D wireframe con tres territorios (uno por repositorio real), proyectos como distritos y unidades de trabajo como bloques. Cada bloque abre una ficha con estado, evidencia y rutas en el repo. Sin backend, sin internet, sin secretos.
@@ -27,11 +27,14 @@ Viewport principal 1920×1080; verificado también a 1440×900. Pantalla complet
 
 | Tecla / gesto | Acción |
 |---|---|
-| `←` `→` o botones del pie | Recorrido guiado, 8 escenas (la 05 presenta a las cinco personas del equipo como el elemento humano; clic en cada nombre ilumina sus compuertas) |
+| `←` `→` · `1–9` o botones del pie | Recorrido guiado, 9 escenas (la 05 presenta a las cinco personas del equipo como el elemento humano; clic en cada nombre ilumina sus compuertas) |
 | clic en etiqueta o bloque | Entrar a territorio → proyecto → elemento (sin depender de hover) |
 | `Esc` / `Backspace` | Subir un nivel · `Home`/`H` volver al mundo |
 | arrastrar · Shift+arrastrar · rueda | Orbitar · desplazar · acercar (modo exploración) |
-| `P` o botón «Escuchar más» | Narración en audio de la escena (entre 1,5 y 3 min por escena); «leer texto» muestra la transcripción |
+| `P` o botón «Escuchar más» | Narración en audio de la escena (entre 1,5 y 3 min por escena; la 08 no tiene); «leer texto» muestra la transcripción |
+| `/` · `⌘K` | Buscar una pieza y saltar a ella |
+| `C` | Plegar / desplegar la tarjeta del recorrido |
+| clic en la leyenda | Filtrar por estado o tipo (Esc lo quita) |
 | `L` o botón «Leyenda» (barra superior) | Muestra u oculta la tarjeta de referencias de abajo a la izquierda (estados, tipos, cobertura). La elección se recuerda en el navegador |
 | `Espacio` / `M` / `F` / `T` / `?` | Pausar órbita / reduced motion / pantalla completa / recorrido⇄exploración / ayuda |
 
@@ -71,6 +74,24 @@ TEST-REPORT.md              ← qué se probó, qué no, limitaciones
 
 **Narración:** el texto de cada escena vive en `tour.json → narration`. `node scripts/narrate.mjs` regenera los ocho mp3 con la voz elegida por el equipo el 2026-09-08: **Dalia (es-MX), voz neuronal de Microsoft vía `edge-tts`** (gratis, sin cuenta; corre con `uvx`, así que solo necesita `uv` instalado e internet en el momento de generar — los clips quedan embebidos y la presentación sigue siendo offline). Fallback sin red: `node scripts/narrate.mjs say Paulina 168` usa la voz de macOS. Otra voz: `node scripts/narrate.mjs edge es-UY-ValentinaNeural` (lista completa con `uvx edge-tts --list-voices`), o reemplazar los mp3 con el mismo nombre y correr `node scripts/narrate.mjs none` para refrescar `durations.json`. Después, `npm run build:single` y copiar `dist-single/index.html` a `BOTH-WORLDS.html`. Alternativa local probada (no adoptada): Qwen3-TTS con `mlx-audio`, dirigible por instrucción y con clonación de voz.
 
+## V4.0 · 2026-09-22 (para compartir con el equipo: buscar, linkear, filtrar, datos al día)
+
+Pasada de UX sobre la V3.2 y refresco del modelo de datos contra los HEAD del 22 de septiembre (both_os `c78cc8f5` · synergy-toolkit `822912c` · lc-chaman `f5f90ca`; 636 commits desde la lectura anterior).
+
+- **Buscador** (`/`, `B` o `⌘K`): cualquier pieza por nombre, tipo, dueño, ruta o resumen, sin importar acentos; ↑↓ y Enter saltan a ella.
+- **Links profundos**: la URL cambia sola al navegar (`#/x/<id>` para una pieza, `#/t/<n>` para una escena) y la ficha tiene «copiar link». Un link pegado en Slack abre exactamente esa vista.
+- **Fuentes clicables**: cada `repo/ruta:líneas` de la ficha abre el archivo en GitHub, con las líneas resaltadas (pide acceso al repo si es privado).
+- **Leyenda que filtra**: tocar un estado o un tipo atenúa todo lo demás; un chip arriba dice qué filtro está puesto y cuántas piezas hay; `Esc` lo quita.
+- **Ficha**: «Contiene» agrupado por tipo cuando el distrito es grande; tipos y relaciones en español (usa · alimenta · escribe · compuerta de…); pills con explicación al pasar el mouse; glosario en la ayuda.
+- **Tarjeta del recorrido plegable** (`C` o el chevron) para escuchar la narración con el mapa entero a la vista; marcas de progreso clicables; teclas `1–9` para saltar de escena; el player dice cuándo se grabó la narración.
+- **Peek al pasar el mouse** sobre un bloque o una etiqueta: nombre completo, tipo, estado y evidencia, sin abrir la ficha.
+- **Rutas a nivel distrito**: al entrar a un proyecto se dibujan las relaciones que empiezan o terminan ahí y quedan en la misma plataforma (antes, ninguna en modo exploración).
+- **Escena 08 nueva, «Dos semanas después»**: qué cambió entre el 8 y el 22 de septiembre (V5, la puerta pública en el worker, las dos puertas, el stock semanal, tests en CI, el escáner de secretos…). Sin audio: es la única escena que no tiene narración grabada.
+- **Datos**: 277 piezas (antes 239) · 133 relaciones (61 verificadas en código) · 807 referencias a archivos, todas existentes en disco. 36 piezas nuevas, ~160 fichas actualizadas, 25 relaciones nuevas; las propuestas que ya se construyeron (superficie de comando → V5; hosting → worker) cambiaron de estado y salieron de la escena de futuro.
+- Barra superior: control segmentado Recorrido / Explorar; botones en español; pista contextual por nivel.
+
+Suite e2e: 96 checks en 1920×1080 y 1440×900 (antes 66).
+
 ## V3 · sesión nocturna 2026-09-09 (acento oliva + identidad + atmósfera)
 
 - **Un solo acento: Olive-Gold Bright `#C5C52A`**, la variante para fondos oscuros del sistema de marca de Both Ventures (reemplaza al violeta en todo: UI, rutas, selección, gráficos). Tono con luz `#E6E670` para brillos; `#6E6E1C` para inferido. Los tintes de identidad de territorio (cian Toolkit, ámbar Chamán) se mantienen; Both Ventures toma el oliva. Tokens en `app/src/scene/palette.ts` y `:root` de `index.css` — volver al violeta es cambiar esos valores.
@@ -82,11 +103,11 @@ TEST-REPORT.md              ← qué se probó, qué no, limitaciones
 
 Editar y correr `npm run validate:data` (verifica que cada ruta citada exista en los repos locales). Las posiciones se recalculan de forma determinista; no hay simulación de fuerzas.
 
-Conteo al 2026-09-08 (registros del mapa, **no** "agentes activos"): 239 entidades (3 territorios · 23 proyectos · 213 elementos) · 108 relaciones (43 verificadas en código · 61 en docs · 4 inferidas) · 563 referencias a archivos, todas existentes en disco.
+Conteo al 2026-09-22 (registros del mapa, **no** "agentes activos"): 277 entidades (3 territorios · 23 proyectos · 238 elementos + el mundo) · 133 relaciones (61 verificadas en código · 68 en docs · 4 inferidas) · 807 referencias a archivos, todas existentes en disco.
 
 ## Cobertura y límites
 
-- Fuentes: `both_os` (HEAD `0a0ef5cb`), `synergy-toolkit` (`8cc6eca`), `lc-chaman` (`95b83e4`), leídos el 2026-09-08. Manifiesto completo: `research/00-sources-manifest.md`.
+- Fuentes: `both_os` (HEAD `c78cc8f5`), `synergy-toolkit` (`822912c`), `lc-chaman` (`f5f90ca`), refrescados el 2026-09-22 sobre la lectura del 2026-09-08 (`0a0ef5cb` · `8cc6eca` · `95b83e4`). Manifiesto de la lectura base: `research/00-sources-manifest.md` (local).
 - "Live" / "deployed" aparece como **declaración de un documento**, no como verificación de red. No se ejecutó código de negocio.
 - No representados por falta de acceso: `both-private`, `content-factory-sandbox`, `COMANDO-AI/C-OS`.
 - Sin datos comerciales, sin transcripts, sin contactos, sin IDs de cuentas ni tokens.

@@ -6,8 +6,16 @@
     "type": "reads",
     "label": "7 archivos leídos del cerebro",
     "evidence": [
-      { "repo": "synergy-toolkit", "path": "docs/brain-contract.md", "lines": "73-83" },
-      { "repo": "synergy-toolkit", "path": "config/ventures.yaml", "lines": "13-19" }
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/brain-contract.md",
+        "lines": "73-83"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "config/ventures.yaml",
+        "lines": "13-19"
+      }
     ],
     "verification": "verified-in-code"
   },
@@ -18,9 +26,20 @@
     "type": "writes",
     "label": "campaign.yaml, manifiestos; un commit por archivo",
     "evidence": [
-      { "repo": "synergy-toolkit", "path": "docs/brain-contract.md", "lines": "85-108" },
-      { "repo": "synergy-toolkit", "path": "server/src/repo/campaign-store.ts" },
-      { "repo": "lc-chaman", "path": "vault/campaigns", "note": "120 commits con prefijo synergy:" }
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/brain-contract.md",
+        "lines": "85-108"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/repo/campaign-store.ts"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "vault/campaigns",
+        "note": "120 commits con prefijo synergy:"
+      }
     ],
     "verification": "verified-in-code"
   },
@@ -31,8 +50,16 @@
     "type": "dispatches",
     "label": "claude -p con lc-chaman como cwd",
     "evidence": [
-      { "repo": "synergy-toolkit", "path": "server/src/exec/runner.ts", "lines": "37,137" },
-      { "repo": "lc-chaman", "path": ".synergy/actions.yaml", "lines": "1-6" }
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/exec/runner.ts",
+        "lines": "37,137"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": ".synergy/actions.yaml",
+        "lines": "1-6"
+      }
     ],
     "verification": "verified-in-code"
   },
@@ -43,8 +70,15 @@
     "type": "writes",
     "label": "venture.yaml current: (escrito por máquina)",
     "evidence": [
-      { "repo": "synergy-toolkit", "path": "server/src/repo/venture-store.ts" },
-      { "repo": "lc-chaman", "path": ".synergy/venture.yaml", "lines": "1-2" }
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/repo/venture-store.ts"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": ".synergy/venture.yaml",
+        "lines": "1-2"
+      }
     ],
     "verification": "verified-in-code"
   },
@@ -55,8 +89,16 @@
     "type": "feeds",
     "label": "cada acción declarada es un botón Run",
     "evidence": [
-      { "repo": "synergy-toolkit", "path": "shared/src/machines.ts", "lines": "1-23" },
-      { "repo": "synergy-toolkit", "path": "docs/brain-contract.md", "lines": "170-201" }
+      {
+        "repo": "synergy-toolkit",
+        "path": "shared/src/machines.ts",
+        "lines": "1-23"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/brain-contract.md",
+        "lines": "170-201"
+      }
     ],
     "verification": "verified-in-code"
   },
@@ -67,8 +109,16 @@
     "type": "reviews",
     "label": "brain-roster-truth · brain-learning-links · docs-index",
     "evidence": [
-      { "repo": "lc-chaman", "path": "CLAUDE.md", "lines": "147-154" },
-      { "repo": "synergy-toolkit", "path": "scripts/doctor.mjs", "lines": "1-49" }
+      {
+        "repo": "lc-chaman",
+        "path": "CLAUDE.md",
+        "lines": "147-154"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "scripts/doctor.mjs",
+        "lines": "1-49"
+      }
     ],
     "verification": "verified-in-docs"
   },
@@ -79,8 +129,15 @@
     "type": "uses",
     "label": "el envío lo hace send_batch.sh del cerebro",
     "evidence": [
-      { "repo": "synergy-toolkit", "path": "config/ventures.yaml", "lines": "40" },
-      { "repo": "lc-chaman", "path": "capabilities/machines/outreach/scripts/send_email.py" }
+      {
+        "repo": "synergy-toolkit",
+        "path": "config/ventures.yaml",
+        "lines": "40"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/machines/outreach/scripts/send_email.py"
+      }
     ],
     "verification": "verified-in-code"
   },
@@ -91,7 +148,11 @@
     "type": "gates",
     "label": "el Toolkit autoriza; el cerebro tiene la llave",
     "evidence": [
-      { "repo": "synergy-toolkit", "path": "docs/brain-contract.md", "lines": "110-133" }
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/brain-contract.md",
+        "lines": "110-133"
+      }
     ],
     "verification": "verified-in-docs"
   },
@@ -102,7 +163,10 @@
     "type": "uses",
     "label": "una de las tres lentes",
     "evidence": [
-      { "repo": "synergy-toolkit", "path": ".claude/skills/design-desk/SKILL.md" }
+      {
+        "repo": "synergy-toolkit",
+        "path": ".claude/skills/design-desk/SKILL.md"
+      }
     ],
     "verification": "verified-in-docs"
   },
@@ -113,7 +177,11 @@
     "type": "dispatches",
     "label": "AG-011 como juez semanal (0 ciclos cerrados)",
     "evidence": [
-      { "repo": "synergy-toolkit", "path": "docs/decision-synergy-v4-self-improving-ops-2026-09-05.md", "lines": "52-66" }
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/decision-synergy-v4-self-improving-ops-2026-09-05.md",
+        "lines": "52-66"
+      }
     ],
     "verification": "verified-in-docs"
   },
@@ -124,8 +192,16 @@
     "type": "feeds",
     "label": "WF-014/015 corren como la acción prospect-research",
     "evidence": [
-      { "repo": "lc-chaman", "path": "capabilities/workflows/WF-014_agency-prospecting.md", "lines": "98-101" },
-      { "repo": "lc-chaman", "path": ".synergy/rails.yaml", "lines": "71-120" }
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/workflows/WF-014_agency-prospecting.md",
+        "lines": "98-101"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": ".synergy/rails.yaml",
+        "lines": "71-120"
+      }
     ],
     "verification": "verified-in-docs"
   },
@@ -136,8 +212,15 @@
     "type": "documents",
     "label": "el asiento de El Chamán en el Joint Operating Room",
     "evidence": [
-      { "repo": "lc-chaman", "path": "CLAUDE.md", "lines": "245" },
-      { "repo": "synergy-toolkit", "path": ".claude/skills/joint-operating-room/SKILL.md" }
+      {
+        "repo": "lc-chaman",
+        "path": "CLAUDE.md",
+        "lines": "245"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": ".claude/skills/joint-operating-room/SKILL.md"
+      }
     ],
     "verification": "verified-in-docs"
   },
@@ -148,7 +231,11 @@
     "type": "deploys-to",
     "label": "R-007 debe ir al scheduler del Toolkit (propuesto)",
     "evidence": [
-      { "repo": "lc-chaman", "path": "cadence/routines.md", "lines": "64-77" }
+      {
+        "repo": "lc-chaman",
+        "path": "cadence/routines.md",
+        "lines": "64-77"
+      }
     ],
     "verification": "verified-in-docs"
   },
@@ -159,8 +246,14 @@
     "type": "mirrors",
     "label": "la misma base LC_CRM vista de los dos lados",
     "evidence": [
-      { "repo": "synergy-toolkit", "path": "server/src/airtable.ts" },
-      { "repo": "lc-chaman", "path": "connections/TL-008_airtable.md" }
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/airtable.ts"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "connections/TL-008_airtable.md"
+      }
     ],
     "verification": "verified-in-code"
   },
@@ -171,11 +264,14 @@
     "type": "mirrors",
     "label": "adaptador TS en el Toolkit, scripts Python en el cerebro",
     "evidence": [
-      { "repo": "synergy-toolkit", "path": "docs/brain-contract.md", "lines": "158-162" }
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/brain-contract.md",
+        "lines": "158-162"
+      }
     ],
     "verification": "verified-in-docs"
   },
-
   {
     "id": "r-wr-reads-3-repos",
     "from": "bo-cap-wr",
@@ -183,7 +279,11 @@
     "type": "reads",
     "label": "/wr lee el git log del Toolkit para el digest semanal",
     "evidence": [
-      { "repo": "both_os", "path": ".claude/agents/weekly-reporter.md", "lines": "225" }
+      {
+        "repo": "both_os",
+        "path": ".claude/agents/weekly-reporter.md",
+        "lines": "225"
+      }
     ],
     "verification": "verified-in-docs"
   },
@@ -194,7 +294,11 @@
     "type": "reads",
     "label": "/wr lee el git log de lc-chaman para el digest semanal",
     "evidence": [
-      { "repo": "both_os", "path": ".claude/agents/weekly-reporter.md", "lines": "225" }
+      {
+        "repo": "both_os",
+        "path": ".claude/agents/weekly-reporter.md",
+        "lines": "225"
+      }
     ],
     "verification": "verified-in-docs"
   },
@@ -205,8 +309,17 @@
     "type": "documents",
     "label": "both_os apunta al repo; lc-chaman no apunta de vuelta",
     "evidence": [
-      { "repo": "both_os", "path": ".claude/CLAUDE.md", "lines": "334-338" },
-      { "repo": "lc-chaman", "path": "README.md", "lines": "43", "note": "grep both_os → 0 hits en lc-chaman" }
+      {
+        "repo": "both_os",
+        "path": ".claude/CLAUDE.md",
+        "lines": "334-338"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "README.md",
+        "lines": "43",
+        "note": "grep both_os → 0 hits en lc-chaman"
+      }
     ],
     "verification": "verified-in-docs"
   },
@@ -217,7 +330,11 @@
     "type": "produces",
     "label": "/r2bv: reporte de estado a BOTH por Slack",
     "evidence": [
-      { "repo": "lc-chaman", "path": ".claude/skills/r2bv/SKILL.md", "lines": "1-4" }
+      {
+        "repo": "lc-chaman",
+        "path": ".claude/skills/r2bv/SKILL.md",
+        "lines": "1-4"
+      }
     ],
     "verification": "verified-in-docs"
   },
@@ -228,7 +345,11 @@
     "type": "feeds",
     "label": "el motor de Andrés alimenta la máquina de contenido",
     "evidence": [
-      { "repo": "lc-chaman", "path": "capabilities/machines/content-factory/MACHINE.md", "lines": "15-24" }
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/machines/content-factory/MACHINE.md",
+        "lines": "15-24"
+      }
     ],
     "verification": "verified-in-docs"
   },
@@ -239,7 +360,11 @@
     "type": "feeds",
     "label": "feed de packs, retirado 2026-07-29",
     "evidence": [
-      { "repo": "synergy-toolkit", "path": "web/src/screens/Content.tsx", "lines": "69-89" }
+      {
+        "repo": "synergy-toolkit",
+        "path": "web/src/screens/Content.tsx",
+        "lines": "69-89"
+      }
     ],
     "verification": "verified-in-code"
   },
@@ -250,8 +375,16 @@
     "type": "deploys-to",
     "label": "misma superficie Pages (repo stack); sin dependencia de código",
     "evidence": [
-      { "repo": "synergy-toolkit", "path": "docs/publish-gate.md", "lines": "37-45" },
-      { "repo": "both_os", "path": ".github/workflows/deploy-diagram.yml", "lines": "16" }
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/publish-gate.md",
+        "lines": "37-45"
+      },
+      {
+        "repo": "both_os",
+        "path": ".github/workflows/deploy-diagram.yml",
+        "lines": "16"
+      }
     ],
     "verification": "inferred"
   },
@@ -262,7 +395,11 @@
     "type": "deploys-to",
     "label": "10 documentos con URL viva en stack y lc-docs",
     "evidence": [
-      { "repo": "lc-chaman", "path": "docs/README.md", "lines": "36-56" }
+      {
+        "repo": "lc-chaman",
+        "path": "docs/README.md",
+        "lines": "36-56"
+      }
     ],
     "verification": "verified-in-docs"
   },
@@ -273,8 +410,14 @@
     "type": "mirrors",
     "label": "misma idea (tres lentes), dos implementaciones; lineage no documentado",
     "evidence": [
-      { "repo": "both_os", "path": "harnesses/design-desk.md" },
-      { "repo": "synergy-toolkit", "path": ".claude/skills/design-desk/SKILL.md" }
+      {
+        "repo": "both_os",
+        "path": "harnesses/design-desk.md"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": ".claude/skills/design-desk/SKILL.md"
+      }
     ],
     "verification": "inferred"
   },
@@ -285,18 +428,28 @@
     "type": "documents",
     "label": "el GTM de abril en both_os y el flujo de René en lc-chaman comparten origen",
     "evidence": [
-      { "repo": "both_os", "path": "vault/ventures/la-chamana-dm-campaign-strategy-2026-04.md" },
-      { "repo": "lc-chaman", "path": "capabilities/machines/outreach/campaigns/la-chamana-dm-campaign-strategy-2026-04.md" }
+      {
+        "repo": "both_os",
+        "path": "vault/ventures/la-chamana-dm-campaign-strategy-2026-04.md"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/machines/outreach/campaigns/la-chamana-dm-campaign-strategy-2026-04.md"
+      }
     ],
     "verification": "inferred"
   },
-
   {
     "id": "r-readai-feeds-worker",
     "from": "bo-con-readai",
     "to": "bo-wf-auto-miner",
     "type": "feeds",
-    "evidence": [{ "repo": "both_os", "path": "harnesses/auto-miner.md" }],
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "harnesses/auto-miner.md"
+      }
+    ],
     "verification": "verified-in-code"
   },
   {
@@ -305,7 +458,12 @@
     "to": "bo-del-vault",
     "type": "writes",
     "label": "transcripts · pending · decisions · risks · ventures",
-    "evidence": [{ "repo": "both_os", "path": "harnesses/auto-miner.md" }],
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "harnesses/auto-miner.md"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -314,7 +472,12 @@
     "to": "bo-con-supabase",
     "type": "writes",
     "label": "trazas en pipeline_runs",
-    "evidence": [{ "repo": "both_os", "path": "supabase/migrations/2026-05-23-pipeline-runs.sql" }],
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "supabase/migrations/2026-05-23-pipeline-runs.sql"
+      }
+    ],
     "verification": "verified-in-code"
   },
   {
@@ -322,7 +485,13 @@
     "from": "bo-wf-auto-miner",
     "to": "bo-con-anthropic",
     "type": "uses",
-    "evidence": [{ "repo": "both_os", "path": "workers/transcript-miner/src/index.js", "lines": "1-80" }],
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "workers/transcript-miner/src/index.js",
+        "lines": "1-80"
+      }
+    ],
     "verification": "verified-in-code"
   },
   {
@@ -331,7 +500,13 @@
     "to": "bo-wf-fanout",
     "type": "feeds",
     "label": "push a vault/pending/**.md",
-    "evidence": [{ "repo": "both_os", "path": ".github/workflows/auto-mine-fanout.yml", "lines": "21-26" }],
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": ".github/workflows/auto-mine-fanout.yml",
+        "lines": "21-26"
+      }
+    ],
     "verification": "verified-in-code"
   },
   {
@@ -340,7 +515,13 @@
     "to": "bo-con-asana",
     "type": "writes",
     "label": "tareas deduplicadas",
-    "evidence": [{ "repo": "both_os", "path": ".github/workflows/auto-mine-fanout.yml", "lines": "96" }],
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": ".github/workflows/auto-mine-fanout.yml",
+        "lines": "96"
+      }
+    ],
     "verification": "verified-in-code"
   },
   {
@@ -349,7 +530,13 @@
     "to": "bo-con-slack",
     "type": "writes",
     "label": "post en el canal del venture",
-    "evidence": [{ "repo": "both_os", "path": ".github/workflows/auto-mine-fanout.yml", "lines": "98" }],
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": ".github/workflows/auto-mine-fanout.yml",
+        "lines": "98"
+      }
+    ],
     "verification": "verified-in-code"
   },
   {
@@ -357,7 +544,13 @@
     "from": "bo-ctl-asana-gatekeeper",
     "to": "bo-con-asana",
     "type": "reviews",
-    "evidence": [{ "repo": "both_os", "path": ".claude/CLAUDE.md", "lines": "79" }],
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": ".claude/CLAUDE.md",
+        "lines": "79"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -365,7 +558,12 @@
     "from": "bo-cap-vu-au",
     "to": "bo-del-venture-cards",
     "type": "writes",
-    "evidence": [{ "repo": "both_os", "path": ".claude/agents/venture-update.md" }],
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": ".claude/agents/venture-update.md"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -373,7 +571,13 @@
     "from": "bo-ctl-champion",
     "to": "bo-cap-vu-au",
     "type": "gates",
-    "evidence": [{ "repo": "both_os", "path": ".claude/skills/venture-update/SKILL.md", "lines": "58-61" }],
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/venture-update/SKILL.md",
+        "lines": "58-61"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -381,7 +585,12 @@
     "from": "bo-cap-wr",
     "to": "bo-del-venture-cards",
     "type": "reads",
-    "evidence": [{ "repo": "both_os", "path": ".claude/agents/weekly-reporter.md" }],
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": ".claude/agents/weekly-reporter.md"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -389,7 +598,12 @@
     "from": "bo-cap-wr",
     "to": "bo-del-weekly-dashboard",
     "type": "produces",
-    "evidence": [{ "repo": "both_os", "path": ".claude/agents/weekly-reporter.md" }],
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": ".claude/agents/weekly-reporter.md"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -397,7 +611,12 @@
     "from": "bo-ctl-digest",
     "to": "bo-del-weekly-dashboard",
     "type": "gates",
-    "evidence": [{ "repo": "both_os", "path": ".claude/agents/weekly-reporter.md" }],
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": ".claude/agents/weekly-reporter.md"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -405,7 +624,12 @@
     "from": "bo-wf-tuesday-sync",
     "to": "bo-cap-wr",
     "type": "uses",
-    "evidence": [{ "repo": "both_os", "path": "harnesses/tuesday-sync.md" }],
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "harnesses/tuesday-sync.md"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -413,7 +637,12 @@
     "from": "bo-wf-tuesday-sync",
     "to": "bo-cap-vu-au",
     "type": "uses",
-    "evidence": [{ "repo": "both_os", "path": "harnesses/tuesday-sync.md" }],
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "harnesses/tuesday-sync.md"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -422,7 +651,12 @@
     "to": "bo-wf-auto-miner",
     "type": "uses",
     "label": "post-reunión, el minado cierra el loop",
-    "evidence": [{ "repo": "both_os", "path": "harnesses/tuesday-sync.md" }],
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "harnesses/tuesday-sync.md"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -430,7 +664,12 @@
     "from": "bo-cap-publishers",
     "to": "bo-del-pages",
     "type": "produces",
-    "evidence": [{ "repo": "both_os", "path": ".claude/skills/md-web/SKILL.md" }],
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/md-web/SKILL.md"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -438,7 +677,13 @@
     "from": "bo-wf-deploy-pages",
     "to": "bo-con-github-pages",
     "type": "deploys-to",
-    "evidence": [{ "repo": "both_os", "path": ".github/workflows/deploy-diagram.yml", "lines": "16-31" }],
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": ".github/workflows/deploy-diagram.yml",
+        "lines": "16-31"
+      }
+    ],
     "verification": "verified-in-code"
   },
   {
@@ -446,7 +691,12 @@
     "from": "bo-del-pages",
     "to": "bo-wf-deploy-pages",
     "type": "feeds",
-    "evidence": [{ "repo": "both_os", "path": ".github/workflows/deploy-diagram.yml" }],
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": ".github/workflows/deploy-diagram.yml"
+      }
+    ],
     "verification": "verified-in-code"
   },
   {
@@ -454,7 +704,12 @@
     "from": "bo-wf-notion-sync",
     "to": "bo-con-notion",
     "type": "mirrors",
-    "evidence": [{ "repo": "both_os", "path": "scripts/vault-to-notion.py" }],
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "scripts/vault-to-notion.py"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -462,7 +717,12 @@
     "from": "bo-cap-draft-mode",
     "to": "bo-con-notion",
     "type": "mirrors",
-    "evidence": [{ "repo": "both_os", "path": "scripts/draft-mirror.py" }],
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "scripts/draft-mirror.py"
+      }
+    ],
     "verification": "verified-in-code"
   },
   {
@@ -470,7 +730,12 @@
     "from": "bo-wf-synergy-slack",
     "to": "bo-con-slack",
     "type": "uses",
-    "evidence": [{ "repo": "both_os", "path": "harnesses/synergy-slack.md" }],
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "harnesses/synergy-slack.md"
+      }
+    ],
     "verification": "verified-in-code"
   },
   {
@@ -479,7 +744,13 @@
     "to": "bo-con-supabase",
     "type": "reads",
     "label": "vault_context + conversaciones",
-    "evidence": [{ "repo": "both_os", "path": "workers/transcript-miner/src/synergy-chat.js", "lines": "1-15" }],
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "workers/transcript-miner/src/synergy-chat.js",
+        "lines": "1-15"
+      }
+    ],
     "verification": "verified-in-code"
   },
   {
@@ -487,7 +758,12 @@
     "from": "bo-wf-security-weekly",
     "to": "bo-del-security-reports",
     "type": "produces",
-    "evidence": [{ "repo": "both_os", "path": ".github/workflows/security-weekly.yml" }],
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": ".github/workflows/security-weekly.yml"
+      }
+    ],
     "verification": "verified-in-code"
   },
   {
@@ -495,7 +771,12 @@
     "from": "bo-cap-hux",
     "to": "bo-del-security-reports",
     "type": "reviews",
-    "evidence": [{ "repo": "both_os", "path": ".claude/agents/hux-security.md" }],
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": ".claude/agents/hux-security.md"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -503,7 +784,12 @@
     "from": "bo-wf-hux-weekly",
     "to": "bo-cap-hux",
     "type": "uses",
-    "evidence": [{ "repo": "both_os", "path": "harnesses/hux-weekly.md" }],
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "harnesses/hux-weekly.md"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -512,7 +798,12 @@
     "to": "bo-ctl-deploy-pat",
     "type": "feeds",
     "label": "aviso a 21/14/7/3/1/0 días",
-    "evidence": [{ "repo": "both_os", "path": ".github/workflows/pat-expiry-watch.yml" }],
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": ".github/workflows/pat-expiry-watch.yml"
+      }
+    ],
     "verification": "verified-in-code"
   },
   {
@@ -520,7 +811,12 @@
     "from": "bo-ctl-deploy-pat",
     "to": "bo-wf-auto-miner",
     "type": "gates",
-    "evidence": [{ "repo": "both_os", "path": "scripts/worker-deploy.sh" }],
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "scripts/worker-deploy.sh"
+      }
+    ],
     "verification": "verified-in-code"
   },
   {
@@ -528,7 +824,13 @@
     "from": "bo-ctl-rene-gates",
     "to": "bo-cap-design-desk",
     "type": "gates",
-    "evidence": [{ "repo": "both_os", "path": "harnesses/design-desk.md", "lines": "48-51" }],
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "harnesses/design-desk.md",
+        "lines": "48-51"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -536,7 +838,12 @@
     "from": "bo-cap-design-desk",
     "to": "bn-el-marca",
     "type": "produces",
-    "evidence": [{ "repo": "both_os", "path": "projects/bienal-blockchain-punta/marca" }],
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "projects/bienal-blockchain-punta/marca"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -544,7 +851,12 @@
     "from": "bo-cap-stf",
     "to": "qt-el-stf",
     "type": "produces",
-    "evidence": [{ "repo": "both_os", "path": "vault/agent_outputs/council" }],
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "vault/agent_outputs/council"
+      }
+    ],
     "verification": "verified-in-code"
   },
   {
@@ -552,7 +864,12 @@
     "from": "ph-el-wiki",
     "to": "bo-del-pages",
     "type": "produces",
-    "evidence": [{ "repo": "both_os", "path": "projects/photonic-labs/_index.md" }],
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "projects/photonic-labs/_index.md"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -560,7 +877,12 @@
     "from": "bo-ctl-rene-gates",
     "to": "ph-el-landing",
     "type": "gates",
-    "evidence": [{ "repo": "both_os", "path": "projects/photonic-labs/landing-v1/context.md" }],
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "projects/photonic-labs/landing-v1/context.md"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -569,7 +891,12 @@
     "to": "bo-con-anthropic",
     "type": "uses",
     "label": "proxy serverless de streaming",
-    "evidence": [{ "repo": "both_os", "path": "projects/photonic-labs/landing-v1/context.md" }],
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "projects/photonic-labs/landing-v1/context.md"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -577,7 +904,12 @@
     "from": "bo-del-venture-cards",
     "to": "bo-del-vault",
     "type": "documents",
-    "evidence": [{ "repo": "both_os", "path": "vault/_index.md" }],
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "vault/_index.md"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -585,7 +917,13 @@
     "from": "bo-ctl-no-mine",
     "to": "bo-cap-mine",
     "type": "gates",
-    "evidence": [{ "repo": "both_os", "path": ".claude/skills/mine/SKILL.md", "lines": "49-51" }],
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/mine/SKILL.md",
+        "lines": "49-51"
+      }
+    ],
     "verification": "verified-in-code"
   },
   {
@@ -594,7 +932,13 @@
     "to": "bo-cap-mine",
     "type": "gates",
     "label": "Regla A: sin gate humano",
-    "evidence": [{ "repo": "both_os", "path": ".claude/agents/meeting-miner.harness.md", "lines": "21-56" }],
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": ".claude/agents/meeting-miner.harness.md",
+        "lines": "21-56"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -602,7 +946,12 @@
     "from": "bo-cap-mine",
     "to": "bo-del-vault",
     "type": "writes",
-    "evidence": [{ "repo": "both_os", "path": ".claude/skills/mine/SKILL.md" }],
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/mine/SKILL.md"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -610,7 +959,12 @@
     "from": "bo-cap-finance",
     "to": "bo-del-lp-report",
     "type": "produces",
-    "evidence": [{ "repo": "both_os", "path": ".claude/skills/lp-report/SKILL.md" }],
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/lp-report/SKILL.md"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -619,16 +973,25 @@
     "to": "bo-wf-sync-daemon",
     "type": "uses",
     "label": "publish-push.sh empuja vía el daemon",
-    "evidence": [{ "repo": "both_os", "path": "scripts/publish-push.sh" }],
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "scripts/publish-push.sh"
+      }
+    ],
     "verification": "verified-in-code"
   },
-
   {
     "id": "r-gate-engine-approvals",
     "from": "tk-wf-gate-engine",
     "to": "tk-del-approvals",
     "type": "feeds",
-    "evidence": [{ "repo": "synergy-toolkit", "path": "web/src/screens/Approvals.tsx" }],
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "web/src/screens/Approvals.tsx"
+      }
+    ],
     "verification": "verified-in-code"
   },
   {
@@ -637,7 +1000,13 @@
     "to": "tk-wf-article-social",
     "type": "gates",
     "label": "publish_meta_api NEVER_AUTO",
-    "evidence": [{ "repo": "synergy-toolkit", "path": "shared/src/exec.ts", "lines": "194" }],
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "shared/src/exec.ts",
+        "lines": "194"
+      }
+    ],
     "verification": "verified-in-code"
   },
   {
@@ -645,7 +1014,13 @@
     "from": "tk-ctl-safety-floor",
     "to": "tk-wf-ad-mutation",
     "type": "gates",
-    "evidence": [{ "repo": "synergy-toolkit", "path": "server/src/routes/paid-write.ts", "lines": "18-30" }],
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/routes/paid-write.ts",
+        "lines": "18-30"
+      }
+    ],
     "verification": "verified-in-code"
   },
   {
@@ -653,7 +1028,13 @@
     "from": "tk-wf-journey",
     "to": "tk-wf-scheduler",
     "type": "uses",
-    "evidence": [{ "repo": "synergy-toolkit", "path": "server/src/exec/scheduler.ts", "lines": "3-20" }],
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/exec/scheduler.ts",
+        "lines": "3-20"
+      }
+    ],
     "verification": "verified-in-code"
   },
   {
@@ -662,7 +1043,13 @@
     "to": "tk-cap-runner",
     "type": "dispatches",
     "label": "toda acción es una corrida de skill",
-    "evidence": [{ "repo": "synergy-toolkit", "path": "server/src/exec/dispatch.ts", "lines": "24-29" }],
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/exec/dispatch.ts",
+        "lines": "24-29"
+      }
+    ],
     "verification": "verified-in-code"
   },
   {
@@ -671,7 +1058,13 @@
     "to": "tk-wf-prospect-research",
     "type": "gates",
     "label": "require_approval=false (decisión nombrada)",
-    "evidence": [{ "repo": "synergy-toolkit", "path": "docs/decision-prospect-research-policy.md", "lines": "1-30" }],
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/decision-prospect-research-policy.md",
+        "lines": "1-30"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -680,7 +1073,12 @@
     "to": "tk-wf-email-wave",
     "type": "gates",
     "label": "batch_send con hash",
-    "evidence": [{ "repo": "synergy-toolkit", "path": "server/src/routes/batch.ts" }],
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/routes/batch.ts"
+      }
+    ],
     "verification": "verified-in-code"
   },
   {
@@ -688,7 +1086,13 @@
     "from": "tk-wf-email-wave",
     "to": "tk-con-airtable",
     "type": "reads",
-    "evidence": [{ "repo": "synergy-toolkit", "path": "config/ventures.yaml", "lines": "65-112" }],
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "config/ventures.yaml",
+        "lines": "65-112"
+      }
+    ],
     "verification": "verified-in-code"
   },
   {
@@ -697,7 +1101,12 @@
     "to": "tk-con-airtable",
     "type": "writes",
     "label": "cuatro campos, un lead, outbox persistido",
-    "evidence": [{ "repo": "synergy-toolkit", "path": "server/src/routes/conversations.ts" }],
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/routes/conversations.ts"
+      }
+    ],
     "verification": "verified-in-code"
   },
   {
@@ -705,7 +1114,12 @@
     "from": "tk-wf-paid-mirror",
     "to": "tk-con-ads",
     "type": "reads",
-    "evidence": [{ "repo": "synergy-toolkit", "path": "server/src/money/paid-mirror.ts" }],
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/money/paid-mirror.ts"
+      }
+    ],
     "verification": "verified-in-code"
   },
   {
@@ -713,7 +1127,12 @@
     "from": "tk-wf-ad-mutation",
     "to": "tk-con-ads",
     "type": "writes",
-    "evidence": [{ "repo": "synergy-toolkit", "path": "server/src/routes/paid-write.ts" }],
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/routes/paid-write.ts"
+      }
+    ],
     "verification": "verified-in-code"
   },
   {
@@ -721,7 +1140,12 @@
     "from": "tk-wf-cloudbeds-sync",
     "to": "tk-con-cloudbeds",
     "type": "reads",
-    "evidence": [{ "repo": "synergy-toolkit", "path": "server/src/money/cloudbeds.ts" }],
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/money/cloudbeds.ts"
+      }
+    ],
     "verification": "verified-in-code"
   },
   {
@@ -729,7 +1153,13 @@
     "from": "tk-cap-runner",
     "to": "tk-con-claude",
     "type": "uses",
-    "evidence": [{ "repo": "synergy-toolkit", "path": "server/src/exec/runner.ts", "lines": "70" }],
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/exec/runner.ts",
+        "lines": "70"
+      }
+    ],
     "verification": "verified-in-code"
   },
   {
@@ -737,7 +1167,13 @@
     "from": "tk-cap-doctor",
     "to": "tk-cap-registries",
     "type": "reads",
-    "evidence": [{ "repo": "synergy-toolkit", "path": "scripts/doctor.mjs", "lines": "1-49" }],
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "scripts/doctor.mjs",
+        "lines": "1-49"
+      }
+    ],
     "verification": "verified-in-code"
   },
   {
@@ -746,7 +1182,12 @@
     "to": "tk-cap-doctor",
     "type": "uses",
     "label": "línea base y prueba de no-regresión",
-    "evidence": [{ "repo": "synergy-toolkit", "path": "docs/decision-night-run-mandate-2026-09-06.md" }],
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/decision-night-run-mandate-2026-09-06.md"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -754,7 +1195,12 @@
     "from": "tk-ctl-night-levels",
     "to": "tk-cap-night-run",
     "type": "gates",
-    "evidence": [{ "repo": "synergy-toolkit", "path": "docs/decision-night-run-mandate-2026-09-06.md" }],
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/decision-night-run-mandate-2026-09-06.md"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -762,7 +1208,12 @@
     "from": "tk-cap-night-run",
     "to": "tk-cap-design-desk",
     "type": "uses",
-    "evidence": [{ "repo": "synergy-toolkit", "path": ".claude/skills/night-run/SKILL.md" }],
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": ".claude/skills/night-run/SKILL.md"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -770,7 +1221,12 @@
     "from": "tk-cap-night-run",
     "to": "tk-del-reports",
     "type": "produces",
-    "evidence": [{ "repo": "synergy-toolkit", "path": "reports" }],
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "reports"
+      }
+    ],
     "verification": "verified-in-code"
   },
   {
@@ -778,7 +1234,13 @@
     "from": "tk-cap-cto",
     "to": "tk-del-reports",
     "type": "produces",
-    "evidence": [{ "repo": "synergy-toolkit", "path": "docs/engineering-workforce-model.md", "lines": "57-75" }],
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/engineering-workforce-model.md",
+        "lines": "57-75"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -787,7 +1249,13 @@
     "to": "tk-del-approvals",
     "type": "gates",
     "label": "JWT en cada /api",
-    "evidence": [{ "repo": "synergy-toolkit", "path": "server/src/middleware/auth.ts", "lines": "6-22" }],
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/middleware/auth.ts",
+        "lines": "6-22"
+      }
+    ],
     "verification": "verified-in-code"
   },
   {
@@ -795,7 +1263,13 @@
     "from": "tk-wf-sync-jobs",
     "to": "tk-del-brief-overview",
     "type": "feeds",
-    "evidence": [{ "repo": "synergy-toolkit", "path": "server/src/exec/brief-snapshot.ts", "lines": "13-30" }],
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/exec/brief-snapshot.ts",
+        "lines": "13-30"
+      }
+    ],
     "verification": "verified-in-code"
   },
   {
@@ -804,7 +1278,12 @@
     "to": "tk-wf-ads-build",
     "type": "feeds",
     "label": "keywords → anuncios",
-    "evidence": [{ "repo": "synergy-toolkit", "path": "docs/how-it-works.html" }],
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/how-it-works.html"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -812,7 +1291,12 @@
     "from": "tk-wf-ads-build",
     "to": "tk-wf-landing",
     "type": "feeds",
-    "evidence": [{ "repo": "synergy-toolkit", "path": "docs/how-it-works.html" }],
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/how-it-works.html"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -820,16 +1304,26 @@
     "from": "tk-wf-landing",
     "to": "tk-wf-article-social",
     "type": "feeds",
-    "evidence": [{ "repo": "synergy-toolkit", "path": "docs/how-it-works.html" }],
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/how-it-works.html"
+      }
+    ],
     "verification": "verified-in-docs"
   },
-
   {
     "id": "r-lc-outreach-uses-writer",
     "from": "lc-m-outreach",
     "to": "lc-ag-outreach-writer",
     "type": "uses",
-    "evidence": [{ "repo": "lc-chaman", "path": "capabilities/machines/outreach/MACHINE.md", "lines": "1-27" }],
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/machines/outreach/MACHINE.md",
+        "lines": "1-27"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -837,7 +1331,13 @@
     "from": "lc-ag-reviewers",
     "to": "lc-ag-outreach-writer",
     "type": "gates",
-    "evidence": [{ "repo": "lc-chaman", "path": ".claude/agents/copy-reviewer.md", "lines": "1-12" }],
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": ".claude/agents/copy-reviewer.md",
+        "lines": "1-12"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -845,7 +1345,13 @@
     "from": "lc-ctl-rene",
     "to": "lc-ag-outreach-writer",
     "type": "gates",
-    "evidence": [{ "repo": "lc-chaman", "path": "docs/el-chaman-para-rene.md", "lines": "23-33" }],
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": "docs/el-chaman-para-rene.md",
+        "lines": "23-33"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -853,7 +1359,13 @@
     "from": "lc-ag-art-director",
     "to": "lc-ctx-brand",
     "type": "reviews",
-    "evidence": [{ "repo": "lc-chaman", "path": ".claude/agents/lc-art-director.md", "lines": "1-12" }],
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": ".claude/agents/lc-art-director.md",
+        "lines": "1-12"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -861,7 +1373,13 @@
     "from": "lc-m-outreach",
     "to": "lc-con-airtable",
     "type": "reads",
-    "evidence": [{ "repo": "lc-chaman", "path": "capabilities/machines/crm/MACHINE.md", "lines": "1-27" }],
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/machines/crm/MACHINE.md",
+        "lines": "1-27"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -869,7 +1387,12 @@
     "from": "lc-m-crm",
     "to": "lc-con-airtable",
     "type": "writes",
-    "evidence": [{ "repo": "lc-chaman", "path": "capabilities/machines/crm/scripts" }],
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/machines/crm/scripts"
+      }
+    ],
     "verification": "verified-in-code"
   },
   {
@@ -878,7 +1401,13 @@
     "to": "lc-m-outreach",
     "type": "gates",
     "label": "toda máquina se enchufa al contrato",
-    "evidence": [{ "repo": "lc-chaman", "path": "capabilities/machines/_spine/funnel-contract.md", "lines": "1-30" }],
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/machines/_spine/funnel-contract.md",
+        "lines": "1-30"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -886,7 +1415,12 @@
     "from": "lc-m-paid",
     "to": "lc-con-google-ads",
     "type": "reads",
-    "evidence": [{ "repo": "lc-chaman", "path": "connections/TL-011_google-ads-mcp.md" }],
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": "connections/TL-011_google-ads-mcp.md"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -894,7 +1428,12 @@
     "from": "lc-m-paid",
     "to": "lc-con-meta",
     "type": "reads",
-    "evidence": [{ "repo": "lc-chaman", "path": "connections/TL-012_meta-ads-mcp.md" }],
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": "connections/TL-012_meta-ads-mcp.md"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -902,7 +1441,12 @@
     "from": "lc-m-content",
     "to": "lc-con-shopify",
     "type": "writes",
-    "evidence": [{ "repo": "lc-chaman", "path": "connections/TL-009_shopify-admin.md" }],
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": "connections/TL-009_shopify-admin.md"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -910,7 +1454,12 @@
     "from": "lc-m-outreach",
     "to": "lc-con-gmail-lara",
     "type": "uses",
-    "evidence": [{ "repo": "lc-chaman", "path": "capabilities/machines/outreach/scripts/send_email.py" }],
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/machines/outreach/scripts/send_email.py"
+      }
+    ],
     "verification": "verified-in-code"
   },
   {
@@ -918,7 +1467,13 @@
     "from": "lc-wf-agency-outreach",
     "to": "lc-camp-agencies",
     "type": "produces",
-    "evidence": [{ "repo": "lc-chaman", "path": "capabilities/workflows/WF-002_agency-outreach.md", "lines": "1-30" }],
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/workflows/WF-002_agency-outreach.md",
+        "lines": "1-30"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -926,7 +1481,13 @@
     "from": "lc-wf-prospecting",
     "to": "lc-camp-retreats",
     "type": "feeds",
-    "evidence": [{ "repo": "lc-chaman", "path": "capabilities/workflows/WF-015_retreat-prospecting.md", "lines": "1-30" }],
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/workflows/WF-015_retreat-prospecting.md",
+        "lines": "1-30"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -935,7 +1496,13 @@
     "to": "lc-camp-retreats",
     "type": "gates",
     "label": "envía a mano los DMs del rail",
-    "evidence": [{ "repo": "lc-chaman", "path": ".synergy/rails.yaml", "lines": "200-218" }],
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": ".synergy/rails.yaml",
+        "lines": "200-218"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -943,7 +1510,13 @@
     "from": "lc-cad-pulse",
     "to": "lc-ctx-north-star",
     "type": "reads",
-    "evidence": [{ "repo": "lc-chaman", "path": "cadence/pulse.md", "lines": "1-25" }],
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": "cadence/pulse.md",
+        "lines": "1-25"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -951,7 +1524,13 @@
     "from": "lc-ag-el-chaman",
     "to": "lc-ctx-brand",
     "type": "uses",
-    "evidence": [{ "repo": "lc-chaman", "path": "CLAUDE.md", "lines": "103-135" }],
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": "CLAUDE.md",
+        "lines": "103-135"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -959,7 +1538,13 @@
     "from": "lc-ag-el-chaman",
     "to": "lc-cad-pulse",
     "type": "writes",
-    "evidence": [{ "repo": "lc-chaman", "path": "cadence/pulse.md", "lines": "1-25" }],
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": "cadence/pulse.md",
+        "lines": "1-25"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -967,7 +1552,13 @@
     "from": "lc-ctl-daiana-iru",
     "to": "lc-wf-meeting-mine",
     "type": "gates",
-    "evidence": [{ "repo": "lc-chaman", "path": "capabilities/workflows/WF-007_meeting-mine.md", "lines": "1-27" }],
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/workflows/WF-007_meeting-mine.md",
+        "lines": "1-27"
+      }
+    ],
     "verification": "verified-in-docs"
   },
   {
@@ -975,7 +1566,507 @@
     "from": "lc-ctx-gtm",
     "to": "lc-doc-lead-machine",
     "type": "feeds",
-    "evidence": [{ "repo": "lc-chaman", "path": "docs/lead-machine-q3q4-2026-08-15.html" }],
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": "docs/lead-machine-q3q4-2026-08-15.html"
+      }
+    ],
     "verification": "inferred"
+  },
+  {
+    "id": "r-mandate-dispatches-runner",
+    "from": "tk-wf-mandate-engine",
+    "to": "tk-cap-runner",
+    "type": "dispatches",
+    "label": "cada paso es una corrida por el único camino de despacho",
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/chat/mandate.ts",
+        "lines": "50-60"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/decision-v5-chaman-presiona-2026-09-16.md",
+        "lines": "83-85"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-mandate-presses-gates",
+    "from": "tk-wf-mandate-engine",
+    "to": "tk-wf-gate-engine",
+    "type": "writes",
+    "label": "approve{content_hash} con actor «vía El Chamán · mandato X» + fila de auditoría",
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/chat/mandate.ts",
+        "lines": "56-58"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/decision-v5-chaman-presiona-2026-09-16.md",
+        "lines": "86-91,119-127"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-mandate-brain-names",
+    "from": "tk-wf-mandate-engine",
+    "to": "lc-ag-el-chaman",
+    "type": "dispatches",
+    "label": "la acción `chaman-comando` del cerebro nombra el paso; el doctor exige que esté declarada",
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "scripts/doctor.mjs",
+        "lines": "6210-6256"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/decision-v5-chaman-presiona-2026-09-16.md",
+        "lines": "106-135"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-today-wave-uses-mandate",
+    "from": "tk-wf-today-wave",
+    "to": "tk-wf-mandate-engine",
+    "type": "uses",
+    "label": "Preparar y Mandar son dos mandatos; el server compone la orden desde picks",
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "web/src/components/TodayWaveCard.tsx",
+        "lines": "45-53"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/routes/today-wave.ts",
+        "lines": "628",
+        "note": "sin commitear en HEAD"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-target-stock-dispatches-research",
+    "from": "tk-wf-target-stock",
+    "to": "tk-wf-prospect-research",
+    "type": "dispatches",
+    "label": "un press encola hasta 6 corridas con --run-tag acuñado por el server",
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/routes/target-stock.ts",
+        "lines": "123"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "docs/decision-target-stock-weekly-2026-09-17.md",
+        "lines": "42-47,52-60"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-target-stock-reads-airtable",
+    "from": "tk-wf-target-stock",
+    "to": "tk-con-airtable",
+    "type": "reads",
+    "label": "2 pulls por riel (Contacts + pozo), caché 5 min",
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/crm/target-stock.ts",
+        "lines": "22,36-46"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-autodeploy-reads-bundle",
+    "from": "tk-wf-worker-autodeploy",
+    "to": "tk-cap-bundle-freshness",
+    "type": "reads",
+    "label": "pregunta qué bundle CORRE (built_from en /healthz), no si git se movió",
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "scripts/worker-autodeploy.sh",
+        "lines": "71-84"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/server.ts",
+        "lines": "138-174"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-paid-cards-read-loop",
+    "from": "tk-del-paid-platform-cards",
+    "to": "tk-wf-paid-loop",
+    "type": "reads",
+    "label": "la tarjeta de Meta lee el snapshot derivado del disco; no recomputa umbrales",
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/money/paid-meta-derived.ts",
+        "lines": "12-40"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "scripts/meta-derive.mjs"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-chaman-comando-feeds-gate-engine",
+    "from": "lc-ag-chaman-comando",
+    "to": "tk-wf-gate-engine",
+    "type": "feeds",
+    "label": "bloque chaman-paso → el server aprueba el gate con hash y actor «vía El Chamán · mandato» y despacha; MANDATE_FLOOR nunca IG/Meta ni gasto",
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": ".claude/skills/chaman-comando/SKILL.md",
+        "lines": "19-27,61-71"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "context/decisions/2026-09-16-v5-chaman-presiona.md",
+        "lines": "55-61"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "CLAUDE.md",
+        "lines": "42,238"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-runner-dispatches-chaman-comando",
+    "from": "tk-cap-runner",
+    "to": "lc-ag-chaman-comando",
+    "type": "dispatches",
+    "label": "solo desde el chat del cockpit en modo mandato (plan, opus, stream-json); POST /api/runs rechaza este id",
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": ".synergy/actions.yaml",
+        "lines": "243-257"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": ".claude/skills/chaman-comando/SKILL.md",
+        "lines": "13-17"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-brain-hook-reads-engine",
+    "from": "lc-ctl-asiento-simetrico",
+    "to": "tk-wf-gate-engine",
+    "type": "reads",
+    "label": "sqlite3 -readonly sobre data/synergy.db: gates con edad, corridas 48h, drenaje, decisiones que vencen; DESCONOCIDO con causa, nunca 0",
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": ".claude/hooks/session-orient.sh",
+        "lines": "104-141,286-333"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "CLAUDE.md",
+        "lines": "40"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-pulso-mirrors-toolkit",
+    "from": "lc-ctl-asiento-simetrico",
+    "to": "tk-del-reports",
+    "type": "mirrors",
+    "label": "/pulso del cerebro es ESPEJO declarado del canónico del toolkit; corre pulso.mjs (cwd-independiente) parado en lc-chaman",
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": ".claude/skills/pulso/SKILL.md",
+        "lines": "8-17,30-46"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-parte-reads-campaigns",
+    "from": "lc-sk-parte-semanal",
+    "to": "p-lc-campaigns",
+    "type": "reads",
+    "label": "results-log.md de cada campaña + venture.yaml + registros de context/commercial + ledger minado de both_os",
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": ".claude/skills/parte-semanal/SKILL.md",
+        "lines": "59-92"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-two-doors-documents-runner",
+    "from": "lc-ctl-two-doors",
+    "to": "tk-cap-runner",
+    "type": "documents",
+    "label": "el cruce entre puertas es el runner (claude -p, este repo como cwd); no hay coordinador arriba",
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": "CLAUDE.md",
+        "lines": "15-21"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "context/diagrams/04-orquestacion-dos-puertas-2026-09-16.md",
+        "lines": "27-50"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-commercial-feeds-cto",
+    "from": "lc-ctx-commercial",
+    "to": "tk-cap-cto",
+    "type": "feeds",
+    "label": "pide-al-toolkit.md es INPUT al roadmap del toolkit: cada pedido nace de una apuesta o de una decisión con id",
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": "context/commercial/pide-al-toolkit.md",
+        "lines": "1-19"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-mini-dashboard-feeds-paid-mirror",
+    "from": "lc-doc-meta-mini-dashboard",
+    "to": "tk-wf-paid-mirror",
+    "type": "feeds",
+    "label": "spec comercial de la tarjeta Meta en /paid; detectó el hueco de la ventana de 7 días y el backfill quedó hecho el 21-sep",
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": "context/commercial/pide-al-toolkit.md",
+        "lines": "35-60"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-refill-dispatches-prospecting",
+    "from": "tk-wf-prospect-research",
+    "to": "lc-wf-prospecting",
+    "type": "dispatches",
+    "label": "press semanal «Refill the week» en /outreach con --run-tag desde 2026-09-17; el launcher por campaña quedó retirado",
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": ".claude/skills/prospect-research/SKILL.md",
+        "lines": "3,27,39-43"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-owner-routing-feeds-miner",
+    "from": "bo-ctl-readai-owner-routing",
+    "to": "bo-wf-auto-miner",
+    "type": "feeds",
+    "label": "owner.email del webhook → venture por defecto explícito en el prompt del miner; sin match, inferencia por contenido como antes",
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "config/ventures.json",
+        "lines": "8"
+      },
+      {
+        "repo": "both_os",
+        "path": "config/ventures.json",
+        "lines": "34"
+      },
+      {
+        "repo": "both_os",
+        "path": "workers/transcript-miner/src/index.js",
+        "lines": "209-213"
+      },
+      {
+        "repo": "both_os",
+        "path": "workers/transcript-miner/src/index.js",
+        "lines": "1401-1402"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-rollup-reads-writes-vault",
+    "from": "bo-cap-rollup",
+    "to": "bo-del-vault",
+    "type": "reads",
+    "label": "lee decisions · risks · transcripts · pending · initiatives por venture: y escribe vault/rollups/{slug}.md (generados, no editables)",
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "scripts/project-rollup.py",
+        "lines": "41-42"
+      },
+      {
+        "repo": "both_os",
+        "path": "vault/rollups/_index.md",
+        "lines": "1-4"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-rollup-reviews-cards",
+    "from": "bo-cap-rollup",
+    "to": "bo-del-venture-cards",
+    "type": "reviews",
+    "label": "chequeo 1: decisión de salida del portfolio vs ficha en status: active — habría cazado LAK3 el 2026-06-24",
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "vault/rollups/_index.md",
+        "lines": "27-36"
+      },
+      {
+        "repo": "both_os",
+        "path": "vault/rollups/lak3.md",
+        "lines": "20-22"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-vault-validate-reviews-miner",
+    "from": "bo-wf-vault-validate",
+    "to": "bo-wf-auto-miner",
+    "type": "reviews",
+    "label": "valida el frontmatter que el Worker escribe por la API de GitHub esquivando los hooks locales; read-only, falla visible en Actions, no bloquea la escritura",
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": ".github/workflows/vault-validate.yml",
+        "lines": "4-19"
+      },
+      {
+        "repo": "both_os",
+        "path": ".github/workflows/vault-validate.yml",
+        "lines": "24-30"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-tests-review-miner",
+    "from": "bo-wf-tests",
+    "to": "bo-wf-auto-miner",
+    "type": "reviews",
+    "label": "node --check del Worker + test de que buildTeamBlock se deriva de config/ventures.json, en cada push a workers/ o al registry",
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": ".github/workflows/tests.yml",
+        "lines": "8-17"
+      },
+      {
+        "repo": "both_os",
+        "path": ".github/workflows/tests.yml",
+        "lines": "33-38"
+      },
+      {
+        "repo": "both_os",
+        "path": "tests/team-block.test.mjs",
+        "lines": "1-17"
+      },
+      {
+        "repo": "both_os",
+        "path": "workers/transcript-miner/src/index.js",
+        "lines": "149"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-security-weekly-uses-gitleaks",
+    "from": "bo-wf-security-weekly",
+    "to": "bo-ctl-secret-scan",
+    "type": "uses",
+    "label": "etapa 1/6 de sec-audit.sh: gitleaks sobre historial + working tree; vacía hasta 2026-09-17 por el config sin [extend]",
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "scripts/sec-audit.sh",
+        "lines": "52-62"
+      },
+      {
+        "repo": "both_os",
+        "path": ".gitleaks.toml",
+        "lines": "3-11"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-backfill-feeds-miner",
+    "from": "bo-wf-readai-backfill",
+    "to": "bo-wf-auto-miner",
+    "type": "feeds",
+    "label": "replay-call.sh reinyecta payloads por POST /replay-test (salta HMAC, gateado por BOTH_SECRET) hacia la misma Workflow de minado",
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "workers/transcript-miner/src/index.js",
+        "lines": "338-354"
+      },
+      {
+        "repo": "both_os",
+        "path": "scripts/replay-call.sh",
+        "lines": "1-13"
+      },
+      {
+        "repo": "both_os",
+        "path": "vault/initiatives/2026-09-16-readai-cuentas-backfill-y-reshore.md",
+        "lines": "22-27"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-bienal-hub-mirrors-notion",
+    "from": "bn-el-onboarding-pack",
+    "to": "bo-con-notion",
+    "type": "mirrors",
+    "label": "bienal-notion-build.py reconstruye idempotente la página hub de la Bienal en Notion con links a las páginas publicadas (token de .env, nunca el MCP de Notion)",
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "scripts/bienal-notion-build.py",
+        "lines": "1-25"
+      }
+    ],
+    "verification": "verified-in-code"
   }
 ]

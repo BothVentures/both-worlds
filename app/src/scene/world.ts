@@ -100,6 +100,8 @@ export class WorldScene {
   private focus: Focus = { level: 'world', id: 'world' }
   private highlight = new Set<string>()
   private extraRelations: string[] = []
+  /** legend filter: entities that fail the predicate are dimmed (never hidden) */
+  private filterFn: ((e: Entity) => boolean) | null = null
   private selected: string | null = null
   private hovered: string | null = null
   private raf = 0
@@ -714,7 +716,9 @@ export class WorldScene {
     el.dataset.id = id
     const name = document.createElement('span')
     name.className = 'lbl-name'
-    name.textContent = level === 3 ? shorten(e.name, 26) : e.name
+    name.textContent = level === 3 ? shorten(e.name, 34) : e.name
+    if (level === 3 && e.name.length > 34) el.title = e.name
+    el.setAttribute('role', 'button')
     el.appendChild(name)
     if (level < 3 && e.kind) {
       const k = document.createElement('span')
@@ -723,6 +727,8 @@ export class WorldScene {
       el.appendChild(k)
     }
     el.addEventListener('click', (ev) => { ev.stopPropagation(); this.events.onPick(id, level) })
+    el.addEventListener('pointerenter', () => { if (this.hovered !== id) { this.hovered = id; this.updateHoverMark(); this.events.onHover(id) } })
+    el.addEventListener('pointerleave', () => { if (this.hovered === id) { this.hovered = null; this.hoverMark.visible = false; this.events.onHover(null) } })
     this.labelRoot.appendChild(el)
     this.labels.push({ id, el, anchor, level, priority })
   }
@@ -793,6 +799,10 @@ export class WorldScene {
       const pf = this.projectOf(r.from), pt = this.projectOf(r.to)
       if (level === 'territory') {
         if ((tf === id || tt === id) && pf !== pt) vis.add(r.id)
+      } else if (level === 'project') {
+        // inside a district: the routes that start or end in it and stay on this platform
+        // (cross-platform routes fly off-screen here; they appear again at territory level and on each element)
+        if ((pf === id || pt === id) && tf === tt) vis.add(r.id)
       } else if (level === 'element') {
         if (r.from === id || r.to === id) vis.add(r.id)
       }
@@ -814,6 +824,18 @@ export class WorldScene {
     this.highlight = new Set(ids)
     this.extraRelations = relationIds
     this.applyFocusStyles()
+  }
+
+  setFilter(fn: ((e: Entity) => boolean) | null) {
+    this.filterFn = fn
+    this.applyFocusStyles()
+  }
+
+  /** ids (at the current focus scope) that pass the active filter — for the legend counter */
+  countFilter(fn: (e: Entity) => boolean): number {
+    let n = 0
+    for (const e of this.entities.values()) if (e.type !== 'world' && e.type !== 'territory' && e.type !== 'project' && fn(e)) n++
+    return n
   }
 
   private flyTo(focus: Focus, cam?: { azimuth?: number; elevation?: number; distance?: number }, duration = 1700) {
@@ -885,10 +907,11 @@ export class WorldScene {
       }
       if (this.highlight.size && this.highlight.has(nid)) t = 1
       else if (this.highlight.size && p.level === 3 && this.projectOf(nid) === focusProject) t = Math.min(t, 0.45)
+      if (this.filterFn && p.level === 3 && !this.filterFn(p.entity)) t = Math.min(t, 0.16)
       n.targetOpacity = t
     }
     const vis = this.computeVisibleRelations(this.extraRelations)
-    const relOpacity = level === 'territory' ? 0.3 : level === 'project' ? 0.55 : 0.9
+    const relOpacity = level === 'territory' ? 0.3 : level === 'project' ? 0.42 : 0.9
     const now = performance.now()
     for (const [rid, o] of this.relationObjects) if (!vis.has(rid)) o.arc.visible = o.pins.visible = o.dots.visible = o.packets.visible = false
     for (const rid of vis) {
@@ -923,6 +946,7 @@ export class WorldScene {
       l.el.classList.toggle('lbl-hi', this.highlight.has(l.id))
       l.el.classList.toggle('lbl-sel', l.id === this.selected)
       l.el.classList.toggle('lbl-ctx', (level === 'territory' && l.level === 1) || ((level === 'project' || level === 'element') && l.level === 2))
+      l.el.classList.toggle('lbl-dim', !!this.filterFn && l.level === 3 && !this.filterFn(this.entities.get(l.id)!))
     }
   }
 
@@ -1132,7 +1156,7 @@ export class WorldScene {
     const w = this.canvas.clientWidth, h = this.canvas.clientHeight
     this.placedRects.length = 0
     const on = this.labels.filter((l) => l.el.classList.contains('lbl-on'))
-    const rank = (l: LabelEl) => (l.level === 1 ? 4 : l.el.classList.contains('lbl-sel') ? 3 : l.el.classList.contains('lbl-hi') ? 2 : l.id === this.hovered ? 1 : 0)
+    const rank = (l: LabelEl) => (l.level === 1 ? 4 : l.el.classList.contains('lbl-sel') ? 3 : l.el.classList.contains('lbl-hi') ? 2 : l.id === this.hovered ? 1 : l.el.classList.contains('lbl-dim') ? -1 : 0)
     on.sort((a, b) => rank(b) - rank(a) || a.level - b.level || b.priority - a.priority)
     const camPos = this.camera.position
     const cap3 = this.focus.level === 'element' ? 10 : 20
@@ -1147,15 +1171,18 @@ export class WorldScene {
       // keep labels out of the top chrome: push down and stretch the leader to the anchor
       // the top chrome is empty between the brand block (left) and the toolbar (right): territory names may climb into that band
       const centreBand = x > 640 && x < w - 660
-      const topSafe = l.level === 1 ? (centreBand ? 66 : 118) : 100
+      // brand + crumbs occupy the top-left corner down to ~100 px; the toolbar the top-right down to ~60 px
+      const topSafe = l.level === 1 ? (centreBand ? 66 : 118) : x < 700 ? 112 : 100
       let leadPx = lead(l.level)
       let y = anchorY - leadPx
       let flip = false
       if (y - bh0 < topSafe) {
         if (anchorY - bh0 > topSafe + 6) { y = topSafe + bh0; leadPx = Math.max(6, anchorY - y) }
-        else { flip = true; y = anchorY + leadPx + bh0 } // no room above: hang the label below its anchor
+        else { flip = true; y = Math.max(anchorY + leadPx + bh0, topSafe + bh0); leadPx = Math.max(6, y - bh0 - anchorY) } // no room above: hang the label below its anchor, never under the chrome
       }
       l.el.classList.toggle('lbl-flip', flip)
+      // a flipped label whose anchor sits under the chrome keeps its text but drops the leader + dot (they would draw over the brand)
+      l.el.classList.toggle('lbl-noanchor', flip && anchorY < topSafe - 8)
       l.el.style.setProperty('--lead', `${Math.round(leadPx)}px`)
       const dist = l.anchor.distanceTo(camPos)
       const isHi = l.el.classList.contains('lbl-hi') || l.el.classList.contains('lbl-sel')

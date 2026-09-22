@@ -4,14 +4,14 @@
     "name": "El Chamán",
     "type": "territory",
     "parentId": "world",
-    "kind": "La Chamana OS · repo lc-chaman · el cerebro · 506 commits · 2026-04-27 → 09-08",
-    "summary": "La capa de inteligencia operativa de La Chamana, santuario privado de ocho suites en Tulum. El Chamán (AG-000) es el orquestador: arquitecto de campañas, no chatbot. El repo se organiza en cuatro capas (4C): Contexto, Conexiones, Capacidades y Cadencia; la máquina GTM lo despacha en modo headless.",
+    "kind": "La Chamana OS · repo lc-chaman · el cerebro · 545 commits · 2026-04-27 → 09-22",
+    "summary": "La capa de inteligencia comercial de La Chamana, santuario privado de ocho suites en Tulum. El Chamán (AG-000) es el asiento de la verdad comercial —arquitectura de campañas, copy, outreach, veredicto CMO—, no un chatbot y, desde el 15-sep, tampoco el orquestador: hay dos puertas y nadie arriba, el toolkit tiene el reloj y este repo el canon. Desde V5 (17-sep) El Chamán presiona por mandato de Boris desde el chat del cockpit. El repo se organiza en cuatro capas (4C): Contexto, Conexiones, Capacidades y Cadencia.",
     "state": "implemented",
     "evidence": "observed-in-docs",
     "owner": "Boris (principal) · Daiana (champion)",
     "dates": {
       "first": "2026-04-27",
-      "last": "2026-09-08"
+      "last": "2026-09-22"
     },
     "layout": {
       "accent": "#e6c48a"
@@ -49,9 +49,9 @@
         106,
         167,
         147,
-        10
+        49
       ],
-      "total": 506,
+      "total": 545,
       "source": "lc-chaman · git log"
     }
   },
@@ -84,7 +84,7 @@
     "name": "Conexiones",
     "type": "project",
     "parentId": "t-lc-chaman",
-    "kind": "capa 4C · lo vivo: registro TL-000 … TL-015",
+    "kind": "capa 4C · lo vivo: registro TL-000 … TL-016 (10 vivas · 2 en disputa/bloqueadas · 4 retiradas o supersedidas)",
     "summary": "Registro de integraciones con estado documentado por archivo, mapa de MCPs y mapa de accesos (quién tiene qué, sin valores).",
     "state": "implemented",
     "evidence": "observed-in-docs",
@@ -108,7 +108,7 @@
     "name": "Máquinas y workflows",
     "type": "project",
     "parentId": "t-lc-chaman",
-    "kind": "capa 4C Capacidades · 4 máquinas + espina + WF-*",
+    "kind": "capa 4C Capacidades · 5 máquinas (SEO listada desde 09-15) + espina + WF-*",
     "summary": "Una máquina es un arnés que se puede correr, agendar y administrar: posee scripts, campañas y tracking, y referencia a los agentes y skills que la impulsan. Todas se enchufan al contrato del embudo.",
     "state": "implemented",
     "evidence": "observed-in-docs",
@@ -133,7 +133,7 @@
     "name": "Agentes y skills",
     "type": "project",
     "parentId": "t-lc-chaman",
-    "kind": "capa 4C Capacidades · 17 asientos · 53 skills · 39 acciones",
+    "kind": "capa 4C Capacidades · 12 asientos AG-000…011 + 4 revisores · 58 skills (6 retiradas) · 41 acciones",
     "summary": "La plantilla de El Chamán: asientos con estado medido en disco (produciendo, dormido, nunca corrió), skills /comando y el archivo de acciones que el Toolkit convierte en botones. «Una etiqueta no es evidencia.»",
     "state": "implemented",
     "evidence": "observed-in-code",
@@ -157,8 +157,8 @@
     "name": "Cadencia",
     "type": "project",
     "parentId": "t-lc-chaman",
-    "kind": "capa 4C · lo que corre solo",
-    "summary": "Pulso operativo, rutinas, log de evolución y hooks. Hoy: ninguna rutina corre de forma autónoma; la programación durable vive en el scheduler del Toolkit.",
+    "kind": "capa 4C · el mapa de lo que corre — y corre en el toolkit",
+    "summary": "Rutinas, pulso, log de evolución y hooks. Ninguna rutina corre desde este repo; la cadencia viva son 4 SchedulerJob y 5 jobs de launchd del toolkit más siete rituales manuales cuyas skills viven allá, y esta carpeta es el mapa con evidencia por archivo. Desde el 16-sep el hook de sesión lee el motor del toolkit en solo lectura y el pulso se invoca desde las dos puertas.",
     "state": "implemented",
     "evidence": "observed-in-docs",
     "layout": {
@@ -251,11 +251,11 @@
   },
   {
     "id": "lc-ctx-north-star",
-    "name": "North star en noches (forma, no cifras)",
+    "name": "North star en noches · V0.4 a marzo 2027 (sin ratificar)",
     "type": "deliverable",
     "parentId": "p-lc-context",
-    "kind": "ocupación medida en noches · dos relojes",
-    "summary": "El ciclo 2 (2026-08-09) reemplazó un objetivo en reservas por uno en noches dormidas dentro de una ventana con rampa y piso. El valor actual lo escribe una máquina (cloudbeds-sync) y no se copia acá.",
+    "kind": "ocupación en noches · ventana ago-26 → mar-27 · piso/techo por mes en el plan",
+    "summary": "El 12-sep V0.4 extendió la ventana a marzo 2027 con piso y techo mensuales en el front-matter del plan; venture.yaml ya los lleva y el hook los lee desde ahí. El ciclo 2 (ago–dic) queda como registro fechado y su techo sigue nombrado como techo, no rampa. Boris no firmó (ratified_by: null); si dos fuentes se contradicen manda V0.4 + venture.yaml. El valor actual lo escribe cloudbeds-sync y no se copia acá.",
     "state": "implemented",
     "evidence": "observed-in-docs",
     "layout": {
@@ -272,7 +272,10 @@
         "path": ".synergy/venture.yaml",
         "lines": "1-4"
       }
-    ]
+    ],
+    "dates": {
+      "last": "2026-09-13"
+    }
   },
   {
     "id": "lc-ctx-gtm",
@@ -354,7 +357,7 @@
     "type": "deliverable",
     "parentId": "p-lc-context",
     "kind": "context/memory · decisions · risks · knowledge",
-    "summary": "Residuo durable de las conexiones vivas. El registro de riesgos está vacío y el de decisiones tiene un archivo: el minado de reuniones vive más en both_os que acá.",
+    "summary": "Residuo durable de las conexiones vivas. context/decisions/ pasó de un archivo a los memos largos de septiembre (asiento simétrico, V5 espejo, escalado de Meta) con README propio; el ledger de decisiones comerciales abiertas vive en context/commercial/decisiones-abiertas.md. El minado de reuniones sigue viviendo en both_os.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "layout": {
@@ -476,8 +479,8 @@
     "name": "TL-012 Meta Ads",
     "type": "connection",
     "parentId": "p-lc-connections",
-    "kind": "camino activo desde 2026-07-29 · bloqueado por verificación",
-    "summary": "La restricción de negocio del 2026-06-18, atribuida a automatización de navegador, es el origen del piso de seguridad.",
+    "kind": "conector con herramientas de escritura · regla en disputa · 44 deny en settings.json desde 09-15",
+    "summary": "El conector de Meta Ads de claude.ai está conectado y expone creación, activación y boost; CLAUDE.md lo prohíbe y account-state.md lo autoriza. Hasta que Boris decida, ninguna llamada de escritura: 44 entradas deny sobre las herramientas de crear/actualizar/borrar/activar y deny sobre los scripts retirados de Instagram. La restricción de negocio de junio sigue siendo el origen del piso de seguridad.",
     "state": "experimental",
     "evidence": "observed-in-docs",
     "layout": {
@@ -515,11 +518,11 @@
   },
   {
     "id": "lc-con-gmail-lara",
-    "name": "Gmail (Lara) · SMTP/IMAP por scripts",
+    "name": "TL-016 Buzón de Lara (SMTP+IMAP) · TL-007 Gmail MCP supersedida",
     "type": "connection",
     "parentId": "p-lc-connections",
-    "kind": "TL-007 MCP pendiente · scripts activos",
-    "summary": "Lara es la persona remitente del outreach, no un sistema. Los envíos y el barrido de la casilla corren por scripts del cerebro que el Toolkit lanza.",
+    "kind": "el único riel de ingresos · SPOF de un buzón para 4 rieles · IMAP solo lectura por construcción",
+    "summary": "Lara es la identidad remitente del outreach, no una persona. Todo el frío sale y toda respuesta entra por un buzón de Workspace con app password: SMTP para enviar, IMAP con BODY.PEEK para barrer sin marcar. La ficha nació el 15-sep por la auditoría (CON-02): TL-007 describía un camino que nunca se usó.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "layout": {
@@ -546,7 +549,7 @@
     "type": "connection",
     "parentId": "p-lc-connections",
     "kind": "backlog · webhooks · assets",
-    "summary": "Asana no es el CRM; n8n figura activo en junio sin evidencia posterior de uso; Drive requiere auth.",
+    "summary": "Asana retirado como CRM el 06-11 (tareas/referencia); n8n retirado el 09-15 sin haber tenido nunca un flujo con evidencia; Drive activo por OAuth de claude.ai, puede volver a pedir login.",
     "state": "implemented",
     "evidence": "observed-in-docs",
     "layout": {
@@ -572,9 +575,9 @@
     "name": "TL-015 OpenSEO MCP",
     "type": "connection",
     "parentId": "p-lc-connections",
-    "kind": "spec · no registrado todavía",
-    "summary": "La máquina SEO lo espera.",
-    "state": "proposed",
+    "kind": "registrado sin auth · OAuth de navegador · nunca headless desde el worker",
+    "summary": "Figura registrado en la sesión y requiere login de navegador, así que solo puede correr en la sesión interactiva del Mac: la acción seo-research del Toolkit lista nueve herramientas de OpenSEO que en el worker fallan. El frontmatter anterior («spec, no registrado») describía julio.",
+    "state": "experimental",
     "evidence": "observed-in-docs",
     "layout": {
       "slot": 9
@@ -611,7 +614,7 @@
     "type": "control",
     "parentId": "p-lc-connections",
     "kind": ".mcp.json declara cero servidores",
-    "summary": "Playwright removido el 2026-07-25 como causa confirmada del baneo de Meta; Notion source/target removidos el 2026-07-31.",
+    "summary": "Playwright removido el 07-25 como causa confirmada del baneo de Meta; Notion fuera desde el 07-31; desde el 09-15 el mapa distingue registrado de autenticado y settings.json niega toda escritura del conector de Meta Ads y los scripts de Instagram.",
     "state": "implemented",
     "evidence": "observed-in-docs",
     "layout": {
@@ -729,7 +732,7 @@
     "type": "workflow",
     "parentId": "p-lc-machines",
     "kind": "scaffold",
-    "summary": "Espera el MCP de OpenSEO; el carril de artículos ya está vivo por el Toolkit.",
+    "summary": "Listada como quinta máquina en machines/README recién el 09-15 aunque existía desde el 07-27 con su grupo de acciones y su pantalla del cockpit. Espera un OpenSEO que está registrado sin auth y nunca podrá correr headless; el carril de artículos ya está vivo por el Toolkit.",
     "state": "experimental",
     "evidence": "observed-in-docs",
     "layout": {
@@ -812,11 +815,11 @@
     "type": "workflow",
     "parentId": "p-lc-machines",
     "kind": "agencias · retiros · familias · celebraciones",
-    "summary": "Investigan, nunca pitchean. Corren como acción prospect-research desde el Toolkit. El commit del 2026-09-08 fija la regla de despacho bloqueante tras una corrida «exitosa» con cero filas.",
+    "summary": "Investigan, nunca pitchean. Desde el 17-sep los despacha el press semanal «Refill the week» del toolkit con --run-tag, que levanta el techo de una corrida por día: el tag se usa literal y una colisión frena en vez de preguntar. La regla de despacho bloqueante tras una corrida «exitosa» con cero filas sigue vigente.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "dates": {
-      "last": "2026-09-08"
+      "last": "2026-09-18"
     },
     "layout": {
       "slot": 8
@@ -910,8 +913,8 @@
     "name": "AG-000 El Chamán",
     "type": "capability",
     "parentId": "p-lc-workforce",
-    "kind": "orquestador · hilo principal",
-    "summary": "Ordena tareas por las noches que suman dentro de la ventana, rutea a agentes y skills, mantiene plan y cadencia. Explícitamente «NO es el CMO».",
+    "kind": "asiento de la verdad comercial · dos proyecciones en el cockpit: chaman-chat (lectura) y chaman-comando (mandato)",
+    "summary": "Ordena tareas por las noches que suman dentro de la ventana, rutea a agentes y skills, y despacha la estrategia a AG-011: «NO es el CMO» y, desde el 15-sep, tampoco el orquestador del sistema. Desde V5 su proyección de mando en el chat nombra el próximo paso y el server del toolkit presiona en nombre de Boris; ningún hijo actúa por sí mismo. Su persona lleva banner de superseded sobre el norte viejo: manda V0.4 + venture.yaml.",
     "state": "implemented",
     "evidence": "observed-in-docs",
     "layout": {
@@ -924,7 +927,10 @@
         "path": "capabilities/agents/personas/el-chaman.md",
         "lines": "14-24"
       }
-    ]
+    ],
+    "dates": {
+      "last": "2026-09-16"
+    }
   },
   {
     "id": "lc-ag-outreach-writer",
@@ -1016,11 +1022,11 @@
   },
   {
     "id": "lc-ag-never-ran",
-    "name": "Nunca corrieron: AG-009 crm-evidence · AG-011 lc-cmo · gtm-council",
+    "name": "AG-009 crm-evidence · gtm-council sin outputs; AG-011 lc-cmo produjo su primer veredicto el 2026-09-20",
     "type": "capability",
     "parentId": "p-lc-workforce",
     "kind": "construidos, cero outputs",
-    "summary": "La carpeta de reportes de AG-009 solo tiene un README; AG-011 es el CMO que el loop de paid del Toolkit espera como juez; el consejo semanal está pendiente de activación.",
+    "summary": "AG-011 dejó de ser un asiento mudo: el repaso de campañas del domingo 20-sep lleva su firma y propone sin ejecutar. gtm-council quedó supersedido por /ronda del toolkit (R-006) y solo se invoca a pedido explícito de Boris. AG-009 sigue sin reportes.",
     "state": "experimental",
     "evidence": "observed-in-code",
     "layout": {
@@ -1045,7 +1051,7 @@
     "type": "capability",
     "parentId": "p-lc-workforce",
     "kind": "brief diario de una página · 1 archivo en disco",
-    "summary": "Escritor de briefs, nunca remitente. Su activación diaria (R-007) está bloqueada porque debe ir en el scheduler del Toolkit, no en CronCreate.",
+    "summary": "Escritor de briefs, nunca remitente. Su mitad determinista corre desde agosto como SchedulerJob del toolkit (R-007a, 27 snapshots consecutivos hasta el 15-sep, sin LLM ni gasto); el brief narrado (R-007b) es manual y corrió una vez, el 23-ago. Si se automatiza va al SchedulerJob, nunca a CronCreate.",
     "state": "experimental",
     "evidence": "observed-in-code",
     "layout": {
@@ -1092,7 +1098,7 @@
     "type": "capability",
     "parentId": "p-lc-workforce",
     "kind": "/campaign-article · /publish-page(-live) · /campaign-social · /photo-review · /landing-page · /seo-research",
-    "summary": "Veintiuna skills; /seo-blog-post retirada el 2026-07-29 y /caption retirada como acción del Toolkit.",
+    "summary": "Veintiuna skills de contenido y SEO; seis skills del repo llevan lápida en su frontmatter con description que empieza negando para que el harness no las dispare: seo-blog-post, campaign-from-content, outreach-from-content, publish-pack, research-digest y gads-audit.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "layout": {
@@ -1115,7 +1121,7 @@
     "type": "capability",
     "parentId": "p-lc-workforce",
     "kind": "/gads-keywords · /ads-build · /meta-audience · /brand-review · /brand-theme",
-    "summary": "/gads-audit fue supersedida por /gads-pulse del Toolkit (2026-08-30); /meta-audit es un esqueleto.",
+    "summary": "/gads-audit lleva status retired en su frontmatter (supersedida por /gads-pulse del Toolkit el 08-30) aunque sigue declarada como botón; /meta-audit está blocked-on-decision hasta que Boris decida la regla del conector de Meta.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "layout": {
@@ -1159,11 +1165,11 @@
   },
   {
     "id": "lc-actions-rails",
-    "name": ".synergy/ · acciones (39) · rails · venture · brand-voice",
+    "name": ".synergy/ · acciones (41) · rails con meta semanal de primer toque · venture (V0.4) · brand-voice",
     "type": "control",
     "parentId": "p-lc-workforce",
     "kind": "la costura de contrato con el Toolkit",
-    "summary": "Cada botón Run del cockpit es una entrada de actions.yaml; rails.yaml ata campaña con infraestructura real; venture.yaml lleva el north star con su valor escrito por máquina. Regla dura: ninguna acción maneja una cuenta publicitaria ni Instagram.",
+    "summary": "Cada botón Run del cockpit es una entrada de actions.yaml (41, incluida chaman-comando, que solo el chat puede lanzar); rails.yaml ata campaña con infraestructura real y desde el 17-sep declara weekly_first_touch en los cuatro rieles, el denominador del barrido de stock del martes; venture.yaml lleva V0.4 con su valor escrito por máquina; brand-voice.yaml es el espejo legible por máquina de brand-law. Regla dura: ninguna acción maneja una cuenta publicitaria ni Instagram.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "layout": {
@@ -1190,11 +1196,11 @@
   },
   {
     "id": "lc-ctl-rene",
-    "name": "René · BRAND GATE en toda copia externa",
+    "name": "René · autoridad estética, no compuerta bloqueante",
     "type": "control",
     "parentId": "p-lc-workforce",
-    "kind": "«Nada sale sin vos»",
-    "summary": "DMs de tier A uno por uno, B/C en lote; sign-off visual; compuerta de contenido del calendario. Exención posible con PASS del copy-reviewer (Boris, 2026-07-02).",
+    "kind": "«consultado a criterio de Boris» (Boris, 2026-07-07) · copy-reviewer limpio + OK de Boris = liberado",
+    "summary": "CLAUDE.md fija que la copia se libera con copy-reviewer limpio más el OK de Boris; René entra en piezas hero o definitorias de marca, o cuando Boris lo pide, y nada queda «pending René». Sigue abierto entre Boris y René el conflicto precio-en-copy entre guidelines y brand-law.",
     "state": "implemented",
     "evidence": "observed-in-docs",
     "layout": {
@@ -1219,7 +1225,7 @@
     "type": "control",
     "parentId": "p-lc-workforce",
     "kind": "compuertas comerciales",
-    "summary": "Ninguna cifra se comparte sin la tarifa confirmada por Daiana; Iru envía cada respuesta entrante y es la conversión final. Gastón y Daiana deciden canal y estrategia de agencias.",
+    "summary": "Daiana firma ops, finanzas, precio y condiciones; la decisión del rack con inclusiones (D-0816-05) sigue abierta desde abril y Iru trae el texto. Iru cierra, contesta, firma acuerdos, manda el parte semanal y desde el 14-sep es dueña de la activación de distribuidores post-firma. Gastón y Daiana deciden canal y estrategia de agencias.",
     "state": "implemented",
     "evidence": "observed-in-docs",
     "layout": {
@@ -1243,9 +1249,9 @@
     "name": "Bianca · super-operadora del board",
     "type": "control",
     "parentId": "p-lc-workforce",
-    "kind": "«una persona, no un comité» (PRD decisión #7)",
-    "summary": "Aprueba desde el board hospedado y envía a mano los DMs del rail de retiros desde la cuenta de la villa. El índice de docs dice que todavía no está onboardeada.",
-    "state": "experimental",
+    "kind": "super-operadora del toolkit · opera el cockpit · manda los DMs a mano · escribe el tono del riel",
+    "summary": "Prepara, nunca decide: cola de DM, triage de conversaciones de Meta, cuerpos gateados, listings. Opera el cockpit hospedado (101 eventos en septiembre, según CLAUDE.md) y nunca abre Claude Code; el ledger de DMs de septiembre lleva su nombre como actor; escribió la autoridad de tono de IG y dejó su primer parte semanal en disco el 15-sep. docs/README todavía dice que no está onboardeada: está desactualizado.",
+    "state": "implemented",
     "evidence": "observed-in-docs",
     "layout": {
       "slot": 14
@@ -1265,12 +1271,12 @@
   },
   {
     "id": "lc-cad-pulse",
-    "name": "cadence/pulse.md · el pulso",
+    "name": "cadence/pulse.md · ARCHIVO abr–jul 2026",
     "type": "deliverable",
     "parentId": "p-lc-cadence",
-    "kind": "log fechado, más nuevo primero",
-    "summary": "Objetivo, pipeline, bloqueos y la lectura del taller: asientos mudos y la decisión más vieja pendiente de Boris. Nunca hardcodea el número actual.",
-    "state": "implemented",
+    "kind": "registro histórico · no es tracker vivo · su único escritor es lápida desde 07-25",
+    "summary": "Log fechado de estados de abril a julio; el dato más nuevo es de julio y lo editado en agosto fue prosa de contrato. La verdad viva está en venture.yaml (noches, escrito por máquina), el cockpit del toolkit (pace y dinero) y ../synergy-toolkit/reports/ (el día). Una cifra de revenue que aparece en los bloques de junio–julio no debe citarse.",
+    "state": "retired",
     "evidence": "observed-in-code",
     "layout": {
       "height": 1.2,
@@ -1286,12 +1292,12 @@
   },
   {
     "id": "lc-cad-routines",
-    "name": "Rutinas: ninguna activa",
+    "name": "Rutinas: mapa de tres capas · R-007a activa en el Toolkit",
     "type": "workflow",
     "parentId": "p-lc-cadence",
-    "kind": "R-001 muerta · R-002…R-008 propuestas",
-    "summary": "R-001 llevó la etiqueta ACTIVA 110 días sin ejecutarse una sola vez; se mató el 2026-08-15 con evidencia. Lo durable vive en el scheduler del Toolkit.",
-    "state": "proposed",
+    "kind": "R-001 muerta · R-003/004/005/008 retiradas 09-15 · R-002/006 supersedidas · R-007a ACTIVE con 27 snapshots · R-007b manual, corrió una vez",
+    "summary": "Hasta el 15-sep la página decía «Active Routines: None»: cierto para el cerebro y falso para el sistema, que ese día tenía 27 snapshots diarios consecutivos escritos por una rutina sin fila. Ahora mapea las tres capas del toolkit (SchedulerJob, launchd, rituales manuales con adherencia medida) y cierra el registro R-*: cuatro filas retiradas con evidencia, R-007a reconocida como activa. Regla de la casa: una rutina es ACTIVE solo cuando su archivo de salida está en disco.",
+    "state": "implemented",
     "evidence": "observed-in-docs",
     "layout": {
       "slot": 1
@@ -1306,12 +1312,12 @@
   },
   {
     "id": "lc-cad-evolution",
-    "name": "evolution_log.md (frío desde julio)",
+    "name": "evolution_log.md (vivo de nuevo desde 09-03)",
     "type": "deliverable",
     "parentId": "p-lc-cadence",
     "kind": "append-only",
-    "summary": "Filas por mes de abril a julio; la tabla de aprendizajes de campaña quedó vacía cinco olas hasta septiembre.",
-    "state": "parked",
+    "summary": "La tabla de aprendizajes de campaña, vacía hasta el 3-sep, lleva una fila por ola cerrada desde entonces (agencias, retiros, familias) y la fila de V5; el hueco de las olas 1–17 se declara y no se rellena. El hook muestra las 3 filas más nuevas por fecha.",
+    "state": "implemented",
     "evidence": "observed-in-code",
     "layout": {
       "slot": 2
@@ -1325,12 +1331,12 @@
   },
   {
     "id": "lc-cad-hooks",
-    "name": "Hooks: 1 vivo, 2 muertos desde siempre",
+    "name": "Hooks: session-orient vivo y lee el motor; los 2 muertos desregistrados",
     "type": "workflow",
     "parentId": "p-lc-cadence",
-    "kind": "session-orient · write-validate · auto-commit",
-    "summary": "session-orient lee venture.yaml al abrir; write-validate lee una variable que Claude Code nunca setea; auto-commit nunca produjo un commit. Los propios encabezados lo declaran.",
-    "state": "experimental",
+    "kind": "session-orient · lee venture.yaml, plan de récord, memoria, log y el motor del toolkit (solo lectura)",
+    "summary": "Desde el 15-sep el hook es portable Mac/Linux, ya no hardcodea el plan ni el norte, muestra toda la memoria y ordena el log por fecha; desde el 16-sep abre la base del toolkit con sqlite3 -readonly y dice DESCONOCIDO con causa cuando no puede leer. write-validate y auto-commit, que nunca funcionaron, quedaron fuera de settings.json (cadence/README todavía los describe como registrados).",
+    "state": "implemented",
     "evidence": "observed-in-code",
     "layout": {
       "slot": 3
@@ -1358,9 +1364,9 @@
     "name": "cadence/dashboard.html",
     "type": "deliverable",
     "parentId": "p-lc-cadence",
-    "kind": "dashboard ops standalone",
+    "kind": "snapshot histórico congelado 2026-05-12 · no lee datos",
     "summary": "Tablero de operaciones de El Chamán; los tableros de equipo viven en el hub de Notion.",
-    "state": "implemented",
+    "state": "retired",
     "evidence": "observed-in-code",
     "layout": {
       "slot": 4
@@ -1524,9 +1530,9 @@
     "name": "Lead machine Q3-Q4 (plan de registro)",
     "type": "deliverable",
     "parentId": "p-lc-docs",
-    "kind": "V0.3 · supersede GTM 360",
+    "kind": "V0.3 · supersedido 09-12 por V0.4 (banner en la página)",
     "summary": "El plan vigente; el GTM 360 publicado el 08-14 queda como historia en la URL viva.",
-    "state": "implemented",
+    "state": "retired",
     "evidence": "observed-in-code",
     "layout": {
       "height": 1.2,
@@ -1663,9 +1669,9 @@
     "name": "Memos de decisión (agosto)",
     "type": "deliverable",
     "parentId": "p-lc-docs",
-    "kind": "piso económico · aritmética del embudo · objetivos por etapa · sprint 14d",
+    "kind": "piso económico · objetivos por etapa · sprint 14d — supersedidos 09-12 por V0.4",
     "summary": "Registros escritos de las decisiones que fijaron el ciclo 2.",
-    "state": "implemented",
+    "state": "retired",
     "evidence": "observed-in-code",
     "layout": {
       "slot": 6
@@ -1722,5 +1728,401 @@
         "path": "context/diagrams"
       }
     ]
+  },
+  {
+    "id": "lc-ctl-two-doors",
+    "name": "Regla de las dos puertas (ritmo vs autoridad)",
+    "type": "control",
+    "parentId": "p-lc-context",
+    "kind": "CLAUDE.md 2026-09-15 · «nadie arriba de las dos puertas»",
+    "summary": "Desde el 15-sep CLAUDE.md deja de decir que El Chamán orquesta: el router es qué repo abre Boris, el toolkit tiene el reloj (pulso, ronda, scheduler, gates) y este repo tiene el canon (marca, oferta, apuestas, capacidades). Una tabla fija dónde vive cada pregunta; el cruce entre repos es el runner. Corrige dos meses de deriva medidos por la auditoría del 13-sep.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "CLAUDE.md",
+        "lines": "3-5,11-46"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "context/memory/project_orquestacion_dos_puertas.md",
+        "lines": "8-24"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "docs/auditoria-2026-09-13/08-donde-se-coordina.md"
+      }
+    ],
+    "owner": "Boris",
+    "dates": {
+      "first": "2026-09-15",
+      "last": "2026-09-21"
+    }
+  },
+  {
+    "id": "lc-ag-chaman-comando",
+    "name": "V5 · chaman-comando — El Chamán presiona por mandato",
+    "type": "capability",
+    "parentId": "p-lc-workforce",
+    "kind": "acción + skill · modo mandato del chat · PRENDIDA 2026-09-17",
+    "summary": "Una frase de Boris en el chat del cockpit es un mandato: el hijo chaman-comando (mismas cercas que chaman-chat: plan mode, sin Write/Edit/Bash, sin MCPs) nombra el próximo paso declarado en un bloque chaman-paso y el server del toolkit aprueba el gate con hash y actor «vía El Chamán · mandato» y despacha, hasta 12 pasos. Piso en código: nunca Instagram/Meta, nunca gasto; el Toolkit rechaza esta acción por POST /api/runs. Cuatro mandatos ejecutados el 18-sep según la decisión espejo; la lista de actores habilitados sigue como pregunta abierta de Boris.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": ".synergy/actions.yaml",
+        "lines": "243-257"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": ".claude/skills/chaman-comando/SKILL.md",
+        "lines": "1-27,61-71,109-115"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "context/decisions/2026-09-16-v5-chaman-presiona.md",
+        "lines": "1-34,55-72,83-90"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "CLAUDE.md",
+        "lines": "42,236-240,290"
+      }
+    ],
+    "owner": "Boris · El Chaman (AG-000)",
+    "dates": {
+      "first": "2026-09-16",
+      "last": "2026-09-22"
+    }
+  },
+  {
+    "id": "lc-ctl-asiento-simetrico",
+    "name": "Asiento simétrico: el hook lee el motor · /pulso espejo · /cola-de-autoria",
+    "type": "workflow",
+    "parentId": "p-lc-cadence",
+    "kind": "en prueba hasta 2026-09-23 · lectura same-host, jamás escritura",
+    "summary": "Diagnóstico del 16-sep: el asiento del toolkit veía gates, corridas, pauta y deuda y el del cerebro no veía nada, así que se trabajaba donde se ve. Tres piezas sin mover una skill de repo: el hook de sesión abre data/synergy.db del toolkit con sqlite3 -readonly (gates con edad, corridas de 48h, ritos, drenaje, decisiones que vencen), /pulso como espejo declarado del canónico del toolkit (pulso.mjs es cwd-independiente), y /cola-de-autoria, la pieza nueva: qué hay que escribir o decidir hoy, con informe en vault/reports/cola/. Lo primero que vio el hook fue un gate aprobado en agosto y nunca despachado. Falsador: si Boris sigue abriendo el toolkit para autoría, se prueba el asiento único.",
+    "state": "experimental",
+    "evidence": "observed-in-code",
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": ".claude/hooks/session-orient.sh",
+        "lines": "104-141,286-333"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": ".claude/skills/pulso/SKILL.md",
+        "lines": "1-36"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": ".claude/skills/cola-de-autoria/SKILL.md",
+        "lines": "1-38"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "context/decisions/2026-09-16-asiento-simetrico.md",
+        "lines": "1-21,62-80"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "vault/reports/cola/2026-09-16.md"
+      }
+    ],
+    "owner": "Boris · El Chaman (AG-000)",
+    "dates": {
+      "first": "2026-09-16",
+      "last": "2026-09-16"
+    }
+  },
+  {
+    "id": "lc-sk-parte-semanal",
+    "name": "/parte-semanal — recibo, parte y ledger de ausencias",
+    "type": "workflow",
+    "parentId": "p-lc-cadence",
+    "kind": "martes, a mano, Mac-only · lee tres repos, escribe uno",
+    "summary": "Los status semanales de Iru y Bianca dejan de morir en el chat: cada mensaje se guarda crudo en vault/comms/, el parte va a vault/reports/weekly/<año>-W<ww>.md con front-matter de tarjeta de venture, y context/commercial/partes/registro-partes.yaml registra quién reportó y quién no (la ausencia es una fila con su consecuencia medida). Lee los transcripts del martes en both_os, por eso no se declara como acción del Toolkit. Primer parte W38 (15-sep, solo Bianca reportó); el parte del 15→22-sep se publicó como página HTML el 22-sep, todavía sin fila en docs/README.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": ".claude/skills/parte-semanal/SKILL.md",
+        "lines": "1-37,39-57,94-120"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "context/commercial/partes/registro-partes.yaml",
+        "lines": "1-24"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "vault/reports/weekly/2026-W38.md",
+        "lines": "1-14"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "docs/parte-semanal-2026-W39.html",
+        "note": "720 líneas, agregado 2026-09-22, no indexado en docs/README"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "CLAUDE.md",
+        "lines": "301,371"
+      }
+    ],
+    "owner": "Boris pega y aprueba · Iru + Bianca reportan",
+    "dates": {
+      "first": "2026-09-15",
+      "last": "2026-09-22"
+    }
+  },
+  {
+    "id": "lc-doc-plan-v04",
+    "name": "Plan de récord V0.4 «La Chamana a marzo 2027»",
+    "type": "deliverable",
+    "parentId": "p-lc-docs",
+    "kind": "12-sep · front-matter legible por máquina · ratified_by: null",
+    "summary": "Sucede al Lead machine Q3-Q4 y a las cuatro capas de agosto. El front-matter lleva objetivos de nivel 1 (noches piso/techo por mes ago-26→mar-27) y nivel 2 (cinco ramas de marketing con dueño), 17 tácticas con falsador y fecha de kill, 13 decisiones del 12-sep y, desde el 13-sep, el bloque bets: con las tres apuestas. El tracker público se genera desde él. El hook de sesión lo lee desde docs/README en vez de hardcodearlo. Boris no firmó todavía.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "docs/plan-v0.4-la-chamana-2026-09.md",
+        "lines": "1-22,63-79,108-110"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": ".synergy/venture.yaml",
+        "lines": "1-14"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "CLAUDE.md",
+        "lines": "36,50-60"
+      }
+    ],
+    "owner": "AG-011 mitad comercial · TK-000 mitad producto · Boris veta y firma",
+    "dates": {
+      "first": "2026-09-13",
+      "last": "2026-09-14"
+    }
+  },
+  {
+    "id": "lc-ctx-commercial",
+    "name": "context/commercial/ — la estrategia por comprador y las tres apuestas",
+    "type": "deliverable",
+    "parentId": "p-lc-context",
+    "kind": "dos compradores, dos relojes · apuestas A/B/C · decisiones abiertas con dueño y fecha",
+    "summary": "Nace el 14-sep como el único lugar donde se piensa y gestiona el negocio a marzo 2027: quién compra, para qué ocasión, qué se ofrece y por qué. Contiene el scoreboard de apuestas (A la casa a diez días · B el grupo ya vendido por persona · C la ocasión que más paga), la oferta vigente y el registro de fichas públicas, el ledger de decisiones abiertas D-*, el registro B2B de partners, el registro de partes y pide-al-toolkit.md, que deriva el roadmap del toolkit desde las apuestas y no al revés. Todo valor lleva observado/estimado/desconocido; nada se publica. Guardas del doctor del toolkit vigilan la coherencia con el plan.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "context/commercial/README.md",
+        "lines": "1-42,57-78"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "context/commercial/apuestas/README.md",
+        "lines": "9-41"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "context/commercial/pide-al-toolkit.md",
+        "lines": "1-19"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "CLAUDE.md",
+        "lines": "145-152"
+      }
+    ],
+    "owner": "El Chaman escribe · Boris decide · Daiana precio · Iru condiciones",
+    "dates": {
+      "first": "2026-09-14",
+      "last": "2026-09-22"
+    }
+  },
+  {
+    "id": "lc-doc-meta-mini-dashboard",
+    "name": "Spec del mini dashboard de Meta en /paid",
+    "type": "deliverable",
+    "parentId": "p-lc-context",
+    "kind": "cinco números en cadena · pedido desde el cerebro · construido en el toolkit 21-sep",
+    "summary": "Especificación comercial de la tarjeta de Meta del cockpit: alcance y frecuencia, tocaron, conversaciones y costo con flecha, cuántas servían (desconocido con causa, nunca 0) y ritmo/horizonte contra el tope; cero lecturas nuevas a Meta, render sobre lo que el snapshot de las 07:00 ya deriva. Boris pidió no esperar la ronda y se construyó desde el cerebro como excepción declarada a la regla de las dos puertas. La misma sesión detectó que el espejo de gasto perdía los días fuera de la ventana de 7 días; el backfill quedó hecho y la guarda del doctor pedida a TK-000. Sirve a la decisión del 30-sep sobre el split de tesis.",
+    "state": "implemented",
+    "evidence": "claimed-by-doc",
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "context/commercial/pide-al-toolkit.md",
+        "lines": "35-60"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "vault/reports/audio/2026-09-21-cinco-numeros-meta.md"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "context/decisions/2026-09-18-escalado-meta.md",
+        "lines": "1-17",
+        "note": "decisión espejo del escalado de Meta a una semana, una sola campaña; --apply pendiente de la prensa de Boris"
+      }
+    ],
+    "owner": "Boris pide · TK-000 verifica en frío",
+    "dates": {
+      "first": "2026-09-21",
+      "last": "2026-09-22"
+    }
+  },
+  {
+    "id": "lc-doc-auditoria-0913",
+    "name": "Auditoría profunda del repo — corrida nocturna 13→14-sep",
+    "type": "deliverable",
+    "parentId": "p-lc-docs",
+    "kind": "7 auditores en paralelo · 145 hallazgos · 6 patrones · local-only",
+    "summary": "Corrida de solo lectura pedida por Boris: informe más ocho anexos (infraestructura, estructura, arquitectura, capabilities, connections, context, cadence/vault, dónde se coordina) y la salida completa del doctor del toolkit esa noche. Veredicto: repo bien pensado y mal sincronizado; los documentos que toda sesión lee primero describían abril–julio. La Ola 1 se aplicó el 15-sep (CLAUDE.md, connections, cadence, capabilities y memoria traídos a verdad de disco; residuos y datos de terceros sacados de git; deny de escritura sobre Meta). Lo que el cerebro no puede arreglar solo quedó en pedidos-al-toolkit.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "docs/auditoria-repo-2026-09-13.md",
+        "lines": "1-70"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "docs/auditoria-2026-09-13/00-plan-de-la-corrida.md",
+        "lines": "1-32"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "docs/pedidos-al-toolkit-desde-la-auditoria-2026-09-15.md"
+      }
+    ],
+    "owner": "El Chaman (AG-000) · para Boris",
+    "dates": {
+      "first": "2026-09-14",
+      "last": "2026-09-15"
+    }
+  },
+  {
+    "id": "lc-sk-audio-to-desktop",
+    "name": "/audio-to-desktop — la sesión larga explicada en audio",
+    "type": "capability",
+    "parentId": "p-lc-workforce",
+    "kind": "guion en vault/reports/audio/ · audio en el Escritorio, fuera de git",
+    "summary": "Convierte una sesión larga de planeamiento o construcción en un audio de cuatro a siete minutos en castellano rioplatense, para que Boris capte la relevancia y dé mejor feedback: no resume, explica, y termina siempre con lo abierto y qué opinión hace falta. El guion se commitea; el audio es derivado. Siete guiones entre el 16 y el 21-sep.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": ".claude/skills/audio-to-desktop/SKILL.md",
+        "lines": "1-33"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": ".claude/skills/audio-to-desktop/render-audio.sh"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "vault/reports/audio",
+        "note": "7 guiones 2026-09-16 → 2026-09-21"
+      }
+    ],
+    "owner": "Boris",
+    "dates": {
+      "first": "2026-09-16",
+      "last": "2026-09-21"
+    }
+  },
+  {
+    "id": "lc-ctx-ig-dm-tone",
+    "name": "Autoridad escrita del tono de los DMs de Instagram",
+    "type": "control",
+    "parentId": "p-lc-context",
+    "kind": "escrita por Bianca, la operadora del riel · registrada 2026-09-14",
+    "summary": "Primer documento que gobierna lo que puede decir la primera frase de un DM en frío: una introducción, no un pitch; cálido, sobrio, nunca intrusivo. El escritor de openers del toolkit lo embebe literal y /dm y /dm-queue le difieren en vez de reformularlo. Lo escribe quien manda y contesta cada DM desde su propio teléfono: el lazo de feedback más corto del venture.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "context/editorial/ig-dm-tone.md",
+        "lines": "1-40"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": ".claude/skills/dm-queue/SKILL.md"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "vault/reports/hallazgos/2026-09-17-riel-ig-dm.md"
+      }
+    ],
+    "owner": "Bianca",
+    "dates": {
+      "first": "2026-09-14",
+      "last": "2026-09-22"
+    }
+  },
+  {
+    "id": "lc-doc-estado-septiembre",
+    "name": "Estado septiembre 2026 (equipo extendido) · V1.1",
+    "type": "deliverable",
+    "parentId": "p-lc-docs",
+    "kind": "publicado en stack 14-sep · V1.1 15-sep con el feedback de Gastón",
+    "summary": "Sucede al cierre de agosto. La V1.1 separa motor, canal y funnel en tres capas, sube partnerships a canal propio, reemplaza las apuestas por un journey multi-touchpoint de ocho puntos y deja escrito que la entrega de los martes pasa a ser panel, no texto. Cada cifra lleva chip medido/estimado/sin medir; dos correcciones de conteo quedaron en el pie. Pendiente: el theme está registrado como internal-only y es el tercer board público con él.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "docs/estado-septiembre-2026-09-13.html"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "docs/README.md",
+        "lines": "133"
+      }
+    ],
+    "owner": "El Chaman · Boris · feedback de Gastón",
+    "dates": {
+      "first": "2026-09-14",
+      "last": "2026-09-15"
+    }
+  },
+  {
+    "id": "lc-ctx-orchestration-diagram",
+    "name": "Diagrama de la orquestación entre las dos puertas (FigJam)",
+    "type": "deliverable",
+    "parentId": "p-lc-context",
+    "kind": "A lo medido · B la propuesta de Boris · C cómo quedó (V5)",
+    "summary": "Fuente versionada de los diagramas que viven en FigJam: A dibuja lo decidido y medido al 16-sep (Boris orquesta, el cruce es el runner), B la propuesta de esa noche (El Chamán como orquestador de acciones desde la capa conversacional), y C, agregado el 17-sep, lo que quedó construido y prendido como V5. Si el tablero y este archivo difieren, manda el archivo y se regenera el tablero.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "context/diagrams/04-orquestacion-dos-puertas-2026-09-16.md",
+        "lines": "1-50"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "context/diagrams/README.md"
+      }
+    ],
+    "owner": "El Chaman · Boris decide",
+    "dates": {
+      "first": "2026-09-16",
+      "last": "2026-09-22"
+    }
   }
 ]
