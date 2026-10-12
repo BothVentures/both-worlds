@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { world } from './data'
-import { audioUrl, audioDuration } from './data/audio'
 import { EVIDENCE_HINT, EVIDENCE_SHORT, REL_LABEL, STATE_HINT, STATE_LABEL, TYPE_LABEL, TYPE_LABEL_PLURAL, VERIFICATION_LABEL, type Entity, type EntityType, type Relation, type Source, type State } from './model/types'
 import { WorldScene, type Focus, type Level } from './scene/world'
 
@@ -98,11 +97,7 @@ export default function App() {
   const [hover, setHover] = useState<string | null>(null)
   const [visibleRel, setVisibleRel] = useState<string[]>([])
   const [fs, setFs] = useState(false)
-  const [playing, setPlaying] = useState(false)
-  const [progress, setProgress] = useState(0)
-  const [transcript, setTranscript] = useState(false)
   const [personSel, setPersonSel] = useState<string | null>(null)
-  const audioRef = useRef<HTMLAudioElement | null>(null)
   const peekRef = useRef<HTMLDivElement>(null)
   // narrow desktops (≤1500 px) get shorter toolbar labels so the bar never wraps
   const [compact, setCompact] = useState(() => window.matchMedia?.('(max-width: 1500px)').matches ?? false)
@@ -238,26 +233,7 @@ export default function App() {
     return () => window.removeEventListener('mousemove', onMove)
   }, [])
 
-  // ---- narration audio: one element, swapped per step; stops on step/mode change
-  const stopAudio = useCallback(() => {
-    const a = audioRef.current
-    if (a) { a.pause(); a.currentTime = 0 }
-    setPlaying(false); setProgress(0)
-  }, [])
-  useEffect(() => { stopAudio(); setTranscript(false); setPersonSel(null) }, [step, mode, stopAudio])
-  const togglePlay = useCallback(() => {
-    const st = world.tour[step]
-    const url = st?.audio ? audioUrl(st.audio) : undefined
-    if (!url) return
-    let a = audioRef.current
-    if (!a) { a = new Audio(); audioRef.current = a
-      a.addEventListener('timeupdate', () => { if (a && a.duration) setProgress(a.currentTime / a.duration) })
-      a.addEventListener('ended', () => { setPlaying(false); setProgress(0) })
-    }
-    if (a.src !== url) { a.src = url; a.load() }
-    if (a.paused) { a.play().then(() => setPlaying(true)).catch(() => setPlaying(false)) } else { a.pause(); setPlaying(false) }
-  }, [step])
-  useEffect(() => () => { audioRef.current?.pause() }, [])
+  useEffect(() => { setPersonSel(null) }, [step, mode])
 
   // ---- keyboard
   useEffect(() => {
@@ -279,14 +255,13 @@ export default function App() {
         case '?': ev.preventDefault(); setHelp((x) => !x); break
         case 'l': ev.preventDefault(); setLegend((x) => !x); break
         case 'r': ev.preventDefault(); sceneRef.current?.reframe(); break
-        case 'p': ev.preventDefault(); if (modeRef.current === 'tour') togglePlay(); break
         case 'c': ev.preventDefault(); if (modeRef.current === 'tour') setTourMin((x) => !x); break
         case '/': case 'k': case 'b': ev.preventDefault(); setSearchOpen(true); break
       }
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [step, applyStep, enterTour, up, toWorld, toggleFullscreen, help, togglePlay, filter])
+  }, [step, applyStep, enterTour, up, toWorld, toggleFullscreen, help, filter])
 
   const focused = entities.get(focus.id)
   const hovered = hover ? entities.get(hover) : undefined
@@ -368,21 +343,8 @@ export default function App() {
                     ))}
                   </div>
                 )}
-                {tourStep.audio && audioUrl(tourStep.audio) && (
-                  <div className="player">
-                    <button className={`play${playing ? ' on' : ''}`} onClick={togglePlay} aria-pressed={playing} aria-label={playing ? 'pausar narración' : 'escuchar narración'}>
-                      <span className="ico" aria-hidden>{playing ? '❚❚' : '▶'}</span>
-                      <span>{playing ? 'Pausar' : 'Escuchar más'}</span>
-                      <span className="dur">{fmt(playing ? progress * (audioDuration(tourStep.id) ?? 0) : audioDuration(tourStep.id) ?? 0)}</span>
-                    </button>
-                    <div className="bar" aria-hidden><i style={{ width: `${progress * 100}%` }} /></div>
-                    <button className="tx" onClick={() => setTranscript((t) => !t)} aria-pressed={transcript}>{transcript ? 'ocultar texto' : 'leer texto'}</button>
-                    {world.meta.narrationDate && <span className="rec" title="La narración se grabó en esa fecha; los datos del mapa son más nuevos">grabada {world.meta.narrationDate}</span>}
-                  </div>
-                )}
-                {transcript && tourStep.narration && <p className="transcript">{tourStep.narration}</p>}
                 <div className="progress" role="list" aria-label="escenas">{world.tour.map((s, i) => <button role="listitem" key={s.id} className={i === step ? 'on' : ''} title={`${i + 1} · ${s.title}`} aria-label={`escena ${i + 1}`} onClick={() => applyStep(i)} />)}</div>
-                <div className="meta"><span>{step + 1} / {world.tour.length}</span><span>← → o 1–9 para navegar · P escuchar · C plegar · T explorar · / buscar · ? ayuda</span></div>
+                <div className="meta"><span>{step + 1} / {world.tour.length}</span><span>← → o 1–9 para navegar · C plegar · T explorar · / buscar · ? ayuda</span></div>
               </div>
               <button className="nav" onClick={() => applyStep(step + 1)} disabled={step === world.tour.length - 1} aria-label="siguiente">→</button>
             </section>
@@ -448,7 +410,6 @@ function Activity({ a }: { a: NonNullable<Entity['activity']> }) {
   )
 }
 
-const fmt = (sec: number) => `${Math.floor(sec / 60)}:${String(Math.floor(sec % 60)).padStart(2, '0')}`
 
 const LEGEND_STATES: { v: State; cls: string; label: string }[] = [
   { v: 'implemented', cls: '', label: 'implementado' },
@@ -628,7 +589,6 @@ function Help({ onClose }: { onClose: () => void }) {
           <tr><td>Esc / Backspace</td><td>Volver al nivel anterior (o quitar el filtro de la leyenda)</td></tr>
           <tr><td>Home / H</td><td>Volver al mundo</td></tr>
           <tr><td>arrastrar · Shift+arrastrar · rueda</td><td>Orbitar · desplazar · acercar (modo exploración)</td></tr>
-          <tr><td>P / «Escuchar más»</td><td>Narración en audio de la escena (texto disponible con «leer texto»)</td></tr>
           <tr><td>C</td><td>Plegar o desplegar la tarjeta del recorrido para ver el mapa entero</td></tr>
           <tr><td>leyenda</td><td>Tocá un estado o un tipo para resaltar solo esas piezas; de nuevo para quitarlo</td></tr>
           <tr><td>ficha</td><td>Cada fuente abre en GitHub; «copiar link» comparte la vista exacta (la URL cambia sola al navegar)</td></tr>

@@ -51,13 +51,8 @@ async function run(viewport) {
   check(`[${tag}] world shows 3 territory labels`, l1.length === 3, `${l1.length} visible: ${l1.map((l) => l.id).join(', ')}`)
   check(`[${tag}] territory labels do not overlap`, overlaps(l1) === 0, `${overlaps(l1)} overlaps`)
 
-  // 1b. narration player on the tour card
-  await page.click('.player .play'); await page.waitForTimeout(2500)
-  const pw = await page.$eval('.player .bar i', (e) => parseFloat(e.style.width) || 0)
-  check(`[${tag}] narration plays from the card (progress advances)`, (await page.$eval('.player .play', (e) => e.getAttribute('aria-pressed'))) === 'true' && pw > 0, `${pw.toFixed(1)}% after 2.5 s`)
-  await page.keyboard.press('ArrowRight'); await page.waitForTimeout(800)
-  check(`[${tag}] changing step stops the narration`, (await page.$eval('.player .play', (e) => e.getAttribute('aria-pressed'))) === 'false')
-  await page.keyboard.press('ArrowLeft'); await settle(page)
+  // 1b. no audio narration anywhere (removed for external sharing)
+  check(`[${tag}] tour card has no audio player`, (await page.$$('.player, audio')).length === 0)
 
   // 2. controls inside viewport
   const ctl = await inViewport('.tools button, .tour .nav, .legend, .crumbs button')

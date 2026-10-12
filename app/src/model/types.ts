@@ -110,9 +110,6 @@ export interface TourStep {
   relations?: string[]
   /** marks the "future" scene — rendered with the proposed style + banner */
   future?: boolean
-  /** spoken narration (also shown as transcript); audio file name under src/audio */
-  narration?: string
-  audio?: string
   /** people strip (the human element): name, role, the gates they hold, entity ids to highlight on click */
   people?: { name: string; role: string; gate: string; ids: string[] }[]
   /** show the computed coverage numbers strip (entities · relations · sources) */
@@ -132,8 +129,6 @@ export interface WorldData {
     subtitle: string
     version?: string
     generated: string
-    /** date the narration clips were recorded (they are not re-generated on every data refresh) */
-    narrationDate?: string
     coverage: string // plain-language statement of what is and is not covered
     limitations: string[]
     /** where each repo lives online, so a source can be opened in one click */

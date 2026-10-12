@@ -1,7 +1,6 @@
 # BOTH WORLDS → GitHub Pages.
 # Cada push a main que toque la app reconstruye el sitio y lo publica.
-# La versión online es multi-archivo (carga ~1 MB y baja cada audio sólo cuando
-# se reproduce). El entregable offline de doble clic se construye igual y queda
+# La versión online es multi-archivo (carga ~1 MB). El entregable offline de doble clic se construye igual y queda
 # colgado del sitio como /BOTH-WORLDS.html.
 name: Deploy BOTH WORLDS to Pages
 

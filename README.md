@@ -31,7 +31,6 @@ Viewport principal 1920×1080; verificado también a 1440×900. Pantalla complet
 | clic en etiqueta o bloque | Entrar a territorio → proyecto → elemento (sin depender de hover) |
 | `Esc` / `Backspace` | Subir un nivel · `Home`/`H` volver al mundo |
 | arrastrar · Shift+arrastrar · rueda | Orbitar · desplazar · acercar (modo exploración) |
-| `P` o botón «Escuchar más» | Narración en audio de la escena (entre 1,5 y 3 min por escena; la 08 no tiene); «leer texto» muestra la transcripción |
 | `/` · `⌘K` | Buscar una pieza y saltar a ella |
 | `C` | Plegar / desplegar la tarjeta del recorrido |
 | clic en la leyenda | Filtrar por estado o tipo (Esc lo quita) |
@@ -54,8 +53,6 @@ app/                        ← código fuente (Vite + React + TypeScript + thre
   scripts/validate-data.mjs ← valida ids, padres, relaciones, enums y rutas de fuentes en disco
   scripts/e2e.mjs           ← pruebas end-to-end en Chromium headless (Playwright)
   scripts/shot.mjs          ← capturas rápidas con acciones
-  scripts/narrate.mjs       ← genera src/audio/*.mp3 desde tour.json (edge-tts es-MX-Dalia por defecto; macOS say como fallback)
-  src/audio/                ← 8 clips mp3 (73–97 s c/u, mono 64 kbps) + durations.json
   dist/ · dist-single/      ← builds (normal y single-file), no versionados
 .github/workflows/deploy.yml ← build + publicación a GitHub Pages en cada push a main
 research/                   ← manifiesto de fuentes, dirección visual, inventarios trazables (local; no va al repo público)
@@ -70,9 +67,9 @@ TEST-REPORT.md              ← qué se probó, qué no, limitaciones
 
 - **Entidad:** `id`, `name`, `type` (`territory | project | capability | workflow | deliverable | connection | control`), `parentId`, `kind`, `summary`, `state`, `evidence`, `sources[] {repo, path, lines?, note?}`, `owner?`, `dates?`, `layout? {slot, weight, height, accent}` (editorial, no métrica).
 - **Relación:** `id`, `from`, `to`, `type` (`uses | feeds | produces | reviews | deploys-to | documents | mirrors | reads | writes | dispatches | gates`), `label?`, `evidence[]`, `verification` (`verified-in-code | verified-in-docs | inferred`).
-- **Tour:** `kicker`, `title`, `body`, `focus {level, id}`, `camera?`, `highlight?`, `relations?`, `future?`, `narration` (texto leído), `audio` (archivo en `src/audio/`) y `people?` (tira de personas con nombre, rol, compuertas e ids a iluminar).
+- **Tour:** `kicker`, `title`, `body`, `focus {level, id}`, `camera?`, `highlight?`, `relations?`, `future?` y `people?` (tira de personas con nombre, rol, compuertas e ids a iluminar).
 
-**Narración:** el texto de cada escena vive en `tour.json → narration`. `node scripts/narrate.mjs` regenera los ocho mp3 con la voz elegida por el equipo el 2026-09-08: **Dalia (es-MX), voz neuronal de Microsoft vía `edge-tts`** (gratis, sin cuenta; corre con `uvx`, así que solo necesita `uv` instalado e internet en el momento de generar — los clips quedan embebidos y la presentación sigue siendo offline). Fallback sin red: `node scripts/narrate.mjs say Paulina 168` usa la voz de macOS. Otra voz: `node scripts/narrate.mjs edge es-UY-ValentinaNeural` (lista completa con `uvx edge-tts --list-voices`), o reemplazar los mp3 con el mismo nombre y correr `node scripts/narrate.mjs none` para refrescar `durations.json`. Después, `npm run build:single` y copiar `dist-single/index.html` a `BOTH-WORLDS.html`. Alternativa local probada (no adoptada): Qwen3-TTS con `mlx-audio`, dirigible por instrucción y con clonación de voz.
+**Narración:** retirada el 2026-10-12 para compartir el link fuera de la organización — sin audio, sin player, sin texto de narración en el bundle. El recorrido sigue, solo con las tarjetas. Los clips y `narrate.mjs` quedan en la historia de git (commit anterior a la baja).
 
 ## V4.0 · 2026-09-22 (para compartir con el equipo: buscar, linkear, filtrar, datos al día)
 

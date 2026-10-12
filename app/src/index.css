@@ -197,11 +197,10 @@ button:focus-visible, [tabindex]:focus-visible { outline: 1px solid var(--accent
 .tour .fold { position: absolute; right: -6px; top: -6px; width: 28px; height: 28px; border-radius: 50%; border: 1px solid transparent; color: var(--ink-3); font-size: 12px; display: grid; place-items: center; }
 .tour .fold:hover { color: #fff; border-color: var(--line); }
 .tour.min { padding: 10px 18px; max-width: 760px; }
-.tour.min .body > p, .tour.min .stats, .tour.min .people, .tour.min .transcript, .tour.min .progress, .tour.min .meta, .tour.min .player .bar, .tour.min .player .tx { display: none; }
-.tour.min .body { display: grid; grid-template-columns: 1fr auto; grid-template-areas: 'k p' 't p'; column-gap: 16px; align-items: center; }
+.tour.min .body > p, .tour.min .stats, .tour.min .people, .tour.min .progress, .tour.min .meta { display: none; }
+.tour.min .body { display: grid; grid-template-columns: 1fr; grid-template-areas: 'k' 't'; align-items: center; }
 .tour.min .kicker { grid-area: k; }
 .tour.min h1 { grid-area: t; font-size: 20px; margin: 2px 0 0; }
-.tour.min .player { grid-area: p; margin: 0 22px 0 0; }
 .tour.min .nav { width: 36px; height: 36px; font-size: 15px; }
 .tour.min .fold { top: 50%; transform: translateY(-50%); right: -10px; }
 
@@ -283,21 +282,7 @@ button:focus-visible, [tabindex]:focus-visible { outline: 1px solid var(--accent
   .panel { width: 300px; }
 }
 
-/* ---------- narration player ---------- */
-.player { display: flex; align-items: center; gap: 12px; margin-top: 12px; }
-.player .play { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 11.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink); padding: 8px 14px 8px 10px; border: 1px solid var(--accent-a55); border-radius: 999px; background: var(--accent-a12); }
-.player .play:hover { background: var(--accent-a22); border-color: var(--accent); }
-.player .play.on { background: rgba(197,197,42,.3); }
-.player .play .ico { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: var(--accent); color: var(--on-accent); font-size: 9px; }
-.player .play .dur { color: var(--ink-3); letter-spacing: .02em; }
-.player .bar { flex: 1; height: 2px; background: var(--line); border-radius: 2px; overflow: hidden; }
-.player .bar i { display: block; height: 100%; background: var(--accent); transition: width .25s linear; }
-.player .tx { font-family: var(--mono); font-size: 10.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); padding: 4px 8px; border: 1px solid transparent; border-radius: 4px; }
-.player .tx:hover, .player .tx[aria-pressed="true"] { color: var(--ink); border-color: var(--line); }
-.player .rec { font-family: var(--mono); font-size: 9.5px; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-3); white-space: nowrap; }
-.tour.min .player .rec { display: none; }
-.tour .transcript { margin-top: 10px; font-size: 13.5px; line-height: 1.5; color: var(--ink-2); max-height: 150px; overflow: auto; padding-right: 8px; border-left: 2px solid rgba(197,197,42,.45); padding-left: 12px; }
-
+.tour.min 
 /* ---------- the human element strip ---------- */
 .people { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin: 12px 0 2px; }
 .person { display: flex; flex-direction: column; gap: 3px; text-align: left; padding: 10px 12px; border: 1px solid transparent; border-radius: 12px; background: var(--glass-3); }
