@@ -282,9 +282,10 @@ button:focus-visible, [tabindex]:focus-visible { outline: 1px solid var(--accent
   .panel { width: 300px; }
 }
 
-.tour.min 
 /* ---------- the human element strip ---------- */
-.people { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin: 12px 0 2px; }
+/* una columna por persona (5 en la escena 05, 3 en la 09). Hasta 2026-10-25 un `.tour.min` colgado
+   arriba de esta regla (resto del retiro del audio, b9c005d) la dejaba aplicar solo con la tarjeta plegada. */
+.people { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 8px; margin: 12px 0 2px; }
 .person { display: flex; flex-direction: column; gap: 3px; text-align: left; padding: 10px 12px; border: 1px solid transparent; border-radius: 12px; background: var(--glass-3); }
 .person:hover { border-color: rgba(220,226,240,.35); background: rgba(255,255,255,.05); }
 .person.on { border-color: var(--accent); background: var(--accent-a12); }
@@ -293,7 +294,7 @@ button:focus-visible, [tabindex]:focus-visible { outline: 1px solid var(--accent
 .person .pg { font-size: 11.5px; line-height: 1.35; color: var(--ink-2); }
 .person .pc { margin-top: auto; padding-top: 4px; font-family: var(--mono); font-size: 9.5px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); }
 .person:hover .pc, .person.on .pc { color: var(--accent); }
-@media (max-width: 1400px) { .people { grid-template-columns: repeat(5, 1fr); gap: 6px; } .person .pn { font-size: 16px; } .person .pg { font-size: 10.5px; } }
+@media (max-width: 1400px) { .people { gap: 6px; } .person .pn { font-size: 16px; } .person .pg { font-size: 10.5px; } }
 
 /* ---------- big numbers (RON): computed coverage, real history ---------- */
 .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 12px 0 2px; }

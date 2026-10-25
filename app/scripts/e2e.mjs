@@ -48,7 +48,8 @@ async function run(viewport) {
   check(`[${tag}] WebGL context available`, webgl)
   await shot('01-world')
   const l1 = await visibleLabels('.lbl-l1')
-  check(`[${tag}] world shows 3 territory labels`, l1.length === 3, `${l1.length} visible: ${l1.map((l) => l.id).join(', ')}`)
+  const nTerr = (await page.$$('.lbl-l1')).length // uno por territorio en los datos (4 desde V4.1)
+  check(`[${tag}] world shows all ${nTerr} territory labels`, l1.length === nTerr && nTerr >= 4, `${l1.length} visible: ${l1.map((l) => l.id).join(', ')}`)
   check(`[${tag}] territory labels do not overlap`, overlaps(l1) === 0, `${overlaps(l1)} overlaps`)
 
   // 1b. no audio narration anywhere (removed for external sharing)

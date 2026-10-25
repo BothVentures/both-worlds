@@ -282,7 +282,7 @@ export default function App() {
           <div>
             <div className="brand">
               <span className="t">BOTH WORLDS</span>
-              <span className="s">{world.meta.subtitle} · {world.meta.version ?? ''} · 3 repos leídos el {world.meta.generated}</span>
+              <span className="s">{world.meta.subtitle} · {world.meta.version ?? ''} · {Object.keys(world.meta.repos ?? {}).length} repos · datos al {world.meta.generated}</span>
             </div>
             <nav className="crumbs" aria-label="ubicación">
               <button onClick={toWorld}>Mundo</button>
@@ -445,7 +445,7 @@ function Legend({ filter, onFilter }: { filter: Filter; onFilter: (f: Filter) =>
           </button>
         ))}
       </div>
-      <div className="cov">Cobertura: 3 repos leídos el {world.meta.generated} · tamaño de bloque = decisión editorial, no métrica · "live" = declarado por un documento, no verificado en red. Tocá un estado o un tipo para resaltarlo.</div>
+      <div className="cov">Cobertura: {Object.keys(world.meta.repos ?? {}).length} repos · datos al {world.meta.generated} · tamaño de bloque = decisión editorial, no métrica · "live" = declarado por un documento, no verificado en red. Tocá un estado o un tipo para resaltarlo.</div>
     </aside>
   )
 }

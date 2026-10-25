@@ -2068,5 +2068,305 @@
       }
     ],
     "verification": "verified-in-code"
+  },
+  {
+    "id": "r-bienal-dispatches-orch",
+    "from": "bo-cap-bienal-bridge",
+    "to": "bp-cap-orch",
+    "type": "dispatches",
+    "label": "despacha pedidos · claude -p con el brain como cwd",
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/bienal/SKILL.md"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "docs/synergy-contract.md",
+        "lines": "§5"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-orch-dispatches-synergy",
+    "from": "bp-cap-synergy-skill",
+    "to": "p-both-os",
+    "type": "dispatches",
+    "label": "pide a Synergy lo que es de BOTH",
+    "evidence": [
+      {
+        "repo": "bienal-punta-os",
+        "path": ".claude/skills/synergy/SKILL.md"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-bridge-uses-queue",
+    "from": "bo-cap-bienal-bridge",
+    "to": "bp-wf-despachos",
+    "type": "uses",
+    "label": "encola en ~/GitHub/.despachos",
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "scripts/despachar.sh"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-synergy-skill-uses-queue",
+    "from": "bp-cap-synergy-skill",
+    "to": "bp-wf-despachos",
+    "type": "uses",
+    "label": "encola en la misma cola",
+    "evidence": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "scripts/despachar.sh"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-despachos-produces-reports",
+    "from": "bp-wf-despachos",
+    "to": "bp-del-reports",
+    "type": "produces",
+    "label": "un reporte por despacho, aunque falle",
+    "evidence": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "scripts/despachar.sh"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-merge-gate-gates-despachos",
+    "from": "bp-ctl-merge-gate",
+    "to": "bp-wf-despachos",
+    "type": "gates",
+    "label": "nada entra a main sin un sí",
+    "evidence": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "docs/synergy-contract.md",
+        "lines": "§5"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-tareas-uses-worker",
+    "from": "bp-del-tareas",
+    "to": "bo-wf-crm-tasks",
+    "type": "uses",
+    "label": "estado del tablero bienal-tareas",
+    "evidence": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "operaciones/tareas/README.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "workers/transcript-miner/src/tasks.js"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-docshub-reads-brain",
+    "from": "bo-cap-docs-hub",
+    "to": "p-bp-areas",
+    "type": "reads",
+    "label": "renders de Notion leídos del brain",
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "config/docs-hub/punta-cripto.yml"
+      },
+      {
+        "repo": "both_os",
+        "path": "scripts/lib/notion.py"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-docshub-writes-notion",
+    "from": "bo-cap-docs-hub",
+    "to": "bo-con-notion",
+    "type": "writes",
+    "label": "regiones generadas por área",
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "scripts/notion-hub-build.py"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-wr-reads-brain-status",
+    "from": "bo-cap-wr",
+    "to": "bp-del-status",
+    "type": "reads",
+    "label": "el status del equipo en el Tuesday Sync",
+    "evidence": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "docs/synergy-contract.md",
+        "lines": "§1"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-weekly-writes-notion",
+    "from": "bp-cap-weekly",
+    "to": "bo-con-notion",
+    "type": "writes",
+    "label": "fila de Updates semanales",
+    "evidence": [
+      {
+        "repo": "bienal-punta-os",
+        "path": ".claude/skills/weekly/SKILL.md"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-ops-scripts-mirror-daemon",
+    "from": "bp-wf-ops-scripts",
+    "to": "bo-wf-sync-daemon",
+    "type": "mirrors",
+    "label": "copia byte-idéntica, un LaunchAgent por repo",
+    "evidence": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "scripts/sync-daemon.sh"
+      },
+      {
+        "repo": "both_os",
+        "path": "scripts/sync-daemon.sh"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-clearance-reads-both-half",
+    "from": "bp-ctl-clearance",
+    "to": "bn-el-both-half",
+    "type": "reads",
+    "label": "lo nombra por su ruta, nunca lo copia",
+    "evidence": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "CLAUDE.md"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-split-rule-documents-brain",
+    "from": "bo-del-split-rule",
+    "to": "t-bienal-punta-os",
+    "type": "documents",
+    "label": "plan, regla y template del primer brain",
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "vault/initiatives/2026-10-24-bienal-brain-split.md"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-engine-feeds-site",
+    "from": "bp-wf-engine",
+    "to": "bp-del-site",
+    "type": "produces",
+    "label": "tokens → theme → landing",
+    "evidence": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "marca/_engine/theme-build.py"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-deploy-site",
+    "from": "bp-wf-deploy-site",
+    "to": "bp-del-site",
+    "type": "deploys-to",
+    "label": "bienalpunta.com vía repo público",
+    "evidence": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "scripts/deploy-site.sh"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-orch-uses-agents",
+    "from": "bp-cap-orch",
+    "to": "p-bp-areas",
+    "type": "dispatches",
+    "label": "un agente por área, borradores para el owner",
+    "evidence": [
+      {
+        "repo": "bienal-punta-os",
+        "path": ".claude/agents/README.md"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-signoff-gates-site",
+    "from": "bp-ctl-signoff",
+    "to": "bp-del-site",
+    "type": "gates",
+    "label": "nada público sin René",
+    "evidence": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "CLAUDE.md"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-both-boards-from-engine",
+    "from": "bp-wf-engine",
+    "to": "bo-cap-both-boards",
+    "type": "feeds",
+    "label": "el motor se extrae cuando CM lo necesite",
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "vault/initiatives/2026-10-24-bienal-brain-split.md",
+        "lines": "F6"
+      }
+    ],
+    "verification": "inferred"
+  },
+  {
+    "id": "r-split-rule-cm",
+    "from": "bo-del-split-rule",
+    "to": "mc-prop-brain",
+    "type": "documents",
+    "label": "el mismo template, segundo caso",
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "vault/initiatives/2026-10-24-brain-template.md"
+      }
+    ],
+    "verification": "inferred"
   }
 ]

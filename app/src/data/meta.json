@@ -1,22 +1,23 @@
 {
   "title": "BOTH WORLDS",
   "subtitle": "La infraestructura invisible, hecha visible",
-  "generated": "2026-09-22",
-  "coverage": "Atlas curado de tres repositorios leídos el 2026-09-08 y refrescados contra sus HEAD del 2026-09-22: both_os (Both Ventures + su sistema operativo interno, Synergy), synergy-toolkit (la BOTH GTM Machine) y lc-chaman (El Chamán, el cerebro de La Chamana). Representa unidades significativas de trabajo, no archivos. Los conteos que aparecen se calcularon desde el inventario y dicen qué cuentan. La narración en audio se grabó el 2026-09-08 y no se regrabó: donde una cifra cambió, manda la ficha.",
+  "generated": "2026-10-25",
+  "coverage": "Atlas curado de cuatro repositorios. both_os (Both Ventures + su sistema operativo interno, Synergy), synergy-toolkit (la BOTH GTM Machine) y lc-chaman (El Chamán, el cerebro de La Chamana) se leyeron el 2026-09-08 y se refrescaron contra sus HEAD del 2026-09-22. El 2026-10-25 se sumó el cuarto, bienal-punta-os (Bienal Orch, el brain de la Bienal Blockchain Punta 2027, el primer brain de proyecto), junto con las piezas de both_os que lo conectan: el puente de despachos, los tableros compartidos, el Docs Hub y la regla de split. El resto de both_os no se refrescó desde el 22-sep. Representa unidades significativas de trabajo, no archivos.",
   "limitations": [
     "No se consultó ningún endpoint vivo: 'live' o 'deployed' se muestra como declaración de un documento, no como verificación.",
     "No se leyeron bases de datos privadas (SQLite del Toolkit), transcripts, listas de contactos ni cifras comerciales; nada de eso aparece.",
     "Repos no accesibles y por lo tanto no representados: both-private (LP/investors), content-factory-sandbox (Andrés), COMANDO-AI/C-OS (canon 4C upstream).",
     "Las relaciones marcadas 'inferida' no son integraciones reales confirmadas; se dibujan punteadas y apagadas.",
-    "El tamaño visual de cada bloque es una decisión editorial, no una métrica de valor ni de actividad."
+    "El tamaño visual de cada bloque es una decisión editorial, no una métrica de valor ni de actividad.",
+    "De bienal-punta-os y de lo que se quedó en both_os sobre la Bienal solo se muestra la topología: ni cifras, ni pipeline comercial, ni documentos de estrategia aparecen acá."
   ],
-  "version": "V4.0",
+  "version": "V4.1",
   "repos": {
     "both_os": {
       "url": "https://github.com/BothVentures/both_os",
       "branch": "main",
       "visibility": "private",
-      "head": "c78cc8f5"
+      "head": "a57044e3"
     },
     "synergy-toolkit": {
       "url": "https://github.com/BothVentures/synergy-toolkit",
@@ -29,6 +30,12 @@
       "branch": "main",
       "visibility": "private",
       "head": "f5f90ca"
+    },
+    "bienal-punta-os": {
+      "url": "https://github.com/BothVentures/bienal-punta-os",
+      "branch": "main",
+      "visibility": "private",
+      "head": "3605921"
     }
   }
 }

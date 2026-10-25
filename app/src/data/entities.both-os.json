@@ -3,7 +3,7 @@
     "id": "world",
     "name": "BOTH WORLDS",
     "type": "world",
-    "summary": "Tres territorios: el agentic venture builder y su sistema operativo (Both Ventures · Synergy), la máquina de go-to-market (Synergy Toolkit) y el cerebro de La Chamana (El Chamán).",
+    "summary": "Cuatro territorios: el agentic venture builder y su sistema operativo (Both Ventures · Synergy), la máquina de go-to-market (Synergy Toolkit), el cerebro de La Chamana (El Chamán) y, desde el 2026-10-25, el primer brain de proyecto: la Bienal (Bienal Orch). Entre territorios no hay jerarquía: cada repo es la puerta de lo suyo y se piden trabajo por contrato.",
     "state": "implemented",
     "evidence": "observed-in-docs",
     "sources": []
@@ -306,13 +306,13 @@
     "type": "project",
     "parentId": "t-both-ventures",
     "kind": "venture · Build + Strategic",
-    "summary": "Iniciativa cripto/blockchain, fuente de ingresos clave. Pasó por siete nombres (Punta Crypto Summit → Punta Blockchain → Bienal Blockchain Punta 2027); el slug punta-cripto se congela para routing. Desde el 08-26 las páginas publican el nombre vigente (nueve bajo direction/bienal-punta-* y board/), y el 09-22 se sumaron deck de onboarding, one-pager, mapa de vínculos V0.2 y objetivo político V0.1 en la dirección «Blanco». El card del vault sigue con título PUNTA CRIPTO y updated 2026-08-03. El digest del 09-22 corrige una decisión minada: el sponsor no está confirmado.",
+    "summary": "Iniciativa cripto/blockchain, fuente de ingresos clave; el slug punta-cripto se congela para routing aunque la marca pasó por siete nombres hasta Bienal Blockchain Punta 2027. Desde el 2026-10-25 la Bienal tiene brain propio —el territorio Bienal Orch—: contexto, áreas, marca, decks, tareas y su weekly viven allá. Acá, en both_os, se queda la mitad que solo ven los cinco de BOTH y todo lo que leen los pipelines de BOTH: el vault con sus decisiones y llamadas, el CRM y el canon comercial.",
     "state": "implemented",
     "evidence": "observed-in-docs",
     "owner": "Rene (ops Daiana, legal Andres)",
     "dates": {
       "first": "2026-06-01",
-      "last": "2026-09-22"
+      "last": "2026-10-25"
     },
     "layout": {
       "slot": 8
@@ -326,6 +326,11 @@
         "repo": "both_os",
         "path": "projects/bienal-blockchain-punta/context.md",
         "note": "name ledger"
+      },
+      {
+        "repo": "both_os",
+        "path": "projects/bienal-blockchain-punta/_index.md",
+        "note": "banner del 2026-10-25: lo de nivel equipo es canónico en el brain"
       }
     ]
   },
@@ -614,12 +619,13 @@
     "type": "workflow",
     "parentId": "p-both-os",
     "kind": "LaunchAgent · cada 15 s",
-    "summary": "Git worker fuera del sandbox de Cowork: cada 15 s hace fetch + pull --ff-only; con un request file hace pull --rebase, stage por categorías, commit y push con reintentos. Desde 2026-09-17 la allowlist de categorías incluye tests/ y .github/: antes un test nuevo o un cambio de workflow quedaba sin commitear y el daemon reportaba 'nothing to commit'.",
+    "summary": "Git worker fuera del sandbox de Cowork: cada 15 s hace fetch + pull --ff-only; con un request file hace pull --rebase, stage por categorías, commit y push con reintentos. Desde 2026-09-17 la allowlist de categorías incluye tests/ y .github/: antes un test nuevo o un cambio de workflow quedaba sin commitear y el daemon reportaba 'nothing to commit'. Desde el 2026-10-25 corre uno por repo (both_os y el brain de la Bienal), con la lista de carpetas en config/sync-categories.txt de cada repo, y el lock-cleaner pasó a ser por repo también.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "owner": "Mariano",
     "dates": {
-      "first": "2026-05-20"
+      "first": "2026-05-20",
+      "last": "2026-10-25"
     },
     "layout": {
       "slot": 8
@@ -2035,11 +2041,12 @@
     "type": "deliverable",
     "parentId": "p-punta-cripto",
     "kind": "_index · context · status · roadmap + 6 frentes",
-    "summary": "Marca, Institucional, Comercial, Programa, Producción, Economía y Legal, cada frente con owner y gate. Al corte 2026-08-26 tres gates vencidos sin registro.",
+    "summary": "Seis áreas con owner y gate sobre una cuenta regresiva a marzo 2027. Desde el 2026-10-25 el hub de nivel equipo vive en el brain (Bienal Orch); acá queda la espina de navegación y el anexo que solo ven los cinco.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "dates": {
-      "first": "2026-08-26"
+      "first": "2026-08-26",
+      "last": "2026-10-25"
     },
     "sources": [
       {
@@ -2886,7 +2893,7 @@
     "type": "deliverable",
     "parentId": "p-punta-cripto",
     "kind": "páginas publicadas · draft general",
-    "summary": "La landing Blanco dicha en doce planchas 16:9 (una idea por plancha, hoja de impresión 1280×720) y apretada en una hoja A4 vertical. Mismo copy, misma máscara y mismo motor _engine/ que el sitio; fuentes reproducibles (.template.html + .build.py, el HTML generado no se edita). Draft para inversor, sponsor, board y equipo a la vez; las versiones por público vienen después. El hub del equipo en Notion se reconstruye con bienal-notion-build.py enlazando estas páginas.",
+    "summary": "La landing Blanco dicha en doce planchas 16:9 (una idea por plancha, hoja de impresión 1280×720) y apretada en una hoja A4 vertical. Mismo copy, misma máscara y mismo motor _engine/ que el sitio; fuentes reproducibles (.template.html + .build.py, el HTML generado no se edita). Draft para inversor, sponsor, board y equipo a la vez; las versiones por público vienen después. Desde el 2026-10-25 sus fuentes viven en el brain de la Bienal.",
     "state": "experimental",
     "evidence": "observed-in-code",
     "sources": [
@@ -3006,5 +3013,172 @@
       "first": "2026-09-09",
       "last": "2026-09-16"
     }
+  },
+  {
+    "id": "bo-cap-bienal-bridge",
+    "name": "/bienal · puente a Bienal Orch",
+    "type": "capability",
+    "parentId": "p-both-os",
+    "kind": "skill · despacho",
+    "summary": "Synergy no resuelve el trabajo de la Bienal en both_os: lo despacha al brain de la Bienal, donde Bienal Orch lo hace con sus propias skills y agentes, y trae el reporte. Para leer, lee el brain directo. El merge solo con un sí.",
+    "state": "experimental",
+    "evidence": "executed",
+    "owner": "Mariano",
+    "dates": {
+      "first": "2026-10-25"
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/bienal/SKILL.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "scripts/despachar.sh"
+      }
+    ]
+  },
+  {
+    "id": "bo-wf-crm-tasks",
+    "name": "Worker /crm · /tasks + base compartida",
+    "type": "workflow",
+    "parentId": "p-both-os",
+    "kind": "Cloudflare Worker · un tablero por proyecto",
+    "summary": "Una sola capa de sincronización para los tableros compartidos: el CRM de vínculos y las Tareas de la Bienal guardan su estado en la misma base, un registro por tablero, con merge por registro y compare-and-set. Es el patrón «capability central, espacio por proyecto»: el brain de la Bienal la consume sin copiarla.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "owner": "Mariano",
+    "dates": {
+      "first": "2026-10-08"
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "workers/transcript-miner/src/tasks.js"
+      },
+      {
+        "repo": "both_os",
+        "path": "workers/transcript-miner/src/crm.js"
+      },
+      {
+        "repo": "both_os",
+        "path": "harnesses/crm-sync.md"
+      }
+    ]
+  },
+  {
+    "id": "bo-cap-docs-hub",
+    "name": "/docs-hub · documentación por proyecto en Notion",
+    "type": "capability",
+    "parentId": "p-both-os",
+    "kind": "script · manifest curado por proyecto",
+    "summary": "Arma la página de Notion de cada proyecto desde un manifest curado, por área. Desde el 2026-10-25 sabe leer documentos de un repo hermano: la Bienal se regenera leyendo su brain. El manifest se queda en both_os porque es de BOTH.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "owner": "Mariano",
+    "dates": {
+      "first": "2026-09-27",
+      "last": "2026-10-25"
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "scripts/notion-hub-build.py"
+      },
+      {
+        "repo": "both_os",
+        "path": "scripts/lib/notion.py",
+        "note": "rutas repo:ruta"
+      }
+    ]
+  },
+  {
+    "id": "bo-del-split-rule",
+    "name": "Regla de split + template de brain",
+    "type": "deliverable",
+    "parentId": "p-both-os",
+    "kind": "tres documentos · 2026-10-24",
+    "summary": "Cómo decidir, pieza por pieza, qué se queda en both_os, qué va al brain de un proyecto y qué se vuelve capability compartida: ¿lo lee un pipeline de BOTH? ¿lo ven solo los cinco? ¿otro proyecto lo usaría tal cual? ¿muere con el proyecto? Más el esqueleto de un brain, con lo que se aprendió al construir el primero.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "owner": "Mariano",
+    "dates": {
+      "first": "2026-10-24",
+      "last": "2026-10-25"
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "vault/initiatives/2026-10-24-regla-de-split-brain.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "vault/initiatives/2026-10-24-brain-template.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "vault/initiatives/2026-10-24-bienal-brain-split.md"
+      }
+    ]
+  },
+  {
+    "id": "bo-cap-both-boards",
+    "name": "both-boards · motor de tableros y decks",
+    "type": "capability",
+    "parentId": "p-both-os",
+    "kind": "F6 · repo-capability",
+    "summary": "El motor de los tableros (CRM, Tareas) y de los decks, sacado a un repo propio sin nombre de proyecto adentro, para que cualquier brain lo use por parámetro. Se extrae cuando Casa Manantial lo necesite, con una prueba: regenerar un deck de Casa Manantial idéntico desde el motor extraído.",
+    "state": "proposed",
+    "evidence": "proposed",
+    "owner": "Mariano",
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "vault/initiatives/2026-10-24-bienal-brain-split.md",
+        "note": "F6"
+      }
+    ]
+  },
+  {
+    "id": "bn-el-both-half",
+    "name": "La mitad que se queda en BOTH",
+    "type": "control",
+    "parentId": "p-punta-cripto",
+    "kind": "regla de split · solo los cinco",
+    "summary": "Lo de la Bienal que solo ven los cinco de BOTH no se mudó: el canon comercial, el CRM, el modelo y los documentos de estrategia. El brain los nombra por su ruta y nunca los contiene; para eso el brain no tiene historia de git anterior al 2026-10-25.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "owner": "Mariano",
+    "dates": {
+      "first": "2026-10-25"
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "projects/bienal-blockchain-punta/_index.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "vault/initiatives/2026-10-24-regla-de-split-brain.md",
+        "note": "§2 el test"
+      }
+    ]
+  },
+  {
+    "id": "mc-prop-brain",
+    "name": "Brain propio de Casa Manantial",
+    "type": "capability",
+    "parentId": "p-manantial-casa",
+    "kind": "el siguiente brain · mismo template",
+    "summary": "El segundo caso de la regla de split. Casa Manantial ya cumple dos de las tres condiciones para tener brain —gente fuera de BOTH que opera y superficie pública propia—. Se arma con el template de la Bienal, y si la regla no le alcanza, se corrige la regla.",
+    "state": "proposed",
+    "evidence": "proposed",
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "vault/initiatives/2026-10-24-regla-de-split-brain.md",
+        "note": "§6 cuándo un proyecto merece brain"
+      }
+    ]
   }
 ]

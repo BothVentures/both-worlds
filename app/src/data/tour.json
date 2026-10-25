@@ -264,10 +264,78 @@
     ]
   },
   {
+    "id": "s9-brains",
+    "kicker": "09 · Un brain por proyecto",
+    "title": "La Bienal se independiza, sin desconectarse",
+    "body": "El 2026-10-25 la Bienal pasó de carpeta en both_os a repo propio, con su orquestador: Bienal Orch. Allá viven sus áreas, su marca y su weekly; acá queda lo que leen los pipelines de BOTH y lo que solo ven los cinco. La pregunta que decide cada pieza: ¿muere con la Bienal? Los dos repos no se ordenan: se despachan trabajo, y nada entra sin un sí.",
+    "focus": {
+      "level": "territory",
+      "id": "t-bienal-punta-os"
+    },
+    "camera": {
+      "azimuth": -0.35,
+      "elevation": 0.62,
+      "distance": 1.0
+    },
+    "highlight": [
+      "bp-cap-orch",
+      "bp-wf-despachos",
+      "bp-ctl-merge-gate",
+      "bp-del-contract",
+      "bp-ctl-clearance",
+      "bo-cap-bienal-bridge",
+      "bo-wf-crm-tasks",
+      "bo-cap-docs-hub",
+      "bo-del-split-rule",
+      "bn-el-both-half"
+    ],
+    "relations": [
+      "r-bienal-dispatches-orch",
+      "r-orch-dispatches-synergy",
+      "r-tareas-uses-worker",
+      "r-docshub-reads-brain",
+      "r-wr-reads-brain-status",
+      "r-ops-scripts-mirror-daemon",
+      "r-clearance-reads-both-half"
+    ],
+    "people": [
+      {
+        "name": "René",
+        "role": "owner del proyecto",
+        "gate": "firma todo lo público",
+        "ids": [
+          "bp-ctl-signoff",
+          "bp-del-site",
+          "bp-del-guidelines"
+        ]
+      },
+      {
+        "name": "Daiana",
+        "role": "cadencia de operaciones",
+        "gate": "escribe el status del equipo",
+        "ids": [
+          "bp-del-status",
+          "bp-del-tareas",
+          "bp-cap-weekly"
+        ]
+      },
+      {
+        "name": "Mariano",
+        "role": "sistema y puente",
+        "gate": "merge de cada despacho con un sí",
+        "ids": [
+          "bp-ctl-merge-gate",
+          "bp-wf-despachos",
+          "bo-cap-bienal-bridge"
+        ]
+      }
+    ]
+  },
+  {
     "id": "s8-future",
-    "kicker": "09 · Presente y futuro",
+    "kicker": "10 · Presente y futuro",
     "title": "Lo construido, lo propuesto y lo que sigue",
-    "body": "Trazo pleno: construido. Con brecha: experimental. Huella punteada: propuesto, no producto. La tesis de estos seis meses: no construimos herramientas sueltas; construimos un sistema que se describe, se prueba y se corrige a sí mismo, con nosotros cinco en cada compuerta. Desde la grabación (08-09) dos propuestas ya se construyeron: la superficie de comando es V5 y la puerta pública ya corre en un worker.",
+    "body": "Trazo pleno: construido. Con brecha: experimental. Huella punteada: propuesto, no producto. La tesis de estos siete meses: no construimos herramientas sueltas; construimos un sistema que se describe, se prueba y se corrige a sí mismo, con nosotros cinco en cada compuerta. Lo que sigue en la misma línea: la Bienal publica sus propias páginas y suma a su equipo, el motor de tableros y decks sale a una pieza compartida, y Casa Manantial es el próximo brain, con el mismo template.",
     "focus": {
       "level": "world",
       "id": "world"
@@ -285,7 +353,11 @@
       "lc-con-openseo",
       "tk-wf-today-wave",
       "lc-ctl-asiento-simetrico",
-      "bo-wf-sprint-cycle"
+      "bo-wf-sprint-cycle",
+      "bp-prop-docs",
+      "bp-prop-equipo",
+      "bo-cap-both-boards",
+      "mc-prop-brain"
     ],
     "future": true
   }

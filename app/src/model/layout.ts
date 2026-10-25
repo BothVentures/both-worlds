@@ -36,6 +36,8 @@ const TERRITORY_SLOTS: Record<string, { x: number; z: number; y: number; azimuth
   't-both-ventures': { x: -4, z: 2, y: 4.4, azimuth: 0.35 },
   't-synergy-toolkit': { x: 40, z: -22, y: 5.6, azimuth: -0.4 },
   't-lc-chaman': { x: 34, z: 22, y: 3.6, azimuth: 0.9 },
+  // 2026-10-25 · el primer brain de proyecto, del lado de Both Ventures opuesto a los otros dos
+  't-bienal-punta-os': { x: -40, z: 6, y: 3.0, azimuth: -0.25 },
 }
 
 export function territoryAzimuth(id: string): number {
