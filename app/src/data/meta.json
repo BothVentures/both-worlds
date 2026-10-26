@@ -1,8 +1,8 @@
 {
   "title": "BOTH WORLDS",
   "subtitle": "La infraestructura invisible, hecha visible",
-  "generated": "2026-10-25",
-  "coverage": "Atlas curado de cuatro repositorios. both_os (Both Ventures + su sistema operativo interno, Synergy), synergy-toolkit (la BOTH GTM Machine) y lc-chaman (El Chamán, el cerebro de La Chamana) se leyeron el 2026-09-08 y se refrescaron contra sus HEAD del 2026-09-22. El 2026-10-25 se sumó el cuarto, bienal-punta-os (Bienal Orch, el brain de la Bienal Blockchain Punta 2027, el primer brain de proyecto), junto con las piezas de both_os que lo conectan: el puente de despachos, los tableros compartidos, el Docs Hub y la regla de split. El resto de both_os no se refrescó desde el 22-sep. Representa unidades significativas de trabajo, no archivos.",
+  "generated": "2026-10-26",
+  "coverage": "Atlas curado de cuatro repositorios, todos refrescados contra sus HEAD del 2026-10-25/26: both_os (Both Ventures + su sistema operativo interno, Synergy), synergy-toolkit (la BOTH GTM Machine), lc-chaman (El Chamán, el cerebro de La Chamana) y bienal-punta-os (Bienal Orch, el brain de la Bienal Blockchain Punta 2027, el primer brain de proyecto). Representa unidades significativas de trabajo, no archivos. Los conteos dicen qué cuentan. Las personas fuera de los cinco de BOTH se nombran por su rol.",
   "limitations": [
     "No se consultó ningún endpoint vivo: 'live' o 'deployed' se muestra como declaración de un documento, no como verificación.",
     "No se leyeron bases de datos privadas (SQLite del Toolkit), transcripts, listas de contactos ni cifras comerciales; nada de eso aparece.",
@@ -11,31 +11,31 @@
     "El tamaño visual de cada bloque es una decisión editorial, no una métrica de valor ni de actividad.",
     "De bienal-punta-os y de lo que se quedó en both_os sobre la Bienal solo se muestra la topología: ni cifras, ni pipeline comercial, ni documentos de estrategia aparecen acá."
   ],
-  "version": "V4.1",
+  "version": "V4.2",
   "repos": {
     "both_os": {
       "url": "https://github.com/BothVentures/both_os",
       "branch": "main",
       "visibility": "private",
-      "head": "a57044e3"
+      "head": "ea1024c8"
     },
     "synergy-toolkit": {
       "url": "https://github.com/BothVentures/synergy-toolkit",
       "branch": "main",
       "visibility": "private",
-      "head": "822912c"
+      "head": "6685d70"
     },
     "lc-chaman": {
       "url": "https://github.com/BothVentures/lc-chaman",
       "branch": "main",
       "visibility": "private",
-      "head": "f5f90ca"
+      "head": "23d8878"
     },
     "bienal-punta-os": {
       "url": "https://github.com/BothVentures/bienal-punta-os",
       "branch": "main",
       "visibility": "private",
-      "head": "3605921"
+      "head": "1eaacd7"
     }
   }
 }

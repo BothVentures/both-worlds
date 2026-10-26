@@ -77,9 +77,9 @@
       "r-readai-feeds-worker",
       "r-worker-writes-vault",
       "r-pending-triggers-fanout",
-      "r-fanout-asana",
       "r-fanout-slack",
-      "r-asana-gatekeeper"
+      "r-asana-gatekeeper",
+      "r-commitments-in-supabase"
     ]
   },
   {

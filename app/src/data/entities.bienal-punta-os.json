@@ -9,15 +9,29 @@
     "state": "implemented",
     "evidence": "observed-in-code",
     "owner": "René (proyecto) · Daiana (cadencia) · Mariano (sistema)",
-    "dates": { "first": "2026-10-25", "last": "2026-10-25" },
-    "layout": { "accent": "#c9b2f0" },
+    "dates": {
+      "first": "2026-10-25",
+      "last": "2026-10-25"
+    },
+    "layout": {
+      "accent": "#c9b2f0"
+    },
     "sources": [
-      { "repo": "bienal-punta-os", "path": "CLAUDE.md" },
-      { "repo": "bienal-punta-os", "path": "docs/decisiones/2026-10-25-nacimiento-del-brain.md" },
-      { "repo": "both_os", "path": "vault/initiatives/2026-10-24-bienal-brain-split.md", "note": "plan, siete fases; F1–F4 ejecutadas el 2026-10-25" }
+      {
+        "repo": "bienal-punta-os",
+        "path": "CLAUDE.md"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "docs/decisiones/2026-10-25-nacimiento-del-brain.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "vault/initiatives/2026-10-24-bienal-brain-split.md",
+        "note": "plan, siete fases; F1–F4 ejecutadas el 2026-10-25"
+      }
     ]
   },
-
   {
     "id": "p-bp-orch",
     "name": "Orquestador",
@@ -28,9 +42,19 @@
     "state": "implemented",
     "evidence": "observed-in-code",
     "owner": "Mariano",
-    "dates": { "first": "2026-10-25" },
-    "layout": { "slot": 0, "weight": 1.05 },
-    "sources": [{ "repo": "bienal-punta-os", "path": "CLAUDE.md" }]
+    "dates": {
+      "first": "2026-10-25"
+    },
+    "layout": {
+      "slot": 0,
+      "weight": 1.05
+    },
+    "sources": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "CLAUDE.md"
+      }
+    ]
   },
   {
     "id": "bp-cap-orch",
@@ -42,9 +66,19 @@
     "state": "implemented",
     "evidence": "observed-in-code",
     "owner": "Mariano",
-    "dates": { "first": "2026-10-25" },
-    "layout": { "height": 1.3 },
-    "sources": [{ "repo": "bienal-punta-os", "path": "CLAUDE.md", "note": "§ Routing · § Dos puertas, nadie arriba" }]
+    "dates": {
+      "first": "2026-10-25"
+    },
+    "layout": {
+      "height": 1.3
+    },
+    "sources": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "CLAUDE.md",
+        "note": "§ Routing · § Dos puertas, nadie arriba"
+      }
+    ]
   },
   {
     "id": "bp-cap-weekly",
@@ -56,10 +90,20 @@
     "state": "implemented",
     "evidence": "observed-in-code",
     "owner": "René · Daiana",
-    "dates": { "first": "2026-10-04", "last": "2026-10-25" },
+    "dates": {
+      "first": "2026-10-04",
+      "last": "2026-10-25"
+    },
     "sources": [
-      { "repo": "bienal-punta-os", "path": ".claude/skills/weekly/SKILL.md" },
-      { "repo": "both_os", "path": ".claude/skills/bienal-weekly/SKILL.md", "note": "stub que reenvía" }
+      {
+        "repo": "bienal-punta-os",
+        "path": ".claude/skills/weekly/SKILL.md"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/bienal-weekly/SKILL.md",
+        "note": "stub que reenvía"
+      }
     ]
   },
   {
@@ -72,8 +116,15 @@
     "state": "experimental",
     "evidence": "observed-in-code",
     "owner": "Mariano",
-    "dates": { "first": "2026-10-25" },
-    "sources": [{ "repo": "bienal-punta-os", "path": ".claude/skills/synergy/SKILL.md" }]
+    "dates": {
+      "first": "2026-10-25"
+    },
+    "sources": [
+      {
+        "repo": "bienal-punta-os",
+        "path": ".claude/skills/synergy/SKILL.md"
+      }
+    ]
   },
   {
     "id": "bp-cap-session",
@@ -84,10 +135,18 @@
     "summary": "Abrir y cerrar sesión en el brain, igual que en both_os: el único que toca git es el sync-daemon. El cierre revisa antes de subir que no se haya colado nada que sea solo de BOTH.",
     "state": "implemented",
     "evidence": "observed-in-code",
-    "dates": { "first": "2026-10-25" },
+    "dates": {
+      "first": "2026-10-25"
+    },
     "sources": [
-      { "repo": "bienal-punta-os", "path": ".claude/skills/startup/SKILL.md" },
-      { "repo": "bienal-punta-os", "path": ".claude/skills/upc/SKILL.md" }
+      {
+        "repo": "bienal-punta-os",
+        "path": ".claude/skills/startup/SKILL.md"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": ".claude/skills/upc/SKILL.md"
+      }
     ]
   },
   {
@@ -100,10 +159,19 @@
     "state": "implemented",
     "evidence": "observed-in-code",
     "owner": "Mariano",
-    "dates": { "first": "2026-10-25" },
+    "dates": {
+      "first": "2026-10-25"
+    },
     "sources": [
-      { "repo": "bienal-punta-os", "path": "CLAUDE.md", "note": "§ Clearance de este repo" },
-      { "repo": "bienal-punta-os", "path": "politica-de-documentos.md" }
+      {
+        "repo": "bienal-punta-os",
+        "path": "CLAUDE.md",
+        "note": "§ Clearance de este repo"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "politica-de-documentos.md"
+      }
     ]
   },
   {
@@ -116,9 +184,14 @@
     "state": "implemented",
     "evidence": "observed-in-docs",
     "owner": "René",
-    "sources": [{ "repo": "bienal-punta-os", "path": "CLAUDE.md", "note": "§ Equipo y autoridad" }]
+    "sources": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "CLAUDE.md",
+        "note": "§ Equipo y autoridad"
+      }
+    ]
   },
-
   {
     "id": "p-bp-areas",
     "name": "Seis áreas",
@@ -129,9 +202,19 @@
     "state": "implemented",
     "evidence": "observed-in-code",
     "owner": "René",
-    "dates": { "first": "2026-08-26", "last": "2026-10-25" },
-    "layout": { "slot": 1 },
-    "sources": [{ "repo": "bienal-punta-os", "path": "_index.md" }]
+    "dates": {
+      "first": "2026-08-26",
+      "last": "2026-10-25"
+    },
+    "layout": {
+      "slot": 1
+    },
+    "sources": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "_index.md"
+      }
+    ]
   },
   {
     "id": "bp-ag-comunicacion",
@@ -143,8 +226,15 @@
     "state": "experimental",
     "evidence": "observed-in-code",
     "owner": "René",
-    "dates": { "first": "2026-10-25" },
-    "sources": [{ "repo": "bienal-punta-os", "path": ".claude/agents/area-comunicacion.md" }]
+    "dates": {
+      "first": "2026-10-25"
+    },
+    "sources": [
+      {
+        "repo": "bienal-punta-os",
+        "path": ".claude/agents/area-comunicacion.md"
+      }
+    ]
   },
   {
     "id": "bp-ag-institucional",
@@ -156,8 +246,15 @@
     "state": "experimental",
     "evidence": "observed-in-code",
     "owner": "René · Daiana",
-    "dates": { "first": "2026-10-25" },
-    "sources": [{ "repo": "bienal-punta-os", "path": ".claude/agents/area-institucional.md" }]
+    "dates": {
+      "first": "2026-10-25"
+    },
+    "sources": [
+      {
+        "repo": "bienal-punta-os",
+        "path": ".claude/agents/area-institucional.md"
+      }
+    ]
   },
   {
     "id": "bp-ag-comercial",
@@ -169,8 +266,15 @@
     "state": "experimental",
     "evidence": "observed-in-code",
     "owner": "René",
-    "dates": { "first": "2026-10-25" },
-    "sources": [{ "repo": "bienal-punta-os", "path": ".claude/agents/area-comercial.md" }]
+    "dates": {
+      "first": "2026-10-25"
+    },
+    "sources": [
+      {
+        "repo": "bienal-punta-os",
+        "path": ".claude/agents/area-comercial.md"
+      }
+    ]
   },
   {
     "id": "bp-ag-programa",
@@ -182,8 +286,15 @@
     "state": "experimental",
     "evidence": "observed-in-code",
     "owner": "René",
-    "dates": { "first": "2026-10-25" },
-    "sources": [{ "repo": "bienal-punta-os", "path": ".claude/agents/area-programa.md" }]
+    "dates": {
+      "first": "2026-10-25"
+    },
+    "sources": [
+      {
+        "repo": "bienal-punta-os",
+        "path": ".claude/agents/area-programa.md"
+      }
+    ]
   },
   {
     "id": "bp-ag-produccion",
@@ -195,8 +306,15 @@
     "state": "experimental",
     "evidence": "observed-in-code",
     "owner": "Head de Producción · Daiana",
-    "dates": { "first": "2026-10-25" },
-    "sources": [{ "repo": "bienal-punta-os", "path": ".claude/agents/area-produccion.md" }]
+    "dates": {
+      "first": "2026-10-25"
+    },
+    "sources": [
+      {
+        "repo": "bienal-punta-os",
+        "path": ".claude/agents/area-produccion.md"
+      }
+    ]
   },
   {
     "id": "bp-ag-economia-legal",
@@ -208,8 +326,15 @@
     "state": "experimental",
     "evidence": "observed-in-code",
     "owner": "Daiana · Andrés",
-    "dates": { "first": "2026-10-25" },
-    "sources": [{ "repo": "bienal-punta-os", "path": ".claude/agents/area-economia-legal.md" }]
+    "dates": {
+      "first": "2026-10-25"
+    },
+    "sources": [
+      {
+        "repo": "bienal-punta-os",
+        "path": ".claude/agents/area-economia-legal.md"
+      }
+    ]
   },
   {
     "id": "bp-del-status",
@@ -221,8 +346,15 @@
     "state": "implemented",
     "evidence": "observed-in-code",
     "owner": "Daiana",
-    "dates": { "first": "2026-10-25" },
-    "sources": [{ "repo": "bienal-punta-os", "path": "status.md" }]
+    "dates": {
+      "first": "2026-10-25"
+    },
+    "sources": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "status.md"
+      }
+    ]
   },
   {
     "id": "bp-del-roadmap",
@@ -233,13 +365,21 @@
     "summary": "Seis fases y siete gates hasta marzo de 2027, y la lista de decisiones abiertas con owner y fecha; el hook de sesión avisa las vencidas.",
     "state": "implemented",
     "evidence": "observed-in-code",
-    "dates": { "first": "2026-08-26", "last": "2026-10-25" },
+    "dates": {
+      "first": "2026-08-26",
+      "last": "2026-10-25"
+    },
     "sources": [
-      { "repo": "bienal-punta-os", "path": "roadmap.md" },
-      { "repo": "bienal-punta-os", "path": "context/decisiones-abiertas.md" }
+      {
+        "repo": "bienal-punta-os",
+        "path": "roadmap.md"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "context/decisiones-abiertas.md"
+      }
     ]
   },
-
   {
     "id": "p-bp-marca",
     "name": "Marca y sitio",
@@ -250,9 +390,19 @@
     "state": "implemented",
     "evidence": "observed-in-code",
     "owner": "René",
-    "dates": { "first": "2026-08-20", "last": "2026-10-25" },
-    "layout": { "slot": 2 },
-    "sources": [{ "repo": "bienal-punta-os", "path": "marca/_index.md" }]
+    "dates": {
+      "first": "2026-08-20",
+      "last": "2026-10-25"
+    },
+    "layout": {
+      "slot": 2
+    },
+    "sources": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "marca/_index.md"
+      }
+    ]
   },
   {
     "id": "bp-del-site",
@@ -264,10 +414,20 @@
     "state": "implemented",
     "evidence": "observed-in-code",
     "owner": "René",
-    "dates": { "first": "2026-10-11", "last": "2026-10-17" },
+    "dates": {
+      "first": "2026-10-11",
+      "last": "2026-10-17"
+    },
     "sources": [
-      { "repo": "bienal-punta-os", "path": "marca/landing-v0.6.0.html" },
-      { "repo": "bienal-punta-os", "path": "status.md", "note": "§ Comunicación" }
+      {
+        "repo": "bienal-punta-os",
+        "path": "marca/landing-v0.6.0.html"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "status.md",
+        "note": "§ Comunicación"
+      }
     ]
   },
   {
@@ -279,10 +439,19 @@
     "summary": "Los decks que el equipo usa para presentar la Bienal, generados desde el mismo motor que el sitio. A externos va el PDF, nunca el link.",
     "state": "implemented",
     "evidence": "observed-in-code",
-    "dates": { "first": "2026-10-04", "last": "2026-10-22" },
+    "dates": {
+      "first": "2026-10-04",
+      "last": "2026-10-22"
+    },
     "sources": [
-      { "repo": "bienal-punta-os", "path": "marca/deck-onboarding-v0.2.0.template.html" },
-      { "repo": "bienal-punta-os", "path": "marca/deck-institucional-v0.2.0.template.html" }
+      {
+        "repo": "bienal-punta-os",
+        "path": "marca/deck-onboarding-v0.2.0.template.html"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "marca/deck-institucional-v0.2.0.template.html"
+      }
     ]
   },
   {
@@ -295,11 +464,22 @@
     "state": "experimental",
     "evidence": "observed-in-code",
     "owner": "René",
-    "dates": { "first": "2026-10-03" },
+    "dates": {
+      "first": "2026-10-03"
+    },
     "sources": [
-      { "repo": "bienal-punta-os", "path": "marca/guidelines-hnc.template.html" },
-      { "repo": "bienal-punta-os", "path": "marca/_engine/tokens.hnc.css" },
-      { "repo": "bienal-punta-os", "path": "marca/_logo/bbp-mark.svg" }
+      {
+        "repo": "bienal-punta-os",
+        "path": "marca/guidelines-hnc.template.html"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "marca/_engine/tokens.hnc.css"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "marca/_logo/bbp-mark.svg"
+      }
     ]
   },
   {
@@ -311,10 +491,19 @@
     "summary": "Genera el theme CSS desde los tokens y arma cada pieza desde su template. Mientras los publicadores sigan en both_os, refleja el theme allá. Candidato a capability compartida: Casa Manantial ya usa el mismo motor para sus decks.",
     "state": "implemented",
     "evidence": "observed-in-code",
-    "dates": { "first": "2026-08-20", "last": "2026-10-25" },
+    "dates": {
+      "first": "2026-08-20",
+      "last": "2026-10-25"
+    },
     "sources": [
-      { "repo": "bienal-punta-os", "path": "marca/_engine/theme-build.py" },
-      { "repo": "bienal-punta-os", "path": "marca/_engine/README.md" }
+      {
+        "repo": "bienal-punta-os",
+        "path": "marca/_engine/theme-build.py"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "marca/_engine/README.md"
+      }
     ]
   },
   {
@@ -326,10 +515,17 @@
     "summary": "Publica la landing en bienalpunta.com a través del repo público del sitio. Saca el noindex solo con el OK de René.",
     "state": "implemented",
     "evidence": "observed-in-code",
-    "dates": { "first": "2026-10-11", "last": "2026-10-25" },
-    "sources": [{ "repo": "bienal-punta-os", "path": "scripts/deploy-site.sh" }]
+    "dates": {
+      "first": "2026-10-11",
+      "last": "2026-10-25"
+    },
+    "sources": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "scripts/deploy-site.sh"
+      }
+    ]
   },
-
   {
     "id": "p-bp-operaciones",
     "name": "Operaciones",
@@ -340,9 +536,18 @@
     "state": "implemented",
     "evidence": "observed-in-code",
     "owner": "Daiana",
-    "dates": { "first": "2026-10-08" },
-    "layout": { "slot": 3 },
-    "sources": [{ "repo": "bienal-punta-os", "path": "operaciones/tareas/README.md" }]
+    "dates": {
+      "first": "2026-10-08"
+    },
+    "layout": {
+      "slot": 3
+    },
+    "sources": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "operaciones/tareas/README.md"
+      }
+    ]
   },
   {
     "id": "bp-del-tareas",
@@ -354,13 +559,20 @@
     "state": "implemented",
     "evidence": "observed-in-code",
     "owner": "Daiana",
-    "dates": { "first": "2026-10-08" },
+    "dates": {
+      "first": "2026-10-08"
+    },
     "sources": [
-      { "repo": "bienal-punta-os", "path": "operaciones/tareas/README.md" },
-      { "repo": "bienal-punta-os", "path": "operaciones/tareas/tareas.template.html" }
+      {
+        "repo": "bienal-punta-os",
+        "path": "operaciones/tareas/README.md"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "operaciones/tareas/tareas.template.html"
+      }
     ]
   },
-
   {
     "id": "p-bp-puente",
     "name": "Contrato con Synergy",
@@ -371,9 +583,18 @@
     "state": "implemented",
     "evidence": "observed-in-code",
     "owner": "Mariano",
-    "dates": { "first": "2026-10-25" },
-    "layout": { "slot": 4 },
-    "sources": [{ "repo": "bienal-punta-os", "path": "docs/synergy-contract.md" }]
+    "dates": {
+      "first": "2026-10-25"
+    },
+    "layout": {
+      "slot": 4
+    },
+    "sources": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "docs/synergy-contract.md"
+      }
+    ]
   },
   {
     "id": "bp-del-contract",
@@ -384,8 +605,15 @@
     "summary": "Qué lee both_os del brain, qué escribe, qué lee el brain de both_os, qué escribe, los dos procesos de despacho y lo que nunca cruza: secretos, el vault, lo que es solo de BOTH.",
     "state": "implemented",
     "evidence": "observed-in-code",
-    "dates": { "first": "2026-10-25" },
-    "sources": [{ "repo": "bienal-punta-os", "path": "docs/synergy-contract.md" }]
+    "dates": {
+      "first": "2026-10-25"
+    },
+    "sources": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "docs/synergy-contract.md"
+      }
+    ]
   },
   {
     "id": "bp-wf-despachos",
@@ -397,12 +625,26 @@
     "state": "experimental",
     "evidence": "executed",
     "owner": "Mariano",
-    "dates": { "first": "2026-10-25" },
-    "layout": { "height": 1.25 },
+    "dates": {
+      "first": "2026-10-25"
+    },
+    "layout": {
+      "height": 1.25
+    },
     "sources": [
-      { "repo": "bienal-punta-os", "path": "scripts/despachar.sh" },
-      { "repo": "bienal-punta-os", "path": "scripts/install-dispatch-daemon.sh" },
-      { "repo": "both_os", "path": "scripts/despachar.sh", "note": "copia canónica, byte-idéntica" }
+      {
+        "repo": "bienal-punta-os",
+        "path": "scripts/despachar.sh"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "scripts/install-dispatch-daemon.sh"
+      },
+      {
+        "repo": "both_os",
+        "path": "scripts/despachar.sh",
+        "note": "copia canónica, byte-idéntica"
+      }
     ]
   },
   {
@@ -414,8 +656,16 @@
     "summary": "La sesión despachada trabaja en su rama y nunca mergea ni pushea: no publica, no gasta, no despliega. Se mergea cuando una persona lee el reporte y dice que sí, en el repo desde donde despachó.",
     "state": "implemented",
     "evidence": "observed-in-code",
-    "dates": { "first": "2026-10-25" },
-    "sources": [{ "repo": "bienal-punta-os", "path": "docs/synergy-contract.md", "note": "§5 · reglas de todo despacho" }]
+    "dates": {
+      "first": "2026-10-25"
+    },
+    "sources": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "docs/synergy-contract.md",
+        "note": "§5 · reglas de todo despacho"
+      }
+    ]
   },
   {
     "id": "bp-del-reports",
@@ -426,10 +676,18 @@
     "summary": "Un archivo por despacho: veredicto en una línea, qué se hizo, qué se rechazó, qué necesita de una persona y cómo mergear. El primero encontró dos archivos mal etiquetados que el exportador había dejado pasar; se corrigieron el mismo día.",
     "state": "implemented",
     "evidence": "executed",
-    "dates": { "first": "2026-10-25" },
+    "dates": {
+      "first": "2026-10-25"
+    },
     "sources": [
-      { "repo": "bienal-punta-os", "path": "reports/despachos/2026-10-25-prueba-puente-1.md" },
-      { "repo": "both_os", "path": "vault/agent_outputs/ops/despachos/2026-10-25-prueba-puente-2.md" }
+      {
+        "repo": "bienal-punta-os",
+        "path": "reports/despachos/2026-10-25-prueba-puente-1.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "vault/agent_outputs/ops/despachos/2026-10-25-prueba-puente-2.md"
+      }
     ]
   },
   {
@@ -441,14 +699,24 @@
     "summary": "El brain arranca solo en la máquina de cualquiera: mismo doctor, mismo sync-daemon, mismo lock-cleaner que both_os, copiados byte a byte y con un LaunchAgent por repo. Para separarlos hubo que arreglar uno que era global: correr el doctor en el brain habría dejado a both_os sin vigilancia.",
     "state": "implemented",
     "evidence": "observed-in-code",
-    "dates": { "first": "2026-10-25" },
+    "dates": {
+      "first": "2026-10-25"
+    },
     "sources": [
-      { "repo": "bienal-punta-os", "path": "scripts/doctor.sh" },
-      { "repo": "bienal-punta-os", "path": "scripts/sync-daemon.sh" },
-      { "repo": "bienal-punta-os", "path": "config/sync-categories.txt" }
+      {
+        "repo": "bienal-punta-os",
+        "path": "scripts/doctor.sh"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "scripts/sync-daemon.sh"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "config/sync-categories.txt"
+      }
     ]
   },
-
   {
     "id": "p-bp-futuro",
     "name": "Lo que sigue",
@@ -458,9 +726,19 @@
     "summary": "Lo que falta para que el brain sea del todo autónomo en lo suyo: publicar sus propias páginas, sumar al equipo extendido, sacar a una pieza compartida lo que Casa Manantial va a reusar, y enchufarse a la máquina de go-to-market cuando haga falta email.",
     "state": "proposed",
     "evidence": "proposed",
-    "dates": { "first": "2026-10-24" },
-    "layout": { "slot": 5 },
-    "sources": [{ "repo": "both_os", "path": "vault/initiatives/2026-10-24-bienal-brain-split.md", "note": "§3 fases" }]
+    "dates": {
+      "first": "2026-10-24"
+    },
+    "layout": {
+      "slot": 5
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "vault/initiatives/2026-10-24-bienal-brain-split.md",
+        "note": "§3 fases"
+      }
+    ]
   },
   {
     "id": "bp-prop-docs",
@@ -471,7 +749,13 @@
     "summary": "Las páginas de la Bienal salen de un repo público propio, como La Chamana con lc-docs. Los links viejos redirigen, ninguno da 404. Se hace en la misma pasada que la limpieza de links públicos.",
     "state": "proposed",
     "evidence": "proposed",
-    "sources": [{ "repo": "both_os", "path": "vault/initiatives/2026-10-24-bienal-brain-split.md", "note": "F5" }]
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "vault/initiatives/2026-10-24-bienal-brain-split.md",
+        "note": "F5"
+      }
+    ]
   },
   {
     "id": "bp-prop-equipo",
@@ -483,7 +767,12 @@
     "state": "proposed",
     "evidence": "proposed",
     "owner": "René",
-    "sources": [{ "repo": "bienal-punta-os", "path": "context/decisiones-abiertas.md" }]
+    "sources": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "context/decisiones-abiertas.md"
+      }
+    ]
   },
   {
     "id": "bp-prop-toolkit",
@@ -495,8 +784,14 @@
     "state": "proposed",
     "evidence": "proposed",
     "sources": [
-      { "repo": "bienal-punta-os", "path": ".synergy/venture.yaml" },
-      { "repo": "both_os", "path": "vault/initiatives/2026-10-20-klaviyo-y-toolkit-multitenant.md" }
+      {
+        "repo": "bienal-punta-os",
+        "path": ".synergy/venture.yaml"
+      },
+      {
+        "repo": "both_os",
+        "path": "vault/initiatives/2026-10-20-klaviyo-y-toolkit-multitenant.md"
+      }
     ]
   }
 ]

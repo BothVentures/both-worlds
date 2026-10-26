@@ -13,14 +13,14 @@
     "name": "Both Ventures",
     "type": "territory",
     "parentId": "world",
-    "kind": "agentic venture builder · repo both_os · 4.094 commits · 2026-03-30 → 09-22",
+    "kind": "agentic venture builder · repo both_os · 4.729 commits · 2026-03-30 → 10-25",
     "summary": "Agentic venture builder con base en Punta del Este: un equipo de cinco que construye y acelera ventures con agentes como parte del equipo. Diez ventures activos, uno de los cuales es su propio sistema operativo interno (B_V® | OS), donde vive la entidad Synergy. El repo both_os es a la vez la memoria institucional (vault) y el motor (agentes, skills, pipelines).",
     "state": "implemented",
     "evidence": "observed-in-docs",
     "owner": "Gaston (CEO) · Mariano (OS)",
     "dates": {
       "first": "2026-03-30",
-      "last": "2026-09-22"
+      "last": "2026-10-25"
     },
     "layout": {
       "accent": "#c5c52a"
@@ -364,13 +364,13 @@
     "type": "workflow",
     "parentId": "p-both-os",
     "kind": "pipeline · Read.ai → vault",
-    "summary": "Read.ai termina la llamada → webhook firmado → el Worker extrae con Claude → escribe transcript, pending, decisions, risks y venture updates en el vault vía GitHub API → traza en Supabase. V2.15.1 + Option C (2026-06-01). Caído del 2026-08-07 al 08-25 por un token expirado. Dos deploys registrados y verificados por /version: b4553f6a (09-16: routing por cuenta Read.ai, garble gate, replay) y d72c68fe (09-17: títulos 60→160 caracteres, meeting_ref con la ruta real del transcript, review_date por defecto created+30d, champions derivados del registry — tres de diez filas estaban mal hardcodeadas desde abril). Deuda conocida: god-file de ~2.950 líneas sin exports; /replay-test salta HMAC en producción; escribe vault/debug por la API de GitHub, que ignora .gitignore (ya volvió a trackear 5 payloads tras el destrackeo del 09-17).",
+    "summary": "Read.ai termina la llamada → webhook firmado → el Worker extrae con Claude → escribe transcript, pending, decisions, risks y venture updates en el vault → traza en Supabase. V2.16 (09-27) saca el paso Asana y arregla una traza que nunca aterrizaba; V2.17 y V2.18 suman las rutas de tableros. El 10-12 dos llamadas quedaron sin minar y se minaron a mano. Deuda: god-file sin exports, replay sin HMAC.",
     "state": "implemented",
     "evidence": "observed-in-docs",
     "owner": "Mariano",
     "dates": {
       "first": "2026-04-15",
-      "last": "2026-09-17"
+      "last": "2026-10-12"
     },
     "layout": {
       "height": 1.3,
@@ -422,13 +422,13 @@
     "type": "workflow",
     "parentId": "p-both-os",
     "kind": "GitHub Action",
-    "summary": "Un push a vault/pending/**.md dispara asana-push.py (tareas deduplicadas) y slack-notify.py (post en el canal del venture). Movido del Worker a GHA el 2026-06-01 para esquivar el límite de 1000 subrequests de Cloudflare.",
+    "summary": "Un push a vault/pending/**.md dispara slack-notify.py por archivo y una sola llamada a commitments-ingest.py, que vuelca los action items al ledger commitments de Supabase. Desde el 2026-09-27 no toca Asana: asana-push.py se borró. Movido del Worker a GHA el 2026-06-01 para esquivar el límite de 1000 subrequests de Cloudflare.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "owner": "Mariano",
     "dates": {
       "first": "2026-06-01",
-      "last": "2026-08-31"
+      "last": "2026-09-27"
     },
     "layout": {
       "slot": 1
@@ -441,7 +441,7 @@
       },
       {
         "repo": "both_os",
-        "path": "scripts/asana-push.py"
+        "path": "scripts/commitments-ingest.py"
       },
       {
         "repo": "both_os",
@@ -537,13 +537,13 @@
     "type": "workflow",
     "parentId": "p-both-os",
     "kind": "GitHub Action · cron lunes",
-    "summary": "sec-audit.sh escribe el reporte en vault/security/, security-deliver.py avisa por Slack y actualiza la página de Notion. 16 reportes semanales en disco entre 2026-06-14 y 2026-09-21. Salvedad: la etapa gitleaks de esos reportes corrió con cero reglas hasta el 2026-09-17 (.gitleaks.toml sin [extend]), así que sus 'no leaks found' anteriores a esa fecha no verificaron nada.",
+    "summary": "sec-audit.sh escribe el reporte en vault/security/, security-deliver.py avisa por Slack y actualiza Notion. 19 reportes entre 06-14 y 10-19; no hay del 10-05. El 09-28 se vio que en CI el checkout shallow veía un solo commit: la pasada de historia nunca escaneó la historia. Ahora clona entero, fija la versión de gitleaks con checksum y cada hallazgo nombra regla y archivo, nunca el valor.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "owner": "Mariano",
     "dates": {
       "first": "2026-06-14",
-      "last": "2026-09-21"
+      "last": "2026-10-19"
     },
     "layout": {
       "slot": 5
@@ -777,7 +777,7 @@
     "type": "capability",
     "parentId": "p-both-os",
     "kind": "skill",
-    "summary": "Extrae decisiones, action items, riesgos y venture updates de una transcripción o notas; auto-aprueba y escribe en vault + Asana + Slack. /transcribe convierte audio (Whisper) en transcript. Gate duro no_mine para material de personas.",
+    "summary": "Extrae decisiones, action items, riesgos y venture updates de una transcripción o notas, auto-aprueba y escribe en el vault. El push del pending dispara la GHA que postea en Slack y carga el ledger commitments. Desde el 09-27 no crea tareas en Asana ni postea Slack local (era doble post). /transcribe convierte audio en transcript. Gate duro no_mine para material de personas.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "owner": "Daiana",
@@ -794,7 +794,10 @@
         "repo": "both_os",
         "path": ".claude/skills/transcribe/SKILL.md"
       }
-    ]
+    ],
+    "dates": {
+      "last": "2026-09-27"
+    }
   },
   {
     "id": "bo-cap-vu-au",
@@ -831,13 +834,13 @@
     "type": "capability",
     "parentId": "p-both-os",
     "kind": "agente (sin carpeta de skill)",
-    "summary": "Arma el digest del Tuesday Sync y el glass dashboard clonando la plantilla canónica. Lee cards, áreas, pending, transcripts, Asana y el git log de los tres repos (both_os, lc-chaman, synergy-toolkit).",
+    "summary": "Arma el digest del Tuesday Sync y el glass dashboard clonando la plantilla canónica. Lee cards, áreas, transcripts de todas las llamadas, el ledger commitments, Asana para lo manual y el git log de los repos hermanos. Antes de publicar corre el chequeo de llamadas faltantes y corrige ítems mal asignados por el minero.",
     "state": "implemented",
     "evidence": "observed-in-docs",
     "owner": "Mariano genera · Daiana valida",
     "dates": {
       "first": "2026-04-21",
-      "last": "2026-09-22"
+      "last": "2026-10-19"
     },
     "layout": {
       "slot": 22
@@ -1008,12 +1011,13 @@
     "type": "capability",
     "parentId": "p-both-os",
     "kind": "consejo adversarial · V0.1 beta",
-    "summary": "Cinco lentes fijas (Assassin, Rebuilder, Systems, Black Swan, Customer) más un árbitro que preserva el disenso. Dos outputs publicados en vault/agent_outputs/council/.",
+    "summary": "Cinco lentes fijas (Assassin, Rebuilder, Systems, Black Swan, Customer) más un árbitro que preserva el disenso. Tres corridas en vault/agent_outputs/council/: dos de junio y una del 09-21. Desde el 10-05 stf-render.py convierte una corrida en un replay HTML autocontenido que abre sin red y degrada sin romperse.",
     "state": "experimental",
     "evidence": "observed-in-docs",
     "owner": "Gaston / Mariano",
     "dates": {
-      "first": "2026-06-04"
+      "first": "2026-06-04",
+      "last": "2026-10-05"
     },
     "layout": {
       "slot": 28
@@ -1402,7 +1406,7 @@
     "type": "control",
     "parentId": "p-both-os",
     "kind": "revisión humana",
-    "summary": "Las tareas llegan deduplicadas al proyecto BOTH Action Items (11 secciones); Daiana revisa y cura.",
+    "summary": "Daiana cura las tareas manuales del proyecto BOTH Action Items y da el OK para cerrar el legado auto-minado (dry-run hecho, sin aplicar). Desde el 09-27 lo minado ya no pasa por ella: va al ledger commitments.",
     "state": "implemented",
     "evidence": "observed-in-docs",
     "owner": "Daiana",
@@ -1581,12 +1585,12 @@
     "type": "deliverable",
     "parentId": "p-both-os",
     "kind": "HTML publicado · lunes/martes",
-    "summary": "28 carpetas publicadas bajo docs/pages/weekly/ entre 2026-04-22 y 2026-09-22 (una por Tuesday Sync, con tres variantes del 06-23). Se clona la plantilla canónica y se repuebla ES+EN. El digest del 09-15 cerró 360 + Outing V1 con 7 llamadas en la ventana; el del 09-22 corrige en el vault la decisión minada sobre el sponsor de la Bienal.",
+    "summary": "32 carpetas bajo docs/pages/weekly/ entre 2026-04-22 y 2026-10-20, una por Tuesday Sync. Formato V2.3: se clona la plantilla canónica y se repuebla ES+EN; el tercer dato del rail pasa a ser el ledger commitments (abiertos, nuevos y vencidos por venture) en lugar de Asana. Cada weekly corrige al minero en la misma pasada sin tocar vault/pending.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "dates": {
       "first": "2026-04-22",
-      "last": "2026-09-22"
+      "last": "2026-10-20"
     },
     "layout": {
       "slot": 61
@@ -1629,7 +1633,7 @@
     "type": "deliverable",
     "parentId": "p-both-os",
     "kind": "docs/pages/**/index.html",
-    "summary": "147 archivos index.html bajo docs/pages/ (weekly 28 · venture 27 · synergy 17 · direction 17 · intel 9 · monitor 5 · landing 4 · board 4 · taskforce 3 · reviews 3 · lp 2 · 28 sueltas en la raíz, varias stubs de redirección). Ocho páginas nuevas desde el 09-08: tres de board (S_Q32026, mapa de vínculos, objetivo político), dos de direction (deck y one-pager de la Bienal), el cierre de agosto de Casa Manantial y dos weeklies.",
+    "summary": "187 index.html bajo docs/pages/ (direction 39 · weekly 32 · venture 32 · synergy 18 · intel 9 · board 9 · monitor 5 · landing 5 · lp 4 · taskforce 3 · reviews 3 · 27 sueltas en la raíz, varias stubs de redirección). 40 nuevas desde el 09-22: casi todas marca y decks de la Bienal, Casa Manantial y Reshore, más weeklies y reportes.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "layout": {
@@ -1665,15 +1669,16 @@
   },
   {
     "id": "bo-del-lp-report",
-    "name": "LP Report Q2 (Portfolio Memorandum)",
+    "name": "LP Report trimestral (Portfolio Memorandum)",
     "type": "deliverable",
     "parentId": "p-both-os",
     "kind": "HTML institucional autocontenido",
-    "summary": "Memorando trimestral al Limited Partner publicado el 2026-07-03. Dos carpetas bajo docs/pages/lp/.",
+    "summary": "Memorando trimestral al Limited Partner: Q2 publicado el 2026-07-03 y Q3 en su versión final el 2026-10-12. Cada uno es una página institucional autocontenida bajo docs/pages/lp/.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "dates": {
-      "first": "2026-07-03"
+      "first": "2026-07-03",
+      "last": "2026-10-12"
     },
     "layout": {
       "slot": 65
@@ -1791,8 +1796,8 @@
     "name": "Asana · BOTH Action Items",
     "type": "connection",
     "parentId": "p-both-os",
-    "kind": "capa de aprobación de tareas",
-    "summary": "Un proyecto con una sección por venture más cross-cutting; secciones mapeadas en config/ventures.json y verificadas contra la API el 2026-08-31 según CLAUDE.md.",
+    "kind": "capa de tareas manuales",
+    "summary": "Un proyecto con una sección por venture más cross-cutting. Desde el 2026-09-27 el minado no crea tareas acá en ningún path: queda para lo que la gente carga a mano y el legado auto-minado. Para cerrar ese legado hay un script reversible que protege las tareas que alguien adoptó; espera el OK de Daiana. Los briefs lo siguen leyendo.",
     "state": "implemented",
     "evidence": "observed-in-docs",
     "layout": {
@@ -1805,9 +1810,12 @@
       },
       {
         "repo": "both_os",
-        "path": "scripts/asana-push.py"
+        "path": "scripts/asana-close-automined.py"
       }
-    ]
+    ],
+    "dates": {
+      "last": "2026-09-27"
+    }
   },
   {
     "id": "bo-con-notion",
@@ -1838,7 +1846,7 @@
     "type": "connection",
     "parentId": "p-both-os",
     "kind": "PostgreSQL + pgvector",
-    "summary": "Trazas del pipeline (pipeline_runs), contexto del vault y conversaciones de Synergy. Doce tablas definidas; uso mínimo según la memoria del sistema.",
+    "summary": "Trazas del pipeline (pipeline_runs), contexto del vault y conversaciones de Synergy. Desde el 2026-09-27 guarda el ledger commitments y desde el 10-08 el estado de los tableros compartidos: pasa de uso mínimo a memoria operativa del sistema.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "layout": {
@@ -1849,7 +1857,10 @@
         "repo": "both_os",
         "path": "supabase/migrations/2026-05-23-pipeline-runs.sql"
       }
-    ]
+    ],
+    "dates": {
+      "last": "2026-10-08"
+    }
   },
   {
     "id": "bo-con-github-pages",
@@ -2061,16 +2072,16 @@
   },
   {
     "id": "bn-el-marca",
-    "name": "Marca · dos direcciones rivales",
+    "name": "Marca · dirección «Hyper-Neo-Class»",
     "type": "deliverable",
     "parentId": "p-punta-cripto",
-    "kind": "Design Desk packets",
-    "summary": "V0.2.0 Grabado vs V0.3.0 Máscaras, guidelines canónicas en Blanco, motion; producidas con /dd. René elige. El 09-11 la variante Blanco recibió hero nuevo con el cielo detrás de la pila; el 09-22 el deck de onboarding y el one-pager corren el mismo motor _engine/ y las mismas fotos. Fuentes reproducibles: template + build.py, el HTML generado no se edita.",
+    "kind": "guidelines + motor de decks",
+    "summary": "De dos direcciones rivales a una nombrada: el 10-03 pasa a llamarse «Hyper-Neo-Class», con guidelines V0.5.0 donde cada regla es un token, un chequeo o un juicio; el 10-04 llega la marca de dunas V2.0.0. Sobre ese motor salen el sitio V0.6.0 en dominio propio con noindex, one-pager y decks de onboarding, briefing, sponsors (con teaser sin cifras) e institucional. Sin ratificar por René.",
     "state": "experimental",
     "evidence": "observed-in-code",
     "dates": {
       "first": "2026-08-20",
-      "last": "2026-09-22"
+      "last": "2026-10-22"
     },
     "sources": [
       {
@@ -2130,7 +2141,7 @@
     "type": "deliverable",
     "parentId": "p-la-chamana",
     "kind": "vault + páginas",
-    "summary": "Registro del venture en el vault y los reportes a inversores Q1/Q2 2026 publicados como páginas.",
+    "summary": "Registro del venture en el vault y los reportes a inversores Q1, Q2 y Q3 2026 publicados como páginas. El Q3.26 salió el 2026-10-21 y se ajustó al día siguiente.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "sources": [
@@ -2142,7 +2153,10 @@
         "repo": "both_os",
         "path": "docs/pages/la-chamana-lp-q1-26"
       }
-    ]
+    ],
+    "dates": {
+      "last": "2026-10-22"
+    }
   },
   {
     "id": "lc-el-gtm-docs",
@@ -2173,11 +2187,12 @@
     "type": "workflow",
     "parentId": "p-la-chamana",
     "kind": "puntero cross-repo",
-    "summary": "CLAUDE.md declara que La Chamana tiene su propio OS en otro repo y que Synergy debe leerlo en vivo; el archivo LC_OS_V1 del vault es el ejercicio de diseño de abril que lo originó.",
+    "summary": "CLAUDE.md declara que La Chamana tiene su propio OS en otro repo y que Synergy lo lee en vivo. Ese repo pasó a privado: se lee por la API de GitHub o un clon local, nunca por URL cruda, y sus páginas publicadas se mudaron a un repo público hermano (lc-docs). Si ningún camino anda, Synergy lo dice; no sustituye con la card del vault.",
     "state": "implemented",
     "evidence": "observed-in-docs",
     "dates": {
-      "first": "2026-04-27"
+      "first": "2026-04-27",
+      "last": "2026-10-11"
     },
     "sources": [
       {
@@ -2197,7 +2212,7 @@
     "type": "deliverable",
     "parentId": "p-manantial-casa",
     "kind": "HTML/PDF",
-    "summary": "Reporte marzo 2026, hoja de ruta Q3-Q4, cultura, anexo Polkadot Embassy y propuesta de embajada comercial.",
+    "summary": "Reporte marzo 2026, hoja de ruta Q3-Q4, cultura y anexos. Desde el 10-05, hojas de ruta mensuales (agosto, septiembre, octubre) con nombres normalizados por mes, y el cierre Q3 el 10-11. Las fuentes de agosto y septiembre viven ahora en la carpeta del proyecto.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "sources": [
@@ -2209,7 +2224,10 @@
         "repo": "both_os",
         "path": "vault/ventures/manantial-casa-embajada-comercial-propuesta-2026-06.md"
       }
-    ]
+    ],
+    "dates": {
+      "last": "2026-10-11"
+    }
   },
   {
     "id": "mc-el-board",
@@ -2217,7 +2235,7 @@
     "type": "deliverable",
     "parentId": "p-manantial-casa",
     "kind": "páginas publicadas",
-    "summary": "Board mar-abr 26 y cobranzas publicados en GitHub Pages.",
+    "summary": "Board mar-abr 26 y Reporte al Board Q3 2026, publicado el 2026-10-19, en GitHub Pages.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "sources": [
@@ -2229,7 +2247,10 @@
         "repo": "both_os",
         "path": "docs/pages/casa-manantial-cobranzas"
       }
-    ]
+    ],
+    "dates": {
+      "last": "2026-10-19"
+    }
   },
   {
     "id": "rs-el-legal",
@@ -2528,7 +2549,7 @@
     "type": "workflow",
     "parentId": "p-both-os",
     "kind": "GitHub Action · push a workers/ tests/ skills/ config",
-    "summary": "Hasta 2026-09-16 el repo no tenía tests: la verificación era deployar, replayear a mano contra producción y leer Slack. tests.yml corre node --check del Worker, node --test sobre tests/*.test.mjs y build-agents-guide.py --check (la guía de comandos se genera desde el frontmatter de las skills y no puede quedar stale). El único test, team-block.test.mjs, prueba que el bloque de champions del miner se deriva de config/ventures.json — el defecto que durante cinco meses atribuyó ítems de tres ventures al champion equivocado. Falla con DM a Mariano.",
+    "summary": "tests.yml corre node --check del Worker, node --test sobre tests/*.test.mjs y la verificación de la guía de comandos generada desde las skills. De un test (09-16) a cinco: se suman merge y compare-and-set del CRM y de las Tareas. El 10-08 una skill nueva sin entrada en la guía frenó el CI hasta regenerarla. Falla con DM a Mariano.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "sources": [
@@ -2571,7 +2592,7 @@
     "owner": "Mariano",
     "dates": {
       "first": "2026-09-16",
-      "last": "2026-09-17"
+      "last": "2026-10-08"
     }
   },
   {
@@ -2632,7 +2653,7 @@
     "type": "workflow",
     "parentId": "p-both-os",
     "kind": "scripts · readai-export.py → backfill-batch.sh → replay-call.sh",
-    "summary": "Camino para recuperar llamadas que el pipeline perdió (24 varadas por el token vencido de agosto). readai-export.py baja transcripts por la API de Read.ai (tokens de 10 minutos, refresh de un solo uso, una cuenta por vez con --account); replay-call.sh los reinyecta por POST /replay-test. Hasta 2026-09-16 el replay nunca reprodujo una llamada: tres fallas simultáneas devolviendo 200 (apóstrofos rompían el curl, auth contra el endpoint equivocado, transcript stringificado a [object Object]). Arreglado y deployado; 18 de 24 exportadas, replay del lote pendiente. Las grabaciones de escritorio de Read.ai nunca disparan el webhook (abierto desde 09-14).",
+    "summary": "Camino para recuperar llamadas que el pipeline perdió: readai-export.py baja transcripts por la API de Read.ai y replay-call.sh los reinyecta. Arreglado el 09-16 tras tres fallas que devolvían 200. Desde el 10-14 cada cuenta autoriza su propio cliente OAuth y los turnos salen en orden. El chequeo semanal de faltantes le entrega las perdidas. Las grabaciones de escritorio siguen sin webhook.",
     "state": "experimental",
     "evidence": "observed-in-code",
     "sources": [
@@ -2678,7 +2699,7 @@
     "owner": "Mariano",
     "dates": {
       "first": "2026-08-25",
-      "last": "2026-09-16"
+      "last": "2026-10-14"
     }
   },
   {
@@ -2687,7 +2708,7 @@
     "type": "control",
     "parentId": "p-both-os",
     "kind": "gitleaks · sec-audit.sh + scan semanal + pre-commit",
-    "summary": "Desde 2026-04-25 hasta 2026-09-17 .gitleaks.toml no tenía [extend] useDefault = true: un config propio reemplaza el ruleset, así que gitleaks corría con cero reglas y todo 'no leaks found' del hook de pre-commit, de sec-audit.sh y del scan semanal fue vacío (medido con canarios: 0 sin el bloque, 21 con él). Al activarlo aparecieron dos credenciales vivas en texto plano en un workflow de n8n exportado, idénticas a las de producción. Se redactaron, la allowlist pasó a silenciar por forma y nunca por path, y la rotación quedó como incidente abierto con runbook por consumidor.",
+    "summary": "Hasta el 2026-09-17 .gitleaks.toml no extendía el ruleset por defecto: gitleaks corría con cero reglas y todo «no leaks found» fue vacío (medido con canarios). Al activarlo aparecieron credenciales en un workflow exportado; se redactaron y la rotación quedó como incidente con runbook. Desde el 09-28, .gitleaksignore silencia por huella solo valores históricos con revocación probada, nunca por path.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "sources": [
@@ -2724,7 +2745,7 @@
     "owner": "Mariano",
     "dates": {
       "first": "2026-04-25",
-      "last": "2026-09-17"
+      "last": "2026-09-28"
     }
   },
   {
@@ -2851,7 +2872,7 @@
       },
       {
         "repo": "both_os",
-        "path": "projects/casa-manantial/real-este/api/state.js",
+        "path": "projects/casa-manantial/real-este/api/state.mjs",
         "lines": "1-12"
       },
       {
@@ -2889,11 +2910,11 @@
   },
   {
     "id": "bn-el-onboarding-pack",
-    "name": "Onboarding deck + one-pager V0.1.0 «Blanco»",
+    "name": "Onboarding deck + one-pager (Blanco → Hyper-Neo-Class)",
     "type": "deliverable",
     "parentId": "p-punta-cripto",
     "kind": "páginas publicadas · draft general",
-    "summary": "La landing Blanco dicha en doce planchas 16:9 (una idea por plancha, hoja de impresión 1280×720) y apretada en una hoja A4 vertical. Mismo copy, misma máscara y mismo motor _engine/ que el sitio; fuentes reproducibles (.template.html + .build.py, el HTML generado no se edita). Draft para inversor, sponsor, board y equipo a la vez; las versiones por público vienen después. Desde el 2026-10-25 sus fuentes viven en el brain de la Bienal.",
+    "summary": "La landing dicha en planchas 16:9 y apretada en una hoja A4. V0.1.0 en «Blanco» el 09-22; V0.2.0 en Hyper-Neo-Class el 10-04, editorial, más un one-pager V0.2.0 con versión móvil de una columna. Mismo copy y mismo motor que el sitio; fuentes reproducibles (template + build). Desde el 2026-10-25 sus fuentes viven en el brain de la Bienal.",
     "state": "experimental",
     "evidence": "observed-in-code",
     "sources": [
@@ -2924,7 +2945,7 @@
       },
       {
         "repo": "both_os",
-        "path": "scripts/bienal-notion-build.py",
+        "path": "scripts/notion-hub-build.py",
         "lines": "1-12",
         "note": "página hub en Notion, idempotente, token de .env"
       }
@@ -2932,7 +2953,7 @@
     "owner": "Rene",
     "dates": {
       "first": "2026-09-22",
-      "last": "2026-09-22"
+      "last": "2026-10-07"
     }
   },
   {
@@ -3089,6 +3110,10 @@
         "repo": "both_os",
         "path": "scripts/lib/notion.py",
         "note": "rutas repo:ruta"
+      },
+      {
+        "repo": "both_os",
+        "path": "scripts/notion-hub-build.py"
       }
     ]
   },
@@ -3126,18 +3151,31 @@
     "name": "both-boards · motor de tableros y decks",
     "type": "capability",
     "parentId": "p-both-os",
-    "kind": "F6 · repo-capability",
-    "summary": "El motor de los tableros (CRM, Tareas) y de los decks, sacado a un repo propio sin nombre de proyecto adentro, para que cualquier brain lo use por parámetro. Se extrae cuando Casa Manantial lo necesite, con una prueba: regenerar un deck de Casa Manantial idéntico desde el motor extraído.",
-    "state": "proposed",
-    "evidence": "proposed",
+    "kind": "repo-capability · decks → PDF",
+    "summary": "Capability compartida: motores que más de un brain usa tal cual. Nació el 2026-10-25 con una sola pieza, el paso de deck a PDF, que Casa Manantial y la Bienal tenían duplicado y ya divergido. Las dos copias son ahora wrappers; los PDFs salen iguales, planchas idénticas. Los tableros de CRM y Tareas quedan como candidatos: todavía tienen un solo consumidor.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
     "owner": "Mariano",
     "sources": [
       {
         "repo": "both_os",
+        "path": "projects/casa-manantial/marca/deck-pdf.py",
+        "note": "wrapper que llama a both-boards/decks/deck-pdf.py"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "marca/deck-pdf.py",
+        "note": "wrapper"
+      },
+      {
+        "repo": "both_os",
         "path": "vault/initiatives/2026-10-24-bienal-brain-split.md",
-        "note": "F6"
+        "note": "F6 · registro de ejecución"
       }
-    ]
+    ],
+    "dates": {
+      "first": "2026-10-25"
+    }
   },
   {
     "id": "bn-el-both-half",
@@ -3178,6 +3216,340 @@
         "repo": "both_os",
         "path": "vault/initiatives/2026-10-24-regla-de-split-brain.md",
         "note": "§6 cuándo un proyecto merece brain"
+      }
+    ]
+  },
+  {
+    "id": "bo-del-commitments",
+    "name": "Ledger de compromisos (commitments)",
+    "type": "deliverable",
+    "parentId": "p-both-os",
+    "kind": "tabla Supabase · índice derivado de vault/pending",
+    "summary": "Los action items minados dejan de ser tareas: van a la tabla commitments, memoria del sistema y no un task manager. La fuente sigue siendo vault/pending; la tabla es un índice derivado e idempotente (id = hash de reunión + tarea) que nunca reabre un estado en un re-run. Dueños resueltos contra el registro de ventures, barrido automático a stale, traza en pipeline_runs. Backfill completo el día del corte.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "owner": "Mariano",
+    "dates": {
+      "first": "2026-09-27",
+      "last": "2026-09-28"
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "vault/initiatives/2026-09-27-minado-sin-asana-ledger-commitments.md",
+        "lines": "21-33"
+      },
+      {
+        "repo": "both_os",
+        "path": "supabase/migrations/2026-09-27-commitments.sql",
+        "lines": "13-41"
+      },
+      {
+        "repo": "both_os",
+        "path": "scripts/commitments-ingest.py"
+      }
+    ]
+  },
+  {
+    "id": "bo-ctl-ledger-governance",
+    "name": "Ledger por venture, nunca por persona",
+    "type": "control",
+    "parentId": "p-both-os",
+    "kind": "límite de gobernanza",
+    "summary": "El ledger sirve para ver al sistema y a las ventures, no para evaluar personas: la fuente es lo que la gente dice en reuniones, y usarla como scorecard cambia cómo habla el equipo y envenena la fuente. Misma regla que /360. El weekly la aplica: compromisos abiertos, nuevos y vencidos por venture, nunca por persona.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "dates": {
+      "first": "2026-09-28"
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "vault/initiatives/2026-09-27-minado-sin-asana-ledger-commitments.md",
+        "lines": "59"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/agents/weekly-reporter.md",
+        "lines": "289"
+      }
+    ]
+  },
+  {
+    "id": "bo-ctl-readai-gap-check",
+    "name": "Chequeo semanal de llamadas faltantes",
+    "type": "control",
+    "parentId": "p-both-os",
+    "kind": "script · readai-gap-check.py, lo corre /wr",
+    "summary": "Compara lo que Read.ai grabó contra lo que llegó a vault/transcripts y pone cada llamada en un balde: en el vault, perdida, excluida a propósito, rechazada por firma o vacía. Convierte «¿se perdió alguna?» en un chequeo semanal en vez de un hallazgo tardío. Con --export deja las perdidas listas para el backfill; el material de personas va a una lista de exclusión y nunca se reinyecta.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "owner": "Mariano",
+    "dates": {
+      "first": "2026-10-03",
+      "last": "2026-10-14"
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "scripts/readai-gap-check.py",
+        "lines": "1-43"
+      },
+      {
+        "repo": "both_os",
+        "path": "config/readai-gap-ignore.json"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/agents/weekly-reporter.md",
+        "lines": "58-61"
+      }
+    ]
+  },
+  {
+    "id": "bo-ctl-slug-registry",
+    "name": "Registro de slugs + barrido semanal",
+    "type": "control",
+    "parentId": "p-both-os",
+    "kind": "config/slug-registry.yml · slug-sweep.py",
+    "summary": "Un registro por proyecto de cada slug publicado, con estado vigente, archivo o stub. slug-sweep.py lo compara contra docs/pages y marca páginas sin registrar, stubs rotos o en cadena, archivos sin aviso y nombres superados que vuelven a aparecer. Regla: un slug viejo nunca se borra, se convierte en redirección. Cubre la Bienal desde el 10-04 y Casa Manantial desde el 10-20. Solo lee; nunca reescribe páginas.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "dates": {
+      "first": "2026-10-04",
+      "last": "2026-10-22"
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "config/slug-registry.yml",
+        "lines": "1-16"
+      },
+      {
+        "repo": "both_os",
+        "path": "config/slug-registry.yml",
+        "lines": "190",
+        "note": "entrada manantial-casa"
+      },
+      {
+        "repo": "both_os",
+        "path": "scripts/slug-sweep.py",
+        "lines": "1-20"
+      }
+    ]
+  },
+  {
+    "id": "bo-ctl-secrets-1password",
+    "name": "Secrets desde 1Password",
+    "type": "control",
+    "parentId": "p-both-os",
+    "kind": "config/env.tpl · env-from-1password.sh",
+    "summary": "1Password pasa a ser la fuente de los secrets del repo. config/env.tpl guarda solo referencias, nunca valores. env-from-1password.sh regenera el .env local como cache, con backup del anterior, o solo compara con --check; op run permite correr un script sin .env en disco.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "owner": "Mariano",
+    "dates": {
+      "first": "2026-10-09"
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "scripts/env-from-1password.sh",
+        "lines": "1-21"
+      },
+      {
+        "repo": "both_os",
+        "path": "config/env.tpl",
+        "note": "solo referencias op://"
+      }
+    ]
+  },
+  {
+    "id": "bo-cap-yt",
+    "name": "/yt · transcript de YouTube",
+    "type": "capability",
+    "parentId": "p-both-os",
+    "kind": "skill",
+    "summary": "Toma un link de YouTube y guarda la transcripción completa en markdown con timestamps clickeables. Usa subtítulos manuales primero, después automáticos; si no hay, baja el audio y lo pasa por Whisper. Marca de dónde salió el texto para saber cuánto fiarse. Va a vault/docs/youtube como referencia, nunca a transcripts: no es una reunión y no se mina.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "dates": {
+      "first": "2026-09-23"
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/youtube-transcript/SKILL.md",
+        "lines": "1-37"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/youtube-transcript/yt-transcript.py"
+      }
+    ]
+  },
+  {
+    "id": "bo-cap-klaviyo-shared",
+    "name": "Email compartido multi-venture (Klaviyo sobre el engine)",
+    "type": "capability",
+    "parentId": "p-both-os",
+    "kind": "análisis de decisión · camino A acotado",
+    "summary": "Bienal y Casa Manantial necesitan email y broadcasting antes de fin de año. La propuesta: Klaviyo como primera capability compartida del engine del toolkit, parametrizada por venture desde el día uno, con cuenta y brain por venture y canales en el registro, no en código; nunca duplicar el toolkit por venture. Regla de corte: sin un primer envío real en dos semanas, cae a uso manual. Pendiente de Gastón.",
+    "state": "proposed",
+    "evidence": "proposed",
+    "dates": {
+      "first": "2026-10-20"
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "vault/initiatives/2026-10-20-klaviyo-y-toolkit-multitenant.md",
+        "lines": "23-25"
+      }
+    ]
+  },
+  {
+    "id": "bo-wf-skills-review",
+    "name": "Revisión de skills y agentes",
+    "type": "workflow",
+    "parentId": "p-both-os",
+    "kind": "mantenimiento · plan en pausa",
+    "summary": "Plan aprobado y en pausa antes de empezar: recorrer las 34 skills y 28 agentes con dos preguntas, ¿sobra? y ¿funciona?, y salir con una tabla conservar · arreglar · fusionar · borrar. Parte de dos hallazgos: la auditoría de Hux busca lo que sobra, no lo que está roto, y 11 agentes sin frontmatter no se pueden despachar como subagente. Las fusiones propuestas en septiembre siguen sin hacerse.",
+    "state": "parked",
+    "evidence": "observed-in-docs",
+    "owner": "Mariano",
+    "dates": {
+      "first": "2026-10-06"
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "vault/initiatives/2026-10-06-revision-skills-agents.md",
+        "lines": "1-55"
+      }
+    ]
+  },
+  {
+    "id": "mc-el-marca",
+    "name": "Marca «Club de Verano» · guidelines + motor de decks",
+    "type": "deliverable",
+    "parentId": "p-manantial-casa",
+    "kind": "frente marca/ · template + build",
+    "summary": "El frente de marca abre el 10-17 junto con la espina del proyecto. El 10-20 sale el primer territorio con guidelines completas, «Club de Verano», al canon de la Bienal: cada regla es un token, un chequeo o un juicio nombrado. Un motor de decks propio (template, build, PDF, versión vertical) rehace tres decks comerciales; uno ya ratificado por René. Sigue siendo territorio candidato: G0 está abierto.",
+    "state": "experimental",
+    "evidence": "observed-in-code",
+    "owner": "Mariano · gate René",
+    "dates": {
+      "first": "2026-10-17",
+      "last": "2026-10-22"
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "projects/casa-manantial/marca/_index.md",
+        "lines": "44-66"
+      },
+      {
+        "repo": "both_os",
+        "path": "projects/casa-manantial/marca/deck-build.py"
+      },
+      {
+        "repo": "both_os",
+        "path": "templates/themes/casa-manantial.css"
+      },
+      {
+        "repo": "both_os",
+        "path": "vault/initiatives/2026-10-17-casa-manantial-identidad-y-marca.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "projects/casa-manantial/status.md"
+      }
+    ]
+  },
+  {
+    "id": "rs-el-rating-plate",
+    "name": "Marca «Rating Plate» V0.3.0",
+    "type": "deliverable",
+    "parentId": "p-reshore",
+    "kind": "brand guidelines · propuesta noindex",
+    "summary": "Guidelines de Reshore en 19 secciones al canon agentic del Design Desk, con tokens y un motor propio (contenido, placa, imagen). La fotografía es una biblioteca cerrada de doce renders con la regla «ninguna imagen fuera de la biblioteca», y los mockups se arman con los componentes reales. Publicada con noindex como propuesta sin ratificar: René lleva la dirección narrativa, Gastón la adopta, Andrés revisa las palabras legales.",
+    "state": "experimental",
+    "evidence": "observed-in-code",
+    "owner": "Gastón",
+    "dates": {
+      "first": "2026-10-09",
+      "last": "2026-10-10"
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "projects/reshore/marca/_index.md",
+        "lines": "29-54"
+      },
+      {
+        "repo": "both_os",
+        "path": "projects/reshore/_index.md",
+        "lines": "14-26"
+      },
+      {
+        "repo": "both_os",
+        "path": "templates/themes/reshore-rating-plate.css"
+      }
+    ]
+  },
+  {
+    "id": "rs-el-site",
+    "name": "Sitio reshore.com sobre Rating Plate",
+    "type": "deliverable",
+    "parentId": "p-reshore",
+    "kind": "review preview + paquete de handoff",
+    "summary": "Fuente de diseño del sitio: un solo HTML de ocho páginas por hash, bilingüe, con un mapa de Norteamérica dibujado por el motor y flujos de materia, efectivo y datos. Más de una docena de revisiones en cuatro días, cada una con su hoja de cambios. No es producción: un paquete de handoff con el motor de marca y una guía para agentes lo lleva a quien lo portea.",
+    "state": "experimental",
+    "evidence": "observed-in-code",
+    "owner": "Gastón",
+    "dates": {
+      "first": "2026-10-09",
+      "last": "2026-10-12"
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "projects/reshore/web/_index.md",
+        "lines": "1-40"
+      },
+      {
+        "repo": "both_os",
+        "path": "projects/reshore/web/reshore-site.html"
+      },
+      {
+        "repo": "both_os",
+        "path": "projects/reshore/web/_handoff/reshore-web-handoff-2026-10-10/brand/RESHORE-BRAND-FOR-AGENTS.md"
+      }
+    ]
+  },
+  {
+    "id": "rs-el-vem-simulator",
+    "name": "Simulador de programas de financiamiento",
+    "type": "capability",
+    "parentId": "p-reshore",
+    "kind": "herramienta HTML · privada",
+    "summary": "Simulador de programas de financiamiento por cliente: escalera de financiamiento, capital desplegado, ciclos, aging, riesgos y recomendación de crédito. Se reestiló a Rating Plate sin tocar motor ni datos, con la hoja de estilo separada para re-aplicarla sobre versiones nuevas. Privado: embebe datos de facturas de clientes y no se publica.",
+    "state": "experimental",
+    "evidence": "observed-in-code",
+    "owner": "Gastón",
+    "dates": {
+      "first": "2026-10-11"
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "projects/reshore/tools/vem-simulator/_index.md",
+        "lines": "1-20"
+      },
+      {
+        "repo": "both_os",
+        "path": "projects/reshore/tools/vem-simulator/vem-simulator.rating-plate.css"
       }
     ]
   }
