@@ -3148,7 +3148,7 @@
   },
   {
     "id": "bo-cap-both-boards",
-    "name": "both-boards · motor de tableros y decks",
+    "name": "both-boards · capability compartida",
     "type": "capability",
     "parentId": "p-both-os",
     "kind": "repo-capability · decks → PDF",
