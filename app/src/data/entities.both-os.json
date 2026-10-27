@@ -13,14 +13,14 @@
     "name": "Both Ventures",
     "type": "territory",
     "parentId": "world",
-    "kind": "agentic venture builder · repo both_os · 4.729 commits · 2026-03-30 → 10-25",
+    "kind": "agentic venture builder · repo both_os · 4.754 commits · 2026-03-30 → 10-27",
     "summary": "Agentic venture builder con base en Punta del Este: un equipo de cinco que construye y acelera ventures con agentes como parte del equipo. Diez ventures activos, uno de los cuales es su propio sistema operativo interno (B_V® | OS), donde vive la entidad Synergy. El repo both_os es a la vez la memoria institucional (vault) y el motor (agentes, skills, pipelines).",
     "state": "implemented",
     "evidence": "observed-in-docs",
     "owner": "Gaston (CEO) · Mariano (OS)",
     "dates": {
       "first": "2026-03-30",
-      "last": "2026-10-25"
+      "last": "2026-10-27"
     },
     "layout": {
       "accent": "#c5c52a"
@@ -112,7 +112,7 @@
     "type": "project",
     "parentId": "t-both-ventures",
     "kind": "venture · Build + Daily",
-    "summary": "Sede física e institucional en Punta del Este: club de playa por membresía, eventos, retiros. Slug de routing manantial-casa; nombre corriente Casa Manantial. Septiembre: cierre financiero de agosto publicado (38 iteraciones el 09-10) y Real-Este, el tablero de producción del podcast con El Observador, desplegado como app en Vercel desde projects/casa-manantial/real-este/.",
+    "summary": "Sede física e institucional en Punta del Este: club de playa por membresía, eventos, retiros. Slug de routing manantial-casa; nombre corriente Casa Manantial. Septiembre: cierre financiero de agosto publicado (38 iteraciones el 09-10) y Real-Este, el tablero de producción del podcast con El Observador, desplegado como app en Vercel desde projects/casa-manantial/real-este/. Desde el 2026-10-26 la casa tiene brain propio, casa-manantial-os, con su orquestador y sus tableros; acá queda el anexo que solo ven los cinco: cifras, decks comerciales con precios y la app del podcast.",
     "state": "implemented",
     "evidence": "observed-in-docs",
     "owner": "Daiana",
@@ -132,7 +132,7 @@
     ],
     "dates": {
       "first": "2026-03-30",
-      "last": "2026-09-17"
+      "last": "2026-10-26"
     }
   },
   {
@@ -1406,8 +1406,8 @@
     "type": "control",
     "parentId": "p-both-os",
     "kind": "revisión humana",
-    "summary": "Daiana cura las tareas manuales del proyecto BOTH Action Items y da el OK para cerrar el legado auto-minado (dry-run hecho, sin aplicar). Desde el 09-27 lo minado ya no pasa por ella: va al ledger commitments.",
-    "state": "implemented",
+    "summary": "Daiana cura las tareas manuales del proyecto BOTH Action Items y da el OK para cerrar el legado auto-minado (dry-run hecho, sin aplicar). Desde el 09-27 lo minado ya no pasa por ella: va al ledger commitments. Retirado con la baja de Asana el 2026-10-26.",
+    "state": "retired",
     "evidence": "observed-in-docs",
     "owner": "Daiana",
     "layout": {
@@ -1419,7 +1419,10 @@
         "path": ".claude/CLAUDE.md",
         "lines": "79"
       }
-    ]
+    ],
+    "dates": {
+      "last": "2026-10-26"
+    }
   },
   {
     "id": "bo-ctl-champion",
@@ -1797,8 +1800,8 @@
     "type": "connection",
     "parentId": "p-both-os",
     "kind": "capa de tareas manuales",
-    "summary": "Un proyecto con una sección por venture más cross-cutting. Desde el 2026-09-27 el minado no crea tareas acá en ningún path: queda para lo que la gente carga a mano y el legado auto-minado. Para cerrar ese legado hay un script reversible que protege las tareas que alguien adoptó; espera el OK de Daiana. Los briefs lo siguen leyendo.",
-    "state": "implemented",
+    "summary": "Un proyecto con una sección por venture más cross-cutting. Desde el 2026-09-27 el minado dejó de crear tareas acá; el 2026-10-26 se dio de baja: nadie lo usaba, y cada equipo trabaja en sus propios tableros. Se exportó todo antes de cerrar, y lo abierto que vivía solo ahí quedó triado en el archivo.",
+    "state": "retired",
     "evidence": "observed-in-docs",
     "layout": {
       "slot": 72
@@ -1806,15 +1809,16 @@
     "sources": [
       {
         "repo": "both_os",
-        "path": "config/ventures.json"
+        "path": "vault/archive/asana-2026-10-26"
       },
       {
         "repo": "both_os",
-        "path": "scripts/asana-close-automined.py"
+        "path": "config/ventures.json",
+        "note": "campos asana_* inertes"
       }
     ],
     "dates": {
-      "last": "2026-09-27"
+      "last": "2026-10-26"
     }
   },
   {
@@ -3060,30 +3064,62 @@
     ]
   },
   {
+    "id": "bo-cap-casa-bridge",
+    "name": "/casa · puente a Manantial Orch",
+    "type": "capability",
+    "parentId": "p-both-os",
+    "kind": "skill · despacho",
+    "summary": "El mismo puente que /bienal, para el brain de Casa Manantial: Synergy despacha el pedido, Manantial Orch lo resuelve con sus skills y agentes en una rama, y el reporte vuelve. El merge solo con un sí.",
+    "state": "experimental",
+    "evidence": "executed",
+    "owner": "Mariano",
+    "dates": {
+      "first": "2026-10-26"
+    },
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/casa/SKILL.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "scripts/despachar.sh"
+      }
+    ]
+  },
+  {
     "id": "bo-wf-crm-tasks",
     "name": "Worker /crm · /tasks + base compartida",
     "type": "workflow",
     "parentId": "p-both-os",
-    "kind": "Cloudflare Worker · un tablero por proyecto",
-    "summary": "Una sola capa de sincronización para los tableros compartidos: el CRM de vínculos y las Tareas de la Bienal guardan su estado en la misma base, un registro por tablero, con merge por registro y compare-and-set. Es el patrón «capability central, espacio por proyecto»: el brain de la Bienal la consume sin copiarla.",
+    "kind": "Cloudflare Worker · un tablero por equipo",
+    "summary": "Una sola capa de sincronización para todos los tableros compartidos: cada CRM y cada lista de Tareas guarda su estado en la misma base, un registro por tablero, con merge por registro y compare-and-set. Desde la V2.19 (2026-10-26) atiende tableros de cualquier proyecto: la página dice qué tablero es, y cada uno tiene su clave y su contexto. Sumar un tablero es una entrada de configuración, sin código. La Bienal siguió funcionando sin cambiar nada; la casa entró con dos tableros propios.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "owner": "Mariano",
     "dates": {
-      "first": "2026-10-08"
+      "first": "2026-10-08",
+      "last": "2026-10-26"
     },
     "sources": [
+      {
+        "repo": "both_os",
+        "path": "workers/transcript-miner/src/crm.js",
+        "note": "resolución del tablero"
+      },
       {
         "repo": "both_os",
         "path": "workers/transcript-miner/src/tasks.js"
       },
       {
         "repo": "both_os",
-        "path": "workers/transcript-miner/src/crm.js"
+        "path": "harnesses/crm-sync.md",
+        "note": "§ Tableros por venture"
       },
       {
         "repo": "both_os",
-        "path": "harnesses/crm-sync.md"
+        "path": "tests/boards-multi.test.mjs",
+        "note": "aislamiento entre tableros"
       }
     ]
   },
@@ -3151,30 +3187,35 @@
     "name": "both-boards · capability compartida",
     "type": "capability",
     "parentId": "p-both-os",
-    "kind": "repo-capability · decks → PDF",
-    "summary": "Capability compartida: motores que más de un brain usa tal cual. Nació el 2026-10-25 con una sola pieza, el paso de deck a PDF, que Casa Manantial y la Bienal tenían duplicado y ya divergido. Las dos copias son ahora wrappers; los PDFs salen iguales, planchas idénticas. Los tableros de CRM y Tareas quedan como candidatos: todavía tienen un solo consumidor.",
+    "kind": "repo-capability · decks → PDF · motor de tableros",
+    "summary": "Capability compartida: motores que más de un brain usa tal cual. Nació el 2026-10-25 con el paso de deck a PDF. El 2026-10-26 sumó el motor de los tableros de CRM y Tareas, cuando Casa Manantial fue el segundo consumidor: cada proyecto aporta un archivo con su marca, sus etapas y sus áreas, y la página sale del mismo motor. La Bienal regenerada con él difiere de la anterior en dos líneas, las previstas. Una prueba garantiza que el motor no nombra a ningún proyecto.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "owner": "Mariano",
     "sources": [
       {
         "repo": "both_os",
-        "path": "projects/casa-manantial/marca/deck-pdf.py",
-        "note": "wrapper que llama a both-boards/decks/deck-pdf.py"
+        "path": "projects/bienal-blockchain-punta/comercial/crm/crm.build.py",
+        "note": "wrapper del motor de tableros"
+      },
+      {
+        "repo": "casa-manantial-os",
+        "path": "crm/board.json",
+        "note": "configuración del tablero de la casa"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "operaciones/tareas/board.json"
       },
       {
         "repo": "bienal-punta-os",
         "path": "marca/deck-pdf.py",
-        "note": "wrapper"
-      },
-      {
-        "repo": "both_os",
-        "path": "vault/initiatives/2026-10-24-bienal-brain-split.md",
-        "note": "F6 · registro de ejecución"
+        "note": "wrapper de deck → PDF"
       }
     ],
     "dates": {
-      "first": "2026-10-25"
+      "first": "2026-10-25",
+      "last": "2026-10-26"
     }
   },
   {
@@ -3199,23 +3240,6 @@
         "repo": "both_os",
         "path": "vault/initiatives/2026-10-24-regla-de-split-brain.md",
         "note": "§2 el test"
-      }
-    ]
-  },
-  {
-    "id": "mc-prop-brain",
-    "name": "Brain propio de Casa Manantial",
-    "type": "capability",
-    "parentId": "p-manantial-casa",
-    "kind": "el siguiente brain · mismo template",
-    "summary": "El segundo caso de la regla de split. Casa Manantial ya cumple dos de las tres condiciones para tener brain —gente fuera de BOTH que opera y superficie pública propia—. Se arma con el template de la Bienal, y si la regla no le alcanza, se corrige la regla.",
-    "state": "proposed",
-    "evidence": "proposed",
-    "sources": [
-      {
-        "repo": "both_os",
-        "path": "vault/initiatives/2026-10-24-regla-de-split-brain.md",
-        "note": "§6 cuándo un proyecto merece brain"
       }
     ]
   },
@@ -3394,7 +3418,7 @@
     "type": "capability",
     "parentId": "p-both-os",
     "kind": "análisis de decisión · camino A acotado",
-    "summary": "Bienal y Casa Manantial necesitan email y broadcasting antes de fin de año. La propuesta: Klaviyo como primera capability compartida del engine del toolkit, parametrizada por venture desde el día uno, con cuenta y brain por venture y canales en el registro, no en código; nunca duplicar el toolkit por venture. Regla de corte: sin un primer envío real en dos semanas, cae a uso manual. Pendiente de Gastón.",
+    "summary": "Bienal y Casa Manantial necesitan email y broadcasting antes de fin de año. La propuesta: Klaviyo como primera capability compartida del engine del toolkit, parametrizada por venture desde el día uno, con cuenta y brain por venture y canales en el registro, no en código; nunca duplicar el toolkit por venture. Regla de corte: sin un primer envío real en dos semanas, cae a uso manual. Pendiente de Gastón. El 22-oct Daiana y Mariano eligen el camino contrario para las ventures: copiar lo que funciona en cada proyecto en vez de un motor central. La casa lo planea con cuenta propia; falta que Gastón elija.",
     "state": "proposed",
     "evidence": "proposed",
     "dates": {
@@ -3435,23 +3459,23 @@
     "type": "deliverable",
     "parentId": "p-manantial-casa",
     "kind": "frente marca/ · template + build",
-    "summary": "El frente de marca abre el 10-17 junto con la espina del proyecto. El 10-20 sale el primer territorio con guidelines completas, «Club de Verano», al canon de la Bienal: cada regla es un token, un chequeo o un juicio nombrado. Un motor de decks propio (template, build, PDF, versión vertical) rehace tres decks comerciales; uno ya ratificado por René. Sigue siendo territorio candidato: G0 está abierto.",
+    "summary": "El frente de marca abre el 10-17. El 10-20 sale el primer territorio con guidelines completas, «Club de Verano», al canon de la Bienal. El 10-26 el motor, el logo y las guidelines se mudan al brain de la casa; acá quedan los decks comerciales, que llevan precios y compilan con el motor del brain, idénticos byte a byte. Sigue siendo territorio candidato: G0 está abierto.",
     "state": "experimental",
     "evidence": "observed-in-code",
     "owner": "Mariano · gate René",
     "dates": {
       "first": "2026-10-17",
-      "last": "2026-10-22"
+      "last": "2026-10-26"
     },
     "sources": [
       {
         "repo": "both_os",
-        "path": "projects/casa-manantial/marca/_index.md",
-        "lines": "44-66"
+        "path": "projects/casa-manantial/marca/_index.md"
       },
       {
         "repo": "both_os",
-        "path": "projects/casa-manantial/marca/deck-build.py"
+        "path": "projects/casa-manantial/marca/deck-build.py",
+        "note": "lee el motor desde ../casa-manantial-os/marca"
       },
       {
         "repo": "both_os",
@@ -3460,10 +3484,6 @@
       {
         "repo": "both_os",
         "path": "vault/initiatives/2026-10-17-casa-manantial-identidad-y-marca.md"
-      },
-      {
-        "repo": "both_os",
-        "path": "projects/casa-manantial/status.md"
       }
     ]
   },

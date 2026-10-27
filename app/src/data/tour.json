@@ -332,10 +332,90 @@
     ]
   },
   {
+    "id": "s10-casa",
+    "kicker": "10 · El segundo brain",
+    "title": "Casa Manantial, con el mismo molde y sus propios tableros",
+    "body": "Un día después de la Bienal, el 2026-10-26, Casa Manantial tuvo su repo y su orquestador: Manantial Orch. Lo que con la Bienal fue trabajo a medida, con la casa fue pieza compartida. Un mismo servicio atiende los tableros de los dos proyectos, cada uno con su clave: el equipo de la Bienal entra a su CRM y sus Tareas, el de la casa a los suyos, y ninguna clave abre el tablero del otro. Un mismo motor dibuja las cuatro páginas. Una misma cola de despachos conecta los tres repos. Las cifras, los precios y los datos de personas se quedan del lado de BOTH.",
+    "focus": {
+      "level": "territory",
+      "id": "t-casa-manantial-os"
+    },
+    "camera": {
+      "azimuth": -0.35,
+      "elevation": 0.62,
+      "distance": 1.0
+    },
+    "highlight": [
+      "cm-cap-orch",
+      "p-cm-frentes",
+      "cm-del-crm",
+      "cm-del-tareas",
+      "cm-ctl-board-key",
+      "cm-wf-engine",
+      "cm-wf-despachos",
+      "cm-ctl-clearance",
+      "bo-cap-casa-bridge",
+      "bo-wf-crm-tasks",
+      "bo-cap-both-boards",
+      "bp-del-tareas"
+    ],
+    "relations": [
+      "r-casa-dispatches-orch",
+      "r-cm-orch-dispatches-synergy",
+      "r-cm-crm-uses-worker",
+      "r-cm-tareas-uses-worker",
+      "r-cm-crm-uses-boards",
+      "r-bp-tareas-uses-boards",
+      "r-tareas-uses-worker",
+      "r-cm-marca-decks-use-engine",
+      "r-cm-clearance-reads-annex"
+    ],
+    "people": [
+      {
+        "name": "Daiana",
+        "role": "dueña de la casa",
+        "gate": "nombre del orquestador y quién tiene cada clave",
+        "ids": [
+          "cm-cap-orch",
+          "cm-del-decisiones",
+          "cm-del-tareas"
+        ]
+      },
+      {
+        "name": "Andrés",
+        "role": "legal",
+        "gate": "base legal antes de cargar invitados",
+        "ids": [
+          "cm-del-crm",
+          "cm-prop-crm-datos"
+        ]
+      },
+      {
+        "name": "Gastón",
+        "role": "pidió el sistema",
+        "gate": "elige el camino del email",
+        "ids": [
+          "cm-prop-klaviyo",
+          "bo-cap-klaviyo-shared"
+        ]
+      },
+      {
+        "name": "Mariano",
+        "role": "sistema y puente",
+        "gate": "merge de cada despacho con un sí",
+        "ids": [
+          "cm-ctl-merge-gate",
+          "cm-wf-despachos",
+          "bo-cap-casa-bridge"
+        ]
+      }
+    ]
+  },
+  {
     "id": "s8-future",
-    "kicker": "10 · Presente y futuro",
+    "kicker": "11 · Presente y futuro",
     "title": "Lo construido, lo propuesto y lo que sigue",
-    "body": "Trazo pleno: construido. Con brecha: experimental. Huella punteada: propuesto, no producto. La tesis de estos siete meses: no construimos herramientas sueltas; construimos un sistema que se describe, se prueba y se corrige a sí mismo, con nosotros cinco en cada compuerta. Lo que sigue en la misma línea: la Bienal publica sus propias páginas y suma a su equipo, el motor de tableros y decks sale a una pieza compartida, y Casa Manantial es el próximo brain, con el mismo template.",
+    "body": "Trazo pleno: construido. Con brecha: experimental. Huella punteada: propuesto, no producto. La tesis de estos siete meses: no construimos herramientas sueltas; construimos un sistema que se describe, se prueba y se corrige a sí mismo, con nosotros cinco en cada compuerta. Lo que sigue en la misma línea: la Bienal publica sus propias páginas y suma a su equipo, el CRM de la casa se llena cuando haya base legal, y el email llega por venture, con cuenta propia.",
     "focus": {
       "level": "world",
       "id": "world"
@@ -357,7 +437,8 @@
       "bp-prop-docs",
       "bp-prop-equipo",
       "bo-cap-both-boards",
-      "mc-prop-brain"
+      "cm-prop-crm-datos",
+      "cm-prop-klaviyo"
     ],
     "future": true
   }

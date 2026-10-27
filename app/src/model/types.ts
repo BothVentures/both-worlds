@@ -10,7 +10,7 @@
  * `evidence` status. Visual size is editorial (layout.weight), never a metric.
  */
 
-export type RepoId = 'both_os' | 'synergy-toolkit' | 'lc-chaman' | 'bienal-punta-os'
+export type RepoId = 'both_os' | 'synergy-toolkit' | 'lc-chaman' | 'bienal-punta-os' | 'casa-manantial-os'
 
 export type EntityType =
   | 'world'
@@ -232,4 +232,5 @@ export const REPO_LABEL: Record<RepoId, string> = {
   'synergy-toolkit': 'synergy-toolkit',
   'lc-chaman': 'lc-chaman',
   'bienal-punta-os': 'bienal-punta-os',
+  'casa-manantial-os': 'casa-manantial-os',
 }

@@ -16,7 +16,8 @@ DATA = Path(__file__).resolve().parent.parent / "src" / "data"
 OUTS = Path(sys.argv[1])
 DRY = "--dry" in sys.argv
 FILES = {"both_os": "entities.both-os.json", "synergy-toolkit": "entities.synergy-toolkit.json",
-         "lc-chaman": "entities.lc-chaman.json", "bienal-punta-os": "entities.bienal-punta-os.json"}
+         "lc-chaman": "entities.lc-chaman.json", "bienal-punta-os": "entities.bienal-punta-os.json",
+         "casa-manantial-os": "entities.casa-manantial-os.json"}
 TEXT_FIELDS = ("name", "summary", "kind", "label", "note", "body", "title", "owner", "gate", "role")
 
 # página pública: el equipo de La Chamana se nombra por su rol (2026-10-26)

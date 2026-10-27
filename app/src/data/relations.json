@@ -2346,16 +2346,17 @@
   {
     "id": "r-split-rule-cm",
     "from": "bo-del-split-rule",
-    "to": "mc-prop-brain",
+    "to": "t-casa-manantial-os",
     "type": "documents",
-    "label": "el mismo template, segundo caso",
+    "label": "el mismo template, segundo caso — ejecutado",
     "evidence": [
       {
         "repo": "both_os",
-        "path": "vault/initiatives/2026-10-24-brain-template.md"
+        "path": "vault/initiatives/2026-10-26-casa-manantial-brain.md",
+        "note": "§9 lecciones para la regla y el template"
       }
     ],
-    "verification": "inferred"
+    "verification": "verified-in-docs"
   },
   {
     "id": "r-fanout-commitments",
@@ -3393,5 +3394,287 @@
       }
     ],
     "verification": "inferred"
+  },
+  {
+    "id": "r-casa-dispatches-orch",
+    "from": "bo-cap-casa-bridge",
+    "to": "cm-cap-orch",
+    "type": "dispatches",
+    "label": "despacha pedidos · claude -p con el brain como cwd",
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/casa/SKILL.md"
+      },
+      {
+        "repo": "casa-manantial-os",
+        "path": "docs/synergy-contract.md"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-cm-orch-dispatches-synergy",
+    "from": "cm-cap-synergy-skill",
+    "to": "p-both-os",
+    "type": "dispatches",
+    "label": "pide a Synergy lo que es de BOTH",
+    "evidence": [
+      {
+        "repo": "casa-manantial-os",
+        "path": ".claude/skills/synergy/SKILL.md"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-casa-bridge-uses-queue",
+    "from": "bo-cap-casa-bridge",
+    "to": "cm-wf-despachos",
+    "type": "uses",
+    "label": "encola en la misma cola, rama casa-manantial/<id>",
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "scripts/despachar.sh"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-cm-despachos-produces-reports",
+    "from": "cm-wf-despachos",
+    "to": "cm-del-reports",
+    "type": "produces",
+    "label": "un reporte por despacho",
+    "evidence": [
+      {
+        "repo": "casa-manantial-os",
+        "path": "scripts/despachar.sh"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-cm-merge-gate",
+    "from": "cm-ctl-merge-gate",
+    "to": "cm-wf-despachos",
+    "type": "gates",
+    "label": "nada entra a main sin un sí",
+    "evidence": [
+      {
+        "repo": "casa-manantial-os",
+        "path": "docs/synergy-contract.md"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-cm-ops-mirror-daemon",
+    "from": "cm-wf-ops-scripts",
+    "to": "bo-wf-sync-daemon",
+    "type": "mirrors",
+    "label": "copia byte-idéntica, un LaunchAgent por repo",
+    "evidence": [
+      {
+        "repo": "casa-manantial-os",
+        "path": "scripts/sync-daemon.sh"
+      },
+      {
+        "repo": "both_os",
+        "path": "scripts/sync-daemon.sh"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-cm-crm-uses-worker",
+    "from": "cm-del-crm",
+    "to": "bo-wf-crm-tasks",
+    "type": "uses",
+    "label": "estado del tablero manantial-crm",
+    "evidence": [
+      {
+        "repo": "casa-manantial-os",
+        "path": "crm/README.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "workers/transcript-miner/src/crm.js"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-cm-tareas-uses-worker",
+    "from": "cm-del-tareas",
+    "to": "bo-wf-crm-tasks",
+    "type": "uses",
+    "label": "estado del tablero manantial-tareas",
+    "evidence": [
+      {
+        "repo": "casa-manantial-os",
+        "path": "tareas/README.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "workers/transcript-miner/src/tasks.js"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-cm-crm-uses-boards",
+    "from": "cm-del-crm",
+    "to": "bo-cap-both-boards",
+    "type": "uses",
+    "label": "la página sale del motor compartido",
+    "evidence": [
+      {
+        "repo": "casa-manantial-os",
+        "path": "crm/board.json"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-cm-tareas-uses-boards",
+    "from": "cm-del-tareas",
+    "to": "bo-cap-both-boards",
+    "type": "uses",
+    "label": "la página sale del motor compartido",
+    "evidence": [
+      {
+        "repo": "casa-manantial-os",
+        "path": "tareas/board.json"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-bp-tareas-uses-boards",
+    "from": "bp-del-tareas",
+    "to": "bo-cap-both-boards",
+    "type": "uses",
+    "label": "misma página, otro archivo de configuración",
+    "evidence": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "operaciones/tareas/board.json"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-board-key-gates-worker",
+    "from": "cm-ctl-board-key",
+    "to": "bo-wf-crm-tasks",
+    "type": "gates",
+    "label": "una clave no abre otro tablero",
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "tests/boards-multi.test.mjs"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-cm-marca-decks-use-engine",
+    "from": "mc-el-marca",
+    "to": "cm-wf-engine",
+    "type": "uses",
+    "label": "los decks con precios compilan con el motor del brain",
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "projects/casa-manantial/marca/deck-build.py"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-cm-engine-produces-guidelines",
+    "from": "cm-wf-engine",
+    "to": "cm-del-guidelines",
+    "type": "produces",
+    "label": "tokens → guidelines",
+    "evidence": [
+      {
+        "repo": "casa-manantial-os",
+        "path": "marca/guidelines-v0.1.0.build.py"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-cm-deckpdf-uses-boards",
+    "from": "cm-wf-deck-pdf",
+    "to": "bo-cap-both-boards",
+    "type": "uses",
+    "label": "deck → PDF compartido",
+    "evidence": [
+      {
+        "repo": "casa-manantial-os",
+        "path": "marca/deck-pdf.py"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-cm-clearance-reads-annex",
+    "from": "cm-ctl-clearance",
+    "to": "p-manantial-casa",
+    "type": "reads",
+    "label": "lo nombra por su ruta, nunca lo copia",
+    "evidence": [
+      {
+        "repo": "casa-manantial-os",
+        "path": "CLAUDE.md"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-docshub-reads-cm",
+    "from": "bo-cap-docs-hub",
+    "to": "cm-del-status",
+    "type": "reads",
+    "label": "índice, status y roadmap del brain en Notion",
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "config/docs-hub/manantial-casa.yml"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-wr-reads-cm-status",
+    "from": "bo-cap-wr",
+    "to": "cm-del-status",
+    "type": "reads",
+    "label": "el status de la casa en el Tuesday Sync",
+    "evidence": [
+      {
+        "repo": "casa-manantial-os",
+        "path": "docs/synergy-contract.md"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-cm-orch-uses-frentes",
+    "from": "cm-cap-orch",
+    "to": "p-cm-frentes",
+    "type": "dispatches",
+    "label": "un agente por frente, borradores para quien lo lleva",
+    "evidence": [
+      {
+        "repo": "casa-manantial-os",
+        "path": ".claude/agents/README.md"
+      }
+    ],
+    "verification": "verified-in-code"
   }
 ]

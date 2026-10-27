@@ -1,23 +1,23 @@
 {
   "title": "BOTH WORLDS",
   "subtitle": "La infraestructura invisible, hecha visible",
-  "generated": "2026-10-26",
-  "coverage": "Atlas curado de cuatro repositorios, todos refrescados contra sus HEAD del 2026-10-25/26: both_os (Both Ventures + su sistema operativo interno, Synergy), synergy-toolkit (la BOTH GTM Machine), lc-chaman (El Chamán, el cerebro de La Chamana) y bienal-punta-os (Bienal Orch, el brain de la Bienal Blockchain Punta 2027, el primer brain de proyecto). Representa unidades significativas de trabajo, no archivos. Los conteos dicen qué cuentan. Las personas fuera de los cinco de BOTH se nombran por su rol.",
+  "generated": "2026-10-27",
+  "coverage": "Atlas curado de cinco repositorios: both_os (Both Ventures + su sistema operativo interno, Synergy), synergy-toolkit (la BOTH GTM Machine), lc-chaman (El Chamán, el cerebro de La Chamana), bienal-punta-os (Bienal Orch, el brain de la Bienal Blockchain Punta 2027) y casa-manantial-os (Manantial Orch, el brain de Casa Manantial, nacido el 2026-10-26). both_os, bienal-punta-os y casa-manantial-os al 2026-10-27; synergy-toolkit y lc-chaman al 2026-10-25/26. Representa unidades significativas de trabajo, no archivos. Los conteos dicen qué cuentan. Las personas fuera de los cinco de BOTH se nombran por su rol.",
   "limitations": [
     "No se consultó ningún endpoint vivo: 'live' o 'deployed' se muestra como declaración de un documento, no como verificación.",
     "No se leyeron bases de datos privadas (SQLite del Toolkit), transcripts, listas de contactos ni cifras comerciales; nada de eso aparece.",
     "Repos no accesibles y por lo tanto no representados: both-private (LP/investors), content-factory-sandbox (Andrés), COMANDO-AI/C-OS (canon 4C upstream).",
     "Las relaciones marcadas 'inferida' no son integraciones reales confirmadas; se dibujan punteadas y apagadas.",
     "El tamaño visual de cada bloque es una decisión editorial, no una métrica de valor ni de actividad.",
-    "De bienal-punta-os y de lo que se quedó en both_os sobre la Bienal solo se muestra la topología: ni cifras, ni pipeline comercial, ni documentos de estrategia aparecen acá."
+    "De bienal-punta-os, casa-manantial-os y de lo que se quedó en both_os sobre esos proyectos solo se muestra la topología: ni cifras, ni precios, ni contactos, ni claves de los tableros aparecen acá."
   ],
-  "version": "V4.2",
+  "version": "V4.3",
   "repos": {
     "both_os": {
       "url": "https://github.com/BothVentures/both_os",
       "branch": "main",
       "visibility": "private",
-      "head": "ea1024c8"
+      "head": "07e40903"
     },
     "synergy-toolkit": {
       "url": "https://github.com/BothVentures/synergy-toolkit",
@@ -35,7 +35,13 @@
       "url": "https://github.com/BothVentures/bienal-punta-os",
       "branch": "main",
       "visibility": "private",
-      "head": "1eaacd7"
+      "head": "06fefb6"
+    },
+    "casa-manantial-os": {
+      "url": "https://github.com/BothVentures/casa-manantial-os",
+      "branch": "main",
+      "visibility": "private",
+      "head": "4b677fe"
     }
   }
 }

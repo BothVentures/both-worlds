@@ -14,7 +14,7 @@ const dataDir = resolve(here, '../src/data')
 const load = (f) => JSON.parse(readFileSync(resolve(dataDir, f), 'utf8'))
 
 const meta = load('meta.json')
-const entityFiles = ['entities.both-os.json', 'entities.synergy-toolkit.json', 'entities.lc-chaman.json', 'entities.bienal-punta-os.json']
+const entityFiles = ['entities.both-os.json', 'entities.synergy-toolkit.json', 'entities.lc-chaman.json', 'entities.bienal-punta-os.json', 'entities.casa-manantial-os.json']
 const entities = entityFiles.flatMap((f) => load(f))
 const relations = load('relations.json')
 const tour = load('tour.json')
@@ -24,7 +24,7 @@ const EVIDENCE = new Set(['observed-in-code', 'observed-in-docs', 'claimed-by-do
 const STATES = new Set(['implemented', 'experimental', 'proposed', 'parked', 'retired'])
 const REL_TYPES = new Set(['uses', 'feeds', 'produces', 'reviews', 'deploys-to', 'documents', 'mirrors', 'reads', 'writes', 'dispatches', 'gates'])
 const VERIF = new Set(['verified-in-code', 'verified-in-docs', 'inferred'])
-const REPOS = new Set(['both_os', 'synergy-toolkit', 'lc-chaman', 'bienal-punta-os'])
+const REPOS = new Set(['both_os', 'synergy-toolkit', 'lc-chaman', 'bienal-punta-os', 'casa-manantial-os'])
 
 const errors = []
 const warn = []
@@ -95,6 +95,7 @@ const repoRoots = {
   'synergy-toolkit': '/Users/boris/Documents/COMANDO/Both_Ventures/synergy-toolkit',
   'lc-chaman': '/Users/boris/Documents/COMANDO/Both_Ventures/lc-chaman',
   'bienal-punta-os': '/Users/boris/GitHub/bienal-punta-os',
+  'casa-manantial-os': '/Users/boris/GitHub/casa-manantial-os',
 }
 let checked = 0, missing = 0
 const missingList = []

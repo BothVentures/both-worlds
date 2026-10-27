@@ -18,7 +18,7 @@ for (const [w, h] of [[1920, 1080], [1440, 900]]) {
   const l1 = await vis(page, '.lbl-l1')
   await page.click('.lbl-l1[data-id="t-both-ventures"]', { force: true }); await settle(page)
   const l2 = await vis(page, '.lbl-l2')
-  out.push(`${w}x${h}: mundo ${l1.length}/4 · Both Ventures ${l2.length}/10 (${l2.join(' ')})`)
+  out.push(`${w}x${h}: mundo ${l1.length}/5 (${l1.join(' ')}) · Both Ventures ${l2.length}/10 (${l2.join(' ')})`)
   await page.close()
 }
 console.log(out.join('\n'))

@@ -555,7 +555,7 @@
     "type": "deliverable",
     "parentId": "p-bp-operaciones",
     "kind": "tablero compartido · V0.2",
-    "summary": "Tablero de tareas del equipo: vencidas, próximas, bloqueadas, cuenta regresiva a los hitos. Se abre con clave; funciona sin señal y sincroniza cuando vuelve.",
+    "summary": "Tablero de tareas del equipo: vencidas, próximas, bloqueadas, cuenta regresiva a los hitos. Se abre con clave; funciona sin señal y sincroniza cuando vuelve. Desde el 2026-10-26 el brain guarda solo su configuración y la página sale del motor compartido de both-boards.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "owner": "Daiana",
@@ -569,7 +569,7 @@
       },
       {
         "repo": "bienal-punta-os",
-        "path": "operaciones/tareas/tareas.template.html"
+        "path": "operaciones/tareas/board.json"
       }
     ]
   },
