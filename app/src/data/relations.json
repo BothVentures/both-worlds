@@ -326,7 +326,7 @@
   {
     "id": "r-r2bv-reports",
     "from": "lc-sk-reporting",
-    "to": "p-la-chamana",
+    "to": "lc-el-card",
     "type": "produces",
     "label": "/r2bv: reporte de estado a BOTH por Slack",
     "evidence": [
@@ -337,36 +337,6 @@
       }
     ],
     "verification": "verified-in-docs"
-  },
-  {
-    "id": "r-cf-external-feeds-lc",
-    "from": "cf-el-external",
-    "to": "lc-m-content",
-    "type": "feeds",
-    "label": "el motor de Andrés alimenta la máquina de contenido",
-    "evidence": [
-      {
-        "repo": "lc-chaman",
-        "path": "capabilities/machines/content-factory/MACHINE.md",
-        "lines": "15-24"
-      }
-    ],
-    "verification": "verified-in-docs"
-  },
-  {
-    "id": "r-cf-integration-retired",
-    "from": "cf-el-external",
-    "to": "tk-cap-cf-integration",
-    "type": "feeds",
-    "label": "feed de packs, retirado 2026-07-29",
-    "evidence": [
-      {
-        "repo": "synergy-toolkit",
-        "path": "web/src/screens/Content.tsx",
-        "lines": "69-89"
-      }
-    ],
-    "verification": "verified-in-code"
   },
   {
     "id": "r-pages-shared-surface",
@@ -382,8 +352,7 @@
       },
       {
         "repo": "both_os",
-        "path": ".github/workflows/deploy-diagram.yml",
-        "lines": "16"
+        "path": ".github/workflows/pages-deploy.yml"
       }
     ],
     "verification": "inferred"
@@ -417,24 +386,6 @@
       {
         "repo": "synergy-toolkit",
         "path": ".claude/skills/design-desk/SKILL.md"
-      }
-    ],
-    "verification": "inferred"
-  },
-  {
-    "id": "r-lc-gtm-docs-lineage",
-    "from": "lc-el-gtm-docs",
-    "to": "lc-ctx-gtm",
-    "type": "documents",
-    "label": "el GTM de abril en both_os y el flujo de René en lc-chaman comparten origen",
-    "evidence": [
-      {
-        "repo": "both_os",
-        "path": "vault/ventures/la-chamana-dm-campaign-strategy-2026-04.md"
-      },
-      {
-        "repo": "lc-chaman",
-        "path": "capabilities/machines/outreach/campaigns/la-chamana-dm-campaign-strategy-2026-04.md"
       }
     ],
     "verification": "inferred"
@@ -665,8 +616,7 @@
     "evidence": [
       {
         "repo": "both_os",
-        "path": ".github/workflows/deploy-diagram.yml",
-        "lines": "16-31"
+        "path": ".github/workflows/pages-deploy.yml"
       }
     ],
     "verification": "verified-in-code"
@@ -679,7 +629,7 @@
     "evidence": [
       {
         "repo": "both_os",
-        "path": ".github/workflows/deploy-diagram.yml"
+        "path": ".github/workflows/pages-deploy.yml"
       }
     ],
     "verification": "verified-in-code"
@@ -814,19 +764,6 @@
         "repo": "both_os",
         "path": "harnesses/design-desk.md",
         "lines": "48-51"
-      }
-    ],
-    "verification": "verified-in-docs"
-  },
-  {
-    "id": "r-dd-produces-bienal-marca",
-    "from": "bo-cap-design-desk",
-    "to": "bn-el-marca",
-    "type": "produces",
-    "evidence": [
-      {
-        "repo": "both_os",
-        "path": "projects/bienal-blockchain-punta/marca"
       }
     ],
     "verification": "verified-in-docs"
@@ -2040,24 +1977,6 @@
     "verification": "verified-in-code"
   },
   {
-    "id": "r-bienal-hub-mirrors-notion",
-    "from": "bn-el-onboarding-pack",
-    "to": "bo-con-notion",
-    "type": "mirrors",
-    "label": "el Docs Hub (notion-hub-build.py) regenera las páginas de área de la Bienal en Notion desde un manifest curado",
-    "evidence": [
-      {
-        "repo": "both_os",
-        "path": "scripts/notion-hub-build.py"
-      },
-      {
-        "repo": "both_os",
-        "path": "config/docs-hub/punta-cripto.yml"
-      }
-    ],
-    "verification": "verified-in-code"
-  },
-  {
     "id": "r-bienal-dispatches-orch",
     "from": "bo-cap-bienal-bridge",
     "to": "bp-cap-orch",
@@ -2331,9 +2250,9 @@
   {
     "id": "r-both-boards-from-engine",
     "from": "bp-wf-engine",
-    "to": "bo-cap-both-boards",
+    "to": "bb-cap-boards",
     "type": "feeds",
-    "label": "el motor se extrae cuando CM lo necesite",
+    "label": "el motor de tableros salió de acá (2026-10-26)",
     "evidence": [
       {
         "repo": "both_os",
@@ -2600,7 +2519,7 @@
   {
     "id": "r-cm-decks-prove-boards",
     "from": "mc-el-marca",
-    "to": "bo-cap-both-boards",
+    "to": "bb-cap-deck-pdf",
     "type": "feeds",
     "label": "sus decks son la prueba de que el motor es capability",
     "evidence": [
@@ -3526,7 +3445,7 @@
   {
     "id": "r-cm-crm-uses-boards",
     "from": "cm-del-crm",
-    "to": "bo-cap-both-boards",
+    "to": "bb-cap-boards",
     "type": "uses",
     "label": "la página sale del motor compartido",
     "evidence": [
@@ -3540,7 +3459,7 @@
   {
     "id": "r-cm-tareas-uses-boards",
     "from": "cm-del-tareas",
-    "to": "bo-cap-both-boards",
+    "to": "bb-cap-boards",
     "type": "uses",
     "label": "la página sale del motor compartido",
     "evidence": [
@@ -3554,7 +3473,7 @@
   {
     "id": "r-bp-tareas-uses-boards",
     "from": "bp-del-tareas",
-    "to": "bo-cap-both-boards",
+    "to": "bb-cap-boards",
     "type": "uses",
     "label": "misma página, otro archivo de configuración",
     "evidence": [
@@ -3610,7 +3529,7 @@
   {
     "id": "r-cm-deckpdf-uses-boards",
     "from": "cm-wf-deck-pdf",
-    "to": "bo-cap-both-boards",
+    "to": "bb-cap-deck-pdf",
     "type": "uses",
     "label": "deck → PDF compartido",
     "evidence": [
@@ -3624,7 +3543,7 @@
   {
     "id": "r-cm-clearance-reads-annex",
     "from": "cm-ctl-clearance",
-    "to": "p-manantial-casa",
+    "to": "p-participaciones",
     "type": "reads",
     "label": "lo nombra por su ruta, nunca lo copia",
     "evidence": [

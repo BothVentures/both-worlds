@@ -48,7 +48,7 @@ async function run(viewport) {
   check(`[${tag}] WebGL context available`, webgl)
   await shot('01-world')
   const l1 = await visibleLabels('.lbl-l1')
-  const nTerr = (await page.$$('.lbl-l1')).length // uno por territorio en los datos (5 desde V4.3)
+  const nTerr = (await page.$$('.lbl-l1')).length // uno por territorio en los datos (6 desde V4.4)
   check(`[${tag}] world shows all ${nTerr} territory labels`, l1.length === nTerr && nTerr >= 4, `${l1.length} visible: ${l1.map((l) => l.id).join(', ')}`)
   check(`[${tag}] territory labels do not overlap`, overlaps(l1) === 0, `${overlaps(l1)} overlaps`)
 
@@ -77,9 +77,9 @@ async function run(viewport) {
   // 4. explore: click territory → project → element, then Esc and Home
   await page.keyboard.press('t'); await page.waitForTimeout(400)
   await page.click('.lbl-l1[data-id="t-both-ventures"]', { force: true }); await settle(page)
-  check(`[${tag}] click territory → breadcrumb Both Ventures`, (await crumb()).includes('Both Ventures'))
+  check(`[${tag}] click territory → breadcrumb BOTH OS`, (await crumb()).includes('BOTH OS'))
   const l2 = await visibleLabels('.lbl-l2')
-  check(`[${tag}] territory shows project labels (≥8 visible of 10)`, l2.length >= 8, `${l2.length} visible`)
+  check(`[${tag}] territory shows project labels (≥5 visible of 7 — el panel tapa hasta dos, igual que el ≥8 de 10 de V4.3)`, l2.length >= 5, `${l2.length} visible`)
   check(`[${tag}] project labels do not overlap`, overlaps(l2) === 0, `${overlaps(l2)} overlaps`)
   await shot('02-territory')
   await page.click('.lbl-l2[data-id="p-both-os"]', { force: true }); await settle(page)
@@ -102,7 +102,7 @@ async function run(viewport) {
   await page.keyboard.press('Escape'); await settle(page)
   check(`[${tag}] Esc goes back to project`, !(await crumb()).includes('Auto-miner') && (await crumb()).includes('B_V'))
   await page.keyboard.press('Escape'); await settle(page)
-  check(`[${tag}] Esc again goes back to territory`, !(await crumb()).includes('B_V') && (await crumb()).includes('Both Ventures'))
+  check(`[${tag}] Esc again goes back to territory`, !(await crumb()).includes('B_V') && (await crumb()).includes('BOTH OS'))
   await page.keyboard.press('Home'); await settle(page)
   check(`[${tag}] Home resets to world`, (await crumb()) === 'Mundo')
   // panel navigation: territory → project via "Contiene" list

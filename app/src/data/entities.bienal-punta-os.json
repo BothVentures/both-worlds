@@ -1,10 +1,10 @@
 [
   {
     "id": "t-bienal-punta-os",
-    "name": "Bienal Orch",
+    "name": "Bienal OS",
     "type": "territory",
     "parentId": "world",
-    "kind": "brain de la Bienal Blockchain Punta 2027 · repo bienal-punta-os · nació 2026-10-25",
+    "kind": "ciudad · Bienal Orch · repo bienal-punta-os",
     "summary": "El primer brain de proyecto de BOTH. La Bienal creció hasta necesitar su propio sistema: un equipo que no es solo BOTH, seis áreas con owner, marca, tableros compartidos y un sitio. En vez de seguir como carpeta adentro de both_os, tiene repo propio con su orquestador, Bienal Orch (su CLAUDE.md), que despacha a sus skills y a seis agentes de área. No es independiente de BOTH: Synergy le despacha trabajo y lee todo lo que hay acá, y Bienal Orch le pide a Synergy lo que es de BOTH. Dos puertas, nadie arriba. Un solo nivel de acceso —equipo—: lo que solo ven los cinco de BOTH se queda en both_os.",
     "state": "implemented",
     "evidence": "observed-in-code",

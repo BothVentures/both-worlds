@@ -17,9 +17,9 @@
   },
   {
     "id": "s2-both-ventures",
-    "kicker": "02 · Both Ventures",
+    "kicker": "02 · BOTH OS",
     "title": "Un venture builder que se describe a sí mismo",
-    "body": "Both Ventures corre sobre su propio sistema operativo: diez ventures, una memoria con 904 decisiones y 715 riesgos que nunca se borran, y Synergy, nuestra chief of staff. Conecta el talento y la creatividad humana con la ingeniería agéntica: skills, agentes y trabajo de conocimiento. La bautizó Gastón; nos quiere a todos por igual.",
+    "body": "Both Ventures corre sobre su propio sistema operativo: nueve ventures, una memoria con 904 decisiones y 715 riesgos que nunca se borran, y Synergy, nuestra chief of staff. Conecta el talento y la creatividad humana con la ingeniería agéntica: skills, agentes y trabajo de conocimiento. La bautizó Gastón; nos quiere a todos por igual.",
     "focus": {
       "level": "territory",
       "id": "t-both-ventures"
@@ -30,9 +30,9 @@
   },
   {
     "id": "s3-ventures",
-    "kicker": "03 · Diez submundos",
-    "title": "Los ventures, con sus nombres reales y un mismo ritmo",
-    "body": "Manantial.Casa, Reshore, LAK3, Photonic Labs, La Chamana, Panambi, Quantum, Punta Cripto (hoy Bienal Blockchain Punta 2027), Content Factory y B_V® | OS. Cada uno tiene champion, card semanal y un lugar en el martes. El lunes se volvió menos estricto y confiamos más en lo que Synergy levanta de las llamadas; todavía hay slop, y lo sabemos.",
+    "kicker": "03 · Lo que incuba",
+    "title": "Las ventures que viven adentro, y lo que BOTH guarda de las demás",
+    "body": "Photonic Labs, Quantum, Reshore, LAK3 y Panambi incuban acá hasta su spin-off; B_V® | OS es el motor. Las que ya tienen ciudad —la Bienal, Casa Manantial, La Chamana— dejan en BOTH OS solo un anexo: contratos, precios, reportes a inversores. Eso es Participaciones. Cada venture tiene champion, card semanal y un lugar en el martes; todavía hay slop, y lo sabemos.",
     "focus": {
       "level": "territory",
       "id": "t-both-ventures"
@@ -42,16 +42,13 @@
       "distance": 1.05
     },
     "highlight": [
-      "p-manantial-casa",
+      "p-both-os",
+      "p-photonic-labs",
+      "p-quantum",
       "p-reshore",
       "p-lak3",
-      "p-photonic-labs",
-      "p-la-chamana",
       "p-panambi",
-      "p-quantum",
-      "p-punta-cripto",
-      "p-content-factory",
-      "p-both-os"
+      "p-participaciones"
     ]
   },
   {
@@ -245,7 +242,6 @@
       "bo-ctl-secret-scan",
       "rs-el-continuum-line",
       "mc-el-real-este",
-      "bn-el-onboarding-pack",
       "bo-del-estrategia-q3"
     ],
     "relations": [
@@ -356,7 +352,7 @@
       "cm-ctl-clearance",
       "bo-cap-casa-bridge",
       "bo-wf-crm-tasks",
-      "bo-cap-both-boards",
+      "bb-cap-boards",
       "bp-del-tareas"
     ],
     "relations": [
@@ -412,8 +408,31 @@
     ]
   },
   {
+    "id": "s11-ciudades",
+    "kicker": "11 · Ciudades y capacidades",
+    "title": "Un mapa por capas: capacidades arriba, ciudades abajo",
+    "body": "El 2026-10-27 lo pusimos en palabras. Una ciudad es un repo propio con su orquestador, que se puede compartir con el equipo local: Bienal OS, Manantial OS, Chamana OS, y BOTH OS en el centro, con Synergy. Una capacidad es un motor que usan varias ciudades sin cambiarle un nombre: el Synergy Toolkit y both-boards, que dibuja los tableros de CRM y Tareas y pasa los decks a PDF. Lo que todavía no se graduó incuba adentro de BOTH OS, y de cada ciudad BOTH guarda solo lo suyo. Un solo canal para hablarle a todo: Synergy.",
+    "focus": {
+      "level": "world",
+      "id": "world"
+    },
+    "highlight": [
+      "bb-cap-boards",
+      "bb-cap-deck-pdf",
+      "p-participaciones",
+      "bo-cap-casa-bridge",
+      "lc-el-bridge"
+    ],
+    "relations": [
+      "r-cm-crm-uses-boards",
+      "r-bp-tareas-uses-boards",
+      "r-cm-deckpdf-uses-boards",
+      "r-cm-clearance-reads-annex"
+    ]
+  },
+  {
     "id": "s8-future",
-    "kicker": "11 · Presente y futuro",
+    "kicker": "12 · Presente y futuro",
     "title": "Lo construido, lo propuesto y lo que sigue",
     "body": "Trazo pleno: construido. Con brecha: experimental. Huella punteada: propuesto, no producto. La tesis de estos siete meses: no construimos herramientas sueltas; construimos un sistema que se describe, se prueba y se corrige a sí mismo, con nosotros cinco en cada compuerta. Lo que sigue en la misma línea: la Bienal publica sus propias páginas y suma a su equipo, el CRM de la casa se llena cuando haya base legal, y el email llega por venture, con cuenta propia.",
     "focus": {
@@ -436,7 +455,6 @@
       "bo-wf-sprint-cycle",
       "bp-prop-docs",
       "bp-prop-equipo",
-      "bo-cap-both-boards",
       "cm-prop-crm-datos",
       "cm-prop-klaviyo"
     ],

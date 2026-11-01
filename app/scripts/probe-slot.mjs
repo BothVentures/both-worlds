@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Sonda de layout (2026-10-25): para una posición del territorio Bienal Orch, cuenta etiquetas
-// visibles en el mundo y dentro de Both Ventures, a 1920×1080 y 1440×900 — los mismos criterios
+// visibles en el mundo y dentro de BOTH OS, a 1920×1080 y 1440×900 — los mismos criterios
 // que e2e.mjs. Uso: node scripts/probe-slot.mjs [url]
 import { chromium } from 'playwright'
 const url = process.argv[2] ?? 'http://127.0.0.1:4173/'
@@ -18,7 +18,7 @@ for (const [w, h] of [[1920, 1080], [1440, 900]]) {
   const l1 = await vis(page, '.lbl-l1')
   await page.click('.lbl-l1[data-id="t-both-ventures"]', { force: true }); await settle(page)
   const l2 = await vis(page, '.lbl-l2')
-  out.push(`${w}x${h}: mundo ${l1.length}/5 (${l1.join(' ')}) · Both Ventures ${l2.length}/10 (${l2.join(' ')})`)
+  out.push(`${w}x${h}: mundo ${l1.length}/6 (${l1.join(' ')}) · BOTH OS ${l2.length}/7 (${l2.join(' ')})`)
   await page.close()
 }
 console.log(out.join('\n'))

@@ -4,7 +4,7 @@
     "name": "Synergy Toolkit",
     "type": "territory",
     "parentId": "world",
-    "kind": "la BOTH GTM Machine · repo synergy-toolkit · 609 commits · 2026-07-18 → 10-14",
+    "kind": "capacidad · la BOTH GTM Machine · repo synergy-toolkit",
     "summary": "Una plataforma hospedada donde una sola operadora no técnica planifica, ejecuta y aprueba toda la actividad de go-to-market. Motor (Hono + SQLite) que despacha al cerebro con claude -p, compuertas con hash del contenido exacto, scheduler, y un cockpit React de solo lectura salvo la aprobación. Desde V5 (2026-09-17) una frase de Boris en el chat puede correr una cadena entera firmando cada gate en su nombre, nunca Instagram/Meta ni gasto. Puerta pública en el worker (VPS) desde 2026-09-17. La Chamana es el tenant #1 y el único declarado.",
     "state": "implemented",
     "evidence": "observed-in-code",

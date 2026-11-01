@@ -3,24 +3,24 @@
     "id": "world",
     "name": "BOTH WORLDS",
     "type": "world",
-    "summary": "Cuatro territorios: el agentic venture builder y su sistema operativo (Both Ventures · Synergy), la máquina de go-to-market (Synergy Toolkit), el cerebro de La Chamana (El Chamán) y, desde el 2026-10-25, el primer brain de proyecto: la Bienal (Bienal Orch). Entre territorios no hay jerarquía: cada repo es la puerta de lo suyo y se piden trabajo por contrato.",
+    "summary": "Seis repos en capas. Arriba, las capacidades: la máquina de go-to-market (Synergy Toolkit) y los motores compartidos (both-boards). Al centro, BOTH OS: el agentic venture builder, su sistema operativo y Synergy. Abajo, las ciudades con repo y orquestador propios: Bienal OS, Manantial OS y Chamana OS. Entre territorios no hay jerarquía: cada repo es la puerta de lo suyo, se piden trabajo por contrato y se le habla a todo por un solo canal, Synergy.",
     "state": "implemented",
     "evidence": "observed-in-docs",
     "sources": []
   },
   {
     "id": "t-both-ventures",
-    "name": "Both Ventures",
+    "name": "BOTH OS",
     "type": "territory",
     "parentId": "world",
-    "kind": "agentic venture builder · repo both_os · 4.754 commits · 2026-03-30 → 10-27",
-    "summary": "Agentic venture builder con base en Punta del Este: un equipo de cinco que construye y acelera ventures con agentes como parte del equipo. Diez ventures activos, uno de los cuales es su propio sistema operativo interno (B_V® | OS), donde vive la entidad Synergy. El repo both_os es a la vez la memoria institucional (vault) y el motor (agentes, skills, pipelines).",
+    "kind": "ciudad central · Synergy · repo both_os",
+    "summary": "Agentic venture builder con base en Punta del Este: un equipo de cinco que construye y acelera ventures con agentes como parte del equipo. Nueve ventures activos, uno de los cuales es su propio sistema operativo interno (B_V® | OS), donde vive la entidad Synergy. El repo both_os es a la vez la memoria institucional (vault) y el motor (agentes, skills, pipelines). Desde la taxonomía del 2026-11-01 es la ciudad central: adentro incuban las ventures sin repo propio, y de cada ciudad queda solo lo de BOTH (Participaciones).",
     "state": "implemented",
     "evidence": "observed-in-docs",
     "owner": "Gaston (CEO) · Mariano (OS)",
     "dates": {
       "first": "2026-03-30",
-      "last": "2026-10-27"
+      "last": "2026-11-01"
     },
     "layout": {
       "accent": "#c5c52a"
@@ -43,6 +43,11 @@
         "path": "vault/soul.md",
         "lines": "12",
         "note": "Synergy ≠ B_V® | OS"
+      },
+      {
+        "repo": "both_os",
+        "path": "vault/initiatives/2026-11-01-taxonomia-ciudades.md",
+        "note": "ciudades, capacidades, incubación, anexos"
       }
     ],
     "activity": {
@@ -107,35 +112,6 @@
     ]
   },
   {
-    "id": "p-manantial-casa",
-    "name": "MANANTIAL.CASA",
-    "type": "project",
-    "parentId": "t-both-ventures",
-    "kind": "venture · Build + Daily",
-    "summary": "Sede física e institucional en Punta del Este: club de playa por membresía, eventos, retiros. Slug de routing manantial-casa; nombre corriente Casa Manantial. Septiembre: cierre financiero de agosto publicado (38 iteraciones el 09-10) y Real-Este, el tablero de producción del podcast con El Observador, desplegado como app en Vercel desde projects/casa-manantial/real-este/. Desde el 2026-10-26 la casa tiene brain propio, casa-manantial-os, con su orquestador y sus tableros; acá queda el anexo que solo ven los cinco: cifras, decks comerciales con precios y la app del podcast.",
-    "state": "implemented",
-    "evidence": "observed-in-docs",
-    "owner": "Daiana",
-    "layout": {
-      "slot": 1
-    },
-    "sources": [
-      {
-        "repo": "both_os",
-        "path": "vault/ventures/manantial-casa.md"
-      },
-      {
-        "repo": "both_os",
-        "path": "config/ventures.json",
-        "note": "slug manantial-casa"
-      }
-    ],
-    "dates": {
-      "first": "2026-03-30",
-      "last": "2026-10-26"
-    }
-  },
-  {
     "id": "p-reshore",
     "name": "RESHORE",
     "type": "project",
@@ -146,7 +122,7 @@
     "evidence": "observed-in-docs",
     "owner": "Gaston",
     "layout": {
-      "slot": 2
+      "slot": 4
     },
     "sources": [
       {
@@ -175,7 +151,7 @@
     "evidence": "observed-in-docs",
     "owner": "Rene",
     "layout": {
-      "slot": 3
+      "slot": 5
     },
     "sources": [
       {
@@ -203,7 +179,7 @@
       "last": "2026-07-30"
     },
     "layout": {
-      "slot": 4
+      "slot": 1
     },
     "sources": [
       {
@@ -215,41 +191,6 @@
         "path": "projects/photonic-labs/_index.md"
       }
     ]
-  },
-  {
-    "id": "p-la-chamana",
-    "name": "LA CHAMANA",
-    "type": "project",
-    "parentId": "t-both-ventures",
-    "kind": "venture · Explore + Ops",
-    "summary": "Villa privada de 8 suites en Tulum; retiros de fundadores. En both_os vive el registro institucional del venture; su sistema operativo comercial (El Chamán) es otro repo y otro territorio de este mapa. La reunión semanal 'La Chamaan GTM - Hands on full team' se mina sola por Read.ai y va apilando updates en el card (09-15, 09-22; el card lleva 21 secciones de update desde junio). El card declara both_role 'Explore' mientras CLAUDE.md dice 'Explore + Ops' (drift menor).",
-    "state": "implemented",
-    "evidence": "observed-in-docs",
-    "owner": "Gaston",
-    "layout": {
-      "slot": 5
-    },
-    "sources": [
-      {
-        "repo": "both_os",
-        "path": "vault/ventures/la-chamana.md"
-      },
-      {
-        "repo": "both_os",
-        "path": ".claude/CLAUDE.md",
-        "lines": "334-338",
-        "note": "lc-chaman es un repo aparte"
-      },
-      {
-        "repo": "both_os",
-        "path": "vault/ventures/la-chamana-os-v1-2026-04-27.md",
-        "note": "archivo puente"
-      }
-    ],
-    "dates": {
-      "first": "2026-03-30",
-      "last": "2026-09-22"
-    }
   },
   {
     "id": "p-panambi",
@@ -282,7 +223,7 @@
     "evidence": "observed-in-docs",
     "owner": "Gaston",
     "layout": {
-      "slot": 7
+      "slot": 2
     },
     "sources": [
       {
@@ -301,60 +242,47 @@
     }
   },
   {
-    "id": "p-punta-cripto",
-    "name": "PUNTA CRIPTO · Bienal Blockchain Punta 2027",
+    "id": "p-participaciones",
+    "name": "PARTICIPACIONES · anexos 🔒",
     "type": "project",
     "parentId": "t-both-ventures",
-    "kind": "venture · Build + Strategic",
-    "summary": "Iniciativa cripto/blockchain, fuente de ingresos clave; el slug punta-cripto se congela para routing aunque la marca pasó por siete nombres hasta Bienal Blockchain Punta 2027. Desde el 2026-10-25 la Bienal tiene brain propio —el territorio Bienal Orch—: contexto, áreas, marca, decks, tareas y su weekly viven allá. Acá, en both_os, se queda la mitad que solo ven los cinco de BOTH y todo lo que leen los pipelines de BOTH: el vault con sus decisiones y llamadas, el CRM y el canon comercial.",
+    "kind": "lo que BOTH guarda de cada ciudad",
+    "summary": "Desde la taxonomía del 2026-11-01, una venture con repo propio vive en su ciudad: Bienal OS, Manantial OS, Chamana OS. En both_os queda solo lo de BOTH sobre cada una —contratos, precios, cifras, reportes a inversores, el mapa de vínculos— en una carpeta de anexo que no procesa nada. Los pipelines de BOTH la leen; las ciudades la nombran por su ruta y nunca la copian.",
     "state": "implemented",
     "evidence": "observed-in-docs",
-    "owner": "Rene (ops Daiana, legal Andres)",
+    "owner": "Gaston · Daiana",
     "dates": {
-      "first": "2026-06-01",
-      "last": "2026-10-25"
+      "first": "2026-10-25",
+      "last": "2026-11-01"
     },
     "layout": {
-      "slot": 8
+      "slot": 3
     },
     "sources": [
       {
         "repo": "both_os",
-        "path": "vault/ventures/punta-cripto.md"
+        "path": "vault/initiatives/2026-11-01-taxonomia-ciudades.md",
+        "note": "vocabulario y decisiones"
       },
       {
         "repo": "both_os",
-        "path": "projects/bienal-blockchain-punta/context.md",
-        "note": "name ledger"
+        "path": "config/ventures.json",
+        "note": "campo home: city · incubating · archived"
       },
       {
         "repo": "both_os",
         "path": "projects/bienal-blockchain-punta/_index.md",
-        "note": "banner del 2026-10-25: lo de nivel equipo es canónico en el brain"
-      }
-    ]
-  },
-  {
-    "id": "p-content-factory",
-    "name": "CONTENT FACTORY",
-    "type": "project",
-    "parentId": "t-both-ventures",
-    "kind": "venture · Build + Hands On",
-    "summary": "Motor automatizado de contenido multiplataforma. El código productivo vive en otro repo (content-factory-sandbox, no disponible en esta máquina); acá hay un card y una spec.",
-    "state": "implemented",
-    "evidence": "observed-in-docs",
-    "owner": "Andres (Mariano técnico)",
-    "layout": {
-      "slot": 9
-    },
-    "sources": [
-      {
-        "repo": "both_os",
-        "path": "vault/ventures/content-factory.md"
+        "note": "anexo 🔒 de Bienal OS"
       },
       {
         "repo": "both_os",
-        "path": "projects/content-factory/refresh-button-spec.md"
+        "path": "projects/casa-manantial/_index.md",
+        "note": "anexo 🔒 de Manantial OS"
+      },
+      {
+        "repo": "both_os",
+        "path": "projects/la-chamana/_index.md",
+        "note": "anexo 🔒 de Chamana OS"
       }
     ]
   },
@@ -509,16 +437,17 @@
   },
   {
     "id": "bo-wf-deploy-pages",
-    "name": "Deploy a GitHub Pages",
+    "name": "Deploy a Cloudflare Pages · dos zonas",
     "type": "workflow",
     "parentId": "p-both-os",
-    "kind": "GitHub Action",
-    "summary": "Cada push a main copia docs/pages/ al repo BothVentures/stack y publica en bothventures.github.io/stack/pages/.",
+    "kind": "GitHub Action · pages-deploy.yml",
+    "summary": "Desde el 2026-10-28, cada push que toca docs/pages/ construye y publica dos zonas: la interna, con todo, detrás de un login por mail; y la pública, solo con las páginas elegidas a mano, pasadas por un sanitizador que hace fallar el deploy si queda algo interno. El repo stack, que antes espejaba todo en abierto, quedó como redirector de los links viejos.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "owner": "Mariano",
     "dates": {
-      "first": "2026-04-12"
+      "first": "2026-04-12",
+      "last": "2026-10-28"
     },
     "layout": {
       "slot": 4
@@ -526,8 +455,21 @@
     "sources": [
       {
         "repo": "both_os",
-        "path": ".github/workflows/deploy-diagram.yml",
-        "lines": "16-31"
+        "path": ".github/workflows/pages-deploy.yml"
+      },
+      {
+        "repo": "both_os",
+        "path": "harnesses/publishing.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "scripts/lib/publish.py",
+        "note": "sanitizador"
+      },
+      {
+        "repo": "both_os",
+        "path": "config/public-pages.yml",
+        "note": "lista de lo público"
       }
     ]
   },
@@ -1868,11 +1810,11 @@
   },
   {
     "id": "bo-con-github-pages",
-    "name": "GitHub Pages (repo stack)",
+    "name": "Cloudflare Pages · interna + pública",
     "type": "connection",
     "parentId": "p-both-os",
     "kind": "hosting público",
-    "summary": "Destino de publicación de todas las páginas: bothventures.github.io/stack/pages/.",
+    "summary": "Destino de publicación de las páginas de BOTH. Zona interna con todo, detrás de un login por mail para el equipo; lectores externos por página, nunca sobre el sitio entero. Zona pública solo por elección. Hasta el 2026-10-28 todo salía abierto por GitHub Pages.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "layout": {
@@ -1881,10 +1823,16 @@
     "sources": [
       {
         "repo": "both_os",
-        "path": ".github/workflows/deploy-diagram.yml",
-        "lines": "16"
+        "path": "harnesses/publishing.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "config/public-pages.yml"
       }
-    ]
+    ],
+    "dates": {
+      "last": "2026-10-28"
+    }
   },
   {
     "id": "bo-con-anthropic",
@@ -2051,145 +1999,33 @@
     ]
   },
   {
-    "id": "bn-el-spine",
-    "name": "Hub por seis frentes × cuenta regresiva",
-    "type": "deliverable",
-    "parentId": "p-punta-cripto",
-    "kind": "_index · context · status · roadmap + 6 frentes",
-    "summary": "Seis áreas con owner y gate sobre una cuenta regresiva a marzo 2027. Desde el 2026-10-25 el hub de nivel equipo vive en el brain (Bienal Orch); acá queda la espina de navegación y el anexo que solo ven los cinco.",
-    "state": "implemented",
-    "evidence": "observed-in-code",
-    "dates": {
-      "first": "2026-08-26",
-      "last": "2026-10-25"
-    },
-    "sources": [
-      {
-        "repo": "both_os",
-        "path": "projects/bienal-blockchain-punta/_index.md"
-      },
-      {
-        "repo": "both_os",
-        "path": "projects/bienal-blockchain-punta/status.md"
-      }
-    ]
-  },
-  {
-    "id": "bn-el-marca",
-    "name": "Marca · dirección «Hyper-Neo-Class»",
-    "type": "deliverable",
-    "parentId": "p-punta-cripto",
-    "kind": "guidelines + motor de decks",
-    "summary": "De dos direcciones rivales a una nombrada: el 10-03 pasa a llamarse «Hyper-Neo-Class», con guidelines V0.5.0 donde cada regla es un token, un chequeo o un juicio; el 10-04 llega la marca de dunas V2.0.0. Sobre ese motor salen el sitio V0.6.0 en dominio propio con noindex, one-pager y decks de onboarding, briefing, sponsors (con teaser sin cifras) e institucional. Sin ratificar por René.",
-    "state": "experimental",
-    "evidence": "observed-in-code",
-    "dates": {
-      "first": "2026-08-20",
-      "last": "2026-10-22"
-    },
-    "sources": [
-      {
-        "repo": "both_os",
-        "path": "projects/bienal-blockchain-punta/marca"
-      },
-      {
-        "repo": "both_os",
-        "path": "docs/pages/direction",
-        "note": "15 páginas de dirección"
-      }
-    ]
-  },
-  {
-    "id": "bn-el-forum-decks",
-    "name": "Punta Crypto Forum · decks y plan de preproducción",
-    "type": "deliverable",
-    "parentId": "p-punta-cripto",
-    "kind": "PDF/PPTX en el vault",
-    "summary": "Concept & case, brief del evento y supuestos, plan de preproducción (julio 2026), bajo el nombre anterior de la iniciativa.",
-    "state": "implemented",
-    "evidence": "observed-in-code",
-    "dates": {
-      "first": "2026-06",
-      "last": "2026-07"
-    },
-    "sources": [
-      {
-        "repo": "both_os",
-        "path": "vault/ventures/Punta-Crypto-Forum-Plan-Preproduccion-2026-07.pdf"
-      },
-      {
-        "repo": "both_os",
-        "path": "docs/pages/punta-crypto-forum"
-      }
-    ]
-  },
-  {
-    "id": "bn-el-page-2027",
-    "name": "Página Punta Blockchain 2027",
-    "type": "deliverable",
-    "parentId": "p-punta-cripto",
-    "kind": "página superada (nombre intermedio)",
-    "summary": "Publicada bajo el nombre intermedio Punta Blockchain; superada el 2026-08-26 según el hub del proyecto. El nombre vigente ya lo publican nueve páginas (direction/bienal-punta-* y board/bienal-*), así que la afirmación anterior de que ninguna página publicaba el nombre vigente quedó obsoleta; el slug viejo se conserva como registro.",
-    "state": "retired",
-    "evidence": "observed-in-code",
-    "sources": [
-      {
-        "repo": "both_os",
-        "path": "docs/pages/punta-blockchain-2027"
-      }
-    ]
-  },
-  {
     "id": "lc-el-card",
-    "name": "Card institucional + reportes LP",
+    "name": "Chamana OS · contratos y reportes a inversores",
     "type": "deliverable",
-    "parentId": "p-la-chamana",
+    "parentId": "p-participaciones",
     "kind": "vault + páginas",
-    "summary": "Registro del venture en el vault y los reportes a inversores Q1, Q2 y Q3 2026 publicados como páginas. El Q3.26 salió el 2026-10-21 y se ajustó al día siguiente.",
+    "summary": "El anexo 🔒 de La Chamana en both_os: los contratos y los reportes a inversores, junto a la card del venture. Desde el 2026-11-01 lo operativo —kits, briefs, listas de outreach, GTM— vive en Chamana OS; acá no queda trabajo de la ciudad.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "sources": [
+      {
+        "repo": "both_os",
+        "path": "projects/la-chamana/_index.md"
+      },
       {
         "repo": "both_os",
         "path": "vault/ventures/la-chamana.md"
-      },
-      {
-        "repo": "both_os",
-        "path": "docs/pages/la-chamana-lp-q1-26"
       }
     ],
     "dates": {
-      "last": "2026-10-22"
+      "last": "2026-11-01"
     }
-  },
-  {
-    "id": "lc-el-gtm-docs",
-    "name": "Kits de marketing y estrategia DM (abril 2026)",
-    "type": "deliverable",
-    "parentId": "p-la-chamana",
-    "kind": "docx/md en el vault",
-    "summary": "Kits por segmento (HNWI, corporate, creators, conscious luxury) en ES/EN, brief de influencers, estrategia de DMs; antecedente del GTM que después migró a El Chamán.",
-    "state": "implemented",
-    "evidence": "observed-in-code",
-    "dates": {
-      "first": "2026-04"
-    },
-    "sources": [
-      {
-        "repo": "both_os",
-        "path": "vault/ventures/la-chamana-dm-campaign-strategy-2026-04.md"
-      },
-      {
-        "repo": "both_os",
-        "path": "vault/ventures/la-chamana-gtm-q2-2026.md"
-      }
-    ]
   },
   {
     "id": "lc-el-bridge",
     "name": "Puente a El Chamán (repo lc-chaman)",
     "type": "workflow",
-    "parentId": "p-la-chamana",
+    "parentId": "p-both-os",
     "kind": "puntero cross-repo",
     "summary": "CLAUDE.md declara que La Chamana tiene su propio OS en otro repo y que Synergy lo lee en vivo. Ese repo pasó a privado: se lee por la API de GitHub o un clon local, nunca por URL cruda, y sus páginas publicadas se mudaron a un repo público hermano (lc-docs). Si ningún camino anda, Synergy lo dice; no sustituye con la card del vault.",
     "state": "implemented",
@@ -2212,9 +2048,9 @@
   },
   {
     "id": "mc-el-reportes",
-    "name": "Reportes y hoja de ruta",
+    "name": "Manantial OS · Reportes y hoja de ruta",
     "type": "deliverable",
-    "parentId": "p-manantial-casa",
+    "parentId": "p-participaciones",
     "kind": "HTML/PDF",
     "summary": "Reporte marzo 2026, hoja de ruta Q3-Q4, cultura y anexos. Desde el 10-05, hojas de ruta mensuales (agosto, septiembre, octubre) con nombres normalizados por mes, y el cierre Q3 el 10-11. Las fuentes de agosto y septiembre viven ahora en la carpeta del proyecto.",
     "state": "implemented",
@@ -2235,9 +2071,9 @@
   },
   {
     "id": "mc-el-board",
-    "name": "Páginas de board y cobranzas",
+    "name": "Manantial OS · Páginas de board y cobranzas",
     "type": "deliverable",
-    "parentId": "p-manantial-casa",
+    "parentId": "p-participaciones",
     "kind": "páginas publicadas",
     "summary": "Board mar-abr 26 y Reporte al Board Q3 2026, publicado el 2026-10-19, en GitHub Pages.",
     "state": "implemented",
@@ -2417,42 +2253,6 @@
       {
         "repo": "both_os",
         "path": "vault/ventures/panambi.md"
-      }
-    ]
-  },
-  {
-    "id": "cf-el-spec",
-    "name": "Spec del botón refresh (harvester de keywords)",
-    "type": "deliverable",
-    "parentId": "p-content-factory",
-    "kind": "prototipo de referencia",
-    "summary": "Documento de spec y prototipo; el doc dice que se implementó en content-factory-sandbox (PR #1, pendiente de merge). El repo productivo no está disponible acá.",
-    "state": "implemented",
-    "evidence": "claimed-by-doc",
-    "dates": {
-      "first": "2026-06-23"
-    },
-    "sources": [
-      {
-        "repo": "both_os",
-        "path": "projects/content-factory/refresh-button-spec.md"
-      }
-    ]
-  },
-  {
-    "id": "cf-el-external",
-    "name": "Motor en content-factory-sandbox (externo)",
-    "type": "connection",
-    "parentId": "p-content-factory",
-    "kind": "repo de Andrés · no en disco",
-    "summary": "El motor de contenido vive en otro repo y un deploy externo; en este atlas solo aparece como conexión declarada por documentos de both_os y lc-chaman.",
-    "state": "implemented",
-    "evidence": "observed-in-docs",
-    "sources": [
-      {
-        "repo": "both_os",
-        "path": ".claude/CLAUDE.md",
-        "note": "tabla Two GitHub Repos"
       }
     ]
   },
@@ -2848,9 +2648,9 @@
   },
   {
     "id": "mc-el-real-este",
-    "name": "Real-Este · tablero de producción del podcast",
+    "name": "Manantial OS · Real-Este · tablero de producción del podcast",
     "type": "capability",
-    "parentId": "p-manantial-casa",
+    "parentId": "p-participaciones",
     "kind": "app Vercel · HTML sin build + serverless + Upstash Redis",
     "summary": "Tablero compartido de la temporada 1 del podcast de Casa Manantial con El Observador: 8 episodios, invitados, rodajes, tareas y checklist. Una página, una función serverless (api/state.js) que mergea cambios sobre un único documento JSON en Redis, y una clave compartida: entra cualquiera con el link, sin cuenta de Claude ni de BOTH. Vive en both_os con la convención de photonic-labs/landing-v1, con Ignored Build Step para que el sync-daemon no redeploye en cada ritual. Deuda declarada: cuenta de Vercel personal de Daiana, sin backup automático, clave única sin rotación.",
     "state": "implemented",
@@ -2892,9 +2692,9 @@
   },
   {
     "id": "mc-el-cierre-ago-2026",
-    "name": "Cierre financiero agosto 2026 + ops a septiembre",
+    "name": "Manantial OS · Cierre financiero agosto 2026 + ops a septiembre",
     "type": "deliverable",
-    "parentId": "p-manantial-casa",
+    "parentId": "p-participaciones",
     "kind": "página publicada · 38 commits el 2026-09-10",
     "summary": "Cierre mensual rehecho con datos de DGI e inversión desagregada, iterado 38 veces en un día: vistas accrual y cash, serie mensual de caja y de meals, reclasificaciones entre membresías y meals, dos vistas de impuestos con el play explícito, y bloques de operaciones (El Salón, Verano, roles del equipo). Publicado en docs/pages/venture/.",
     "state": "implemented",
@@ -2913,58 +2713,10 @@
     }
   },
   {
-    "id": "bn-el-onboarding-pack",
-    "name": "Onboarding deck + one-pager (Blanco → Hyper-Neo-Class)",
-    "type": "deliverable",
-    "parentId": "p-punta-cripto",
-    "kind": "páginas publicadas · draft general",
-    "summary": "La landing dicha en planchas 16:9 y apretada en una hoja A4. V0.1.0 en «Blanco» el 09-22; V0.2.0 en Hyper-Neo-Class el 10-04, editorial, más un one-pager V0.2.0 con versión móvil de una columna. Mismo copy y mismo motor que el sitio; fuentes reproducibles (template + build). Desde el 2026-10-25 sus fuentes viven en el brain de la Bienal.",
-    "state": "experimental",
-    "evidence": "observed-in-code",
-    "sources": [
-      {
-        "repo": "both_os",
-        "path": "projects/bienal-blockchain-punta/marca/_index.md",
-        "lines": "62-63",
-        "note": "deck y one-pager en el inventario del frente Marca"
-      },
-      {
-        "repo": "both_os",
-        "path": "projects/bienal-blockchain-punta/marca/_index.md",
-        "lines": "73",
-        "note": "regla build/template"
-      },
-      {
-        "repo": "both_os",
-        "path": "docs/pages/direction/bienal-punta-deck-onboarding-v0.1.0/index.html"
-      },
-      {
-        "repo": "both_os",
-        "path": "docs/pages/direction/bienal-punta-onepager-onboarding-v0.1.0/index.html"
-      },
-      {
-        "repo": "both_os",
-        "path": "docs/pages/index.html",
-        "lines": "150-151"
-      },
-      {
-        "repo": "both_os",
-        "path": "scripts/notion-hub-build.py",
-        "lines": "1-12",
-        "note": "página hub en Notion, idempotente, token de .env"
-      }
-    ],
-    "owner": "Rene",
-    "dates": {
-      "first": "2026-09-22",
-      "last": "2026-10-07"
-    }
-  },
-  {
     "id": "bn-el-board-docs",
-    "name": "Mapa de vínculos V0.2 + Objetivo político V0.1",
+    "name": "Bienal OS · Mapa de vínculos V0.2 + Objetivo político V0.1",
     "type": "deliverable",
-    "parentId": "p-punta-cripto",
+    "parentId": "p-participaciones",
     "kind": "páginas board · dirección «Blanco»",
     "summary": "Dos documentos de trabajo político-institucional de la Bienal publicados bajo docs/pages/board/: el mapa de vínculos (V0.1 del 09-15, rehecho en Blanco el 09-22 como mesa de repaso nombre por nombre) y el objetivo político V0.1 (estrategia + táctica, publicado en papel y reemplazado el mismo día por la versión Blanco). Ambos generados desde template + build.py en la carpeta del proyecto. El digest del 09-22 corrige una decisión minada: el sponsor no está confirmado, hay conversaciones abiertas.",
     "state": "implemented",
@@ -3183,46 +2935,10 @@
     ]
   },
   {
-    "id": "bo-cap-both-boards",
-    "name": "both-boards · capability compartida",
-    "type": "capability",
-    "parentId": "p-both-os",
-    "kind": "repo-capability · decks → PDF · motor de tableros",
-    "summary": "Capability compartida: motores que más de un brain usa tal cual. Nació el 2026-10-25 con el paso de deck a PDF. El 2026-10-26 sumó el motor de los tableros de CRM y Tareas, cuando Casa Manantial fue el segundo consumidor: cada proyecto aporta un archivo con su marca, sus etapas y sus áreas, y la página sale del mismo motor. La Bienal regenerada con él difiere de la anterior en dos líneas, las previstas. Una prueba garantiza que el motor no nombra a ningún proyecto.",
-    "state": "implemented",
-    "evidence": "observed-in-code",
-    "owner": "Mariano",
-    "sources": [
-      {
-        "repo": "both_os",
-        "path": "projects/bienal-blockchain-punta/comercial/crm/crm.build.py",
-        "note": "wrapper del motor de tableros"
-      },
-      {
-        "repo": "casa-manantial-os",
-        "path": "crm/board.json",
-        "note": "configuración del tablero de la casa"
-      },
-      {
-        "repo": "bienal-punta-os",
-        "path": "operaciones/tareas/board.json"
-      },
-      {
-        "repo": "bienal-punta-os",
-        "path": "marca/deck-pdf.py",
-        "note": "wrapper de deck → PDF"
-      }
-    ],
-    "dates": {
-      "first": "2026-10-25",
-      "last": "2026-10-26"
-    }
-  },
-  {
     "id": "bn-el-both-half",
-    "name": "La mitad que se queda en BOTH",
+    "name": "Bienal OS · La mitad que se queda en BOTH",
     "type": "control",
-    "parentId": "p-punta-cripto",
+    "parentId": "p-participaciones",
     "kind": "regla de split · solo los cinco",
     "summary": "Lo de la Bienal que solo ven los cinco de BOTH no se mudó: el canon comercial, el CRM, el modelo y los documentos de estrategia. El brain los nombra por su ruta y nunca los contiene; para eso el brain no tiene historia de git anterior al 2026-10-25.",
     "state": "implemented",
@@ -3455,9 +3171,9 @@
   },
   {
     "id": "mc-el-marca",
-    "name": "Marca «Club de Verano» · guidelines + motor de decks",
+    "name": "Manantial OS · Marca «Club de Verano» · guidelines + motor de decks",
     "type": "deliverable",
-    "parentId": "p-manantial-casa",
+    "parentId": "p-participaciones",
     "kind": "frente marca/ · template + build",
     "summary": "El frente de marca abre el 10-17. El 10-20 sale el primer territorio con guidelines completas, «Club de Verano», al canon de la Bienal. El 10-26 el motor, el logo y las guidelines se mudan al brain de la casa; acá quedan los decks comerciales, que llevan precios y compilan con el motor del brain, idénticos byte a byte. Sigue siendo territorio candidato: G0 está abierto.",
     "state": "experimental",

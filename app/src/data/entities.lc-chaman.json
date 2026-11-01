@@ -1,10 +1,10 @@
 [
   {
     "id": "t-lc-chaman",
-    "name": "El Chamán",
+    "name": "Chamana OS",
     "type": "territory",
     "parentId": "world",
-    "kind": "La Chamana OS · repo lc-chaman · el cerebro · 628 commits · 2026-04-27 → 10-25",
+    "kind": "ciudad · El Chamán · repo lc-chaman",
     "summary": "Capa de inteligencia comercial de La Chamana, santuario privado de ocho suites en Tulum. El Chamán (AG-000) es el asiento de la verdad comercial, no el orquestador: hay dos puertas y nadie arriba. Desde el 26-sep el cruce va en las dos direcciones: con un go en este repo, El Chamán despacha a TK-000 para construir en el toolkit. Cuatro capas (4C): Contexto, Conexiones, Capacidades y Cadencia.",
     "state": "implemented",
     "evidence": "observed-in-docs",
