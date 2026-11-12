@@ -57,7 +57,7 @@ tour = json.loads((DATA / "tour.json").read_text())
 byid = {e["id"]: (repo, e) for repo, arr in ents.items() for e in arr}
 errors, log = [], []
 
-for repo in ("both_os", "synergy-toolkit", "lc-chaman"):
+for repo in FILES:
     f = OUTS / f"out-{repo}.json"
     if not f.exists():
         continue

@@ -5,13 +5,13 @@
     "type": "territory",
     "parentId": "world",
     "kind": "ciudad · El Chamán · repo lc-chaman",
-    "summary": "Capa de inteligencia comercial de La Chamana, santuario privado de ocho suites en Tulum. El Chamán (AG-000) es el asiento de la verdad comercial, no el orquestador: hay dos puertas y nadie arriba. Desde el 26-sep el cruce va en las dos direcciones: con un go en este repo, El Chamán despacha a TK-000 para construir en el toolkit. Cuatro capas (4C): Contexto, Conexiones, Capacidades y Cadencia.",
+    "summary": "Capa de inteligencia comercial de La Chamana, santuario privado de ocho suites en Tulum. El Chamán (AG-000) es el asiento de la verdad comercial, no el orquestador: hay dos puertas y nadie arriba. Desde el 26-sep el cruce va en las dos direcciones: con un go en este repo, El Chamán despacha a TK-000 para construir en el toolkit. Cuatro capas (4C): Contexto, Conexiones, Capacidades y Cadencia. Desde el 1-nov recibe de both_os lo operativo de La Chamana: lo de la ciudad vive en la ciudad.",
     "state": "implemented",
     "evidence": "observed-in-docs",
     "owner": "Boris (principal) · Daiana (champion)",
     "dates": {
       "first": "2026-04-27",
-      "last": "2026-10-25"
+      "last": "2026-11-04"
     },
     "layout": {
       "accent": "#e6c48a"
@@ -41,18 +41,22 @@
         "jun",
         "jul",
         "ago",
-        "sep"
+        "sep",
+        "oct",
+        "nov"
       ],
       "values": [
         12,
-        64,
-        106,
-        167,
+        67,
+        109,
+        163,
         147,
-        49
+        74,
+        63,
+        13
       ],
-      "total": 545,
-      "source": "lc-chaman · git log"
+      "total": 648,
+      "source": "lc-chaman · git log (fecha de commit), al 2026-11-04"
     }
   },
   {
@@ -441,8 +445,8 @@
     "name": "TL-013 Klaviyo",
     "type": "connection",
     "parentId": "p-lc-connections",
-    "kind": "email de ciclo de vida · activo · 0 flujos",
-    "summary": "API y conector Shopify vivos, plantillas selladas, ningún flujo en marcha: ciclo de vida dormido.",
+    "kind": "email marketing · 0 flujos · fuera del camino de las consultas desde el 27-oct",
+    "summary": "API y conector Shopify vivos, plantillas selladas, ningún flujo en marcha. El 26-oct se midió que los formularios de la web sólo creaban un perfil acá y no le avisaban a nadie: una consulta de julio esperó 33 días. El 27-oct Mariano sacó a Klaviyo del camino de las consultas; queda para email marketing. Mientras el formulario no le escriba directo al worker, el motor del toolkit lo lee, sin escribir, para avisar.",
     "state": "implemented",
     "evidence": "observed-in-docs",
     "layout": {
@@ -452,16 +456,29 @@
       {
         "repo": "lc-chaman",
         "path": "connections/TL-013_klaviyo.md"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "context/memory/project_retreats_channel.md",
+        "note": "lápida del 26-oct"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "vault/campaigns/google-exacto-2026-10/results-log.md",
+        "note": "entradas del 26-oct y 27-oct"
       }
-    ]
+    ],
+    "dates": {
+      "last": "2026-11-04"
+    }
   },
   {
     "id": "lc-con-google-ads",
     "name": "TL-011 Google Ads MCP",
     "type": "connection",
     "parentId": "p-lc-connections",
-    "kind": "solo lectura · conectado 2026-06-17",
-    "summary": "Auditorías de AG-007; los cambios de cuenta los hace un humano en la interfaz.",
+    "kind": "MCP de sólo lectura · escritura por la API de Ads desde el 26-oct, con go",
+    "summary": "El MCP oficial sigue de sólo lectura y sirve a las auditorías. Desde el 26-oct el cerebro también escribe en la cuenta por la API de Ads, con scripts que construyen, verifican y leen cada campaña y con el go de Mariano en sesión: así nació google-exacto. El camino de escritura ya no está apagado.",
     "state": "implemented",
     "evidence": "observed-in-docs",
     "layout": {
@@ -471,16 +488,29 @@
       {
         "repo": "lc-chaman",
         "path": "connections/TL-011_google-ads-mcp.md"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/machines/paid-media/google-ads/account-state.md",
+        "lines": "1-11",
+        "note": "nota del 26-oct"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/machines/paid-media/scripts/gads_build_exacto_2026_10.mjs"
       }
-    ]
+    ],
+    "dates": {
+      "last": "2026-11-04"
+    }
   },
   {
     "id": "lc-con-meta",
     "name": "TL-012 Meta Ads",
     "type": "connection",
     "parentId": "p-lc-connections",
-    "kind": "conector con herramientas de escritura · regla en disputa · 44 deny en settings.json desde 09-15",
-    "summary": "El conector de Meta Ads de claude.ai está conectado y expone creación, activación y boost; CLAUDE.md lo prohíbe y account-state.md lo autoriza. Hasta que Boris decida, ninguna llamada de escritura: 44 entradas deny sobre las herramientas de crear/actualizar/borrar/activar y deny sobre los scripts retirados de Instagram. La restricción de negocio de junio sigue siendo el origen del piso de seguridad.",
+    "kind": "conector de claude.ai denegado · escritura por scripts con pisos en código desde el 04-nov",
+    "summary": "El conector de Meta Ads de claude.ai expone creación, activación y boost, y sigue denegado: 44 entradas deny desde el 15-sep. La escritura va por otro camino. En octubre la etapa 1 la armó TK-000 por la API del toolkit; el 4-nov el cerebro prendió la vuelta 2 · D por la Marketing API con un script de pisos en código: sólo los ids de D, diario y fecha exactos, lee antes de escribir y aborta si el estado no es el esperado. La restricción de negocio de junio sigue siendo el origen del piso de seguridad.",
     "state": "experimental",
     "evidence": "observed-in-docs",
     "layout": {
@@ -494,8 +524,20 @@
       {
         "repo": "lc-chaman",
         "path": "capabilities/machines/paid-media/meta-ads/2026-06-18-meta-business-restriction.md"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "context/decisions/2026-11-04-pauta-noviembre.md"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/machines/paid-media/scripts/meta_d_noviembre_2026_11.mjs",
+        "lines": "1-20"
       }
-    ]
+    ],
+    "dates": {
+      "last": "2026-11-04"
+    }
   },
   {
     "id": "lc-con-firecrawl",
@@ -683,8 +725,8 @@
     "name": "Máquina Paid Media",
     "type": "workflow",
     "parentId": "p-lc-machines",
-    "kind": "Google vivo · Meta conectado sin despacho · TikTok no construido",
-    "summary": "Google sigue en sólo lectura. En Meta, la construcción ya no es sólo a mano: la etapa 1 de octubre la armó TK-000 por la API del toolkit con un go explícito por acto, mientras el conector de claude.ai sigue sin uso desde este repo. La pauta se mide por consultas reales registradas, no por conversaciones.",
+    "kind": "Google en exacto desde el 26-oct · Meta D chica en noviembre · TikTok no construido",
+    "summary": "Desde el 26-oct el cerebro construye pauta por API con un go por acto: Google en exacto y, el 4-nov, una vuelta chica de Meta. Los dos carriles se leen igual, cada lunes con el parte: gasto, consultas reales y una sola decisión por plataforma. Consulta real es fechas, grupo y seguir hablando después de la tarifa; nunca una conversación de Meta ni una conversión de Google. Falsador al 1-dic: sin consultas reales, la plataforma se apaga hasta febrero.",
     "state": "implemented",
     "evidence": "claimed-by-doc",
     "layout": {
@@ -699,8 +741,19 @@
       {
         "repo": "lc-chaman",
         "path": "capabilities/machines/paid-media/google-ads/campaigns/retreats-BUILD-RUNBOOK.md"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "context/decisions/2026-11-04-pauta-noviembre.md"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "context/decisions/2026-10-25-google-exacto-reaprender.md"
       }
-    ]
+    ],
+    "dates": {
+      "last": "2026-11-04"
+    }
   },
   {
     "id": "lc-m-content",
@@ -1724,7 +1777,7 @@
     "sources": [
       {
         "repo": "lc-chaman",
-        "path": "capabilities/machines/paid-media/templates/preview"
+        "path": "capabilities/machines/paid-media/scripts/klaviyo_create_templates.py"
       },
       {
         "repo": "lc-chaman",
@@ -1847,7 +1900,7 @@
     "type": "workflow",
     "parentId": "p-lc-cadence",
     "kind": "lunes a la noche, a mano, Mac-only · lee tres repos, escribe uno · publica en lc-docs",
-    "summary": "v2 desde el 27-sep: tres voces —dos operadoras por recibo crudo y la máquina medida, nunca pegada—. Un dataset, dos artefactos: el parte con bloques tipados y un bloque wr_card que llena la tarjeta de La Chamana en el /wr de BOTH, y una vista para Gastón clonada semana a semana que abre con lo ganado. El design desk corre antes de publicar en lc-docs, completa o saneada a elección.",
+    "summary": "v2 desde el 27-sep: tres voces —dos operadoras por recibo crudo y la máquina medida, nunca pegada—. Un dataset, dos artefactos: el parte con bloques tipados y un bloque wr_card que llena la tarjeta de La Chamana en el /wr de BOTH, y una vista para Gastón clonada semana a semana que abre con lo ganado. El design desk corre antes de publicar en lc-docs, completa o saneada a elección. La W44 salió el 27-oct en versión saneada. Desde el 4-nov, por decisión de pauta, el parte del lunes también lee gasto y consultas reales por plataforma.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "sources": [
@@ -1875,12 +1928,21 @@
         "repo": "lc-chaman",
         "path": "CLAUDE.md",
         "lines": "301,371"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "vault/reports/weekly/2026-W44.md",
+        "lines": "1-20"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "docs/parte-semanal-2026-W44-publica.html"
       }
     ],
     "owner": "Boris pega y aprueba · las dos operadoras reportan",
     "dates": {
       "first": "2026-09-15",
-      "last": "2026-10-20"
+      "last": "2026-10-27"
     }
   },
   {
@@ -2134,13 +2196,13 @@
     "type": "workflow",
     "parentId": "p-lc-cadence",
     "kind": "decisión 26-sep · «go <id>» en el cerebro → claude -p en el toolkit, en rama",
-    "summary": "Medido el 26-sep: un pedido escrito en un archivo no lo leía nadie. Desde entonces, cuando Mariano da el go a un pedido con id en este repo, El Chamán lanza a TK-000 sin ventana con el toolkit como cwd. TK-000 construye en una rama chaman/<id>, corre tests y doctor, deja un informe, y Mariano confirma el merge acá. Mergear a main es desplegar. Nada envía, publica ni gasta.",
+    "summary": "Medido el 26-sep: un pedido escrito en un archivo no lo leía nadie. Desde entonces, cuando Mariano da el go a un pedido con id en este repo, El Chamán lanza a TK-000 sin ventana con el toolkit como cwd. TK-000 construye en una rama chaman/<id>, corre tests y doctor, deja un informe, y Mariano confirma el merge acá. Mergear a main es desplegar. Nada envía, publica ni gasta. En noviembre el cruce mostró su falla y su arreglo: la sesión de T-1027-1 se cortó a los 8 minutos sin commit ni informe; relanzada el 2-nov, se mergeó el 4-nov. T-1028-1 y T-1102-1 quedaron en rama, esperando go.",
     "state": "implemented",
     "evidence": "observed-in-docs",
     "owner": "Mariano",
     "dates": {
       "first": "2026-09-26",
-      "last": "2026-10-13"
+      "last": "2026-11-04"
     },
     "sources": [
       {
@@ -2319,17 +2381,17 @@
   },
   {
     "id": "lc-camp-meta-oct",
-    "name": "Pauta Meta oct–dic: escalera con gates",
+    "name": "Pauta Meta oct–dic: escalera con gates · D en noviembre",
     "type": "workflow",
     "parentId": "p-lc-campaigns",
-    "kind": "decidida 29-sep · etapa 1 armada por API y pausada en su gate · vuelta 2 espera go",
-    "summary": "Una escalera de tres etapas que sólo sube si el equipo registra consultas reales —fecha, grupo y pedido en el CRM—; conversaciones abiertas no cuentan. El estudio corrió con AG-008 y la contra de AG-011. La etapa 1 la armó TK-000 por la API del toolkit con un go por acto, y se pausó en el gate sin consultas reales. La vuelta 2 está escrita como pedido, sin go.",
-    "state": "parked",
+    "kind": "decidida 29-sep · etapa 1 por API, pausada en su gate · vuelta 2 · D prendida el 4-nov hasta el 1-dic",
+    "summary": "Una escalera de tres etapas que sólo sube si el equipo registra consultas reales —fecha, grupo y pedido en el CRM—; conversaciones abiertas no cuentan. El estudio corrió con AG-008 y la contra de AG-011. La etapa 1 la armó TK-000 por la API del toolkit y se pausó en el gate sin consultas reales. El 4-nov Mariano reabrió en chico la vuelta 2 · D —DM sin preguntas frecuentes, tres anuncios ya aprobados—, prendida desde el cerebro hasta el 1-dic con lectura semanal. El conjunto de formulario sigue esperando condiciones y permisos.",
+    "state": "experimental",
     "evidence": "observed-in-docs",
     "owner": "Mariano",
     "dates": {
       "first": "2026-09-29",
-      "last": "2026-10-25"
+      "last": "2026-11-04"
     },
     "sources": [
       {
@@ -2357,6 +2419,14 @@
         "repo": "lc-chaman",
         "path": "cadence/evolution_log.md",
         "note": "fila de cierre del 19-oct"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "context/decisions/2026-11-04-pauta-noviembre.md"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/machines/paid-media/scripts/meta_d_noviembre_2026_11.mjs"
       }
     ]
   },
@@ -2385,13 +2455,13 @@
     "name": "Los dos motores: la vista lee el worker y el Mac",
     "type": "control",
     "parentId": "p-lc-cadence",
-    "kind": "T-1011 · 11-oct · el worker barre el buzón, las olas salen del cockpit hospedado",
-    "summary": "El chequeo del 11-oct midió que el hook, el pulso y el doctor leían la base del Mac mientras la puerta pública era el worker: gates fantasmas, dos barridos del buzón, un tope diario que nadie sumaba. Arreglado esa noche: la vista lee los dos motores y cada número dice de qué máquina sale; sólo el worker barre el buzón, y las olas se lanzan desde el cockpit del worker.",
+    "kind": "T-1011 · 11-oct · el worker barre el buzón; los mandatos lanzan desde el worker",
+    "summary": "El chequeo del 11-oct midió que el hook, el pulso y el doctor leían la base del Mac mientras la puerta pública era el worker: gates fantasmas, dos barridos del buzón, un tope diario que nadie sumaba. Arreglado esa noche: la vista lee los dos motores y cada número dice de qué máquina sale; sólo el worker barre el buzón, y las olas se lanzan desde el cockpit del worker. La ola diaria, en cambio, sale del cerebro en el Mac desde el 15-oct y le pregunta al worker por ssh la supresión y las respuestas: el riesgo del Mac dormido volvió el 3-nov.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "dates": {
       "first": "2026-10-08",
-      "last": "2026-10-11"
+      "last": "2026-11-03"
     },
     "sources": [
       {
@@ -2411,6 +2481,11 @@
         "repo": "lc-chaman",
         "path": "vault/reports/hallazgos/2026-10-11-chequeo-de-salud.md",
         "note": "§2 y §10-bis"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "vault/campaigns/agencies-outreach/results-log.md",
+        "note": "entrada del 2026-11-03: dos fallas locales"
       }
     ]
   },
@@ -2488,6 +2563,164 @@
         "repo": "lc-chaman",
         "path": "docs/informe-fuente-q3-2026-anexo-mercado.md"
       }
+    ]
+  },
+  {
+    "id": "lc-camp-google-exacto",
+    "name": "google-exacto-2026-10 — Google Search en exacto",
+    "type": "workflow",
+    "parentId": "p-lc-campaigns",
+    "kind": "decidida 25-oct · construida y prendida por API desde el cerebro · se frena sola el 24-nov",
+    "summary": "Google vuelve tras apagarse el 15-sep, con una regla que convierte el gasto en medición: sólo concordancia exacta, CPC manual, sólo Red de Búsqueda y fecha de fin en la plataforma. La hipótesis es de Gastón: si nadie busca esos términos, no se gasta. Dos campañas con presupuesto propio —nicho de grupos y villa genérica— para que lo genérico no se coma la medición. El Chamán la construyó por la API con el go de Mariano. La primera semana enseñó que exacto no es exacto: Google cuenta variantes cercanas, así que se leen los términos reales. La medida es una consulta real en Pipeline, no un clic; la primera llegó el 3-nov, buscando la casa con servicio, no un retiro.",
+    "state": "implemented",
+    "evidence": "claimed-by-doc",
+    "owner": "Mariano",
+    "dates": {
+      "first": "2026-10-25",
+      "last": "2026-11-04"
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "context/decisions/2026-10-25-google-exacto-reaprender.md"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "vault/campaigns/google-exacto-2026-10/README.md"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "vault/campaigns/google-exacto-2026-10/campaign.yaml",
+        "note": "contrato del toolkit, sin presupuestos ni ids"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "vault/campaigns/google-exacto-2026-10/results-log.md",
+        "note": "entradas 26-oct → 4-nov"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/machines/paid-media/scripts/gads_build_exacto_2026_10.mjs"
+      }
+    ],
+    "tags": [
+      "paid",
+      "google",
+      "medición"
+    ]
+  },
+  {
+    "id": "lc-wf-ola-diaria",
+    "name": "La ola del día, desde el cerebro",
+    "type": "workflow",
+    "parentId": "p-lc-machines",
+    "kind": "cada día hábil desde el 15-oct · orden de Mariano en sesión · send_batch.sh en el Mac · sello en el CRM",
+    "summary": "Desde el 15-oct la ola diaria de email sale de una sesión de El Chamán, no del cockpit: Mariano dice «mandá los de hoy» y esa frase es el press. Antes de lanzar se cruzan el barrido del buzón, la supresión y todo el historial de respuestas del worker por ssh, los ledgers y el MX de cada dominio. Tres escritores redactan, copy-reviewer corrige en dos pasadas y un chequeo mecánico prohíbe oraciones repetidas y precios. Después El Chamán sella solo: paso de secuencia y fecha en Contacts, releídos, results-log y Agent_Log. El punto débil es el Mac: el 3-nov dos correos no salieron con la red caída y la máquina dormida.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "owner": "Mariano ordena · El Chamán ejecuta y sella",
+    "dates": {
+      "first": "2026-10-15",
+      "last": "2026-11-03"
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": ".claude/skills/batch-email/SKILL.md",
+        "lines": "1-30",
+        "note": "--send y --stamp: la pierna de envío"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/machines/outreach/scripts/send_batch.sh"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "context/memory/feedback_manda_es_manda.md",
+        "note": "«mandá» es el press; el sello lo hace El Chamán solo"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "vault/campaigns/agencies-outreach/results-log.md",
+        "note": "entradas 2026-10-26 → 2026-11-03"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "vault/campaigns/family-takeovers/campaign.yaml",
+        "note": "log: E1/E2/E3 «SENT from the brain»"
+      }
+    ],
+    "tags": [
+      "outreach",
+      "email"
+    ]
+  },
+  {
+    "id": "lc-wf-dm-refill",
+    "name": "Recarga DM-first de la puerta de Instagram",
+    "type": "workflow",
+    "parentId": "p-lc-machines",
+    "kind": "desde 05-oct · handle obligatorio, email opcional · run_tag dm-refill-*",
+    "summary": "La puerta de DM se vacía sola: la investigación es email-first y la promoción a la secuencia de email se lleva las filas con email. La recarga busca al revés: handle de Instagram obligatorio, comprobado en la web propia de cada organización y nunca en instagram.com, sesgada a los tipos que la operadora del cockpit acepta. Se corrió el 5, 21, 23 y 28-oct; la promoción a email deja afuera esas filas. El 28-oct Mariano aflojó «una persona, un canal» sólo para el silencio: quien recibió dos emails y no contestó puede entrar a la cola de DM. Ese cambio está despachado al toolkit, sin merge.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "dates": {
+      "first": "2026-10-05",
+      "last": "2026-10-28"
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "context/memory/project_dm_door_supply.md"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "vault/campaigns/retreats-a/prospects-dm-refill-2026-10-28-retreats.md"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "vault/campaigns/celebration-takeovers/prospects-dm-refill-2026-10-28-celebrations.md"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "context/commercial/pide-al-toolkit.md",
+        "note": "T-1028-1 (la regla del silencio) y T-1102-1 (filas dm-refill-* excluidas de la promoción)"
+      }
+    ],
+    "tags": [
+      "outreach",
+      "instagram"
+    ]
+  },
+  {
+    "id": "lc-doc-entrega-both-os",
+    "name": "Entrega desde both_os — 23 piezas operativas",
+    "type": "deliverable",
+    "parentId": "p-lc-docs",
+    "kind": "1-nov · taxonomía de ciudades · una entrega, no un destino",
+    "summary": "Por la taxonomía de ciudades, lo operativo de La Chamana que vivía en both_os se mudó acá el 1-nov, copiado byte a byte: kits de marketing por segmento en dos idiomas, listas de outreach e influencers de Instagram, plan y dashboard GTM del segundo trimestre, briefs de diseño, SEO y desarrollo, auditoría del sitio y prompts de video. El README mapea cada archivo a su origen. Es una entrega, no un destino: El Chamán archiva cada pieza en su lugar y la carpeta se borra. En both_os queda sólo el anexo 🔒.",
+    "state": "experimental",
+    "evidence": "observed-in-code",
+    "owner": "Mariano",
+    "dates": {
+      "first": "2026-11-01",
+      "last": "2026-11-02"
+    },
+    "sources": [
+      {
+        "repo": "lc-chaman",
+        "path": "docs/_desde-both-os-2026-11/README.md"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "CLAUDE.md",
+        "lines": "393",
+        "note": "puntero a la entrega"
+      }
+    ],
+    "tags": [
+      "taxonomía",
+      "ciudades"
     ]
   }
 ]

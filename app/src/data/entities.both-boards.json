@@ -5,13 +5,13 @@
     "type": "territory",
     "parentId": "world",
     "kind": "capacidad · motores compartidos · repo both-boards",
-    "summary": "Motores que más de una ciudad usa tal cual, sin nombre de proyecto adentro. Las ciudades lo consumen como repo hermano, por parámetro: cada una pone su configuración y su marca. Regla de entrada: un motor llega acá solo cuando hay dos consumidores reales y los dos lo usan sin cambiar un nombre. Hoy: el motor de tableros (CRM y Tareas) y el que pasa decks a PDF.",
+    "summary": "Motores que más de una ciudad usa tal cual, sin nombre de proyecto adentro. Las ciudades lo consumen como repo hermano, por parámetro: cada una pone su configuración y su marca. Regla de entrada: un motor llega acá solo cuando hay dos consumidores reales y los dos lo usan sin cambiar un nombre. Hoy: el motor de tableros (CRM y Tareas), el que pasa decks a PDF y, desde noviembre, uno de outreach en frío que usa la Bienal y que se portó de La Chamana.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "owner": "Mariano",
     "dates": {
       "first": "2026-10-26",
-      "last": "2026-10-28"
+      "last": "2026-11-07"
     },
     "layout": {
       "accent": "#8fb6a8"
@@ -29,14 +29,14 @@
     "name": "MOTORES COMPARTIDOS",
     "type": "project",
     "parentId": "t-both-boards",
-    "kind": "capacidad · dos consumidores o nada",
-    "summary": "Dos motores en uso por la Bienal y por Casa Manantial, una guardia que impide que un nombre de proyecto se cuele en el código, y la lista de candidatos que todavía no entran.",
+    "kind": "capacidad · dos consumidores o candidato",
+    "summary": "Tres motores. Dos en uso por la Bienal y por Casa Manantial; el tercero, outreach en frío, lo corre la Bienal y su segundo consumidor es el riel de La Chamana del que salió. Una guardia que impide que un nombre de proyecto se cuele en el código, y la lista de candidatos que todavía no entran.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "owner": "Mariano",
     "dates": {
       "first": "2026-10-26",
-      "last": "2026-10-28"
+      "last": "2026-11-07"
     },
     "layout": {
       "slot": 0
@@ -45,7 +45,7 @@
       {
         "repo": "both-boards",
         "path": "README.md",
-        "lines": "14-17"
+        "lines": "14-18"
       }
     ]
   },
@@ -111,12 +111,13 @@
     "type": "control",
     "parentId": "p-bb-motores",
     "kind": "test",
-    "summary": "Falla si aparece un nombre de proyecto en el código del motor de tableros. Lo propio de cada proyecto vive en su configuración, en su repo.",
+    "summary": "Falla si aparece un nombre de proyecto en el código de los motores de tableros y de outreach. Lo propio de cada proyecto vive en su configuración, en su repo.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "owner": "Mariano",
     "dates": {
-      "first": "2026-10-26"
+      "first": "2026-10-26",
+      "last": "2026-11-07"
     },
     "sources": [
       {
@@ -132,18 +133,29 @@
     "type": "control",
     "parentId": "p-bb-motores",
     "kind": "regla de entrada",
-    "summary": "Un motor entra a both-boards solo cuando dos ciudades lo usan tal cual. Hasta entonces se queda en la ciudad que lo usa, anotado como candidato.",
+    "summary": "Un motor entra a both-boards solo cuando dos ciudades lo usan tal cual. Hasta entonces se queda en la ciudad que lo usa, anotado como candidato. El de outreach entró contando a La Chamana, que corre su propio riel —del que se portó— y puede adoptarlo cuando quiera: hoy lo usa solo la Bienal.",
     "state": "implemented",
     "evidence": "observed-in-docs",
     "owner": "Mariano",
     "dates": {
-      "first": "2026-10-26"
+      "first": "2026-10-26",
+      "last": "2026-11-07"
     },
     "sources": [
       {
         "repo": "both-boards",
         "path": "README.md",
         "lines": "8-11"
+      },
+      {
+        "repo": "both-boards",
+        "path": "README.md",
+        "lines": "18"
+      },
+      {
+        "repo": "both-boards",
+        "path": "outreach/README.md",
+        "lines": "9-11"
       }
     ]
   },
@@ -161,7 +173,84 @@
       {
         "repo": "both-boards",
         "path": "README.md",
-        "lines": "35-40"
+        "lines": "36-42"
+      }
+    ]
+  },
+  {
+    "id": "bb-cap-outreach",
+    "name": "Motor de outreach en frío",
+    "type": "capability",
+    "parentId": "p-bb-motores",
+    "kind": "SMTP · olas · casilla IMAP · pase",
+    "summary": "Manda secuencias cortas de mails fríos desde una identidad de remitente, lee las respuestas y lleva el estado en dos tableros CRM: un reservorio de prospectos y el pipeline del equipo, donde solo entra quien respondió con interés. Se portó del riel de La Chamana, sin Airtable. La Bienal es la primera en usarlo: tiene su configuración y una ola preparada, sin envíos en su libro.",
+    "state": "experimental",
+    "evidence": "observed-in-code",
+    "owner": "Mariano",
+    "dates": {
+      "first": "2026-11-01",
+      "last": "2026-11-07"
+    },
+    "sources": [
+      {
+        "repo": "both-boards",
+        "path": "README.md",
+        "lines": "18"
+      },
+      {
+        "repo": "both-boards",
+        "path": "outreach/README.md"
+      },
+      {
+        "repo": "both-boards",
+        "path": "outreach/outreach.py"
+      },
+      {
+        "repo": "both-boards",
+        "path": "outreach/motor/wave.py"
+      },
+      {
+        "repo": "both-boards",
+        "path": "outreach/motor/inbox.py"
+      },
+      {
+        "repo": "both-boards",
+        "path": "outreach/tests/test_outreach.py"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "marketing/outreach/README.md",
+        "note": "consumidor; olas/ sin libro .sent.jsonl"
+      }
+    ]
+  },
+  {
+    "id": "bb-ctl-outreach-libro",
+    "name": "El libro manda",
+    "type": "control",
+    "parentId": "p-bb-motores",
+    "kind": "reglas del frío · vienen de incidentes",
+    "summary": "Lo que salió lo dice un libro de envíos, no el tablero ni la consola: relanzar una ola retoma y no repite, y el pase tiene su propio libro. Revisión previa sin olas parciales: precios, marcadores vacíos o un dominio sin MX frenan todo. Nunca un cuarto mail, una baja es para siempre, cada ficha guarda su base legal y un mail sin fuente publicada no entra. El simulacro corre sin esperas.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "owner": "Mariano",
+    "dates": {
+      "first": "2026-11-07",
+      "last": "2026-11-07"
+    },
+    "sources": [
+      {
+        "repo": "both-boards",
+        "path": "outreach/README.md",
+        "lines": "78-110"
+      },
+      {
+        "repo": "both-boards",
+        "path": "outreach/motor/ops.py"
+      },
+      {
+        "repo": "both-boards",
+        "path": "outreach/motor/revision.py"
       }
     ]
   }

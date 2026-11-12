@@ -1,8 +1,8 @@
 {
   "title": "BOTH WORLDS",
   "subtitle": "La infraestructura invisible, hecha visible",
-  "generated": "2026-11-01",
-  "coverage": "Atlas curado de seis repositorios, por capas. Ciudades —un repo con su orquestador—: both_os (BOTH OS, la ciudad central, con Synergy), bienal-punta-os (Bienal OS, orquestador Bienal Orch), casa-manantial-os (Manantial OS, orquestador Manantial Orch) y lc-chaman (Chamana OS, el cerebro El Chamán). Capacidades —motores que usan varias ciudades—: synergy-toolkit (la BOTH GTM Machine) y both-boards (tableros CRM y Tareas, decks a PDF). both_os y both-boards al 2026-11-01; bienal-punta-os y casa-manantial-os al 2026-10-27; synergy-toolkit y lc-chaman al 2026-10-25/26. Representa unidades significativas de trabajo, no archivos. Los conteos dicen qué cuentan. Las personas fuera de los cinco de BOTH se nombran por su rol.",
+  "generated": "2026-11-11",
+  "coverage": "Atlas curado de seis repositorios, por capas. Ciudades —un repo con su orquestador—: both_os (BOTH OS, la ciudad central, con Synergy), bienal-punta-os (Bienal OS, orquestador Bienal Orch), casa-manantial-os (Manantial OS, orquestador Manantial Orch) y lc-chaman (Chamana OS, el cerebro El Chamán). Capacidades —motores que usan varias ciudades—: synergy-toolkit (la BOTH GTM Machine) y both-boards (tableros CRM y Tareas, decks a PDF, outreach en frío). Los seis repos al 2026-11-11. Representa unidades significativas de trabajo, no archivos. Los conteos dicen qué cuentan. Las personas fuera de los cinco de BOTH se nombran por su rol.",
   "limitations": [
     "No se consultó ningún endpoint vivo: 'live' o 'deployed' se muestra como declaración de un documento, no como verificación.",
     "No se leyeron bases de datos privadas (SQLite del Toolkit), transcripts, listas de contactos ni cifras comerciales; nada de eso aparece.",
@@ -11,43 +11,43 @@
     "El tamaño visual de cada bloque es una decisión editorial, no una métrica de valor ni de actividad.",
     "De bienal-punta-os, casa-manantial-os y de lo que se quedó en both_os sobre esos proyectos solo se muestra la topología: ni cifras, ni precios, ni contactos, ni claves de los tableros aparecen acá."
   ],
-  "version": "V4.4",
+  "version": "V4.5",
   "repos": {
     "both_os": {
       "url": "https://github.com/BothVentures/both_os",
       "branch": "main",
       "visibility": "private",
-      "head": "fbbbec56"
+      "head": "bc978ae1"
     },
     "synergy-toolkit": {
       "url": "https://github.com/BothVentures/synergy-toolkit",
       "branch": "main",
       "visibility": "private",
-      "head": "6685d70"
+      "head": "60dd6be"
     },
     "lc-chaman": {
       "url": "https://github.com/BothVentures/lc-chaman",
       "branch": "main",
       "visibility": "private",
-      "head": "23d8878"
+      "head": "5824d54"
     },
     "bienal-punta-os": {
       "url": "https://github.com/BothVentures/bienal-punta-os",
       "branch": "main",
       "visibility": "private",
-      "head": "06fefb6"
+      "head": "e2b783a"
     },
     "casa-manantial-os": {
       "url": "https://github.com/BothVentures/casa-manantial-os",
       "branch": "main",
       "visibility": "private",
-      "head": "4b677fe"
+      "head": "d23640c"
     },
     "both-boards": {
       "url": "https://github.com/BothVentures/both-boards",
       "branch": "main",
       "visibility": "private",
-      "head": "e53024f"
+      "head": "80a9dc2"
     }
   }
 }

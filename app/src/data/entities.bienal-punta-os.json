@@ -5,13 +5,13 @@
     "type": "territory",
     "parentId": "world",
     "kind": "ciudad · Bienal Orch · repo bienal-punta-os",
-    "summary": "El primer brain de proyecto de BOTH. La Bienal creció hasta necesitar su propio sistema: un equipo que no es solo BOTH, seis áreas con owner, marca, tableros compartidos y un sitio. En vez de seguir como carpeta adentro de both_os, tiene repo propio con su orquestador, Bienal Orch (su CLAUDE.md), que despacha a sus skills y a seis agentes de área. No es independiente de BOTH: Synergy le despacha trabajo y lee todo lo que hay acá, y Bienal Orch le pide a Synergy lo que es de BOTH. Dos puertas, nadie arriba. Un solo nivel de acceso —equipo—: lo que solo ven los cinco de BOTH se queda en both_os.",
+    "summary": "El primer brain de proyecto de BOTH. La Bienal creció hasta necesitar su propio sistema: seis áreas con owner, un frente de marketing, marca, tableros compartidos y un sitio. En vez de seguir como carpeta adentro de both_os, tiene repo propio con su orquestador, Bienal Orch, que despacha a sus skills y a seis agentes de área. No es independiente de BOTH: Synergy le despacha trabajo y lee todo lo que hay acá, y Bienal Orch le pide a Synergy lo que es de BOTH. Dos puertas, nadie arriba. Desde el 2026-11-10 la marca entera vive acá, con el deck comercial incluido; por eso el repo es, por ahora, solo de los cinco de BOTH.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "owner": "René (proyecto) · Daiana (cadencia) · Mariano (sistema)",
     "dates": {
       "first": "2026-10-25",
-      "last": "2026-10-25"
+      "last": "2026-11-11"
     },
     "layout": {
       "accent": "#c9b2f0"
@@ -38,12 +38,13 @@
     "type": "project",
     "parentId": "t-bienal-punta-os",
     "kind": "CLAUDE.md · skills · reglas del repo",
-    "summary": "La sesión que se abre en este repo carga el CLAUDE.md de Bienal Orch: quién es quién en la Bienal, qué nivel de acceso tiene el repo, dónde está cada cosa y a qué skill o agente va cada pedido. Lo que es de BOTH —el vault, minar una llamada, cifras, publicar— no se resuelve acá: se despacha a Synergy.",
+    "summary": "La sesión que se abre en este repo carga el CLAUDE.md de Bienal Orch: quién es quién en la Bienal, qué nivel de acceso tiene el repo, dónde está cada cosa y a qué skill o agente va cada pedido. Desde noviembre abre con dos reglas duras de marca que se chequean solas. Lo que es de BOTH —el vault, minar una llamada, cifras, publicar— no se resuelve acá: se despacha a Synergy.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "owner": "Mariano",
     "dates": {
-      "first": "2026-10-25"
+      "first": "2026-10-25",
+      "last": "2026-11-11"
     },
     "layout": {
       "slot": 0,
@@ -151,26 +152,30 @@
   },
   {
     "id": "bp-ctl-clearance",
-    "name": "Un solo nivel: equipo",
+    "name": "Un nivel, una excepción: la marca",
     "type": "control",
     "parentId": "p-bp-orch",
     "kind": "regla del repo",
-    "summary": "GitHub no da permisos por carpeta, así que el brain tiene un único nivel: lo puede ver todo el equipo de la Bienal. Lo que solo ven los cinco de BOTH nunca entra, ni en un archivo ni en la historia de git: se escribe en both_os y acá se nombra por su ruta. El repo nació como foto limpia, sin historia, por esa razón.",
+    "summary": "GitHub no da permisos por carpeta, así que el brain tiene un único nivel y la regla sigue siendo que lo que solo ven los cinco de BOTH no entra: se escribe en both_os y acá se nombra por su ruta. La excepción es la marca: desde el 2026-11-10 vive entera acá, deck comercial incluido, y en both_os no queda copia. El documento no cambia de nivel; cambia dónde vive. Consecuencia: nadie fuera de los cinco entra al repo hasta resolverlo, historia de git incluida.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "owner": "Mariano",
     "dates": {
-      "first": "2026-10-25"
+      "first": "2026-10-25",
+      "last": "2026-11-10"
     },
     "sources": [
       {
         "repo": "bienal-punta-os",
-        "path": "CLAUDE.md",
-        "note": "§ Clearance de este repo"
+        "path": "CLAUDE.md"
       },
       {
         "repo": "bienal-punta-os",
         "path": "politica-de-documentos.md"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "docs/synergy-contract.md"
       }
     ]
   },
@@ -180,15 +185,18 @@
     "type": "control",
     "parentId": "p-bp-orch",
     "kind": "compuerta humana",
-    "summary": "Todo lo que sale al público —el sitio, un deck, las guidelines— lo firma René antes de publicarse. Subir algo de nivel equipo a público también es decisión suya.",
+    "summary": "Todo lo que sale al público —el sitio, un deck, las guidelines, los textos base del canal frío— lo firma René antes de publicarse o enviarse. Subir algo de nivel equipo a público también es decisión suya.",
     "state": "implemented",
     "evidence": "observed-in-docs",
     "owner": "René",
     "sources": [
       {
         "repo": "bienal-punta-os",
-        "path": "CLAUDE.md",
-        "note": "§ Equipo y autoridad"
+        "path": "CLAUDE.md"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": ".claude/skills/outreach/SKILL.md"
       }
     ]
   },
@@ -198,13 +206,13 @@
     "type": "project",
     "parentId": "t-bienal-punta-os",
     "kind": "frentes × cuenta regresiva a marzo 2027",
-    "summary": "La Bienal se organiza en seis áreas con owner —Comunicación, Institucional, Comercial, Programa, Producción, Economía y Legal— más Operaciones, sobre una cuenta regresiva a marzo de 2027. Cada área tiene su carpeta con un índice (qué va, qué no, gate vigente) y su agente, que redacta borradores para el owner humano.",
+    "summary": "La Bienal se organiza en seis áreas con owner —Comunicación, Institucional, Comercial, Programa, Producción, Economía y Legal— más Operaciones, sobre una cuenta regresiva a marzo de 2027. Cada área tiene su carpeta con un índice (qué va, qué no, gate vigente) y su agente, que redacta borradores para el owner humano. Desde el 2026-11-07 se suma Marketing como frente propio.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "owner": "René",
     "dates": {
       "first": "2026-08-26",
-      "last": "2026-10-25"
+      "last": "2026-11-11"
     },
     "layout": {
       "slot": 1
@@ -262,7 +270,7 @@
     "type": "capability",
     "parentId": "p-bp-areas",
     "kind": "agente de área · owner René",
-    "summary": "Narrativa y secuencia de venta, materiales para quien abre conversaciones, preparación de reuniones. Sin números: el pipeline y los precios son de BOTH y no entran al brain.",
+    "summary": "Narrativa y secuencia de venta, materiales para quien abre conversaciones, preparación de reuniones. El agente no maneja cifras. Desde el 2026-11-02 el CRM del equipo y las cartas a partners viven en el brain; el modelo y los deals en negociación siguen en BOTH.",
     "state": "experimental",
     "evidence": "observed-in-code",
     "owner": "René",
@@ -273,6 +281,10 @@
       {
         "repo": "bienal-punta-os",
         "path": ".claude/agents/area-comercial.md"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "comercial/_index.md"
       }
     ]
   },
@@ -386,13 +398,13 @@
     "type": "project",
     "parentId": "t-bienal-punta-os",
     "kind": "Hyper-Neo-Class · fuentes reproducibles",
-    "summary": "La dirección de arte Hyper-Neo-Class y todo lo que sale de ella: el sitio, los decks, las guidelines y el logo. Cada pieza es un template más un build: el HTML generado no se edita a mano.",
+    "summary": "La dirección de arte Hyper-Neo-Class y todo lo que sale de ella: el sitio, los decks, los teasers, los afiches, las guidelines, el logo y sus archivos de registro. Desde el 2026-11-10 la marca vive entera acá —fuentes, builds, videos y pesados—; la carpeta que seguía activa en both_os se trajo y dejó de existir. Cada pieza es un template más un build: el HTML generado no se edita a mano.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "owner": "René",
     "dates": {
       "first": "2026-08-20",
-      "last": "2026-10-25"
+      "last": "2026-11-11"
     },
     "layout": {
       "slot": 2
@@ -401,6 +413,10 @@
       {
         "repo": "bienal-punta-os",
         "path": "marca/_index.md"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "CLAUDE.md"
       }
     ]
   },
@@ -410,47 +426,62 @@
     "type": "deliverable",
     "parentId": "p-bp-marca",
     "kind": "sitio público · V0.6.0",
-    "summary": "En línea desde el 17-oct, servido desde el repo público bienalpunta-web. Sigue con noindex hasta el OK de René.",
+    "summary": "En línea desde el 17-oct, servido desde el repo público bienalpunta-web; hoy en V0.6.1. Antes de publicar pasa por el sanitizador de la zona pública de BOTH. Sigue con noindex hasta el OK de René.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "owner": "René",
     "dates": {
       "first": "2026-10-11",
-      "last": "2026-10-17"
+      "last": "2026-11-10"
     },
     "sources": [
       {
         "repo": "bienal-punta-os",
-        "path": "marca/landing-v0.6.0.html"
+        "path": "marca/landing-v0.6.1.html"
       },
       {
         "repo": "bienal-punta-os",
-        "path": "status.md",
-        "note": "§ Comunicación"
+        "path": "scripts/deploy-site.sh"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "marketing/_index.md"
       }
     ]
   },
   {
     "id": "bp-del-decks",
-    "name": "Decks · onboarding, briefing, institucional",
+    "name": "Decks · comercial, teasers, institucional, onboarding",
     "type": "deliverable",
     "parentId": "p-bp-marca",
     "kind": "planchas HTML + PDF",
-    "summary": "Los decks que el equipo usa para presentar la Bienal, generados desde el mismo motor que el sitio. A externos va el PDF, nunca el link.",
+    "summary": "Los decks que el equipo usa para presentar la Bienal, generados desde el mismo motor que el sitio. El comercial, cerrado como V1.0.0, sale en tres idiomas; su teaser y el de partners van sin precios, para acompañar una primera conversación. A externos va el PDF, nunca el link. Llegaron al brain con el resto de la marca el 2026-11-10.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "dates": {
       "first": "2026-10-04",
-      "last": "2026-10-22"
+      "last": "2026-11-10"
     },
     "sources": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "marca/deck-comercial.build.py"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "marca/deck-teaser.build.py"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "marca/deck-institucional-v0.2.0.template.html"
+      },
       {
         "repo": "bienal-punta-os",
         "path": "marca/deck-onboarding-v0.2.0.template.html"
       },
       {
         "repo": "bienal-punta-os",
-        "path": "marca/deck-institucional-v0.2.0.template.html"
+        "path": "marca/deck-pdf.py"
       }
     ]
   },
@@ -488,12 +519,12 @@
     "type": "workflow",
     "parentId": "p-bp-marca",
     "kind": "build · tokens → theme",
-    "summary": "Genera el theme CSS desde los tokens y arma cada pieza desde su template. Mientras los publicadores sigan en both_os, refleja el theme allá. Candidato a capability compartida: Casa Manantial ya usa el mismo motor para sus decks.",
+    "summary": "Genera el theme CSS desde los tokens y arma cada pieza desde su template, incluido el membrete de las cartas. Inyecta y verifica el arreglo del cero pixel en cada salida. Mientras los publicadores sigan en both_os, refleja el theme allá. Candidato a capability compartida: Casa Manantial ya usa el mismo motor para sus decks.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "dates": {
       "first": "2026-08-20",
-      "last": "2026-10-25"
+      "last": "2026-11-11"
     },
     "sources": [
       {
@@ -503,6 +534,10 @@
       {
         "repo": "bienal-punta-os",
         "path": "marca/_engine/README.md"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "marca/_engine/zero_fix.py"
       }
     ]
   },
@@ -512,12 +547,12 @@
     "type": "workflow",
     "parentId": "p-bp-marca",
     "kind": "script · desde una máquina con red",
-    "summary": "Publica la landing en bienalpunta.com a través del repo público del sitio. Saca el noindex solo con el OK de René.",
+    "summary": "Publica la landing en bienalpunta.com a través del repo público del sitio. Antes saca comentarios internos y busca fugas con el mismo sanitizador que la zona pública de Pages; si falta o encuentra algo, no publica. El script viejo de both_os reenvía acá. Saca el noindex solo con el OK de René.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "dates": {
       "first": "2026-10-11",
-      "last": "2026-10-25"
+      "last": "2026-11-10"
     },
     "sources": [
       {
@@ -528,16 +563,17 @@
   },
   {
     "id": "p-bp-operaciones",
-    "name": "Operaciones",
+    "name": "Tableros del equipo",
     "type": "project",
     "parentId": "t-bienal-punta-os",
-    "kind": "tareas del equipo",
-    "summary": "El gestor de tareas del equipo de la Bienal. La página y su contrato viven en el brain; el dato vive en el Worker y la base de BOTH, que es una sola para todos los proyectos.",
+    "kind": "tareas y vínculos",
+    "summary": "Los tableros que usa el equipo de la Bienal: tareas y, desde el 2026-11-02, el CRM de vínculos. Cada página y su contrato viven en el brain; el dato vive en el Worker y la base de BOTH, que es una sola para todos los proyectos.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "owner": "Daiana",
     "dates": {
-      "first": "2026-10-08"
+      "first": "2026-10-08",
+      "last": "2026-11-02"
     },
     "layout": {
       "slot": 3
@@ -546,6 +582,10 @@
       {
         "repo": "bienal-punta-os",
         "path": "operaciones/tareas/README.md"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "comercial/crm/README.md"
       }
     ]
   },
@@ -602,11 +642,12 @@
     "type": "deliverable",
     "parentId": "p-bp-puente",
     "kind": "contrato · seis secciones",
-    "summary": "Qué lee both_os del brain, qué escribe, qué lee el brain de both_os, qué escribe, los dos procesos de despacho y lo que nunca cruza: secretos, el vault, lo que es solo de BOTH.",
+    "summary": "Qué lee both_os del brain, qué escribe, qué lee el brain de both_os, qué escribe, los dos procesos de despacho y lo que nunca cruza: secretos, el vault, lo que es solo de BOTH. Desde el 2026-11-10 tiene una excepción escrita: lo que un despacho no puede hacer —copiar binarios, correr builds, regenerar PDFs— lo hace Synergy directo, en una rama propia y con el sí de una persona.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "dates": {
-      "first": "2026-10-25"
+      "first": "2026-10-25",
+      "last": "2026-11-10"
     },
     "sources": [
       {
@@ -621,12 +662,13 @@
     "type": "workflow",
     "parentId": "p-bp-puente",
     "kind": "LaunchAgent · cada 20 s · fuera del sandbox",
-    "summary": "El puente en sí. Un repo le pide trabajo al otro: la skill escribe el pedido en una cola, y un agente de la máquina —fuera del sandbox de Cowork, que no tiene red— lanza una sesión de Claude Code con el otro repo como directorio, en un worktree y una rama propios. La sesión siempre deja un reporte, aunque falle. Primera ida y vuelta el 2026-10-25: Synergy → Bienal Orch en 1 min 47 s, Bienal Orch → Synergy en 2 min 33 s. En prueba hasta una semana de uso real.",
+    "summary": "El puente en sí. Un repo le pide trabajo al otro: la skill escribe el pedido en una cola, y un agente de la máquina —fuera del sandbox de Cowork, que no tiene red— lanza una sesión de Claude Code con el otro repo como directorio, en un worktree y una rama propios. La sesión siempre deja un reporte, aunque falle. Primera ida y vuelta el 2026-10-25; al 2026-11-11 suma cinco despachos al brain, entre ellos la mudanza del CRM y las cartas. Si falta el repo destino, clona solo ese. Sigue en prueba.",
     "state": "experimental",
     "evidence": "executed",
     "owner": "Mariano",
     "dates": {
-      "first": "2026-10-25"
+      "first": "2026-10-25",
+      "last": "2026-11-11"
     },
     "layout": {
       "height": 1.25
@@ -642,8 +684,11 @@
       },
       {
         "repo": "both_os",
-        "path": "scripts/despachar.sh",
-        "note": "copia canónica, byte-idéntica"
+        "path": "scripts/despachar.sh"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "reports/despachos/2026-11-02-crm-y-cartas-al-brain.md"
       }
     ]
   },
@@ -653,17 +698,17 @@
     "type": "control",
     "parentId": "p-bp-puente",
     "kind": "compuerta humana",
-    "summary": "La sesión despachada trabaja en su rama y nunca mergea ni pushea: no publica, no gasta, no despliega. Se mergea cuando una persona lee el reporte y dice que sí, en el repo desde donde despachó.",
+    "summary": "La sesión despachada trabaja en su rama y nunca mergea ni pushea: no publica, no gasta, no despliega. Se mergea cuando una persona lee el reporte y dice que sí, en el repo desde donde despachó. El trabajo que Synergy hace directo, por excepción, pasa por la misma compuerta.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "dates": {
-      "first": "2026-10-25"
+      "first": "2026-10-25",
+      "last": "2026-11-10"
     },
     "sources": [
       {
         "repo": "bienal-punta-os",
-        "path": "docs/synergy-contract.md",
-        "note": "§5 · reglas de todo despacho"
+        "path": "docs/synergy-contract.md"
       }
     ]
   },
@@ -673,16 +718,21 @@
     "type": "deliverable",
     "parentId": "p-bp-puente",
     "kind": "reports/despachos/",
-    "summary": "Un archivo por despacho: veredicto en una línea, qué se hizo, qué se rechazó, qué necesita de una persona y cómo mergear. El primero encontró dos archivos mal etiquetados que el exportador había dejado pasar; se corrigieron el mismo día.",
+    "summary": "Un archivo por despacho: veredicto en una línea, qué se hizo, qué se rechazó, qué necesita de una persona y cómo mergear. Cinco en el brain al 2026-11-11. El primero encontró dos archivos mal etiquetados que el exportador había dejado pasar; se corrigieron el mismo día.",
     "state": "implemented",
     "evidence": "executed",
     "dates": {
-      "first": "2026-10-25"
+      "first": "2026-10-25",
+      "last": "2026-11-11"
     },
     "sources": [
       {
         "repo": "bienal-punta-os",
         "path": "reports/despachos/2026-10-25-prueba-puente-1.md"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "reports/despachos/2026-11-11-remitente-bienal-punta.md"
       },
       {
         "repo": "both_os",
@@ -696,11 +746,12 @@
     "type": "workflow",
     "parentId": "p-bp-puente",
     "kind": "sync-daemon · doctor · lock-cleaner",
-    "summary": "El brain arranca solo en la máquina de cualquiera: mismo doctor, mismo sync-daemon, mismo lock-cleaner que both_os, copiados byte a byte y con un LaunchAgent por repo. Para separarlos hubo que arreglar uno que era global: correr el doctor en el brain habría dejado a both_os sin vigilancia.",
+    "summary": "El brain arranca solo en la máquina de cualquiera: mismo doctor, mismo sync-daemon, mismo lock-cleaner que both_os, copiados byte a byte y con un LaunchAgent por repo. Desde el 2026-11-05 cada persona entra a GitHub con su propia cuenta, y desde el 06 también una colaboradora de un solo repo; en una máquina sin both_os al lado, el doctor marca los despachos como «no aplica».",
     "state": "implemented",
     "evidence": "observed-in-code",
     "dates": {
-      "first": "2026-10-25"
+      "first": "2026-10-25",
+      "last": "2026-11-06"
     },
     "sources": [
       {
@@ -710,6 +761,10 @@
       {
         "repo": "bienal-punta-os",
         "path": "scripts/sync-daemon.sh"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "scripts/github-login.sh"
       },
       {
         "repo": "bienal-punta-os",
@@ -746,14 +801,17 @@
     "type": "deliverable",
     "parentId": "p-bp-futuro",
     "kind": "F5 · repo público hermano",
-    "summary": "Las páginas de la Bienal salen de un repo público propio, como La Chamana con lc-docs. Los links viejos redirigen, ninguno da 404. Se hace en la misma pasada que la limpieza de links públicos.",
+    "summary": "Las páginas de la Bienal salen de un repo público propio, como La Chamana con lc-docs. Mientras tanto, desde el 2026-10-28 salen por las dos zonas de BOTH: interna con login, pública solo por elección. Los links viejos ya redirigen.",
     "state": "proposed",
     "evidence": "proposed",
     "sources": [
       {
         "repo": "both_os",
-        "path": "vault/initiatives/2026-10-24-bienal-brain-split.md",
-        "note": "F5"
+        "path": "vault/initiatives/2026-10-24-bienal-brain-split.md"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "politica-de-documentos.md"
       }
     ]
   },
@@ -763,7 +821,7 @@
     "type": "control",
     "parentId": "p-bp-futuro",
     "kind": "acceso · decide René",
-    "summary": "El equipo de la edición entra de a uno. Recién cuando el brain publique solo y su historia esté verificada limpia.",
+    "summary": "El equipo de la edición entra de a uno. Antes, dos cosas: que el brain publique solo y resolver dónde quedan los precios de la marca, que hoy están en el repo y en su historia.",
     "state": "proposed",
     "evidence": "proposed",
     "owner": "René",
@@ -771,6 +829,10 @@
       {
         "repo": "bienal-punta-os",
         "path": "context/decisiones-abiertas.md"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "CLAUDE.md"
       }
     ]
   },
@@ -793,5 +855,307 @@
         "path": "vault/initiatives/2026-10-20-klaviyo-y-toolkit-multitenant.md"
       }
     ]
+  },
+  {
+    "id": "p-bp-marketing",
+    "name": "Marketing",
+    "type": "project",
+    "parentId": "t-bienal-punta-os",
+    "kind": "frente nuevo · V0.1.0 en borrador",
+    "owner": "René · Daiana · Mariano",
+    "summary": "El frente que genera y califica. Decide a quién se le habla, por qué canal, con qué palabras y cómo se sabe si funcionó. La frontera con Comercial es una sola: marketing genera y califica, comercial cierra; la costura es el pase a Daiana. Nació el 2026-11-07 como andamiaje que escribió Synergy; nada es canon hasta que René lo firme.",
+    "state": "experimental",
+    "evidence": "observed-in-docs",
+    "sources": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "marketing/_index.md"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "marketing/contexto.md"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "CLAUDE.md"
+      }
+    ],
+    "dates": {
+      "first": "2026-11-07",
+      "last": "2026-11-11"
+    },
+    "layout": {
+      "slot": 2.5
+    }
+  },
+  {
+    "id": "bp-del-conversiones",
+    "name": "Fichas de conversión · canales · calendario · medición",
+    "type": "deliverable",
+    "parentId": "p-bp-marketing",
+    "kind": "seis fichas + tres documentos",
+    "owner": "René · Daiana",
+    "summary": "Una ficha por conversión —speaker, sponsor, socio institucional, media partner, entrada, comunidad— con su perfil de pasa / no pasa. La de speaker es la única operativa; las otras tienen preguntas abiertas. Al lado, la matriz de canales con fuentes de prospección legítimas, las fechas derivadas de los gates del roadmap y qué se mide y qué es vanidad. Sin perfil escrito, no se prospecta.",
+    "state": "experimental",
+    "evidence": "observed-in-docs",
+    "sources": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "marketing/conversiones/speaker.md"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "marketing/canales.md"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "marketing/calendario.md"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "marketing/medicion.md"
+      }
+    ],
+    "dates": {
+      "first": "2026-11-07"
+    }
+  },
+  {
+    "id": "bp-cap-outreach",
+    "name": "outreach · canal frío",
+    "type": "capability",
+    "parentId": "p-bp-marketing",
+    "kind": "skill · mudada desde both_os",
+    "owner": "Mariano",
+    "summary": "La remitente de outreach abre, Daiana cierra, René firma los textos y Mariano opera. La skill prospecta contra la ficha, carga el tablero de prospectos, prepara olas de tres toques, barre la casilla y hace el pase. El motor vive en both-boards; acá quedan la config, la voz, los textos y el registro de cada ola. Casilla verificada el 2026-11-08. Corre solo desde una terminal con red y los secretos de BOTH. La primera ola está preparada en simulacro: ninguna salió.",
+    "state": "experimental",
+    "evidence": "observed-in-code",
+    "sources": [
+      {
+        "repo": "bienal-punta-os",
+        "path": ".claude/skills/outreach/SKILL.md"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "marketing/outreach/README.md"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "marketing/outreach/outreach.json"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "marketing/outreach/voz.md"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "marketing/outreach/olas/programa-piloto/2026-11-07-ola-1-para-firma.md"
+      }
+    ],
+    "dates": {
+      "first": "2026-11-07",
+      "last": "2026-11-11"
+    }
+  },
+  {
+    "id": "bp-del-prospectos",
+    "name": "Tablero de prospectos",
+    "type": "deliverable",
+    "parentId": "p-bp-marketing",
+    "kind": "tablero reservorio",
+    "owner": "Mariano",
+    "summary": "Todo lo que encuentra la prospección y todo lo que está en secuencia. El brain guarda solo la configuración; la página sale del motor compartido y el dato vive detrás del Worker de BOTH, nunca en archivos. Quien responde con interés pasa al CRM. Tablero vivo, página sin publicar.",
+    "state": "experimental",
+    "evidence": "observed-in-code",
+    "sources": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "marketing/prospectos/board.json"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "marketing/_index.md"
+      }
+    ],
+    "dates": {
+      "first": "2026-11-07"
+    }
+  },
+  {
+    "id": "bp-ctl-outreach-frenos",
+    "name": "Frenos del canal frío",
+    "type": "control",
+    "parentId": "p-bp-marketing",
+    "kind": "compuerta humana + frenos del motor",
+    "owner": "René · Mariano",
+    "summary": "Sin la firma de René en los textos de un segmento, solo hay simulacro. Una aprobación por ola. El motor se frena antes del primer envío si un cuerpo trae precios o niveles, si queda un marcador sin llenar o si falta la línea propia de cada mail. Topes por ola y por día. Nadie que respondió, rebotó o pidió la baja vuelve a recibir; una baja se respeta en el acto.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "sources": [
+      {
+        "repo": "bienal-punta-os",
+        "path": ".claude/skills/outreach/SKILL.md"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "marketing/outreach/textos/programa.md"
+      }
+    ],
+    "dates": {
+      "first": "2026-11-07"
+    }
+  },
+  {
+    "id": "bp-del-crm",
+    "name": "CRM de vínculos",
+    "type": "deliverable",
+    "parentId": "p-bp-operaciones",
+    "kind": "tablero compartido · V1 · mudado al brain",
+    "owner": "Daiana · Mariano",
+    "summary": "El tablero de vínculos de la Bienal: sponsors, comité, instituciones, programa y aliados, con un pipeline de siete etapas y los toques por contacto. Desde el 2026-11-02 su configuración, su PRD, su build y su semilla viven en el brain, por decisión de René; llegaron por despacho. El dato sigue en la base de BOTH detrás del Worker y la clave, con Mariano.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "sources": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "comercial/crm/README.md"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "comercial/crm/board.json"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "comercial/crm/crm.build.py"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "reports/despachos/2026-11-02-crm-y-cartas-al-brain.md"
+      }
+    ],
+    "dates": {
+      "first": "2026-10-06",
+      "last": "2026-11-07"
+    }
+  },
+  {
+    "id": "bp-del-cartas",
+    "name": "Cartas con membrete",
+    "type": "deliverable",
+    "parentId": "p-bp-areas",
+    "kind": "plantillas ES|EN · html · pdf · docx",
+    "owner": "Andrés · René",
+    "summary": "Una familia de cartas con el membrete de la Bienal: invitación a partners y a speakers (2026-11-02) y, con texto de Andrés, la carta de apoyo institucional y la carta de intención de speakers (V1.0.0, 2026-11-11), bilingües cláusula por cláusula y con un Word editable. Dos builds, un solo membrete. Son plantillas en blanco: las llenas y firmadas van a Drive, nunca al repo.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "sources": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "comercial/cartas-outreach.build.py"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "economia-legal/cartas-legales.build.py"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "economia-legal/_index.md"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "comercial/_index.md"
+      }
+    ],
+    "dates": {
+      "first": "2026-11-02",
+      "last": "2026-11-11"
+    }
+  },
+  {
+    "id": "bp-ctl-zero",
+    "name": "Regla dura del cero pixel",
+    "type": "control",
+    "parentId": "p-bp-marca",
+    "kind": "regla de marca · se chequea sola",
+    "owner": "René",
+    "summary": "En la tipografía pixel de la Bienal el cero se lee como un ocho, así que se dibuja como O, en toda pieza. Un solo arreglo en el motor: el texto no se reescribe, se ve O y se copia 0. Cada build lo inyecta y falla si queda una pieza sin él; un hook frena a cualquier agente que escriba una página sin el arreglo, acá y en both_os. Las excepciones se anotan con su motivo: hoy queda una, una pieza de video.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "sources": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "marca/_engine/zero_fix.py"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "marca/_engine/zero-fix.allow"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": ".claude/settings.json"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "CLAUDE.md"
+      }
+    ],
+    "dates": {
+      "first": "2026-10-06",
+      "last": "2026-11-11"
+    }
+  },
+  {
+    "id": "bp-del-registro",
+    "name": "Archivos de registro marcario",
+    "type": "deliverable",
+    "parentId": "p-bp-marca",
+    "kind": "logo · tres tamaños · tinta negra",
+    "owner": "René · Andrés",
+    "summary": "El logo preparado para registrar la marca: cuatro variantes en tres tamaños, en vectorial y en imagen, con el texto convertido a contornos. Se registra el nombre permanente, sin la edición. Los genera un script desde la tipografía.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "sources": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "marca/_logo/build_registro.py"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "marca/_index.md"
+      }
+    ],
+    "dates": {
+      "first": "2026-10-29",
+      "last": "2026-11-10"
+    }
+  },
+  {
+    "id": "bp-ctl-naming",
+    "name": "Títulos y versiones",
+    "type": "control",
+    "parentId": "p-bp-orch",
+    "kind": "criterio de documentos · René",
+    "owner": "René",
+    "summary": "El título dice qué es el documento, sin el nombre del proyecto adelante. La versión vive en el nombre del archivo y en el título de la página, nunca en el pie ni en el cuerpo. Se aplicó en dos despachos el 2026-11-07, sin tocar contenido visible; lo primero que sale a un tercero es V1.0.0.",
+    "state": "implemented",
+    "evidence": "observed-in-docs",
+    "sources": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "CLAUDE.md"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "reports/despachos/2026-11-07-titulos-docs.md"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "reports/despachos/2026-11-07-titulos-h1-html.md"
+      }
+    ],
+    "dates": {
+      "first": "2026-11-07",
+      "last": "2026-11-11"
+    }
   }
 ]

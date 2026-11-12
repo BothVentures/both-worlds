@@ -11,7 +11,7 @@
     "owner": "Boris (admin) · La operadora del cockpit (operadora)",
     "dates": {
       "first": "2026-07-18",
-      "last": "2026-10-14"
+      "last": "2026-11-04"
     },
     "layout": {
       "accent": "#9fd8e8"
@@ -39,15 +39,19 @@
       "months": [
         "jul",
         "ago",
-        "sep"
+        "sep",
+        "oct",
+        "nov"
       ],
       "values": [
         191,
         235,
-        121
+        158,
+        25,
+        5
       ],
-      "total": 547,
-      "source": "synergy-toolkit · git log"
+      "total": 614,
+      "source": "synergy-toolkit · git log de main (fecha de commit), al 2026-11-04"
     }
   },
   {
@@ -354,7 +358,7 @@
     "type": "capability",
     "parentId": "p-tk-engine",
     "kind": "arnés cross-repo",
-    "summary": "Cada chequeo nombra el incidente que previene. Lee ambos repos, los registros, la base, la carpeta comercial del cerebro y las rutas del cockpit. Nuevos desde el 22-sep: ig-dm-house-lines compara las frases de la casa del cerebro con su copia en código, mailbox-engine marca ámbar si las dos máquinas clasificaron el buzón, y door vigila archivos de la puerta Mac retirada.",
+    "summary": "Cada chequeo nombra el incidente que previene. Lee ambos repos, los registros, la base, la carpeta comercial del cerebro y las rutas del cockpit. Nuevos desde el 22-sep: ig-dm-house-lines compara las frases de la casa del cerebro con su copia en código, mailbox-engine marca ámbar si las dos máquinas clasificaron el buzón, y door vigila archivos de la puerta Mac retirada. Desde el 4-nov, web-inquiries se pone rojo si una consulta de la web no le llega a nadie.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "layout": {
@@ -374,8 +378,15 @@
       {
         "repo": "synergy-toolkit",
         "path": "reports/night/2026-09-14-baseline.json"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "scripts/doctor-inquiries.mjs"
       }
-    ]
+    ],
+    "dates": {
+      "last": "2026-11-04"
+    }
   },
   {
     "id": "tk-cap-registries",
@@ -1718,7 +1729,7 @@
     "type": "connection",
     "parentId": "p-tk-infra",
     "kind": "fuera del server",
-    "summary": "Digests y alertas a Slack, vigía de consultas en Klaviyo, scrape con Apify.",
+    "summary": "Digests y alertas a Slack, scrape con Apify. La campana de consultas de Klaviyo del Mac, viva desde el 24-ago, avisa en Slack sólo mientras el Mac está despierto y nunca en el buzón de la operadora. Desde el 4-nov convive con el motor de consultas del worker; el doctor la marca ámbar hasta que se retire.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "layout": {
@@ -1732,16 +1743,24 @@
       {
         "repo": "synergy-toolkit",
         "path": "scripts/klaviyo-inquiry-watch.mjs"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "reports/despachos/2026-11-02-T-1027-1.md",
+        "note": "§5, «un tercer camino»"
       }
-    ]
+    ],
+    "dates": {
+      "last": "2026-11-04"
+    }
   },
   {
     "id": "tk-del-tests",
-    "name": "205 archivos de test + 26 specs Playwright",
+    "name": "223 archivos de test + 26 specs Playwright",
     "type": "deliverable",
     "parentId": "p-tk-infra",
     "kind": "vitest · e2e en 4 tiers · sin CI",
-    "summary": "218 archivos *.test.ts (server 113, shared 57, web 34, scripts 13, e2e 1) y 26 specs e2e con tiers live/qa/rehearsal. El despacho del 13-oct reporta 4.762 tests verdes, typecheck en cero y doctor sin rojos nuevos; cada despacho corre suite, typecheck y doctor antes de cerrar. No hay CI en .github.",
+    "summary": "223 archivos *.test.ts (server 115, shared 58, web 34, scripts 15, e2e 1) y 26 specs e2e con tiers live/qa/rehearsal. El despacho del 2-nov reporta 4.873 de 4.874 tests verdes —el rojo es un test de Cloudbeds con una fecha fija vencida—, typecheck en cero y doctor sin rojos nuevos. Cada despacho corre suite, typecheck y doctor antes de cerrar. No hay CI en .github.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "layout": {
@@ -1756,8 +1775,16 @@
         "repo": "synergy-toolkit",
         "path": "docs/e2e-tiers.md",
         "lines": "1-37"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "reports/despachos/2026-11-02-T-1027-1.md",
+        "lines": "1-15"
       }
-    ]
+    ],
+    "dates": {
+      "last": "2026-11-04"
+    }
   },
   {
     "id": "tk-wf-mandate-engine",
@@ -2292,12 +2319,12 @@
     "type": "workflow",
     "parentId": "p-tk-cadence",
     "kind": "pedido con id · go del operador · rama + worktree · informe · merge = deploy",
-    "summary": "Con un go explícito a un pedido con id, el cerebro lanza una sesión headless con el toolkit como cwd: es TK-000, trabaja en una rama chaman/<id> dentro de un worktree, corre suite, typecheck y doctor, y nunca mergea ni empuja. El informe queda en reports/despachos. Mergear a main es desplegar, y ese press es de Mariano. Quince informes del 26-sep al 13-oct.",
+    "summary": "Con un go explícito a un pedido con id, el cerebro lanza una sesión headless con el toolkit como cwd: es TK-000, trabaja en una rama chaman/<id> dentro de un worktree, corre suite, typecheck y doctor, y nunca mergea ni empuja. El informe queda en reports/despachos. Mergear a main es desplegar, y ese press es de Mariano. Dieciséis informes del 26-sep al 2-nov. El de T-1027-1 dejó una lección: una sesión cortada a los 8 minutos dejó trabajo sin commit ni informe; el relanzamiento lo rescató entero antes de tocar nada, y el merge del 4-nov desplegó el motor apagado.",
     "state": "implemented",
     "evidence": "observed-in-docs",
     "dates": {
       "first": "2026-09-26",
-      "last": "2026-10-13"
+      "last": "2026-11-04"
     },
     "sources": [
       {
@@ -2314,6 +2341,11 @@
         "repo": "synergy-toolkit",
         "path": "reports/despachos/2026-10-13-T-1012-merge.md",
         "note": "último merge desplegado en el worker"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "reports/despachos/2026-11-02-T-1027-1.md",
+        "note": "§2, la sesión cortada"
       }
     ],
     "owner": "Mariano"
@@ -2658,6 +2690,144 @@
         "repo": "synergy-toolkit",
         "path": "reports/despachos/2026-10-06-T-1006-1.md"
       }
+    ]
+  },
+  {
+    "id": "tk-wf-web-inquiries",
+    "name": "Motor de consultas web: aviso y fila en Pipeline",
+    "type": "workflow",
+    "parentId": "p-tk-outreach",
+    "kind": "T-1027-1 · mergeado 4-nov · cada 15 min · sólo donde SYNERGY_WEB_INQUIRIES=on",
+    "summary": "Un lead de la web no le llegaba a nadie: el formulario sólo creaba un perfil en Klaviyo, y Klaviyo no tenía flujos. Ahora el worker lee Klaviyo cada 15 minutos, sin un solo verbo de escritura, anota cada consulta por clave de contenido y la liquida: una fila en Pipeline, deduplicada contra Contacts y Pipeline, y un aviso por mail a la operadora comercial. El aviso sale aunque la fila falle. Los destinatarios salen sólo de ventures.yaml, nunca del formulario; las direcciones de prueba se anotan y no avisan. Apagado por defecto y en una sola máquina, la lección del buzón. Según el cerebro, se prendió el 4-nov y su primera vuelta avisó una consulta real.",
+    "state": "implemented",
+    "evidence": "claimed-by-doc",
+    "owner": "Mariano",
+    "dates": {
+      "first": "2026-10-27",
+      "last": "2026-11-04"
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/inquiries/engine.ts",
+        "lines": "1-60"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/inquiries/klaviyo.ts",
+        "lines": "1-22",
+        "note": "un solo verbo: GET /api/profiles"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/inquiries/notice.ts",
+        "lines": "15-40"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "shared/src/web-inquiry.ts"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "config/ventures.yaml",
+        "lines": "90-102",
+        "note": "web_inquiries"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "reports/despachos/2026-11-02-T-1027-1.md",
+        "note": "§3"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "vault/campaigns/google-exacto-2026-10/results-log.md",
+        "note": "entrada del 4-nov: prendido en el worker"
+      }
+    ],
+    "tags": [
+      "inbound",
+      "crm"
+    ]
+  },
+  {
+    "id": "tk-wf-inquiry-door",
+    "name": "Puerta pública /public/inquiry y parche del formulario",
+    "type": "workflow",
+    "parentId": "p-tk-outreach",
+    "kind": "construida · falta la excepción de Access · parche de 6 páginas sin aplicar",
+    "summary": "El estado final: el formulario le escribe directo al worker y Klaviyo deja de estar en el camino. La ruta vive fuera de /api y de Access, con su propia guarda: origen sólo del sitio, tope de tamaño, honeypot, velocidad humana y ritmo por IP. El parche de Shopify cubre las seis páginas que tienen el formulario, deja el resto del cuerpo byte por byte igual, guarda el original y se deshace con un comando; aplicarlo es un press de Mariano. Por defecto cae a Klaviyo si el worker no contesta. Hoy no recibe nada: falta la excepción de Access para esa ruta.",
+    "state": "experimental",
+    "evidence": "observed-in-code",
+    "dates": {
+      "first": "2026-10-27",
+      "last": "2026-11-04"
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/routes/inquiry.ts",
+        "lines": "1-30"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/server.ts",
+        "note": "inquiryPublicRoutes fuera de auth; Access necesita una Bypass para esa ruta"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "scripts/lib/shopify-inquiry-patch.mjs"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "reports/despachos/2026-11-02-T-1027-1-shopify/manifest.json"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "reports/despachos/2026-11-02-T-1027-1.md",
+        "note": "§4"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "vault/campaigns/google-exacto-2026-10/results-log.md",
+        "note": "4-nov: «Sin hacer» la Bypass y el parche directo"
+      }
+    ],
+    "tags": [
+      "inbound",
+      "seguridad"
+    ]
+  },
+  {
+    "id": "tk-ctl-web-inquiries-doctor",
+    "name": "Guarda web-inquiries del doctor",
+    "type": "control",
+    "parentId": "p-tk-engine",
+    "kind": "rojo si una consulta no le llega a nadie · lee el ledger del motor en las dos máquinas",
+    "summary": "Cada chequeo del doctor nombra el incidente que previene; éste nombra el de julio, una consulta de retiro que esperó 33 días sin que nadie la viera. Rojo si ninguna máquina corrió el motor en 24 horas, si un aviso lleva más de una hora sin salir, si su estado es desconocido o si el motor corre en dos máquinas. Ámbar mientras siga instalada la campana de Slack del Mac: dos caminos de aviso. Verde dice cuántos avisos salieron en 30 días.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "dates": {
+      "first": "2026-10-27",
+      "last": "2026-11-04"
+    },
+    "sources": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "scripts/doctor-inquiries.mjs",
+        "lines": "1-25"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "scripts/doctor-inquiries.test.ts"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "scripts/doctor.mjs",
+        "lines": "6903-6911"
+      }
+    ],
+    "tags": [
+      "doctor"
     ]
   }
 ]

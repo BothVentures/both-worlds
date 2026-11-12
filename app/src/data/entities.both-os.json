@@ -14,13 +14,13 @@
     "type": "territory",
     "parentId": "world",
     "kind": "ciudad central · Synergy · repo both_os",
-    "summary": "Agentic venture builder con base en Punta del Este: un equipo de cinco que construye y acelera ventures con agentes como parte del equipo. Nueve ventures activos, uno de los cuales es su propio sistema operativo interno (B_V® | OS), donde vive la entidad Synergy. El repo both_os es a la vez la memoria institucional (vault) y el motor (agentes, skills, pipelines). Desde la taxonomía del 2026-11-01 es la ciudad central: adentro incuban las ventures sin repo propio, y de cada ciudad queda solo lo de BOTH (Participaciones).",
+    "summary": "Agentic venture builder con base en Punta del Este: un equipo de cinco que construye y acelera ventures con agentes como parte del equipo. Nueve ventures activos, uno de los cuales es su propio sistema operativo interno (B_V® | OS), donde vive la entidad Synergy. El repo both_os es a la vez la memoria institucional (vault) y el motor (agentes, skills, pipelines). Desde la taxonomía del 2026-11-01 es la ciudad central: adentro incuban las ventures sin repo propio, y de cada ciudad queda solo lo de BOTH (Participaciones). Desde el 2026-11-05 los cinco son owners de la org y ven todo.",
     "state": "implemented",
     "evidence": "observed-in-docs",
     "owner": "Gaston (CEO) · Mariano (OS)",
     "dates": {
       "first": "2026-03-30",
-      "last": "2026-11-01"
+      "last": "2026-11-11"
     },
     "layout": {
       "accent": "#c5c52a"
@@ -48,6 +48,12 @@
         "repo": "both_os",
         "path": "vault/initiatives/2026-11-01-taxonomia-ciudades.md",
         "note": "ciudades, capacidades, incubación, anexos"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/CLAUDE.md",
+        "lines": "371",
+        "note": "los cinco, owners de la org"
       }
     ],
     "activity": {
@@ -80,13 +86,13 @@
     "type": "project",
     "parentId": "t-both-ventures",
     "kind": "venture · sistema operativo interno",
-    "summary": "El sistema operativo de BOTH: vault de conocimiento, agentes y skills en Claude Code/Cowork, un Cloudflare Worker que mina transcripciones, GitHub Actions que reparten a Asana y Slack, publicación a GitHub Pages y espejos a Notion. Synergy es la entidad que articula humanos, agentes y vault. Al 2026-09-22: 31 skills, 28 agentes, 6 GitHub Actions, 10 harnesses, 4.094 commits (41% escritos por la máquina según la auditoría del 09-13).",
+    "summary": "El sistema operativo de BOTH: vault de conocimiento, agentes y skills en Claude Code y Cowork, un Cloudflare Worker que mina transcripciones y guarda los tableros, GitHub Actions que reparten a Slack y al ledger de compromisos, publicación a Cloudflare Pages en dos zonas y espejos a Notion. Synergy es la entidad que articula humanos, agentes y vault. Al 2026-11-11: 38 skills, 29 agentes, 6 GitHub Actions, 13 harnesses, 4.995 commits.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "owner": "Mariano",
     "dates": {
       "first": "2026-03-30",
-      "last": "2026-09-22"
+      "last": "2026-11-11"
     },
     "layout": {
       "weight": 1.05,
@@ -247,13 +253,13 @@
     "type": "project",
     "parentId": "t-both-ventures",
     "kind": "lo que BOTH guarda de cada ciudad",
-    "summary": "Desde la taxonomía del 2026-11-01, una venture con repo propio vive en su ciudad: Bienal OS, Manantial OS, Chamana OS. En both_os queda solo lo de BOTH sobre cada una —contratos, precios, cifras, reportes a inversores, el mapa de vínculos— en una carpeta de anexo que no procesa nada. Los pipelines de BOTH la leen; las ciudades la nombran por su ruta y nunca la copian.",
+    "summary": "Desde la taxonomía del 2026-11-01, una venture con repo propio vive en su ciudad: Bienal OS, Manantial OS, Chamana OS. En both_os queda solo lo de BOTH sobre cada una —contratos, cifras, reportes a inversores, el mapa de vínculos— en una carpeta de anexo que no procesa nada. Los pipelines de BOTH la leen; las ciudades la nombran por su ruta y nunca la copian. El anexo se achica: el 11-06 los números de la casa pasan a su brain, y el 11-10 la marca de la Bienal se muda entera al suyo, deck comercial incluido.",
     "state": "implemented",
     "evidence": "observed-in-docs",
     "owner": "Gaston · Daiana",
     "dates": {
       "first": "2026-10-25",
-      "last": "2026-11-01"
+      "last": "2026-11-10"
     },
     "layout": {
       "slot": 3
@@ -283,6 +289,15 @@
         "repo": "both_os",
         "path": "projects/la-chamana/_index.md",
         "note": "anexo 🔒 de Chamana OS"
+      },
+      {
+        "repo": "both_os",
+        "path": "vault/decisions/2026-11-10-marca-de-la-bienal-vive-entera-en-el-brain.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "vault/decisions/2026-11-06-repositorio-casa-manantial-os-debe-inclu.md",
+        "note": "números de la casa en el brain; el anexo deja de recibir detalle nuevo"
       }
     ]
   },
@@ -292,13 +307,13 @@
     "type": "workflow",
     "parentId": "p-both-os",
     "kind": "pipeline · Read.ai → vault",
-    "summary": "Read.ai termina la llamada → webhook firmado → el Worker extrae con Claude → escribe transcript, pending, decisions, risks y venture updates en el vault → traza en Supabase. V2.16 (09-27) saca el paso Asana y arregla una traza que nunca aterrizaba; V2.17 y V2.18 suman las rutas de tableros. El 10-12 dos llamadas quedaron sin minar y se minaron a mano. Deuda: god-file sin exports, replay sin HMAC.",
+    "summary": "Read.ai termina la llamada → webhook firmado → el Worker extrae con Claude → escribe transcript, pending, decisions, risks y venture updates en el vault → traza en Supabase. V2.16 (09-27) saca el paso Asana; V2.17 a V2.19 suman las rutas de tableros; V2.20 (11-06) deja que las llamadas del equipo de una ciudad vivan en su brain. El 10-12 dos llamadas quedaron sin minar y se minaron a mano. Deuda: god-file sin exports, replay sin HMAC.",
     "state": "implemented",
     "evidence": "observed-in-docs",
     "owner": "Mariano",
     "dates": {
       "first": "2026-04-15",
-      "last": "2026-10-12"
+      "last": "2026-11-06"
     },
     "layout": {
       "height": 1.3,
@@ -341,6 +356,12 @@
         "path": ".claude/CLAUDE.md",
         "lines": "75",
         "note": "fila del Worker, ya sin la afirmación de pipeline caído"
+      },
+      {
+        "repo": "both_os",
+        "path": "projects/integrations/worker.md",
+        "lines": "159-161",
+        "note": "V2.20"
       }
     ]
   },
@@ -479,13 +500,13 @@
     "type": "workflow",
     "parentId": "p-both-os",
     "kind": "GitHub Action · cron lunes",
-    "summary": "sec-audit.sh escribe el reporte en vault/security/, security-deliver.py avisa por Slack y actualiza Notion. 19 reportes entre 06-14 y 10-19; no hay del 10-05. El 09-28 se vio que en CI el checkout shallow veía un solo commit: la pasada de historia nunca escaneó la historia. Ahora clona entero, fija la versión de gitleaks con checksum y cada hallazgo nombra regla y archivo, nunca el valor.",
+    "summary": "sec-audit.sh escribe el reporte en vault/security/, security-deliver.py avisa por Slack y actualiza Notion. 22 reportes entre 06-14 y 11-09; no hay del 10-05. El 09-28 se vio que en CI el checkout shallow veía un solo commit: la pasada de historia nunca escaneó la historia. Ahora clona entero, fija la versión de gitleaks con checksum y cada hallazgo nombra regla y archivo, nunca el valor.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "owner": "Mariano",
     "dates": {
       "first": "2026-06-14",
-      "last": "2026-10-19"
+      "last": "2026-11-09"
     },
     "layout": {
       "slot": 5
@@ -498,7 +519,7 @@
       {
         "repo": "both_os",
         "path": "vault/security",
-        "note": "16 reportes semanales (archivos *manual-audit.md)"
+        "note": "22 reportes semanales (archivos *manual-audit.md)"
       }
     ]
   },
@@ -561,13 +582,13 @@
     "type": "workflow",
     "parentId": "p-both-os",
     "kind": "LaunchAgent · cada 15 s",
-    "summary": "Git worker fuera del sandbox de Cowork: cada 15 s hace fetch + pull --ff-only; con un request file hace pull --rebase, stage por categorías, commit y push con reintentos. Desde 2026-09-17 la allowlist de categorías incluye tests/ y .github/: antes un test nuevo o un cambio de workflow quedaba sin commitear y el daemon reportaba 'nothing to commit'. Desde el 2026-10-25 corre uno por repo (both_os y el brain de la Bienal), con la lista de carpetas en config/sync-categories.txt de cada repo, y el lock-cleaner pasó a ser por repo también.",
+    "summary": "Git worker fuera del sandbox de Cowork: cada 15 s hace fetch + pull --ff-only; con un request file hace pull --rebase, stage por categorías, commit y push con reintentos. Desde 2026-09-17 la allowlist de categorías incluye tests/ y .github/. Desde el 2026-10-25 corre uno por repo, con la lista de carpetas en config/sync-categories.txt de cada repo. Desde el 11-05 la credencial que lee sale del login con la cuenta de cada uno, y doctor.sh marca el puente como «no aplica» en una máquina que solo tiene un brain.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "owner": "Mariano",
     "dates": {
       "first": "2026-05-20",
-      "last": "2026-10-25"
+      "last": "2026-11-06"
     },
     "layout": {
       "slot": 8
@@ -776,13 +797,13 @@
     "type": "capability",
     "parentId": "p-both-os",
     "kind": "agente (sin carpeta de skill)",
-    "summary": "Arma el digest del Tuesday Sync y el glass dashboard clonando la plantilla canónica. Lee cards, áreas, transcripts de todas las llamadas, el ledger commitments, Asana para lo manual y el git log de los repos hermanos. Antes de publicar corre el chequeo de llamadas faltantes y corrige ítems mal asignados por el minero.",
+    "summary": "Arma el digest del Tuesday Sync y el glass dashboard. Desde el 11-02 el builder vive en el repo: el contenido de cada semana es data en ES y EN, y el armado conserva la cabecera y los scripts de la semana anterior. Lee cards, áreas, transcripts de todas las llamadas, el ledger commitments, Legal en vivo desde la Legal Desk de Andrés y el git log de los repos hermanos. Antes de publicar corre el chequeo de llamadas faltantes y corrige al minero en la misma pasada.",
     "state": "implemented",
     "evidence": "observed-in-docs",
     "owner": "Mariano genera · Daiana valida",
     "dates": {
       "first": "2026-04-21",
-      "last": "2026-10-19"
+      "last": "2026-11-09"
     },
     "layout": {
       "slot": 22
@@ -797,6 +818,20 @@
       {
         "repo": "both_os",
         "path": "docs/templates/weekly-dashboard-template.html"
+      },
+      {
+        "repo": "both_os",
+        "path": "scripts/weekly/build.py"
+      },
+      {
+        "repo": "both_os",
+        "path": "scripts/weekly/fetch.py"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/agents/weekly-reporter.md",
+        "lines": "304-306",
+        "note": "formatos V2.4 y V2.5"
       }
     ]
   },
@@ -1441,7 +1476,7 @@
     "type": "control",
     "parentId": "p-both-os",
     "kind": "guardas de infraestructura",
-    "summary": "worker-deploy.sh se niega con árbol sucio o HEAD sin pushear, pasa el SHA como var, verifica /version post-deploy y deja un registro de deploy en vault/decisions/ (dos en septiembre: b4553f6a y d72c68fe); los tokens del equipo los mintea Mariano y el recuperador rechaza ventanas menores a 60 días.",
+    "summary": "worker-deploy.sh se niega con árbol sucio o HEAD sin pushear, pasa el SHA como var, verifica /version post-deploy y deja un registro de deploy en vault/decisions/. El recuperador de tokens del Worker rechaza ventanas menores a 60 días y, desde el 11-06, valida escritura en cada repo que recibe llamadas. Los tokens de un solo repo que emitía Mariano para el equipo quedan de respaldo desde el 11-05: cada máquina entra con la cuenta de su persona.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "owner": "Mariano",
@@ -1456,16 +1491,28 @@
       {
         "repo": "both_os",
         "path": "vault/initiatives/2026-06-23-team-pat-registry.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "scripts/worker-pat-recover.sh"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/CLAUDE.md",
+        "lines": "395"
       }
-    ]
+    ],
+    "dates": {
+      "last": "2026-11-06"
+    }
   },
   {
     "id": "bo-ctl-scopes",
-    "name": "Scopes de acceso (full · founder · restricted)",
+    "name": "Scopes de acceso · los cinco en full",
     "type": "control",
     "parentId": "p-both-os",
     "kind": "permisos",
-    "summary": "Full (Gaston, Daiana, Mariano) ve datos de LP e inversores; founder (Rene, Andres) ve todo lo operativo; restricted solo lo otorgado. both-private queda con Gaston y Daiana por rol, no por rango.",
+    "summary": "Desde el 2026-11-05 los cinco tienen scope full: ven todo, incluidos LP, inversores y el repo both-private, y son owners de la org. El scope founder, que dejaba a René y Andrés fuera de lo de inversores por convención, quedó sin uso; en Supabase los cinco son admin. Restricted sigue para gente de afuera, solo con lo otorgado. Quien trabaja en una sola ciudad entra repo por repo.",
     "state": "implemented",
     "evidence": "observed-in-docs",
     "layout": {
@@ -1475,9 +1522,19 @@
       {
         "repo": "both_os",
         "path": ".claude/CLAUDE.md",
+        "lines": "336-348",
         "note": "Permissions Model"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/CLAUDE.md",
+        "lines": "371",
+        "note": "GitHub: los cinco owners de la org"
       }
-    ]
+    ],
+    "dates": {
+      "last": "2026-11-05"
+    }
   },
   {
     "id": "bo-del-vault",
@@ -1485,12 +1542,12 @@
     "type": "deliverable",
     "parentId": "p-both-os",
     "kind": "canon institucional",
-    "summary": "Archivos markdown con frontmatter, ciclo de vida draft → active → superseded → archived, nunca borrado. Al 2026-09-22: 904 decisiones, 715 riesgos, 266 transcripts, 41 iniciativas (conteo de .md por carpeta), más 10 rollups generados por venture. El 2026-09-17 se repararon 1.178 títulos que el Worker había amputado a 60 caracteres (73% de decisions, 81% de risks), leyendo el texto completo del cuerpo; después quedan 2% y 1%.",
+    "summary": "Archivos markdown con frontmatter, ciclo de vida draft → active → superseded → archived, nunca borrado. Al 2026-11-11: 1.126 decisiones, 884 riesgos, 316 transcripts, 57 iniciativas (conteo de .md por carpeta), más los rollups generados por venture. El 2026-09-17 se repararon 1.178 títulos que el Worker había amputado a 60 caracteres. Desde el 11-06 las llamadas del equipo de la casa guardan el transcript en su brain; al vault llega el resumen minado.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "dates": {
       "first": "2026-03-30",
-      "last": "2026-09-22"
+      "last": "2026-11-11"
     },
     "layout": {
       "height": 1.4,
@@ -1504,17 +1561,22 @@
       {
         "repo": "both_os",
         "path": "vault/decisions",
-        "note": "904 .md"
+        "note": "1.126 .md"
       },
       {
         "repo": "both_os",
         "path": "vault/risks",
-        "note": "715 .md"
+        "note": "884 .md"
       },
       {
         "repo": "both_os",
         "path": "vault/transcripts",
-        "note": "266 .md"
+        "note": "316 .md"
+      },
+      {
+        "repo": "both_os",
+        "path": "vault/initiatives",
+        "note": "57 .md"
       },
       {
         "repo": "both_os",
@@ -1530,12 +1592,12 @@
     "type": "deliverable",
     "parentId": "p-both-os",
     "kind": "HTML publicado · lunes/martes",
-    "summary": "32 carpetas bajo docs/pages/weekly/ entre 2026-04-22 y 2026-10-20, una por Tuesday Sync. Formato V2.3: se clona la plantilla canónica y se repuebla ES+EN; el tercer dato del rail pasa a ser el ledger commitments (abiertos, nuevos y vencidos por venture) en lugar de Asana. Cada weekly corrige al minero en la misma pasada sin tocar vault/pending.",
+    "summary": "35 carpetas bajo docs/pages/weekly/ entre 2026-04-22 y 2026-11-10, una por Tuesday Sync. V2.4 (pedido de Gastón el 10-27): dos tablas que solo crecen, lo que salió en Synergy y Legal en vivo. V2.5 (11-02): el apéndice pasa a seis bloques cortos e indexados; salen la tabla del ledger, el registro completo de riesgos, la auditoría de decisiones y los temas transversales. El ledger queda solo como dato del riel. Cada weekly corrige al minero sin tocar vault/pending: el del 11-10, 26 archivos y 11 filas del ledger.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "dates": {
       "first": "2026-04-22",
-      "last": "2026-10-20"
+      "last": "2026-11-10"
     },
     "layout": {
       "slot": 61
@@ -1544,11 +1606,22 @@
       {
         "repo": "both_os",
         "path": "docs/pages/weekly",
-        "note": "28 carpetas con index.html"
+        "note": "35 carpetas"
       },
       {
         "repo": "both_os",
         "path": "vault/agent_outputs/cadence/weekly"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/agents/weekly-reporter.md",
+        "lines": "304-306",
+        "note": "formatos V2.4 y V2.5"
+      },
+      {
+        "repo": "both_os",
+        "path": "scripts/weekly/shipped.json",
+        "note": "tabla acumulada de lo que salió"
       }
     ]
   },
@@ -1574,11 +1647,11 @@
   },
   {
     "id": "bo-del-pages",
-    "name": "Páginas publicadas (GitHub Pages)",
+    "name": "Páginas publicadas (Cloudflare Pages)",
     "type": "deliverable",
     "parentId": "p-both-os",
     "kind": "docs/pages/**/index.html",
-    "summary": "187 index.html bajo docs/pages/ (direction 39 · weekly 32 · venture 32 · synergy 18 · intel 9 · board 9 · monitor 5 · landing 5 · lp 4 · taskforce 3 · reviews 3 · 27 sueltas en la raíz, varias stubs de redirección). 40 nuevas desde el 09-22: casi todas marca y decks de la Bienal, Casa Manantial y Reshore, más weeklies y reportes.",
+    "summary": "205 index.html bajo docs/pages/ (direction 47 · weekly 35 · venture 35 · synergy 20 · board 11 · intel 9 · monitor 5 · landing 5 · lp 4 · taskforce 3 · reviews 3, más sueltas, varias stubs de redirección). Cinco nuevas desde el 11-01: dos weeklies y tres de Casa Manantial (hoja de ruta de noviembre, overview y guía de entrada de su ciudad). El 11-11 cinco páginas internas de la Bienal se republicaron con la regla del cero pixel.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "layout": {
@@ -1588,9 +1661,12 @@
       {
         "repo": "both_os",
         "path": "docs/pages",
-        "note": "147 index.html"
+        "note": "205 index.html"
       }
-    ]
+    ],
+    "dates": {
+      "last": "2026-11-11"
+    }
   },
   {
     "id": "bo-del-briefs",
@@ -1642,12 +1718,12 @@
     "type": "deliverable",
     "parentId": "p-both-os",
     "kind": "vault/security/*.md",
-    "summary": "16 reportes semanales automáticos (2026-06-14 → 2026-09-21) más dos logs de incidente (06-14 y 09-17). El del 09-17 documenta que el escáner corrió sin reglas durante cinco meses y que dos credenciales de producción estaban commiteadas en texto plano: redactadas, rotación pendiente (status open, severity high).",
+    "summary": "22 reportes semanales automáticos (2026-06-14 → 2026-11-09), dos logs de incidente (06-14 y 09-17) y una auditoría de repos públicos (10-28). El del 09-17 documenta que el escáner corrió sin reglas durante cinco meses y que dos credenciales de producción estaban commiteadas en texto plano: redactadas, rotación pendiente (status open).",
     "state": "implemented",
     "evidence": "observed-in-code",
     "dates": {
       "first": "2026-06-14",
-      "last": "2026-09-21"
+      "last": "2026-11-09"
     },
     "layout": {
       "slot": 66
@@ -1656,7 +1732,13 @@
       {
         "repo": "both_os",
         "path": "vault/security",
-        "note": "16 .md"
+        "note": "22 *manual-audit.md + incidentes"
+      },
+      {
+        "repo": "both_os",
+        "path": "vault/security/2026-09-17-incidente-credenciales-vivas-commiteadas.md",
+        "lines": "5",
+        "note": "status: open"
       }
     ]
   },
@@ -1693,7 +1775,7 @@
     "type": "connection",
     "parentId": "p-both-os",
     "kind": "grabación + transcripción",
-    "summary": "El bot entra a las llamadas por Google Calendar y dispara el webhook con la transcripción completa al terminar. Desde 2026-09-16 el owner.email del payload puede fijar el venture por defecto vía readai_owner_emails. Las grabaciones hechas con el desktop recorder (llamadas de WhatsApp, presenciales) nunca disparan el webhook: quedan solo en la app (abierto desde 09-14, pedido de Gastón de bulk upload). Exportación por API con readai-export.py, una cuenta por vez.",
+    "summary": "El bot entra a las llamadas por Google Calendar y dispara el webhook con la transcripción completa al terminar. El owner.email del payload puede fijar el venture por defecto (readai_owner_emails, 09-16) y, desde el 11-06, mandar las llamadas del equipo de una ciudad a su brain (transcript_sink). Las grabaciones hechas con el desktop recorder nunca disparan el webhook: quedan solo en la app. Exportación por API con readai-export.py, una cuenta por vez.",
     "state": "implemented",
     "evidence": "observed-in-docs",
     "layout": {
@@ -1712,9 +1794,17 @@
       {
         "repo": "both_os",
         "path": "config/ventures.json",
-        "lines": "8"
+        "lines": "12"
+      },
+      {
+        "repo": "both_os",
+        "path": "onboarding/team-readai-setup.md",
+        "note": "setup por cuenta, incluye el caso sink"
       }
-    ]
+    ],
+    "dates": {
+      "last": "2026-11-06"
+    }
   },
   {
     "id": "bo-con-slack",
@@ -2052,7 +2142,7 @@
     "type": "deliverable",
     "parentId": "p-participaciones",
     "kind": "HTML/PDF",
-    "summary": "Reporte marzo 2026, hoja de ruta Q3-Q4, cultura y anexos. Desde el 10-05, hojas de ruta mensuales (agosto, septiembre, octubre) con nombres normalizados por mes, y el cierre Q3 el 10-11. Las fuentes de agosto y septiembre viven ahora en la carpeta del proyecto.",
+    "summary": "Reporte marzo 2026, hoja de ruta Q3-Q4, cultura y anexos. Desde el 10-05, hojas de ruta mensuales (agosto a noviembre) con nombres normalizados por mes, y el cierre Q3 el 10-11. Desde el 11-06 el detalle nuevo de números va al brain de la casa; acá queda lo ya hecho.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "sources": [
@@ -2063,10 +2153,15 @@
       {
         "repo": "both_os",
         "path": "vault/ventures/manantial-casa-embajada-comercial-propuesta-2026-06.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "docs/pages/venture/casa-manantial-nov-2026/index.html",
+        "note": "hoja de ruta de noviembre"
       }
     ],
     "dates": {
-      "last": "2026-10-11"
+      "last": "2026-11-05"
     }
   },
   {
@@ -2288,7 +2383,7 @@
     "type": "control",
     "parentId": "p-both-os",
     "kind": "gate legal · CLO",
-    "summary": "Estructuración legal, due diligence y compliance son de Andrés; en el Design Desk sostiene el gate legal, y es el dueño de Content Factory. En la Bienal lleva el frente de Economía y Legal con Daiana.",
+    "summary": "Estructuración legal, due diligence y compliance son de Andrés; en el Design Desk sostiene el gate legal. En la Bienal lleva el frente de Economía y Legal con Daiana. Desde el 11-02 su Legal Desk alimenta en vivo la sección Legal del weekly.",
     "state": "implemented",
     "evidence": "observed-in-docs",
     "owner": "Andres",
@@ -2309,8 +2404,16 @@
       {
         "repo": "both_os",
         "path": "projects/bienal-blockchain-punta/_index.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "scripts/weekly/fetch.py",
+        "lines": "1-13"
       }
-    ]
+    ],
+    "dates": {
+      "last": "2026-11-02"
+    }
   },
   {
     "id": "bo-cap-rollup",
@@ -2353,7 +2456,7 @@
     "type": "workflow",
     "parentId": "p-both-os",
     "kind": "GitHub Action · push a workers/ tests/ skills/ config",
-    "summary": "tests.yml corre node --check del Worker, node --test sobre tests/*.test.mjs y la verificación de la guía de comandos generada desde las skills. De un test (09-16) a cinco: se suman merge y compare-and-set del CRM y de las Tareas. El 10-08 una skill nueva sin entrada en la guía frenó el CI hasta regenerarla. Falla con DM a Mariano.",
+    "summary": "tests.yml corre node --check del Worker, node --test sobre tests/*.test.mjs y la verificación de la guía de comandos generada desde las skills. De un test (09-16) a siete archivos: merge y compare-and-set del CRM y de las Tareas, tableros por venture y, desde el 11-06, el ruteo de llamadas a un brain. El 10-08 una skill nueva sin entrada en la guía frenó el CI hasta regenerarla. Falla con DM a Mariano.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "sources": [
@@ -2396,7 +2499,7 @@
     "owner": "Mariano",
     "dates": {
       "first": "2026-09-16",
-      "last": "2026-10-08"
+      "last": "2026-11-06"
     }
   },
   {
@@ -2412,31 +2515,31 @@
       {
         "repo": "both_os",
         "path": "config/ventures.json",
-        "lines": "8",
+        "lines": "12",
         "note": "schema_notes define la regla"
       },
       {
         "repo": "both_os",
         "path": "config/ventures.json",
-        "lines": "34",
+        "lines": "63",
         "note": "primer caso en la entrada reshore"
       },
       {
         "repo": "both_os",
         "path": "workers/transcript-miner/src/index.js",
-        "lines": "209-213",
+        "lines": "317-320",
         "note": "ownerVentureMap en loadRegistry"
       },
       {
         "repo": "both_os",
         "path": "workers/transcript-miner/src/index.js",
-        "lines": "1401-1402",
+        "lines": "1536",
         "note": "resolución de ventureHint antes de minar"
       },
       {
         "repo": "both_os",
         "path": ".claude/CLAUDE.md",
-        "lines": "292"
+        "lines": "312"
       },
       {
         "repo": "both_os",
@@ -2797,12 +2900,13 @@
     "type": "capability",
     "parentId": "p-both-os",
     "kind": "skill · despacho",
-    "summary": "Synergy no resuelve el trabajo de la Bienal en both_os: lo despacha al brain de la Bienal, donde Bienal Orch lo hace con sus propias skills y agentes, y trae el reporte. Para leer, lee el brain directo. El merge solo con un sí.",
+    "summary": "Synergy no resuelve el trabajo de la Bienal en both_os: lo despacha al brain de la Bienal, donde Bienal Orch lo hace con sus propias skills y agentes, y trae el reporte. Para leer, lee el brain directo, y si no está clonado lo clona él. El merge solo con un sí. Desde el 11-10 todo pedido de marca va al brain. Límite escrito: la sesión despachada no copia binarios ni corre builds; eso lo hace Synergy en una rama del clone del brain.",
     "state": "experimental",
     "evidence": "executed",
     "owner": "Mariano",
     "dates": {
-      "first": "2026-10-25"
+      "first": "2026-10-25",
+      "last": "2026-11-10"
     },
     "sources": [
       {
@@ -2821,12 +2925,13 @@
     "type": "capability",
     "parentId": "p-both-os",
     "kind": "skill · despacho",
-    "summary": "El mismo puente que /bienal, para el brain de Casa Manantial: Synergy despacha el pedido, Manantial Orch lo resuelve con sus skills y agentes en una rama, y el reporte vuelve. El merge solo con un sí.",
+    "summary": "El mismo puente que /bienal, para el brain de Casa Manantial: Synergy despacha el pedido, Manantial Orch lo resuelve con sus skills y agentes en una rama, y el reporte vuelve. El merge solo con un sí. Para leer, si el brain no está en disco lo clona Synergy, nunca el usuario.",
     "state": "experimental",
     "evidence": "executed",
     "owner": "Mariano",
     "dates": {
-      "first": "2026-10-26"
+      "first": "2026-10-26",
+      "last": "2026-11-02"
     },
     "sources": [
       {
@@ -2881,13 +2986,13 @@
     "type": "capability",
     "parentId": "p-both-os",
     "kind": "script · manifest curado por proyecto",
-    "summary": "Arma la página de Notion de cada proyecto desde un manifest curado, por área. Desde el 2026-10-25 sabe leer documentos de un repo hermano: la Bienal se regenera leyendo su brain. El manifest se queda en both_os porque es de BOTH.",
+    "summary": "Arma la página de Notion de cada proyecto desde un manifest curado, por área. Desde el 2026-10-25 sabe leer documentos de un repo hermano: la Bienal se regenera leyendo su brain. Desde el 11-07 un documento puede llevar un link por idioma, y el título cierra con esos idiomas. Desde el 11-10 las rutas de marca de la Bienal apuntan al brain. El manifest se queda en both_os porque es de BOTH.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "owner": "Mariano",
     "dates": {
       "first": "2026-09-27",
-      "last": "2026-10-25"
+      "last": "2026-11-10"
     },
     "sources": [
       {
@@ -2901,7 +3006,9 @@
       },
       {
         "repo": "both_os",
-        "path": "scripts/notion-hub-build.py"
+        "path": "config/docs-hub/punta-cripto.yml",
+        "lines": "46",
+        "note": "marca con prefijo bienal-punta-os:"
       }
     ]
   },
@@ -2940,12 +3047,13 @@
     "type": "control",
     "parentId": "p-participaciones",
     "kind": "regla de split · solo los cinco",
-    "summary": "Lo de la Bienal que solo ven los cinco de BOTH no se mudó: el canon comercial, el CRM, el modelo y los documentos de estrategia. El brain los nombra por su ruta y nunca los contiene; para eso el brain no tiene historia de git anterior al 2026-10-25.",
+    "summary": "Lo de la Bienal que solo ven los cinco de BOTH: el CRM, el modelo, los deals, el objetivo político y el mapa de vínculos. El brain los nombra por su ruta y nunca los contiene. Una excepción desde el 2026-11-10: la marca entera, deck comercial con precios incluido, se mudó al brain para tener una sola casa. Con dos copias, un pedido despachado actualizaba versiones viejas. Por eso ese repo queda solo para los cinco, también por su historia de git. Acá queda un puntero.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "owner": "Mariano",
     "dates": {
-      "first": "2026-10-25"
+      "first": "2026-10-25",
+      "last": "2026-11-10"
     },
     "sources": [
       {
@@ -2956,6 +3064,21 @@
         "repo": "both_os",
         "path": "vault/initiatives/2026-10-24-regla-de-split-brain.md",
         "note": "§2 el test"
+      },
+      {
+        "repo": "both_os",
+        "path": "vault/decisions/2026-11-10-marca-de-la-bienal-vive-entera-en-el-brain.md",
+        "note": "por qué y consecuencias"
+      },
+      {
+        "repo": "both_os",
+        "path": "projects/bienal-blockchain-punta/marca/README.md",
+        "note": "el puntero que queda"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/CLAUDE.md",
+        "lines": "361"
       }
     ]
   },
@@ -3084,12 +3207,13 @@
     "type": "control",
     "parentId": "p-both-os",
     "kind": "config/env.tpl · env-from-1password.sh",
-    "summary": "1Password pasa a ser la fuente de los secrets del repo. config/env.tpl guarda solo referencias, nunca valores. env-from-1password.sh regenera el .env local como cache, con backup del anterior, o solo compara con --check; op run permite correr un script sin .env en disco.",
+    "summary": "1Password es la fuente de los secrets del repo. config/env.tpl guarda solo referencias, nunca valores. env-from-1password.sh regenera el .env local como cache, con backup del anterior, o solo compara con --check; op run permite correr un script sin .env en disco. El 11-05 las referencias pasan a la cuenta de 1Password de BOTH; el 11-08 se suman las claves del outreach de la Bienal y de sus tableros. La plantilla avisa que el export de Read.ai rota tokens solo en el .env: antes de regenerar, se compara.",
     "state": "implemented",
     "evidence": "observed-in-code",
     "owner": "Mariano",
     "dates": {
-      "first": "2026-10-09"
+      "first": "2026-10-09",
+      "last": "2026-11-08"
     },
     "sources": [
       {
@@ -3175,13 +3299,13 @@
     "type": "deliverable",
     "parentId": "p-participaciones",
     "kind": "frente marca/ · template + build",
-    "summary": "El frente de marca abre el 10-17. El 10-20 sale el primer territorio con guidelines completas, «Club de Verano», al canon de la Bienal. El 10-26 el motor, el logo y las guidelines se mudan al brain de la casa; acá quedan los decks comerciales, que llevan precios y compilan con el motor del brain, idénticos byte a byte. Sigue siendo territorio candidato: G0 está abierto.",
+    "summary": "El frente de marca abre el 10-17. El 10-20 sale el primer territorio con guidelines completas, «Club de Verano», al canon de la Bienal. El 10-26 el motor, el logo y las guidelines se mudan al brain de la casa; acá quedan los decks comerciales, que llevan precios y compilan con el motor del brain. En noviembre se suman dos decks comerciales más. Sigue siendo territorio candidato: G0 está abierto.",
     "state": "experimental",
     "evidence": "observed-in-code",
     "owner": "Mariano · gate René",
     "dates": {
       "first": "2026-10-17",
-      "last": "2026-10-26"
+      "last": "2026-11-05"
     },
     "sources": [
       {
@@ -3200,6 +3324,11 @@
       {
         "repo": "both_os",
         "path": "vault/initiatives/2026-10-17-casa-manantial-identidad-y-marca.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "projects/casa-manantial/marca/deck-observador-punta-tech-v0.1.0.template.html",
+        "note": "deck del 11-05"
       }
     ]
   },
@@ -3286,6 +3415,311 @@
       {
         "repo": "both_os",
         "path": "projects/reshore/tools/vem-simulator/vem-simulator.rating-plate.css"
+      }
+    ]
+  },
+  {
+    "id": "bo-wf-brain-sink",
+    "name": "Llamadas que viven en un brain (transcript_sink)",
+    "type": "workflow",
+    "parentId": "p-both-os",
+    "kind": "Worker V2.20 · regla de registry",
+    "summary": "Desde la V2.20 (2026-11-06) una venture puede declarar que las llamadas de su equipo viven en su propio repo. Una llamada va al brain solo si la grabó una cuenta listada y el minado la ata a esa venture. El brain recibe el transcript, el minado completo y el payload. both_os recibe el pending, las decisiones, los riesgos y la card: Slack, el ledger y el weekly siguen igual. Cualquier otra salida, o una escritura al brain que falla, vuelve al camino de siempre. Primer caso: la coordinadora de la casa → Manantial OS. A diferencia del routing por cuenta, no sesga al minero.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "owner": "Mariano",
+    "dates": {
+      "first": "2026-11-06",
+      "last": "2026-11-06"
+    },
+    "tags": [
+      "worker",
+      "read.ai",
+      "brain",
+      "ruteo"
+    ],
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "workers/transcript-miner/src/index.js",
+        "lines": "136-140",
+        "note": "ledger de versiones: V2.20"
+      },
+      {
+        "repo": "both_os",
+        "path": "workers/transcript-miner/src/index.js",
+        "lines": "231-245",
+        "note": "transcript_sink en loadRegistry"
+      },
+      {
+        "repo": "both_os",
+        "path": "workers/transcript-miner/src/index.js",
+        "lines": "1596",
+        "note": "paso 4b: ruteo después de minar"
+      },
+      {
+        "repo": "both_os",
+        "path": "config/ventures.json",
+        "lines": "41",
+        "note": "primer transcript_sink, en manantial-casa"
+      },
+      {
+        "repo": "both_os",
+        "path": "projects/integrations/worker.md",
+        "lines": "91-107",
+        "note": "§ Llamadas que viven en un brain"
+      },
+      {
+        "repo": "both_os",
+        "path": "vault/decisions/2026-11-06-llamadas-de-la-casa-en-el-brain.md",
+        "note": "decisión y riesgos aceptados"
+      },
+      {
+        "repo": "both_os",
+        "path": "vault/decisions/2026-11-06-worker-deploy-96afea38.md",
+        "note": "registro de deploy"
+      },
+      {
+        "repo": "both_os",
+        "path": "tests/brain-sink.test.mjs"
+      },
+      {
+        "repo": "casa-manantial-os",
+        "path": "reuniones/_index.md",
+        "note": "destino en el brain"
+      }
+    ]
+  },
+  {
+    "id": "bo-cap-github-login",
+    "name": "Conectar GitHub · cada uno con su cuenta",
+    "type": "capability",
+    "parentId": "p-both-os",
+    "kind": "skill conectar-github + github-login.sh",
+    "summary": "Desde el 2026-11-05 los cinco son owners de la org, y cada máquina entra a GitHub con la cuenta de su persona en vez de un token de un solo repo emitido por Mariano. El script instala gh si falta, guía el login por el navegador, acepta la invitación pendiente, prueba la credencial nueva antes de reemplazar la vieja y la deja como única fuente de git. doctor.sh lo ofrece solo. Desde el 11-06 entra también una colaboradora de un solo repo sin ser miembro de la org: primer caso, la coordinadora de la casa en Manantial OS. El script es idéntico byte a byte en both_os y en los dos brains.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "owner": "Mariano",
+    "dates": {
+      "first": "2026-11-05",
+      "last": "2026-11-06"
+    },
+    "tags": [
+      "github",
+      "credenciales",
+      "onboarding"
+    ],
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/conectar-github/SKILL.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "scripts/github-login.sh",
+        "lines": "1-12",
+        "note": "qué hace y por qué"
+      },
+      {
+        "repo": "both_os",
+        "path": "scripts/github-login.sh",
+        "lines": "86-93",
+        "note": "colaboradora de un solo repo"
+      },
+      {
+        "repo": "both_os",
+        "path": "scripts/doctor.sh",
+        "lines": "138-156",
+        "note": "doctor ofrece el login"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/CLAUDE.md",
+        "lines": "395",
+        "note": "GitHub en cada máquina"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "scripts/github-login.sh",
+        "note": "copia idéntica (cmp)"
+      },
+      {
+        "repo": "casa-manantial-os",
+        "path": "scripts/github-login.sh",
+        "note": "copia idéntica (cmp)"
+      }
+    ]
+  },
+  {
+    "id": "bo-ctl-zero-pixel",
+    "name": "Regla del cero pixel · hook",
+    "type": "control",
+    "parentId": "p-both-os",
+    "kind": "hook PostToolUse · regla dura de René",
+    "summary": "En la tipografía de la Bienal el cero se dibuja como una O, en toda pieza. Es regla dura de René. El arreglo y el chequeo viven una sola vez, en el motor de marca del brain. both_os los usa de tres formas: un hook corre el chequeo después de cada escritura; los dos builds 🔒 que quedan acá inyectan el arreglo y fallan sin él; y el 11-11 se republicaron arregladas cinco páginas internas. Los PDFs ya emitidos no se tocan.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "owner": "René (regla) · Mariano",
+    "dates": {
+      "first": "2026-11-11",
+      "last": "2026-11-11"
+    },
+    "tags": [
+      "bienal",
+      "marca",
+      "hook"
+    ],
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".claude/settings.json",
+        "lines": "30-41",
+        "note": "hook PostToolUse que corre el chequeo del brain"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/CLAUDE.md",
+        "lines": "74",
+        "note": "la regla en Voice + Tone"
+      },
+      {
+        "repo": "both_os",
+        "path": "projects/bienal-blockchain-punta/mapa-vinculos-blanco.build.py",
+        "lines": "15"
+      },
+      {
+        "repo": "both_os",
+        "path": "projects/bienal-blockchain-punta/estrategia-objetivo-politico-blanco.build.py",
+        "lines": "9-17",
+        "note": "inject + assert_ok"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "marca/_engine/zero_fix.py",
+        "note": "el arreglo y el chequeo, una sola vez"
+      }
+    ]
+  },
+  {
+    "id": "bo-cap-outreach-bridge",
+    "name": "/outreach · puente al outreach de la Bienal",
+    "type": "capability",
+    "parentId": "p-both-os",
+    "kind": "skill puente · corre local, no despacha",
+    "summary": "El outreach en frío de la Bienal: buscar targets, preparar olas, barrer respuestas y pasarle a Daiana quien responde con interés. Nació en el anexo el 11-02 y el 11-07 se mudó al frente de marketing del brain. La skill de both_os ya no hace el trabajo: lee la del brain y la corre en la misma sesión, porque el despacho no tiene red ni secretos. En both_os quedan las claves, el Worker que guarda los tableros y el plan. La primera ola está preparada y simulada, sin enviar. René firma la voz; el frío nunca pasa por Klaviyo.",
+    "state": "experimental",
+    "evidence": "observed-in-code",
+    "owner": "Mariano · Daiana cierra los leads",
+    "dates": {
+      "first": "2026-11-02",
+      "last": "2026-11-07"
+    },
+    "tags": [
+      "bienal",
+      "outreach",
+      "puente"
+    ],
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/outreach/SKILL.md",
+        "lines": "15-25",
+        "note": "se mudó al brain; qué queda en both_os"
+      },
+      {
+        "repo": "both_os",
+        "path": "vault/initiatives/2026-11-01-bienal-outreach-mica.md",
+        "lines": "1-20",
+        "note": "plan, roles, qué no es"
+      },
+      {
+        "repo": "both_os",
+        "path": "vault/initiatives/2026-11-01-bienal-outreach-mica.md",
+        "lines": "165",
+        "note": "primera ola preparada y simulada"
+      },
+      {
+        "repo": "both_os",
+        "path": "config/env.tpl",
+        "note": "solo referencias a 1Password"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": ".claude/skills/outreach/SKILL.md",
+        "note": "la skill entera"
+      }
+    ]
+  },
+  {
+    "id": "bo-con-legal-desk",
+    "name": "Legal Desk · fuente en vivo",
+    "type": "connection",
+    "parentId": "p-both-os",
+    "kind": "app de Andrés · repo aparte",
+    "summary": "La mesa de contratos de Andrés, en su propio repo. Desde el 2026-11-02 es regla fija: el weekly lee Legal en vivo de ahí al armarse, nunca de una copia. Lo aprobado, lo firmado y lo que está en curso entra como tabla acumulada, panel en el riel y línea en los wins de la semana. Los documentos societarios de BOTH se cuentan, nunca se titulan. La clave se lee y no se imprime ni se guarda.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "owner": "Andrés",
+    "dates": {
+      "first": "2026-11-02",
+      "last": "2026-11-02"
+    },
+    "tags": [
+      "legal",
+      "weekly"
+    ],
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "scripts/weekly/fetch.py",
+        "lines": "1-13",
+        "note": "regla fija y cómo se lee"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/agents/weekly-reporter.md",
+        "lines": "304",
+        "note": "formato V2.4"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/agents/weekly-reporter.md",
+        "lines": "306",
+        "note": "formato V2.5: Legal también arriba"
+      }
+    ]
+  },
+  {
+    "id": "bo-del-manantial-os-guia",
+    "name": "Manantial OS · dónde estamos + cómo entrar",
+    "type": "deliverable",
+    "parentId": "p-participaciones",
+    "kind": "dos páginas internas · 2026-11-06",
+    "summary": "Las dos páginas que abrieron la ciudad de la casa a su primera operadora de afuera de BOTH. El overview V0.3.0 fue la pre-lectura de la reunión del 11-06: qué existe del sistema de la casa, qué se quiere construir y cómo toca las gestiones financiera, operacional y comunicacional. La guía de entrada V0.1.0 es para la coordinadora de la casa: bajar el repo, dejarlo sincronizando, trabajar con Claude Code, usar Tareas y CRM, y qué pasa con sus llamadas de Read.ai.",
+    "state": "implemented",
+    "evidence": "observed-in-code",
+    "owner": "Mariano · Daiana",
+    "dates": {
+      "first": "2026-11-06",
+      "last": "2026-11-06"
+    },
+    "tags": [
+      "casa-manantial",
+      "onboarding"
+    ],
+    "sources": [
+      {
+        "repo": "both_os",
+        "path": "docs/pages/venture/casa-manantial-os-overview-2026-11-06/index.html"
+      },
+      {
+        "repo": "both_os",
+        "path": "docs/pages/venture/casa-manantial-os-onboarding/index.html"
+      },
+      {
+        "repo": "both_os",
+        "path": "vault/initiatives/2026-10-26-casa-manantial-brain.md",
+        "note": "bitácora §0.3, 2026-11-06"
       }
     ]
   }

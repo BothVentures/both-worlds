@@ -3595,5 +3595,1420 @@
       }
     ],
     "verification": "verified-in-code"
+  },
+  {
+    "id": "r-miner-uses-brain-sink",
+    "from": "bo-wf-auto-miner",
+    "to": "bo-wf-brain-sink",
+    "type": "uses",
+    "label": "paso 4b: decide después de minar dónde vive la llamada",
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "workers/transcript-miner/src/index.js",
+        "lines": "1596"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-brain-sink-writes-cm",
+    "from": "bo-wf-brain-sink",
+    "to": "cm-del-reuniones",
+    "type": "writes",
+    "label": "reuniones/: transcript, minado completo y payload",
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "config/ventures.json",
+        "lines": "41"
+      },
+      {
+        "repo": "casa-manantial-os",
+        "path": "reuniones/_index.md"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-brain-sink-feeds-fanout",
+    "from": "bo-wf-brain-sink",
+    "to": "bo-wf-fanout",
+    "type": "feeds",
+    "label": "el pending sigue en both_os: Slack y ledger como siempre",
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "projects/integrations/worker.md",
+        "lines": "97-100"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-tests-review-brain-sink",
+    "from": "bo-wf-tests",
+    "to": "bo-wf-brain-sink",
+    "type": "reviews",
+    "label": "ruteo, rutas, meeting_ref y fallbacks",
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "tests/brain-sink.test.mjs"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-github-login-feeds-daemon",
+    "from": "bo-cap-github-login",
+    "to": "bo-wf-sync-daemon",
+    "type": "feeds",
+    "label": "la credencial queda en ~/.git-credentials, donde la lee el daemon",
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "scripts/github-login.sh",
+        "lines": "7-9"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/conectar-github/SKILL.md"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-bp-ops-mirror-github-login",
+    "from": "bp-wf-ops-scripts",
+    "to": "bo-cap-github-login",
+    "type": "mirrors",
+    "label": "copia byte-idéntica de github-login.sh",
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "scripts/github-login.sh"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "scripts/github-login.sh"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-cm-ops-mirror-github-login",
+    "from": "cm-wf-ops-scripts",
+    "to": "bo-cap-github-login",
+    "type": "mirrors",
+    "label": "copia byte-idéntica de github-login.sh",
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "scripts/github-login.sh"
+      },
+      {
+        "repo": "casa-manantial-os",
+        "path": "scripts/github-login.sh"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-zero-uses-engine",
+    "from": "bo-ctl-zero-pixel",
+    "to": "bp-wf-engine",
+    "type": "uses",
+    "label": "zero_fix.py: un solo arreglo, en el motor del brain",
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": ".claude/settings.json",
+        "lines": "37"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "marca/_engine/zero_fix.py"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-zero-gates-board-docs",
+    "from": "bo-ctl-zero-pixel",
+    "to": "bn-el-board-docs",
+    "type": "gates",
+    "label": "inject + assert_ok: el build falla sin el arreglo",
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "projects/bienal-blockchain-punta/estrategia-objetivo-politico-blanco.build.py",
+        "lines": "9-17"
+      },
+      {
+        "repo": "both_os",
+        "path": "projects/bienal-blockchain-punta/mapa-vinculos-blanco.build.py",
+        "lines": "15"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-zero-reviews-pages",
+    "from": "bo-ctl-zero-pixel",
+    "to": "bo-del-pages",
+    "type": "reviews",
+    "label": "hook después de cada escritura; cinco páginas internas republicadas el 11-11",
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": ".claude/settings.json",
+        "lines": "30-41"
+      },
+      {
+        "repo": "both_os",
+        "path": "docs/pages/board/bienal-crm-prd-v01/index.html"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-board-docs-use-brain-engine",
+    "from": "bn-el-board-docs",
+    "to": "bp-wf-engine",
+    "type": "uses",
+    "label": "los builds 🔒 leen mask.js del brain desde el 11-10",
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "projects/bienal-blockchain-punta/mapa-vinculos-blanco.build.py",
+        "lines": "417-418"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "marca/_engine/mask.js"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-bienal-bridge-routes-marca",
+    "from": "bo-cap-bienal-bridge",
+    "to": "p-bp-marca",
+    "type": "dispatches",
+    "label": "todo pedido de marca, deck comercial incluido",
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/bienal/SKILL.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "vault/decisions/2026-11-10-marca-de-la-bienal-vive-entera-en-el-brain.md"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-docshub-reads-marca",
+    "from": "bo-cap-docs-hub",
+    "to": "p-bp-marca",
+    "type": "reads",
+    "label": "rutas de marca con prefijo bienal-punta-os:",
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "config/docs-hub/punta-cripto.yml",
+        "lines": "46"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-outreach-reads-brain",
+    "from": "bo-cap-outreach-bridge",
+    "to": "bp-cap-outreach",
+    "type": "reads",
+    "label": "lee la skill del brain y la corre en la misma sesión",
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/outreach/SKILL.md",
+        "lines": "15-23"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": ".claude/skills/outreach/SKILL.md"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-outreach-uses-secrets",
+    "from": "bo-cap-outreach-bridge",
+    "to": "bo-ctl-secrets-1password",
+    "type": "uses",
+    "label": "claves de la casilla y de los tableros, por referencia",
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "config/env.tpl"
+      },
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/outreach/SKILL.md",
+        "lines": "25"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-outreach-uses-worker",
+    "from": "bo-cap-outreach-bridge",
+    "to": "bo-wf-crm-tasks",
+    "type": "uses",
+    "label": "tablero de prospectos y CRM en el Worker",
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": ".claude/skills/outreach/SKILL.md",
+        "lines": "25"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-wr-reads-legal-desk",
+    "from": "bo-cap-wr",
+    "to": "bo-con-legal-desk",
+    "type": "reads",
+    "label": "fetch.py en vivo al armar el weekly",
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "scripts/weekly/fetch.py",
+        "lines": "1-13"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-andres-owns-legal-desk",
+    "from": "bo-ctl-andres-legal",
+    "to": "bo-con-legal-desk",
+    "type": "reviews",
+    "label": "su mesa de contratos; el weekly solo lee",
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": ".claude/agents/weekly-reporter.md",
+        "lines": "304"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-cm-guia-documents-city",
+    "from": "bo-del-manantial-os-guia",
+    "to": "t-casa-manantial-os",
+    "type": "documents",
+    "label": "overview y guía de entrada de la ciudad",
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "docs/pages/venture/casa-manantial-os-onboarding/index.html"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-cm-guia-documents-sink",
+    "from": "bo-del-manantial-os-guia",
+    "to": "bo-wf-brain-sink",
+    "type": "documents",
+    "label": "qué pasa con sus llamadas de Read.ai",
+    "evidence": [
+      {
+        "repo": "both_os",
+        "path": "docs/pages/venture/casa-manantial-os-onboarding/index.html"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-tk-inq-reads-klaviyo",
+    "from": "tk-wf-web-inquiries",
+    "to": "lc-con-klaviyo",
+    "type": "reads",
+    "label": "GET de perfiles cada 15 minutos; ningún verbo de escritura",
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/inquiries/klaviyo.ts",
+        "lines": "1-22"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-tk-inq-writes-pipeline",
+    "from": "tk-wf-web-inquiries",
+    "to": "tk-con-airtable",
+    "type": "writes",
+    "label": "una fila en Pipeline por consulta, sin opciones nuevas; Contacts sólo se lee",
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/inquiries/engine.ts"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "config/ventures.yaml",
+        "lines": "90-102"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-tk-inq-uses-mailbox",
+    "from": "tk-wf-web-inquiries",
+    "to": "lc-con-gmail-lara",
+    "type": "uses",
+    "label": "el aviso sale con el sender del cerebro (send_reply.py); destinatarios sólo de ventures.yaml",
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/inquiries/notice.ts",
+        "lines": "15-40"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-tk-inq-feeds-operator",
+    "from": "tk-wf-web-inquiries",
+    "to": "lc-ctl-daiana-iru",
+    "type": "feeds",
+    "label": "aviso por mail a la operadora comercial, que contesta con la tarifa vigente",
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "config/ventures.yaml",
+        "lines": "90-102"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "vault/campaigns/google-exacto-2026-10/README.md",
+        "note": "«Para la operadora»"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-tk-inq-uses-scheduler",
+    "from": "tk-wf-web-inquiries",
+    "to": "tk-wf-scheduler",
+    "type": "uses",
+    "label": "job registrado en cada arranque; no hace nada salvo con la bandera prendida",
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/inquiries/engine.ts"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/server.ts"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-tk-door-feeds-inq",
+    "from": "tk-wf-inquiry-door",
+    "to": "tk-wf-web-inquiries",
+    "type": "feeds",
+    "label": "mismo ledger y misma liquidación, fuera de la request",
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/routes/inquiry.ts",
+        "lines": "1-30"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-tk-door-writes-shopify",
+    "from": "tk-wf-inquiry-door",
+    "to": "lc-con-shopify",
+    "type": "writes",
+    "label": "parche de 6 páginas con respaldo y rollback; preparado, sin aplicar",
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "scripts/lib/shopify-inquiry-patch.mjs"
+      },
+      {
+        "repo": "synergy-toolkit",
+        "path": "reports/despachos/2026-11-02-T-1027-1-shopify/manifest.json"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-tk-access-gates-door",
+    "from": "tk-con-cloudflare",
+    "to": "tk-wf-inquiry-door",
+    "type": "gates",
+    "label": "sin una excepción de Access para /public/inquiry el formulario no llega al worker",
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "server/src/server.ts",
+        "note": "comentario de inquiryPublicRoutes"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "vault/campaigns/google-exacto-2026-10/results-log.md",
+        "note": "4-nov"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-tk-doctor-guards-inq",
+    "from": "tk-ctl-web-inquiries-doctor",
+    "to": "tk-wf-web-inquiries",
+    "type": "reviews",
+    "label": "rojo si el motor no corre, si un aviso no sale o si corre en dos máquinas",
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "scripts/doctor-inquiries.mjs",
+        "lines": "1-25"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-tk-doctor-inq-reads-engines",
+    "from": "tk-ctl-web-inquiries-doctor",
+    "to": "tk-cap-engines",
+    "type": "reads",
+    "label": "el ledger del motor en las dos bases, por el mismo camino que mailbox-engine",
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "scripts/doctor.mjs",
+        "lines": "6903-6911"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-tk-doctor-flags-bell",
+    "from": "tk-ctl-web-inquiries-doctor",
+    "to": "tk-con-scripts-slack-klaviyo",
+    "type": "reviews",
+    "label": "ámbar mientras la campana de Slack del Mac siga instalada",
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "scripts/doctor.mjs",
+        "lines": "6903-6911"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-tk-dispatch-produces-inq",
+    "from": "tk-wf-dispatch",
+    "to": "tk-wf-web-inquiries",
+    "type": "produces",
+    "label": "T-1027-1: relanzado el 2-nov, mergeado el 4-nov",
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "reports/despachos/2026-11-02-T-1027-1.md"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-tk-doctor-has-inq-check",
+    "from": "tk-cap-doctor",
+    "to": "tk-ctl-web-inquiries-doctor",
+    "type": "uses",
+    "label": "un chequeo más del arnés",
+    "evidence": [
+      {
+        "repo": "synergy-toolkit",
+        "path": "scripts/doctor.mjs",
+        "lines": "6903-6911"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-lc-paid-produces-exacto",
+    "from": "lc-m-paid",
+    "to": "lc-camp-google-exacto",
+    "type": "produces",
+    "label": "memo de decisión, spec, copy revisado y recibo de construcción",
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": "context/decisions/2026-10-25-google-exacto-reaprender.md"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "vault/campaigns/google-exacto-2026-10/README.md"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-lc-exacto-uses-gads",
+    "from": "lc-camp-google-exacto",
+    "to": "lc-con-google-ads",
+    "type": "uses",
+    "label": "construida, verificada y leída por la API de Ads con scripts del cerebro",
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/machines/paid-media/scripts/gads_build_exacto_2026_10.mjs"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/machines/paid-media/scripts/gads_check_exacto_2026_10.mjs"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-lc-exacto-writes-shopify",
+    "from": "lc-camp-google-exacto",
+    "to": "lc-con-shopify",
+    "type": "writes",
+    "label": "conversión de Ads en las landings de casa entera y one-key: preparada en prueba, aplicada el 4-nov con press",
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/machines/paid-media/scripts/shopify_patch_conversion_exacto.mjs"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "vault/campaigns/google-exacto-2026-10/results-log.md",
+        "note": "entrada del 4-nov"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-lc-paidmirror-reads-exacto",
+    "from": "tk-wf-paid-mirror",
+    "to": "lc-camp-google-exacto",
+    "type": "reads",
+    "label": "el gasto y su serie viven en el espejo horario de Google Ads del toolkit",
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": "context/decisions/2026-10-25-google-exacto-reaprender.md",
+        "lines": "9-11",
+        "note": "canonical_spend"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-lc-exacto-feeds-inquiries",
+    "from": "lc-camp-google-exacto",
+    "to": "tk-wf-web-inquiries",
+    "type": "feeds",
+    "label": "formulario de la landing → consulta con gclid y UTM → fila en Pipeline con la campaña",
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": "vault/campaigns/google-exacto-2026-10/results-log.md",
+        "note": "entrada del 4-nov: la primera consulta real fue la prueba de punta a punta"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "context/commercial/pide-al-toolkit.md",
+        "note": "T-1027-1"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-lc-parte-reads-exacto",
+    "from": "lc-sk-parte-semanal",
+    "to": "lc-camp-google-exacto",
+    "type": "reads",
+    "label": "cada lunes: gasto, consultas reales y una decisión por plataforma",
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": "context/decisions/2026-11-04-pauta-noviembre.md"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-lc-paid-writes-meta-d",
+    "from": "lc-m-paid",
+    "to": "lc-con-meta",
+    "type": "writes",
+    "label": "vuelta 2 · D por la Marketing API desde el cerebro; el script sólo toca los ids de D",
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/machines/paid-media/scripts/meta_d_noviembre_2026_11.mjs",
+        "lines": "1-20"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-lc-ola-uses-batch-email",
+    "from": "lc-wf-ola-diaria",
+    "to": "lc-sk-outreach",
+    "type": "uses",
+    "label": "/batch-email --send y --stamp sobre manifiestos aprobados en sesión",
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": ".claude/skills/batch-email/SKILL.md",
+        "lines": "1-30"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-lc-ola-uses-mailbox",
+    "from": "lc-wf-ola-diaria",
+    "to": "lc-con-gmail-lara",
+    "type": "uses",
+    "label": "send_batch.sh → send_email.py, espaciado de 2 a 6 minutos",
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/machines/outreach/scripts/send_batch.sh"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-lc-ola-reads-reply-desk",
+    "from": "lc-wf-ola-diaria",
+    "to": "tk-wf-reply-desk",
+    "type": "reads",
+    "label": "supresión y todo el historial de respuestas del worker, por ssh, antes de lanzar",
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": "vault/campaigns/agencies-outreach/results-log.md",
+        "note": "entrada del 2026-11-03, «Antes del envío»"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-lc-ola-writes-airtable",
+    "from": "lc-wf-ola-diaria",
+    "to": "lc-con-airtable",
+    "type": "writes",
+    "label": "sello: paso de secuencia y fecha de envío en Contacts, releídos, más una fila de Agent_Log",
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": "vault/campaigns/agencies-outreach/results-log.md",
+        "note": "«Sellados»"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "context/memory/feedback_manda_es_manda.md"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-lc-reviewers-review-ola",
+    "from": "lc-ag-reviewers",
+    "to": "lc-wf-ola-diaria",
+    "type": "reviews",
+    "label": "copy-reviewer por lote en dos pasadas, más un chequeo mecánico sobre todos los cuerpos",
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": "vault/campaigns/agencies-outreach/results-log.md",
+        "note": "entrada del 2026-11-03, «Copy»"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-lc-ola-feeds-agencies",
+    "from": "lc-wf-ola-diaria",
+    "to": "lc-camp-agencies",
+    "type": "feeds",
+    "label": "E1 → E2 → E3; el E3 cierra el hilo",
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": "vault/campaigns/agencies-outreach/campaign.yaml",
+        "note": "log"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-lc-ola-feeds-families",
+    "from": "lc-wf-ola-diaria",
+    "to": "lc-camp-families",
+    "type": "feeds",
+    "label": "E1 → E2 → E3 en el riel de colocación",
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": "vault/campaigns/family-takeovers/campaign.yaml",
+        "note": "log"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-lc-promotion-feeds-ola",
+    "from": "tk-wf-promotion",
+    "to": "lc-wf-ola-diaria",
+    "type": "feeds",
+    "label": "las filas promovidas a Contacts son los únicos E1 enviables (T-1102-1, 2-nov)",
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": "context/commercial/pide-al-toolkit.md",
+        "note": "T-1102-1, resultado de TK-000"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-lc-dmrefill-uses-research",
+    "from": "lc-wf-dm-refill",
+    "to": "lc-sk-outreach",
+    "type": "uses",
+    "label": "/prospect-research en modo DM-first: handle obligatorio, email opcional",
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": "context/memory/project_dm_door_supply.md"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-lc-dmrefill-feeds-igdm",
+    "from": "lc-wf-dm-refill",
+    "to": "tk-wf-ig-dm",
+    "type": "feeds",
+    "label": "filas con handle que el escritorio de DMs ofrece como fichas",
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": "vault/campaigns/retreats-a/prospects-dm-refill-2026-10-28-retreats.md"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "context/memory/project_dm_door_supply.md"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-lc-dmrefill-feeds-retreats",
+    "from": "lc-wf-dm-refill",
+    "to": "lc-camp-retreats",
+    "type": "feeds",
+    "label": "reservorio de DM de retiros",
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": "vault/campaigns/retreats-a/prospects-dm-refill-2026-10-28-retreats.md"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-lc-operator-steers-dmrefill",
+    "from": "lc-ctl-bianca",
+    "to": "lc-wf-dm-refill",
+    "type": "reviews",
+    "label": "lo que la operadora acepta y descarta sesga qué tipos se buscan",
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": "context/memory/project_dm_door_supply.md",
+        "note": "«Qué acepta»"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-lc-despacho-t1028-igdm",
+    "from": "lc-wf-despacho-tk000",
+    "to": "tk-wf-ig-dm",
+    "type": "dispatches",
+    "label": "T-1028-1: el silencio tras dos emails abre la cola de DM; despachado el 28-oct, sin merge",
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": "context/commercial/pide-al-toolkit.md",
+        "note": "T-1028-1"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-lc-annex-feeds-entrega",
+    "from": "lc-el-card",
+    "to": "lc-doc-entrega-both-os",
+    "type": "feeds",
+    "label": "las piezas operativas salen de both_os; allá queda el anexo 🔒",
+    "evidence": [
+      {
+        "repo": "lc-chaman",
+        "path": "docs/_desde-both-os-2026-11/README.md"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-bp-outreach-uses-motor",
+    "from": "bp-cap-outreach",
+    "to": "bb-cap-outreach",
+    "type": "uses",
+    "label": "motor de envío, olas, casilla y pase",
+    "evidence": [
+      {
+        "repo": "bienal-punta-os",
+        "path": ".claude/skills/outreach/SKILL.md"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "marketing/outreach/README.md"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-bp-outreach-reads-conversiones",
+    "from": "bp-cap-outreach",
+    "to": "bp-del-conversiones",
+    "type": "reads",
+    "label": "el perfil sale textual de la ficha",
+    "evidence": [
+      {
+        "repo": "bienal-punta-os",
+        "path": ".claude/skills/outreach/SKILL.md"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-bp-outreach-writes-prospectos",
+    "from": "bp-cap-outreach",
+    "to": "bp-del-prospectos",
+    "type": "writes",
+    "label": "importa lo que encuentra la prospección",
+    "evidence": [
+      {
+        "repo": "bienal-punta-os",
+        "path": ".claude/skills/outreach/SKILL.md"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-bp-outreach-feeds-crm",
+    "from": "bp-cap-outreach",
+    "to": "bp-del-crm",
+    "type": "feeds",
+    "label": "el pase: alta en el CRM con Daiana como dueña",
+    "evidence": [
+      {
+        "repo": "bienal-punta-os",
+        "path": ".claude/skills/outreach/SKILL.md"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "marketing/_index.md"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-bp-frenos-gate-outreach",
+    "from": "bp-ctl-outreach-frenos",
+    "to": "bp-cap-outreach",
+    "type": "gates",
+    "label": "sin firma no hay ola real",
+    "evidence": [
+      {
+        "repo": "bienal-punta-os",
+        "path": ".claude/skills/outreach/SKILL.md"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-bp-signoff-gates-outreach",
+    "from": "bp-ctl-signoff",
+    "to": "bp-cap-outreach",
+    "type": "gates",
+    "label": "René firma los textos base",
+    "evidence": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "marketing/outreach/textos/programa.md"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-bp-prospectos-uses-boards",
+    "from": "bp-del-prospectos",
+    "to": "bb-cap-boards",
+    "type": "uses",
+    "label": "misma página, otra configuración",
+    "evidence": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "marketing/prospectos/board.json"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-bp-prospectos-uses-worker",
+    "from": "bp-del-prospectos",
+    "to": "bo-wf-crm-tasks",
+    "type": "uses",
+    "label": "estado del tablero de prospectos",
+    "evidence": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "marketing/prospectos/board.json"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-bp-crm-uses-boards",
+    "from": "bp-del-crm",
+    "to": "bb-cap-boards",
+    "type": "uses",
+    "label": "build sobre el motor de tableros",
+    "evidence": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "comercial/crm/crm.build.py"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "comercial/crm/README.md"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-bp-crm-uses-worker",
+    "from": "bp-del-crm",
+    "to": "bo-wf-crm-tasks",
+    "type": "uses",
+    "label": "estado del CRM del equipo",
+    "evidence": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "comercial/crm/README.md"
+      },
+      {
+        "repo": "both_os",
+        "path": "workers/transcript-miner/src/crm.js"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-bp-bridge-writes-crm",
+    "from": "bo-cap-bienal-bridge",
+    "to": "bp-del-crm",
+    "type": "writes",
+    "label": "mudanza del CRM y las cartas por despacho (2026-11-02)",
+    "evidence": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "reports/despachos/2026-11-02-crm-y-cartas-al-brain.md"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-bp-engine-produces-cartas",
+    "from": "bp-wf-engine",
+    "to": "bp-del-cartas",
+    "type": "produces",
+    "label": "el membrete sale del motor de marca",
+    "evidence": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "comercial/cartas-outreach.build.py"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "economia-legal/cartas-legales.build.py"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-bp-zero-gates-engine",
+    "from": "bp-ctl-zero",
+    "to": "bp-wf-engine",
+    "type": "gates",
+    "label": "el build falla sin el arreglo",
+    "evidence": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "marca/_engine/zero_fix.py"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-bp-zero-gates-cartas",
+    "from": "bp-ctl-zero",
+    "to": "bp-del-cartas",
+    "type": "gates",
+    "label": "también cartas, PDF y Word",
+    "evidence": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "economia-legal/cartas-legales.build.py"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "comercial/cartas-outreach.build.py"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-bp-registro-feeds-legal",
+    "from": "bp-del-registro",
+    "to": "bp-ag-economia-legal",
+    "type": "feeds",
+    "label": "archivos para el registro de la marca",
+    "evidence": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "marca/_index.md"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "economia-legal/_index.md"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-bp-decks-uses-deck-pdf",
+    "from": "bp-del-decks",
+    "to": "bb-cap-deck-pdf",
+    "type": "uses",
+    "label": "a externos va el PDF",
+    "evidence": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "marca/deck-pdf.py"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "CLAUDE.md"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-bp-deploy-site-uses-sanitizer",
+    "from": "bp-wf-deploy-site",
+    "to": "bo-wf-deploy-pages",
+    "type": "uses",
+    "label": "mismo sanitizador que la zona pública",
+    "evidence": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "scripts/deploy-site.sh"
+      },
+      {
+        "repo": "both_os",
+        "path": "scripts/lib/publish.py"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-bp-naming-documents-reports",
+    "from": "bp-ctl-naming",
+    "to": "bp-del-reports",
+    "type": "documents",
+    "label": "aplicado en dos despachos",
+    "evidence": [
+      {
+        "repo": "bienal-punta-os",
+        "path": "reports/despachos/2026-11-07-titulos-docs.md"
+      },
+      {
+        "repo": "bienal-punta-os",
+        "path": "reports/despachos/2026-11-07-titulos-h1-html.md"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-cm-finanzas-feeds-annex",
+    "from": "cm-del-finanzas",
+    "to": "p-participaciones",
+    "type": "feeds",
+    "label": "un resumen mensual, lo sube Daiana; el detalle se queda en la casa",
+    "evidence": [
+      {
+        "repo": "casa-manantial-os",
+        "path": "finanzas/_index.md",
+        "note": "§ Hacia BOTH"
+      },
+      {
+        "repo": "casa-manantial-os",
+        "path": "CLAUDE.md",
+        "note": "§ Clearance"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-cm-clearance-gates-finanzas",
+    "from": "cm-ctl-clearance",
+    "to": "cm-del-finanzas",
+    "type": "gates",
+    "label": "solo los cinco y la coordinadora; planillas solo acá",
+    "evidence": [
+      {
+        "repo": "casa-manantial-os",
+        "path": "CLAUDE.md",
+        "note": "§ Clearance"
+      },
+      {
+        "repo": "casa-manantial-os",
+        "path": ".gitignore"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-cm-doctor-uses-login",
+    "from": "cm-wf-ops-scripts",
+    "to": "cm-wf-github-login",
+    "type": "uses",
+    "label": "el doctor corre el login si falta credencial",
+    "evidence": [
+      {
+        "repo": "casa-manantial-os",
+        "path": "scripts/doctor.sh"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-cm-onboarding-documents-ops",
+    "from": "cm-del-onboarding",
+    "to": "cm-wf-ops-scripts",
+    "type": "documents",
+    "label": "clonar, chequeo en verde, startup y upc",
+    "evidence": [
+      {
+        "repo": "casa-manantial-os",
+        "path": "docs/onboarding.md",
+        "note": "§ 4–7"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-cm-onboarding-documents-tableros",
+    "from": "cm-del-onboarding",
+    "to": "p-cm-tableros",
+    "type": "documents",
+    "label": "login por mail, después la clave del tablero",
+    "evidence": [
+      {
+        "repo": "casa-manantial-os",
+        "path": "docs/onboarding.md",
+        "note": "§ 8"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-cm-tableros-internal-zone",
+    "from": "p-cm-tableros",
+    "to": "bo-con-github-pages",
+    "type": "deploys-to",
+    "label": "zona interna, lector por página",
+    "evidence": [
+      {
+        "repo": "casa-manantial-os",
+        "path": "crm/README.md"
+      },
+      {
+        "repo": "casa-manantial-os",
+        "path": "tareas/README.md"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-cm-overview-proposes-procedimientos",
+    "from": "cm-del-overview",
+    "to": "cm-prop-procedimientos",
+    "type": "documents",
+    "label": "propone la lista y los tres modos",
+    "evidence": [
+      {
+        "repo": "casa-manantial-os",
+        "path": "docs/2026-11-06-os-overview.md",
+        "note": "§ 4.2"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-bb-outreach-from-lc",
+    "from": "lc-m-outreach",
+    "to": "bb-cap-outreach",
+    "type": "feeds",
+    "label": "portado de este riel, sin Airtable ni Instagram",
+    "evidence": [
+      {
+        "repo": "both-boards",
+        "path": "outreach/README.md",
+        "lines": "112-123"
+      },
+      {
+        "repo": "lc-chaman",
+        "path": "capabilities/machines/outreach/MACHINE.md"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-bb-outreach-uses-worker",
+    "from": "bb-cap-outreach",
+    "to": "bo-wf-crm-tasks",
+    "type": "uses",
+    "label": "estado en dos tableros: prospectos y crm",
+    "evidence": [
+      {
+        "repo": "both-boards",
+        "path": "outreach/motor/board.py"
+      },
+      {
+        "repo": "both-boards",
+        "path": "outreach/README.md",
+        "lines": "3-7"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-bb-outreach-uses-boards",
+    "from": "bb-cap-outreach",
+    "to": "bb-cap-boards",
+    "type": "uses",
+    "label": "corre sobre los tableros CRM del motor",
+    "evidence": [
+      {
+        "repo": "both-boards",
+        "path": "outreach/README.md",
+        "lines": "3-7"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-bb-libro-gates-outreach",
+    "from": "bb-ctl-outreach-libro",
+    "to": "bb-cap-outreach",
+    "type": "gates",
+    "label": "revisión previa y libro antes de cada envío",
+    "evidence": [
+      {
+        "repo": "both-boards",
+        "path": "outreach/motor/revision.py"
+      },
+      {
+        "repo": "both-boards",
+        "path": "outreach/motor/ops.py"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-bb-guard-outreach",
+    "from": "bb-ctl-guard",
+    "to": "bb-cap-outreach",
+    "type": "gates",
+    "label": "cero nombres de proyecto en outreach/",
+    "evidence": [
+      {
+        "repo": "both-boards",
+        "path": "tests/guard_names.sh",
+        "lines": "1-7"
+      }
+    ],
+    "verification": "verified-in-code"
+  },
+  {
+    "id": "r-bb-rule-outreach",
+    "from": "bb-ctl-dos-consumidores",
+    "to": "bb-cap-outreach",
+    "type": "gates",
+    "label": "entró con un usuario y el riel de origen como segundo",
+    "evidence": [
+      {
+        "repo": "both-boards",
+        "path": "README.md",
+        "lines": "18"
+      },
+      {
+        "repo": "both-boards",
+        "path": "outreach/README.md",
+        "lines": "9-11"
+      }
+    ],
+    "verification": "verified-in-docs"
+  },
+  {
+    "id": "r-bb-toolkit-lessons-outreach",
+    "from": "p-tk-outreach",
+    "to": "bb-ctl-outreach-libro",
+    "type": "feeds",
+    "label": "defensas aprendidas por incidentes del cockpit",
+    "evidence": [
+      {
+        "repo": "both-boards",
+        "path": "outreach/README.md",
+        "lines": "112-123"
+      }
+    ],
+    "verification": "verified-in-docs"
   }
 ]

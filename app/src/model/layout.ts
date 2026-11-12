@@ -35,7 +35,7 @@ export interface LayoutResult {
 const TERRITORY_SLOTS: Record<string, { x: number; z: number; y: number; azimuth: number }> = {
   // 2026-11-01 · V4.4 por capas (taxonomía de ciudades): capacidades arriba, BOTH OS al centro, ciudades abajo
   't-synergy-toolkit': { x: 8, z: -56, y: 5.6, azimuth: -0.4 },
-  't-both-boards': { x: -50, z: -24, y: 4.2, azimuth: -0.2 },
+  't-both-boards': { x: -68.8, z: -7.1, y: 4.2, azimuth: -0.2 }, // V4.5: marco (u -55, v -42); en (-50,-24) la etiqueta chocaba con BOTH OS a 1440
   't-both-ventures': { x: 0, z: 0, y: 4.4, azimuth: 0.35 },
   't-bienal-punta-os': { x: -28, z: 54, y: 3.0, azimuth: -0.25 },
   't-casa-manantial-os': { x: 21, z: 41, y: 3.0, azimuth: 0.2 },

@@ -431,8 +431,37 @@
     ]
   },
   {
+    "id": "s12-noviembre",
+    "kicker": "12 · Diez días de noviembre",
+    "title": "La marca se muda, el canal frío arranca, las llamadas llegan a su ciudad",
+    "body": "Del 1 al 11 de noviembre. La marca de la Bienal se mudó entera a su ciudad, con una regla dura: si un cero sale mal dibujado, el build falla. La Bienal abrió un frente de marketing; su canal frío corre sobre un motor nuevo de both-boards, con frenos escritos y todavía sin el primer envío. Las llamadas del equipo de la casa ahora dejan su transcript en el brain de Casa Manantial, donde también viven sus números. En La Chamana, una consulta de la web ya llega a una persona y queda en Pipeline.",
+    "focus": {
+      "level": "world",
+      "id": "world"
+    },
+    "highlight": [
+      "p-bp-marca",
+      "bp-ctl-zero",
+      "p-bp-marketing",
+      "bp-cap-outreach",
+      "bb-cap-outreach",
+      "bo-wf-brain-sink",
+      "cm-del-reuniones",
+      "cm-del-finanzas",
+      "tk-wf-web-inquiries",
+      "bo-cap-github-login"
+    ],
+    "relations": [
+      "r-bp-outreach-uses-motor",
+      "r-outreach-reads-brain",
+      "r-brain-sink-writes-cm",
+      "r-miner-uses-brain-sink",
+      "r-tk-inq-writes-pipeline"
+    ]
+  },
+  {
     "id": "s8-future",
-    "kicker": "12 · Presente y futuro",
+    "kicker": "13 · Presente y futuro",
     "title": "Lo construido, lo propuesto y lo que sigue",
     "body": "Trazo pleno: construido. Con brecha: experimental. Huella punteada: propuesto, no producto. La tesis de estos siete meses: no construimos herramientas sueltas; construimos un sistema que se describe, se prueba y se corrige a sí mismo, con nosotros cinco en cada compuerta. Lo que sigue en la misma línea: la Bienal publica sus propias páginas y suma a su equipo, el CRM de la casa se llena cuando haya base legal, y el email llega por venture, con cuenta propia.",
     "focus": {
